@@ -1,0 +1,104 @@
+"DOTAAbilities"
+{
+	"player_move_unit"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/player/move_unit"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityCastRange"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"			"0.25"
+		"MaxLevel"					"1"
+
+		"AbilityTextureName"		"antimage_blink"
+	}
+
+	"player_place_unit"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/player/place_unit"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityCastRange"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"			"0.25"
+		"MaxLevel"					"1"
+
+		"AbilityTextureName"		"antimage_mana_void"
+	}
+
+	"player_move_to_bench"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/player/move_to_bench"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityCastRange"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"			"0.25"
+		"MaxLevel"					"1"
+
+		"AbilityTextureName"		"obsidian_destroyer_astral_imprisonment"
+	}
+
+	"player_sell_unit"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/player/sell_unit"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityCastRange"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"			"0.25"
+		"MaxLevel"					"1"
+
+		"AbilityTextureName"		"alchemist_goblins_greed"
+	}
+
+	"player_reroll_shop"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/player/reroll_shop"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastRange"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"			"0.25"
+		"MaxLevel"					"1"
+
+		"AbilityTextureName"		"chaos_knight_chaos_strike"
+	}
+
+	"player_start_overtime"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/player/start_overtime"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastRange"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"			"1.0"
+		"MaxLevel"					"1"
+
+		"AbilityTextureName"		"oracle_false_promise"
+
+		"AbilitySpecial"
+		{
+			"1"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"20"
+			}
+		}
+	}
+}

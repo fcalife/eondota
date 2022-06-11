@@ -1,0 +1,48 @@
+"lang"
+{
+	"Language"		"English"
+	"Tokens"
+	{
+		// General
+		"addon_game_name"					"Eon"
+
+		// Heroes/couriers
+		"npc_dota_hero_starter"				"Hero Soul"
+		"npc_dota_hero_ancient_apparition"	"Amphibian Kid"
+		"npc_dota_hero_antimage"			"Baby Roshan"
+		"npc_dota_hero_axe"					"Beaver Knight"
+
+		// Courier abilities
+		"DOTA_Tooltip_ability_player_move_unit"						"Pick Up"
+		"DOTA_Tooltip_ability_player_move_unit_Description"			"Pick up a unit in order to move it."
+
+		"DOTA_Tooltip_ability_player_place_unit"					"Place"
+		"DOTA_Tooltip_ability_player_place_unit_Description"		"Place the picked up unit on the specified position on your board."
+
+		"DOTA_Tooltip_ability_player_move_to_bench"					"Bench"
+		"DOTA_Tooltip_ability_player_move_to_bench_Description"		"Place the specified unit on your bench."
+
+		"DOTA_Tooltip_ability_player_sell_unit"						"Sell"
+		"DOTA_Tooltip_ability_player_sell_unit_Description"			"Sell the specified unit."
+
+		"DOTA_Tooltip_ability_player_reroll_shop"					"Reroll"
+		"DOTA_Tooltip_ability_player_reroll_shop_Description"		"Rerolls your store, refreshing its offers with new, random ones."
+
+		"DOTA_Tooltip_ability_player_start_overtime"				"Overtime"
+		"DOTA_Tooltip_ability_player_start_overtime_Description"	"Increases the current round's duration. After using overtime, you lose all your gold at the start of the next battle.\n<font color='FF0000'>Can only be used once in the game.</font>"
+		"DOTA_Tooltip_ability_player_start_overtime_duration"		"DURATION INCREASE:"
+
+		// Units
+
+
+		// Abilities
+		"DOTA_Tooltip_ability_item_eon_stone"						"Eon Stone"
+		"DOTA_Tooltip_ability_item_eon_stone_Description"			"Get to the goal to score 1 point"
+
+		"DOTA_Tooltip_ability_"							""
+		"DOTA_Tooltip_ability__Description"				""
+
+		"DOTA_Tooltip_modifier_"						""
+		"DOTA_Tooltip_modifier__Description"			""
+	}
+}

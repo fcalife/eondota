@@ -1,0 +1,40 @@
+"Portraits"
+{
+	"Version"					"1"
+	"PreferModelNames"			"1"
+	"DefaultActivity"			"ACT_DOTA_CAPTURE"
+	"CannotChangeActivity"		"1"
+
+	"models/development/invisiblebox.vmdl"
+	{
+		"PortraitLightPosition"			"0 0 0"
+		"PortraitLightAngles"			"0 0 0"
+		"PortraitLightFOV"				"60"
+		"PortraitLightDistance"			"120"
+		"PortraitLightColor"			"0 0 0"
+		"PortraitShadowColor"			"0 0 0"
+		"PortraitShadowScale"			"5.000000"
+		"PortraitAmbientColor"			"0 0 0"
+		"PortraitAmbientScale"			"5.000000"
+		"PortraitSpecularColor"			"0 0 0"
+		"PortraitBackgroundTexture"		""
+		"PortraitBackgroundColor1"		"1 1 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitParticle"				""
+		"PortraitLightScale"			"1.0"
+		"PortraitGroundShadowScale"		"1.0"
+		"PortraitAmbientDirection"		"0 0 0"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"300 -150 100"
+				"PortraitAngles"		"350 150 0"
+				"PortraitFOV"			"20"
+			}
+		}
+	}
+}

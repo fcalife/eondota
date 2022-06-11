@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+	"item_eon_stone"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/eon_stone.lua"
+		"AbilityTextureName"			"item_eon_stone"
+		"Model"							"models/items/winter_wyvern/spring2021_frost_thorn_back/spring2021_frost_thorn_back_crystal.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"1"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+}

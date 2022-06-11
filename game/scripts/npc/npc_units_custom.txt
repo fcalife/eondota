@@ -1,0 +1,51 @@
+"DOTAUnits"
+{
+	"Version"	"1"
+
+	"npc_example_creature"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/death_prophet/exorcism/raven_vesture_ghost/raven_vesture_ghost.vmdl"
+		"ModelScale"				"1.1"
+		"Level"						"1"
+		
+		"Ability1"					""
+
+		"ArmorPhysical"				"0"
+		"StatusHealth"				"1"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"MovementSpeed"				"450"
+
+		"AttackAnimationPoint"		"0.3"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1200"
+		"MagicalResistance"			"0"
+		"AttackRate"				"1.5"
+		"RingRadius"				"16"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"HealthBarOffset"			"150"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0.0"
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	}
+
+	"dota_fountain"
+	{
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+	}
+}

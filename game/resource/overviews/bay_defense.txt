@@ -1,0 +1,8 @@
+bay_defense
+{
+	material materials/overviews/bay_defense.vmat
+	pos_x -2048
+	pos_y 2048
+	scale 4.000
+}
+

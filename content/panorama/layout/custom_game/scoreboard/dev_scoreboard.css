@@ -1,0 +1,22 @@
+#Scoreboard_Container {
+	align:  center top;
+	margin-top:	50px;
+	width: 170px;
+	flow-children:  right;
+}
+
+#RadiantScore {
+	align:  left center;
+	font-size: 40;
+	font-weight:  bold;
+	color:  green;
+	text-shadow: 1px 1px 3px 2.0 black;
+}
+
+#DireScore {
+	align:  right center;
+	font-size: 40;
+	font-weight:  bold;
+	color:  red;
+	text-shadow: 1px 1px 3px 2.0 black;
+}

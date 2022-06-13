@@ -20,6 +20,8 @@ end
 
 function GameEvents:OnGameStart()
 	print("[GAME EVENT] New state: game start")
+
+	GameClock:Start()
 end
 
 function GameEvents:OnPostGameStart()
@@ -59,6 +61,9 @@ function GameEvents:OnPlayerPickHero(keys)
 
 	local player = keys.player
 	local hero_name = keys.hero
+	local hero = keys.heroindex and EntIndexToHScript(keys.heroindex) or nil
+
+	GameManager:InitializeHero(hero)
 
 	table.deepprint(keys)
 end

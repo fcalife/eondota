@@ -23,3 +23,11 @@ end
 function ScoreManager:UpdateScores()
 	CustomNetTables:SetTableValue("score", "scoreboard", self.game_score)
 end
+
+function ScoreManager:OnGameTimeOver()
+	if self.game_score[DOTA_TEAM_GOODGUYS] >= self.game_score[DOTA_TEAM_BADGUYS] then
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	else
+		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+	end
+end

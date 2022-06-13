@@ -47,7 +47,7 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetMaximumAttackSpeed(1000)
 	game_mode_entity:SetDaynightCycleDisabled(false)
 	-- game_mode_entity:SetCameraDistanceOverride(1400)
-	game_mode_entity:SetFreeCourierModeEnabled(true)
+	game_mode_entity:SetFreeCourierModeEnabled(false)
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)
 

@@ -9,6 +9,8 @@ function GameManager:SpawnEonStones()
 
 	for _, spawn_location in pairs(spawn_locations) do
 		CreateItemOnPositionForLaunch(spawn_location:GetAbsOrigin(), CreateItem("item_eon_stone", nil, nil))
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, spawn_location:GetAbsOrigin(), 750, 6000, false)
+		AddFOWViewer(DOTA_TEAM_BADGUYS, spawn_location:GetAbsOrigin(), 750, 6000, false)
 	end
 
 	return #spawn_locations
@@ -32,4 +34,8 @@ function GameManager:ResetPlayerPositions()
 		hero:RespawnHero(false, false)
 		hero:Stop()
 	end
+end
+
+function GameManager:InitializeHero(hero)
+	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
 end

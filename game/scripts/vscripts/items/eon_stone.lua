@@ -29,7 +29,7 @@ function modifier_item_eon_stone:OnIntervalThink()
 	local parent_loc = parent and parent:GetAbsOrigin() or nil
 
 	if parent_loc then
-		if (parent_loc - EON_STONE_TARGET[parent:GetTeam()]):Length2D() < 300 then
+		if (parent_loc - EON_STONE_TARGET[parent:GetTeam()]):Length2D() < 275 then
 			ScoreManager:Score(parent:GetTeam())
 			self.reached_target = true
 			self:GetAbility():Destroy()

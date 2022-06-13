@@ -13,6 +13,7 @@
 
 		"ItemCost"						"0"
 
+		"ItemIsNeutralDrop"				"1"
 		"ItemDroppable"					"0"
 		"ItemSellable"					"0"
 		"ItemKillable"					"0"

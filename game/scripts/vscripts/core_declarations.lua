@@ -1,5 +1,5 @@
 -- Link global modifiers
---LinkLuaModifier("modifier_auto_attack",			    "libraries/modifiers/modifier_auto_attack", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 
 -- game states
 GAME_STATE_INITIALIZATION 	    = 0
@@ -14,6 +14,8 @@ PLAYER_STATE_ACTIVE		 		= 2
 PLAYER_STATE_ELIMINATED	 		= 3
 PLAYER_STATE_ABANDONED	 		= 4
 
+GAME_MAX_DURATION = 1200	-- 20 minutes
+
 EON_STONE_TARGET = {}
-EON_STONE_TARGET[DOTA_TEAM_GOODGUYS] = Vector(6944, 2800, 256)
-EON_STONE_TARGET[DOTA_TEAM_BADGUYS] = Vector(-6944, -5408, 256)
+EON_STONE_TARGET[DOTA_TEAM_GOODGUYS] = Vector(6880, 2780, 256)
+EON_STONE_TARGET[DOTA_TEAM_BADGUYS] = Vector(-6912, -5376, 256)

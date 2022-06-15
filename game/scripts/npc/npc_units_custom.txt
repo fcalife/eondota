@@ -48,4 +48,139 @@
 		"AttackDamageMin"			"1"
 		"AttackDamageMax"			"1"
 	}
+
+	"npc_dota_neutral_kobold"
+	{
+		"AttackDamageMin"			"10"
+		"AttackDamageMax"			"11"	
+
+		"BountyXP"					"30"
+		"BountyGoldMin"				"25"
+		"BountyGoldMax"				"25"
+
+		"MovementSpeed"				"490"
+
+		"StatusHealth"				"125"
+		"StatusHealthRegen"			"0.5"
+	}
+
+	"npc_dota_neutral_kobold_tunneler"
+	{
+		"AttackDamageMin"			"17"		// Damage range min.
+		"AttackDamageMax"			"18"		// Damage range max.	
+
+		"BountyXP"					"60"		// Experience earn.
+		"BountyGoldMin"				"50"		// Gold earned min.
+		"BountyGoldMax"				"50"		// Gold earned max.
+
+		"MovementSpeed"				"470"		// Speed.
+
+		"StatusHealth"				"175"		// Base health.
+		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
+	}		
+
+	"npc_dota_neutral_kobold_taskmaster"
+	{										
+		"AttackDamageMin"			"19"		// Damage range min.
+		"AttackDamageMax"			"21"		// Damage range max.	
+
+		"BountyXP"					"100"		// Experience earn.
+		"BountyGoldMin"				"75"		// Gold earned min.
+		"BountyGoldMax"				"75"		// Gold earned max.
+
+		"MovementSpeed"				"530"		// Speed.
+
+		"StatusHealth"				"200"		// Base health.
+		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
+	}
+
+	"npc_dota_neutral_giant_wolf"
+	{
+		"AttackDamageMin"			"22"
+		"AttackDamageMax"			"24"
+
+		"BountyXP"					"200"
+		"BountyGoldMin"				"150"
+		"BountyGoldMax"				"150"
+
+		"MovementSpeed"				"500"
+
+		"StatusHealth"				"400"
+		"StatusHealthRegen"			"0.5"
+	}
+
+	"npc_dota_neutral_alpha_wolf"
+	{
+		"AttackDamageMin"			"29"
+		"AttackDamageMax"			"31"
+
+		"BountyXP"					"300"
+		"BountyGoldMin"				"250"
+		"BountyGoldMax"				"250"
+
+		"MovementSpeed"				"510"
+
+		"StatusHealth"				"600"
+		"StatusHealthRegen"			"0.5"
+	}		
+
+	"npc_dota_neutral_wildkin"
+	{										
+		"AttackDamageMin"			"24"
+		"AttackDamageMax"			"26"
+
+		"BountyXP"					"150"
+		"BountyGoldMin"				"125"
+		"BountyGoldMax"				"125"
+
+		"MovementSpeed"				"480"
+
+		"StatusHealth"				"900"
+		"StatusHealthRegen"			"0.5"
+	}		
+
+	"npc_dota_neutral_enraged_wildkin"
+	{
+		"AttackDamageMin"			"49"
+		"AttackDamageMax"			"51"
+
+		"BountyXP"					"450"
+		"BountyGoldMin"				"350"
+		"BountyGoldMax"				"350"
+
+		"MovementSpeed"				"490"
+
+		"StatusHealth"				"1350"
+		"StatusHealthRegen"			"0.5"
+	}
+
+	"npc_dota_neutral_black_drake"	
+	{
+		"AttackDamageMin"			"88"
+		"AttackDamageMax"			"95"
+
+		"BountyXP"					"500"
+		"BountyGoldMin"				"400"
+		"BountyGoldMax"				"400"
+
+		"MovementSpeed"				"520"
+
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"0.5"
+	}	
+
+	"npc_dota_neutral_black_dragon"	
+	{
+		"AttackDamageMin"			"140"
+		"AttackDamageMax"			"150"
+
+		"BountyXP"					"1500"
+		"BountyGoldMin"				"1200"
+		"BountyGoldMax"				"1200"
+
+		"MovementSpeed"				"550"
+
+		"StatusHealth"				"4500"
+		"StatusHealthRegen"			"0.5"
+	}
 }

@@ -15,7 +15,9 @@ function modifier_hero_base_state:DeclareFunctions()
 end
 
 function modifier_hero_base_state:GetModifierMoveSpeedBonus_Constant()
-	return 200
+	local parent = self:GetParent()
+
+	return parent and (parent:IsRangedAttacker() and 175 or 200)
 end
 
 function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()

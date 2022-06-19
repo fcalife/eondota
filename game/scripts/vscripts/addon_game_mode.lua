@@ -18,7 +18,7 @@ end
 function GameMode:InitGameMode()
 
 	-- Initial gamemode setup
-	GameRules:SetSameHeroSelectionEnabled(false)
+	GameRules:SetSameHeroSelectionEnabled(true)
 	GameRules:SetHeroRespawnEnabled(true)
 	GameRules:SetHeroSelectionTime(30)
 	GameRules:SetStrategyTime(0)
@@ -46,7 +46,7 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetKillingSpreeAnnouncerDisabled(false)
 	game_mode_entity:SetMaximumAttackSpeed(1000)
 	game_mode_entity:SetDaynightCycleDisabled(false)
-	-- game_mode_entity:SetCameraDistanceOverride(1400)
+	game_mode_entity:SetCameraDistanceOverride(1600)
 	game_mode_entity:SetFreeCourierModeEnabled(false)
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)

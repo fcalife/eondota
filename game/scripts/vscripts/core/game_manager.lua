@@ -38,4 +38,8 @@ end
 
 function GameManager:InitializeHero(hero)
 	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
+
+	for i = 1, 39 do
+		hero:AddItemByName("item_tpscroll")
+	end
 end

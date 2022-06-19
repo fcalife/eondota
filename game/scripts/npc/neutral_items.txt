@@ -1,0 +1,21 @@
+"neutral_items"
+{
+	"1"
+	{
+		"drop_rates"
+		{
+			"0:00"
+			{
+				"0" "0"
+				"1" "0"
+				"2" "0"
+				"3" "0"
+			}
+		}
+		
+		"items"
+		{
+			"item_arcane_ring"			"1"
+		}
+	}
+}

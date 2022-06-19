@@ -7,30 +7,26 @@
 		"addon_game_name"					"Eon"
 
 		// Heroes/couriers
-		"npc_dota_hero_starter"				"Hero Soul"
-		"npc_dota_hero_ancient_apparition"	"Amphibian Kid"
-		"npc_dota_hero_antimage"			"Baby Roshan"
-		"npc_dota_hero_axe"					"Beaver Knight"
+		"npc_dota_hero_lion"				"Lion (Support)"
+		"npc_dota_hero_sven"				"Sven (Melee DPS)"
+		"npc_dota_hero_tidehunter"			"Tidehunter (Tank)"
+		"npc_dota_hero_viper"				"Viper (Ranged DPS)"
 
-		// Courier abilities
-		"DOTA_Tooltip_ability_player_move_unit"						"Pick Up"
-		"DOTA_Tooltip_ability_player_move_unit_Description"			"Pick up a unit in order to move it."
+		// Shop
+		"DOTA_SUBSHOP_CONSUMABLES"			"STARTING ITEMS"
+		"DOTA_SUBSHOP_ATTRIBUTES"			"FOR FARMING"
+		"DOTA_SUBSHOP_WEAPONS_ARMOR"		"EARLY GAME"
+		"DOTA_SUBSHOP_MISC"					"MOBILITY"
+		"DOTA_SUBSHOP_SECRETSHOP"			"ADVANCED ITEMS"
+		"DOTA_SUBSHOP_BASICS"				"DEFENSIVE ITEMS"
+		"DOTA_SUBSHOP_SUPPORT"				"OFFENSIVE ITEMS"
+		"DOTA_SUBSHOP_MAGICS"				"RECOMMENDED (LION)"
+		"DOTA_SUBSHOP_DEFENSE"				"RECOMMENDED (SVEN)"
+		"DOTA_SUBSHOP_WEAPONS"				"RECOMMENDED (TIDEHUNTER)"
+		"DOTA_SUBSHOP_ARTIFACTS"			"RECOMMENDED (VIPER)"
 
-		"DOTA_Tooltip_ability_player_place_unit"					"Place"
-		"DOTA_Tooltip_ability_player_place_unit_Description"		"Place the picked up unit on the specified position on your board."
-
-		"DOTA_Tooltip_ability_player_move_to_bench"					"Bench"
-		"DOTA_Tooltip_ability_player_move_to_bench_Description"		"Place the specified unit on your bench."
-
-		"DOTA_Tooltip_ability_player_sell_unit"						"Sell"
-		"DOTA_Tooltip_ability_player_sell_unit_Description"			"Sell the specified unit."
-
-		"DOTA_Tooltip_ability_player_reroll_shop"					"Reroll"
-		"DOTA_Tooltip_ability_player_reroll_shop_Description"		"Rerolls your store, refreshing its offers with new, random ones."
-
-		"DOTA_Tooltip_ability_player_start_overtime"				"Overtime"
-		"DOTA_Tooltip_ability_player_start_overtime_Description"	"Increases the current round's duration. After using overtime, you lose all your gold at the start of the next battle.\n<font color='FF0000'>Can only be used once in the game.</font>"
-		"DOTA_Tooltip_ability_player_start_overtime_duration"		"DURATION INCREASE:"
+		"DOTA_Shop_Category_Basics"			"BASIC"
+		"DOTA_Shop_Category_Upgrades"		"ADVANCED"
 
 		// Units
 

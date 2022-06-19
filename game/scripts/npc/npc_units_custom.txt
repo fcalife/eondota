@@ -77,6 +77,8 @@
 
 		"StatusHealth"				"175"		// Base health.
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
+
+		"Ability1"					""
 	}		
 
 	"npc_dota_neutral_kobold_taskmaster"

@@ -14,13 +14,12 @@ function modifier_item_eon_stone:IsHidden() return true end
 function modifier_item_eon_stone:IsDebuff() return false end
 function modifier_item_eon_stone:IsPurgable() return false end
 function modifier_item_eon_stone:RemoveOnDeath() return true end
-function modifier_item_eon_stone:GetAttributes() return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_item_eon_stone:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_eon_stone:OnCreated(keys)
 	if IsClient() then return end
+	print("picked up eon stone")
 
-	self.reached_target = false
-	self:StartIntervalThink(0.1)
 	self:GetParent():EmitSound("Item.PickUpGemWorld")
 end
 

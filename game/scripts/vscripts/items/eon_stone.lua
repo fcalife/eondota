@@ -40,7 +40,6 @@ end
 function modifier_item_eon_stone:OnDestroy()
 	if IsClient() then return end
 
-	self:GetParent():EmitSound("Item.DropGemWorld")
 	if (not self.reached_target) then
 		CreateItemOnPositionForLaunch(self:GetParent():GetAbsOrigin(), CreateItem("item_eon_stone", nil, nil))
 		self:GetAbility():Destroy()

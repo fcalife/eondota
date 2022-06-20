@@ -2,7 +2,9 @@
 LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 
 -- game states
-GAME_STATE_INITIALIZATION 	    = 0
+GAME_STATE_INIT 	   			= 0
+GAME_STATE_BATTLE				= 1
+GAME_STATE_END					= 2
 
 -- team states
 TEAM_STATE_INACTIVE			    = 0

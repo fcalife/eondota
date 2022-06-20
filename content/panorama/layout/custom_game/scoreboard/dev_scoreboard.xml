@@ -12,5 +12,7 @@
 			<Label id="RadiantScore" text="0" />
 			<Label id="DireScore" text="0" />
 		</Panel>
+
+		<Label id="Score_Indicator" />
 	</Panel>
 </root>

@@ -2,6 +2,15 @@ _G.GameManager = GameManager or {}
 
 function GameManager:Init()
 	self.eon_stone_count = self:SpawnEonStones()
+	self:SetGamePhase(GAME_STATE_INIT)
+end
+
+function GameManager:SetGamePhase(phase)
+	self.game_state = phase
+end
+
+function GameManager:GetGamePhase()
+	return self.game_state or nil
 end
 
 function GameManager:SpawnEonStones()
@@ -42,4 +51,15 @@ function GameManager:InitializeHero(hero)
 	for i = 1, 39 do
 		hero:AddItemByName("item_tpscroll")
 	end
+
+	if IsInToolsMode() then
+		hero:AddItemByName("item_dev_blink")
+		hero:AddItemByName("item_dev_dagon")
+	end
+end
+
+function GameManager:EndGameWithWinner(team)
+	self:SetGamePhase(GAME_STATE_END)
+
+	GameRules:SetGameWinner(team)
 end

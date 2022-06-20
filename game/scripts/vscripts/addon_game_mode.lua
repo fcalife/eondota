@@ -10,6 +10,40 @@ require('core/init')
 -- This should only contain sounds, particles, etc. which will need to be loaded every game.
 PRECACHE = require('precache')
 
+function Precache(context)
+	print("Performing pre-load static precache")
+	
+	for _, p in pairs(PRECACHE.particles) do
+		PrecacheResource("particle", p, context)
+	end
+
+	for _, p in pairs(PRECACHE.particle_folders) do
+		PrecacheResource("particle_folder", p, context)
+	end
+
+	for _, p in pairs(PRECACHE.models) do
+		PrecacheResource("model", p, context)
+	end
+
+	for _, p in pairs(PRECACHE.model_folders) do
+		PrecacheResource("model_folder", p, context)
+	end
+
+	for _, p in pairs(PRECACHE.sounds) do
+		PrecacheResource("soundfile", p, context)
+	end
+
+	for _, p in pairs(PRECACHE.units) do
+		PrecacheUnitByNameSync(p, context)
+	end
+
+	for _, p in pairs(PRECACHE.items) do
+		PrecacheItemByNameSync(p, context)
+	end
+	
+	print("Finished pre-load precache")
+end
+
 -- Activate the gamemode
 function Activate()
 	GameMode:InitGameMode()

@@ -1,5 +1,106 @@
 "DOTAAbilities"
 {
+	"item_dev_blink"
+	{
+		"ID"							"9000"
+		"BaseClass"						"item_blink"
+		"AbilityTextureName"			"item_arcane_blink"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+
+		"AbilityCastRange"				"20000"
+		"AbilityOvershootCastRange"     "20000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.1"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blink_range"			"20000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"blink_damage_cooldown"	"0.01"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blink_range_clamp"		"20000"
+			}
+		}
+	}
+
+	"item_dev_dagon"
+	{
+		"ID"							"9001"
+		"BaseClass"						"item_dagon"
+		"AbilityTextureName"			"item_havoc_hammer"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.1"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"				"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"				"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"				"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"9999"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_cost_tooltip"		"0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int_damage"			"0"
+			}
+		}
+	}
+
 	"item_eon_stone"
 	{
 		"BaseClass"						"item_lua"

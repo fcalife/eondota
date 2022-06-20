@@ -58,6 +58,9 @@
 	"item_blink" {
 		"ItemCost"						"2000"
 
+		"AbilityCastRange"				"900"
+		"AbilityOvershootCastRange"     "900"
+
 		"AbilitySpecial"
 		{
 			"01"

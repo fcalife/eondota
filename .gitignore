@@ -18,6 +18,7 @@ game/rich_presence_persistent_data.txt
 *.vmorf_c
 *.vsvg_c
 
+.vs
 
 *.code-workspace
 

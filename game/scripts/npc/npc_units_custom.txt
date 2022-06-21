@@ -120,7 +120,7 @@
 		"BountyGoldMin"				"250"
 		"BountyGoldMax"				"250"
 
-		"MovementSpeed"				"510"
+		"MovementSpeed"				"512"
 
 		"StatusHealth"				"600"
 		"StatusHealthRegen"			"0.5"

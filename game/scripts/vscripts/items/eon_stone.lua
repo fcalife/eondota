@@ -13,34 +13,28 @@ modifier_item_eon_stone = class({})
 function modifier_item_eon_stone:IsHidden() return true end
 function modifier_item_eon_stone:IsDebuff() return false end
 function modifier_item_eon_stone:IsPurgable() return false end
-function modifier_item_eon_stone:RemoveOnDeath() return true end
-function modifier_item_eon_stone:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_item_eon_stone:RemoveOnDeath() return false end
+function modifier_item_eon_stone:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_eon_stone:OnCreated(keys)
 	if IsClient() then return end
-	print("picked up eon stone")
 
 	self:GetParent():EmitSound("Item.PickUpGemWorld")
 end
 
-function modifier_item_eon_stone:OnIntervalThink()
-	local parent = self:GetParent()
-	local parent_loc = parent and parent:GetAbsOrigin() or nil
-
-	if parent_loc then
-		if (parent_loc - EON_STONE_TARGET[parent:GetTeam()]):Length2D() < 275 then
-			ScoreManager:Score(parent:GetTeam())
-			self.reached_target = true
-			self:GetAbility():Destroy()
-		end
-	end
+function modifier_item_eon_stone:DeclareFunctions()
+	if IsServer() then return { MODIFIER_EVENT_ON_DEATH } end
 end
 
-function modifier_item_eon_stone:OnDestroy()
-	if IsClient() then return end
+function modifier_item_eon_stone:OnDeath(keys)
+	if (not IsServer()) or keys.unit ~= self:GetParent() then return end
 
-	if (not self.reached_target) then
-		CreateItemOnPositionForLaunch(self:GetParent():GetAbsOrigin(), CreateItem("item_eon_stone", nil, nil))
-		self:GetAbility():Destroy()
+	local stone = keys.unit:FindItemInInventory("item_eon_stone")
+	local charges = stone:GetCurrentCharges()
+
+	for i = 1, charges do
+		GameManager:SpawnEonStone(self:GetParent() + RandomVector(300))
 	end
+
+	stone:Destroy()
 end

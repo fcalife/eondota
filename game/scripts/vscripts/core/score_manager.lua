@@ -8,14 +8,12 @@ function ScoreManager:Init()
 	self:UpdateScores()
 end
 
-function ScoreManager:Score(team)
-	self.game_score[team] = self.game_score[team] + 1
+function ScoreManager:Score(team, points)
+	self.game_score[team] = math.min(self.game_score[team] + points, 10)
 
 	self:UpdateScores(team)
 
 	self:PlayTeamScoreSound(team)
-
-	GameManager:ConsumeEonStone()
 
 	if self.game_score[team] >= 10 then
 		GameManager:EndGameWithWinner(team)

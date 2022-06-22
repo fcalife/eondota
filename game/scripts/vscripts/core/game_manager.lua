@@ -3,11 +3,56 @@ _G.GameManager = GameManager or {}
 function GameManager:Init()
 	self:SetGamePhase(GAME_STATE_INIT)
 
-	ListenToGameEvent("trigger_start_touch", Dynamic_Wrap(GameManager, "OnTriggerStartTouch"), self)
-	ListenToGameEvent("trigger_end_touch", Dynamic_Wrap(GameManager, "OnTriggerEndTouch"), self)
+	for _, radiant_goal in pairs(Entities:FindAllByName("radiant_goal")) do
+		local radiant_goal_trigger = MapTrigger(
+			radiant_goal:GetAbsOrigin(),
+			TRIGGER_TYPE_CIRCLE,
+			{
+				radius = 300
+			},
+			{
+				trigger_team = DOTA_TEAM_GOODGUYS,
+				team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+				unit_filter = DOTA_UNIT_TARGET_HERO,
+				flag_filter = DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+			},
+			function(units)
+				for _, unit in pairs(units) do
+					if unit:FindItemInInventory("item_eon_stone") then GameManager:OnEonStoneTouchGoal(unit) end
+				end
+			end
+		)
 
-	for _, spawn_location in pairs(Entities:FindAllByName("eon_stone_spawn")) do
-		self:SpawnEonStone(spawn_location:GetAbsOrigin())
+		radiant_goal_trigger:Start()
+	end
+
+	for _, dire_goal in pairs(Entities:FindAllByName("dire_goal")) do
+		local dire_goal_trigger = MapTrigger(
+			dire_goal:GetAbsOrigin(),
+			TRIGGER_TYPE_CIRCLE,
+			{
+				radius = 300
+			},
+			{
+				trigger_team = DOTA_TEAM_BADGUYS,
+				team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+				unit_filter = DOTA_UNIT_TARGET_HERO,
+				flag_filter = DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+			},
+			function(units)
+				for _, unit in pairs(units) do
+					if unit:FindItemInInventory("item_eon_stone") then GameManager:OnEonStoneTouchGoal(unit) end
+				end
+			end
+		)
+
+		dire_goal_trigger:Start()
+	end
+
+	self.eon_stone_spawn_locations = Entities:FindAllByName("eon_stone_spawn")
+	
+	for i = 1, MAX_EON_STONES do
+		self:SpawnEonStone()
 	end
 end
 
@@ -20,15 +65,15 @@ function GameManager:GetGamePhase()
 end
 
 function GameManager:SpawnEonStone(location)
+	if (not location) then
+
+	end
+
 	local container = CreateItemOnPositionForLaunch(location, CreateItem("item_eon_stone", nil, nil))
 	local item = container:GetContainedItem()
 
-	item.original_location = location
-
-	item.fow_viewers = {
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, location, 750, -1, false),
-		AddFOWViewer(DOTA_TEAM_BADGUYS, location, 750, -1, false)
-	}
+	item.radiant_viewer = AddFOWViewer(DOTA_TEAM_GOODGUYS, location, 750, -1, false)
+	item.dire_viewer = AddFOWViewer(DOTA_TEAM_BADGUYS, location, 750, -1, false)
 end
 
 function GameManager:InitializeHero(hero)
@@ -50,17 +95,17 @@ function GameManager:EndGameWithWinner(team)
 	GameRules:SetGameWinner(team)
 end
 
-function GameManager:OnTriggerStartTouch(event)
-	local trigger_name = event.trigger_name
-	local unit = EntIndexToHScript(event.activator_entindex)
+function GameManager:OnEonStoneTouchGoal(unit)
+	local stone = unit:FindItemInInventory("item_eon_stone")
+	local charges = stone:GetCurrentCharges()
 
-	print("TRIGGERED")
-	if unit:FindItemInInventory("item_eon_stone") then print("MEGA TRIGGERED") end
-end
+	ScoreManager:Score(unit:GetTeam(), charges)
 
-function GameManager:OnTriggerEndTouch(event)
-	local trigger_name = event.trigger_name
-	local unit = EntIndexToHScript(event.activator_entindex)
+	for i = 1, charges do
+		Timers:CreateTimer(15, function()
+			self:SpawnEonStone()
+		end)
+	end
 
-	print("UNTRIGGERED")
+	stone:Destroy()
 end

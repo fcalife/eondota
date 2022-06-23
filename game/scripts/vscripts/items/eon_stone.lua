@@ -50,7 +50,7 @@ function modifier_item_eon_stone:DeclareFunctions()
 end
 
 function modifier_item_eon_stone:GetModifierMoveSpeedBonus_Percentage()
-	return -50
+	return 0
 end
 
 function modifier_item_eon_stone:GetModifierProvidesFOWVision()

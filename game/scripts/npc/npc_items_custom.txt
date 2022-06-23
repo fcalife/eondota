@@ -119,10 +119,10 @@
 		"ItemSellable"					"0"
 		"ItemKillable"					"0"
 		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemInitialCharges"			"1"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemPermanent"					"0"
+		"ItemPermanent"					"1"
 		"AllowedInBackpack"				"0"
 		"IsTempestDoubleClonable"		"0"
 	}

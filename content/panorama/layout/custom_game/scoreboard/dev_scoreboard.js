@@ -1,20 +1,16 @@
-CustomNetTables.SubscribeNetTableListener("score", UpdateScore);
+GameEvents.Subscribe("new_message", NewMessage);
 
-GameEvents.Subscribe("point_scored", PointScored);
+function NewMessage(data) {
+	let container = $("#Message_Container");
 
-function UpdateScore(table_name, key, data) {
- 	$("#RadiantScore").text = data[DOTATeam_t.DOTA_TEAM_GOODGUYS];
- 	$("#DireScore").text = data[DOTATeam_t.DOTA_TEAM_BADGUYS];
-}
+	let label = $.CreatePanelWithProperties("Label", container, "", {
+		class: "GlobalMessage",
+		text: data.text
+	});
 
-function PointScored(data) {
-	let label = $("#Score_Indicator");
-	let text = `${(data.team == DOTATeam_t.DOTA_TEAM_GOODGUYS) ? "Radiant" : "Dire"} just scored!`;
-
-	label.text = text;
-	label.visible = true;
+	if (data.animate) label.AddClass("AnimatedMessage");
 
 	$.Schedule(4.5, () => {
-		label.visible = false;
+		label.DeleteAsync(0.0);
 	})
 }

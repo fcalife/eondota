@@ -28,6 +28,8 @@ function MapTrigger:constructor(center, trigger_type, dimensions, filters, callb
 		self.dimensions.start_pos = self.center - 0.5 * Vector(self.dimensions.width, 0, 0)
 		self.dimensions.end_pos = self.center + 0.5 * Vector(self.dimensions.width, 0, 0)
 	end
+
+	self:Start()
 end
 
 function MapTrigger:Start()
@@ -39,7 +41,6 @@ end
 
 function MapTrigger:Stop()
 	Timers:RemoveTimer(self.timer)
-	self.timer = nil
 end
 
 function MapTrigger:Tick()

@@ -33,7 +33,7 @@
 
 		// Items
 		"DOTA_Tooltip_ability_item_eon_stone"						"Eon Stone"
-		"DOTA_Tooltip_ability_item_eon_stone_Description"			"Get to the goal to score 1 point"
+		"DOTA_Tooltip_ability_item_eon_stone_Description"			"Get to the goal to score 20 points"
 
 		"DOTA_Tooltip_ability_item_dev_blink"						"Mega Blink"
 		"DOTA_Tooltip_ability_item_dev_blink_Description"			"<h1>Active: Warp</h1>Instantly teleports to the target point of the map"

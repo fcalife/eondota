@@ -39,8 +39,6 @@ function GameEvents:OnPlayerConnect(keys)
 
 	local player_id = keys.PlayerID
 	local user_id = keys.userid
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnPlayerDisconnect(keys)
@@ -49,8 +47,6 @@ function GameEvents:OnPlayerDisconnect(keys)
 	local player_id = keys.PlayerID
 	local user_id = keys.userid
 	local network_id = keys.networkid
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnPlayerReconnect(keys)
@@ -58,8 +54,6 @@ function GameEvents:OnPlayerReconnect(keys)
 
 	local player_id = keys.PlayerID
 	local user_id = keys.userid
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnPlayerPickHero(keys)
@@ -70,13 +64,10 @@ function GameEvents:OnPlayerPickHero(keys)
 	local hero = keys.heroindex and EntIndexToHScript(keys.heroindex) or nil
 
 	GameManager:InitializeHero(hero)
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnPlayerNameChange(keys)
 	self:DebugPrint("A player has changed their name")
-	table.deepprint(keys)
 end
 
 function GameEvents:OnPlayerChat(keys)
@@ -86,16 +77,12 @@ function GameEvents:OnPlayerChat(keys)
 	local user_id = keys.userid
 	local allies_only = keys.teamonly and keys.teamonly == 1
 	local text = keys.text
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnUnitSpawn(keys)
 	self:DebugPrint("A unit has spawned in the game")
 
 	local unit = EntIndexToHScript(keys.entindex)
-
-	table.deepprint(keys)
 end
 
 -- This event does not reference the illusion itself; it has to be caught on the OnUnitSpawn event
@@ -103,8 +90,6 @@ function GameEvents:OnIllusionSpawn(keys)
 	self:DebugPrint("A illusion has spawned in the game")
 
 	local source_unit = EntIndexToHScript(keys.original_entindex)
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnEntityKilled(keys)
@@ -112,8 +97,6 @@ function GameEvents:OnEntityKilled(keys)
 
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnTreeCut(keys)
@@ -121,8 +104,6 @@ function GameEvents:OnTreeCut(keys)
 
 	local player_id = keys.killerID
 	local tree_loc = GetGroundPosition(Vector(keys.tree_x, keys.tree_y, 0), nil)
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnItemPickedUp(keys)
@@ -132,8 +113,6 @@ function GameEvents:OnItemPickedUp(keys)
 	local item = EntIndexToHScript(keys.ItemEntityIndex)
 	local player_id = keys.PlayerID
 	local item_name = keys.itemname
-
-	table.deepprint(keys)
 end
 
 function GameEvents:OnCursorPositionReceived(keys)
@@ -141,4 +120,15 @@ function GameEvents:OnCursorPositionReceived(keys)
 	local position = Vector(keys.x, keys.y, keys.z)
 
 	if not position then return end
+end
+
+function GameEvents:OnPlayerKilled(keys)
+	self:DebugPrint("A hero was killed by an enemy")
+
+	local killed_id = keys.PlayerID
+	local hero_kill = keys.HeroKill
+
+	Timers:CreateTimer(0.1, function()
+		ScoreManager:UpdateScores()
+	end)
 end

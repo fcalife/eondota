@@ -36,10 +36,45 @@
 		"StatusManaRegen"			"0.0"
 		"VisionDaytimeRange"		"1800"
 		"VisionNighttimeRange"		"1800"
-		"TeamName"					"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	}
+
+	"npc_stone_dummy"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+		"ModelScale"				"1.0"
+		"Level"						"1"
+
+		"MinimapIcon"				"minimap_ancient"
+		"MinimapIconSize"			"400"
+
+		"Ability1"					""
+
+		"ArmorPhysical"				"0"
+		"StatusHealth"				"1"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"MovementSpeed"				"0"
+
+		"AttackAnimationPoint"		"0.3"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1200"
+		"MagicalResistance"			"0"
+		"AttackRate"				"1.5"
+		"RingRadius"				"16"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"HealthBarOffset"			"150"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0.0"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
 	}
 
 	"dota_fountain"

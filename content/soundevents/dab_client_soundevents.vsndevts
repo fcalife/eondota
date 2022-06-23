@@ -16,4 +16,28 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/music/custom_games/stingers/dire_capture.vsnd"
 	}
+	stone.warning = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/music/terrorblade_arcana/stingers/respawn.vsnd"
+	}
+	stone.countdown = 
+	{
+		type = "dota_src1_2d"
+		volume = 0.800000
+		pitch = 1.100000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/ui/portal_loop.vsnd"
+	}
+	stone.spawn = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/ui/outpost_capture_notify.vsnd"
+	}
 }

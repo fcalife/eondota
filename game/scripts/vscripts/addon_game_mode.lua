@@ -119,6 +119,7 @@ function GameMode:InitGameMode()
 	RegisterGameEventListener('dota_player_pick_hero', function(event) GameEvents:OnPlayerPickHero(event) end)
 	RegisterGameEventListener('dota_illusions_created', function(event) GameEvents:OnIllusionSpawn(event) end)
 	RegisterGameEventListener('player_chat', function(event) GameEvents:OnPlayerChat(event) end)
+	RegisterGameEventListener('dota_player_killed', function(event) GameEvents:OnPlayerKilled(event) end)
 
 	-- Custom events
 	RegisterCustomEventListener("cursor_checked", function(event) GameEvents:OnCursorPositionReceived(event) end)

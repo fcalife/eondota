@@ -1,40 +1,49 @@
 _G.ScoreManager = ScoreManager or {}
 
 function ScoreManager:Init()
-	self.game_score = {}
-	self.game_score[DOTA_TEAM_GOODGUYS] = 0
-	self.game_score[DOTA_TEAM_BADGUYS] = 0
+	self.eon_points = {}
+	self.eon_points[DOTA_TEAM_GOODGUYS] = 0
+	self.eon_points[DOTA_TEAM_BADGUYS] = 0
 
 	self:UpdateScores()
 end
 
+function ScoreManager:GetTotalScore(team)
+	return (self.eon_points and self.eon_points[team] or 0) + PlayerResource:GetTeamKills(team)
+end
+
 function ScoreManager:Score(team, points)
-	self.game_score[team] = math.min(self.game_score[team] + points, 10)
+	self.eon_points[team] = math.min(self.eon_points[team] + points, GAME_TARGET_SCORE)
 
-	self:UpdateScores(team)
+	GlobalMessages:NotifyTeamScored(team)
 
-	self:PlayTeamScoreSound(team)
-
-	if self.game_score[team] >= 10 then
-		GameManager:EndGameWithWinner(team)
-	end
+	self:UpdateScores()
 end
 
-function ScoreManager:UpdateScores(team)
-	CustomNetTables:SetTableValue("score", "scoreboard", self.game_score)
-	if team then CustomGameEventManager:Send_ServerToAllClients("point_scored", {team = team}) end
+function ScoreManager:UpdateScores()
+	local game_mode_entity = GameRules:GetGameModeEntity()
+
+	game_mode_entity:SetCustomRadiantScore(self:GetTotalScore(DOTA_TEAM_GOODGUYS))
+	game_mode_entity:SetCustomDireScore(self:GetTotalScore(DOTA_TEAM_BADGUYS))
+
+	self:CheckForPointWin()
 end
 
-function ScoreManager:OnGameTimeOver()
-	if self.game_score[DOTA_TEAM_GOODGUYS] > self.game_score[DOTA_TEAM_BADGUYS] then
+function ScoreManager:CheckForPointWin()
+	if self:GetTotalScore(DOTA_TEAM_GOODGUYS) >= GAME_TARGET_SCORE then
 		GameManager:EndGameWithWinner(DOTA_TEAM_GOODGUYS)
-	elseif self.game_score[DOTA_TEAM_BADGUYS] > self.game_score[DOTA_TEAM_GOODGUYS] then
+	end
+	if self:GetTotalScore(DOTA_TEAM_BADGUYS) >= GAME_TARGET_SCORE then
 		GameManager:EndGameWithWinner(DOTA_TEAM_BADGUYS)
 	end
 end
 
-function ScoreManager:PlayTeamScoreSound(team)
-	local sound_name = (team == DOTA_TEAM_GOODGUYS) and "radiant.score" or "dire.score"
+function ScoreManager:OnGameTimeOver()
+	self:CheckForPointWin()
 
-	EmitGlobalSound(sound_name)
+	if self:GetTotalScore(DOTA_TEAM_GOODGUYS) > self:GetTotalScore(DOTA_TEAM_BADGUYS) then
+		GameManager:EndGameWithWinner(DOTA_TEAM_GOODGUYS)
+	elseif self:GetTotalScore(DOTA_TEAM_BADGUYS) > self:GetTotalScore(DOTA_TEAM_GOODGUYS) then
+		GameManager:EndGameWithWinner(DOTA_TEAM_BADGUYS)
+	end
 end

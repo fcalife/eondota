@@ -1,7 +1,8 @@
 local precache = {}
 
 precache.particles = {
-	--"particles/units/heroes/hero_troll_warlord/troll_warlord_battletrance_buff.vpcf"
+	"particles/econ/events/fall_2021/teleport_end_fall_2021_lvl2.vpcf",
+    "particles/eon_carrier.vpcf"
 }
 
 precache.particle_folders = {

@@ -16,24 +16,55 @@ function modifier_item_eon_stone:IsPurgable() return false end
 function modifier_item_eon_stone:RemoveOnDeath() return false end
 function modifier_item_eon_stone:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
+function modifier_item_eon_stone:GetEffectName()
+	return "particles/eon_carrier.vpcf"
+end
+
+function modifier_item_eon_stone:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW
+end
+
 function modifier_item_eon_stone:OnCreated(keys)
 	if IsClient() then return end
 
-	self:GetParent():EmitSound("Item.PickUpGemWorld")
+	local parent = self:GetParent()
+
+	parent:EmitSound("Item.PickUpGemWorld")
+
+	GameManager:OnEonStonePickedUp(parent:GetAbsOrigin())
 end
 
 function modifier_item_eon_stone:DeclareFunctions()
-	if IsServer() then return { MODIFIER_EVENT_ON_DEATH } end
+	if IsServer() then
+		return {
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+			MODIFIER_EVENT_ON_DEATH
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
+		}
+	end
+end
+
+function modifier_item_eon_stone:GetModifierMoveSpeedBonus_Percentage()
+	return -50
+end
+
+function modifier_item_eon_stone:GetModifierProvidesFOWVision()
+	return 1
 end
 
 function modifier_item_eon_stone:OnDeath(keys)
 	if (not IsServer()) or keys.unit ~= self:GetParent() then return end
 
 	local stone = keys.unit:FindItemInInventory("item_eon_stone")
-	local charges = stone:GetCurrentCharges()
 
-	for i = 1, charges do
-		GameManager:SpawnEonStone(self:GetParent() + RandomVector(300))
+	if stone then
+		keys.unit:EmitSound("Item.PickUpGemWorld")
+		GameManager:SpawnEonStone(self:GetParent():GetAbsOrigin())
 	end
 
 	stone:Destroy()

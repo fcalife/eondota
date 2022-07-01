@@ -9,7 +9,7 @@ function GlobalMessages:SendAnimated(message)
 end
 
 function GlobalMessages:NotifyTeamScored(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "Radiant" or "Dire").." delivered an Eon Stone!"
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." delivered an Eon Stone!"
 
 	self:SendAnimated(message)
 

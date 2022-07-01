@@ -79,9 +79,57 @@
 
 	"dota_fountain"
 	{
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
-		"AttackDamageMin"			"1"
-		"AttackDamageMax"			"1"
+		"AttackDamageMin"			"475"
+		"AttackDamageMax"			"525"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"1000"
+		"ProjectileSpeed"			"2500"
+	}
+
+	"npc_patrol_golem"
+	{
+		"BaseClass"					"npc_dota_tower"
+		"Model"						"models/props_structures/radiant_tower002.vmdl"
+		"SoundSet"					"Tower.Water"
+		"MinimapIcon"				"minimap_siege"
+		"MinimapIconSize"			"800"
+
+		"Ability1"					"spirit_breaker_greater_bash"
+		"Ability2"					"life_stealer_ghoul_frenzy"
+
+		"ArmorPhysical"				"40"
+		"MagicalResistance"			"50"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"95"
+		"BaseAttackSpeed"			"150"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.01"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"900"
+		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"260"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"200"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"8.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"700"
 	}
 
 	"npc_dota_neutral_kobold"

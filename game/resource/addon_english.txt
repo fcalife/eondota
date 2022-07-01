@@ -5,12 +5,22 @@
 	{
 		// General
 		"addon_game_name"					"Eon"
+		"DOTA_GoodGuys"						"BLUE"
+		"DOTA_BadGuys"						"RED"
 
 		// Heroes/couriers
+		"npc_dota_hero_juggernaut"			"Juggernaut (Melee DPS)"
+		"npc_dota_hero_lich"				"Lich (Support)"
 		"npc_dota_hero_lion"				"Lion (Support)"
 		"npc_dota_hero_sven"				"Sven (Melee DPS)"
 		"npc_dota_hero_tidehunter"			"Tidehunter (Tank)"
+		"npc_dota_hero_vengefulspirit"		"Vengeful Spirit (Support)"
 		"npc_dota_hero_viper"				"Viper (Ranged DPS)"
+		"npc_dota_hero_skeleton_king"		"Wraith King (Tank)"
+		"npc_dota_hero_warlock"				"Warlock (Support)"
+		"npc_dota_hero_luna"				"Luna (Ranged DPS)"
+
+		"npc_patrol_golem"					"Patrol Tower"
 
 		// Shop
 		"DOTA_SUBSHOP_CONSUMABLES"			"STARTING ITEMS"
@@ -20,10 +30,10 @@
 		"DOTA_SUBSHOP_SECRETSHOP"			"ADVANCED ITEMS"
 		"DOTA_SUBSHOP_BASICS"				"DEFENSIVE ITEMS"
 		"DOTA_SUBSHOP_SUPPORT"				"OFFENSIVE ITEMS"
-		"DOTA_SUBSHOP_MAGICS"				"RECOMMENDED (LION)"
-		"DOTA_SUBSHOP_DEFENSE"				"RECOMMENDED (SVEN)"
-		"DOTA_SUBSHOP_WEAPONS"				"RECOMMENDED (TIDEHUNTER)"
-		"DOTA_SUBSHOP_ARTIFACTS"			"RECOMMENDED (VIPER)"
+		"DOTA_SUBSHOP_MAGICS"				"RECOMMENDED (SUPPORT)"
+		"DOTA_SUBSHOP_DEFENSE"				"RECOMMENDED (MELEE DPS)"
+		"DOTA_SUBSHOP_WEAPONS"				"RECOMMENDED (TANK)"
+		"DOTA_SUBSHOP_ARTIFACTS"			"RECOMMENDED (RANGED DPS)"
 
 		"DOTA_Shop_Category_Basics"			"BASIC"
 		"DOTA_Shop_Category_Upgrades"		"ADVANCED"
@@ -33,7 +43,10 @@
 
 		// Items
 		"DOTA_Tooltip_ability_item_eon_stone"						"Eon Stone"
-		"DOTA_Tooltip_ability_item_eon_stone_Description"			"Get to the goal to score 20 points"
+		"DOTA_Tooltip_ability_item_eon_stone_Description"			"<h1>Active: Pass</h1>Throw the stone; hopefully an ally catches it!\n<h1>Passive: Shiny</h1>Step on the enemy goal with the stone in your possession in order to score 7 points. Drops on the ground if you die."
+
+		"DOTA_Tooltip_ability_item_bounty_rune"						"Bounty Rune"
+		"DOTA_Tooltip_ability_item_bounty_rune_Description"			"Collect it to gain bonus gold and experience for your whole team!"
 
 		"DOTA_Tooltip_ability_item_dev_blink"						"Mega Blink"
 		"DOTA_Tooltip_ability_item_dev_blink_Description"			"<h1>Active: Warp</h1>Instantly teleports to the target point of the map"
@@ -41,7 +54,7 @@
 		"DOTA_Tooltip_ability_item_dev_dagon"						"Banhammer"
 		"DOTA_Tooltip_ability_item_dev_dagon_Description"			"<h1>Active: Delete</h1>Kills the target enemy unit"
 
-		"DOTA_Tooltip_modifier_"						""
-		"DOTA_Tooltip_modifier__Description"			""
+		"DOTA_Tooltip_modifier_speed_bonus"							"Speed Boost"
+		"DOTA_Tooltip_modifier_speed_bonus_Description"				"Vroooommm!"
 	}
 }

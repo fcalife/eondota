@@ -30,7 +30,8 @@ function GameManager:SpawnGoalTrigger(position, team)
 		flag_filter = DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
 	}, function(units)
 		for _, unit in pairs(units) do
-			if unit:FindItemInInventory("item_eon_stone") then GameManager:OnEonStoneTouchGoal(unit) end
+			local stone = unit:FindItemInInventory("item_eon_stone")
+			if stone and stone:IsActivated() then GameManager:OnEonStoneTouchGoal(unit) end
 		end
 	end)
 end
@@ -57,7 +58,7 @@ function GameManager:StartEonStoneCountdown()
 	minimap_dummy:AddNewModifier(minimap_dummy, nil, "modifier_not_on_minimap", {})
 
 	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-		AddFOWViewer(team, location, 750, EON_STONE_COUNTDOWN_TIME, false)
+		AddFOWViewer(team, location, EON_STONE_VISION_RADIUS, EON_STONE_COUNTDOWN_TIME, false)
 		MinimapEvent(team, minimap_dummy, location.x, location.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, EON_STONE_COUNTDOWN_TIME)
 	end
 
@@ -95,7 +96,7 @@ function GameManager:SpawnEonStone(location)
 
 	stone_data.fow_viewers = {}
 	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-		table.insert(stone_data.fow_viewers, AddFOWViewer(team, location, 750, GAME_MAX_DURATION, false))
+		table.insert(stone_data.fow_viewers, AddFOWViewer(team, location, EON_STONE_VISION_RADIUS, GAME_MAX_DURATION, false))
 	end
 	
 	table.insert(self.spawned_stones, stone_data)
@@ -152,4 +153,43 @@ function GameManager:OnEonStoneTouchGoal(unit)
 		ScoreManager:Score(unit:GetTeam(), EON_STONE_SCORE)
 		stone:Destroy()
 	end
+end
+
+function GameManager:StartGameEndCountdown()
+	self:SetGamePhase(GAME_STATE_END_TIMER)
+
+	EmitGlobalSound("game_end.timer_start")
+	GlobalMessages:Send("The game will end in 30 seconds!")
+
+	Timers:CreateTimer(10, function() GlobalMessages:Send("The game will end in 20 seconds!") end)
+	Timers:CreateTimer(15, function() GlobalMessages:Send("The game will end in 15 seconds!") end)
+
+	Timers:CreateTimer(20, function()
+		EmitGlobalSound("game_end.10")
+		GlobalMessages:Send("The game will end in 10 seconds!")
+	end)
+
+	Timers:CreateTimer(21, function() EmitGlobalSound("game_end.09") end)
+	Timers:CreateTimer(22, function() EmitGlobalSound("game_end.08") end)
+	Timers:CreateTimer(23, function() EmitGlobalSound("game_end.07") end)
+	Timers:CreateTimer(24, function() EmitGlobalSound("game_end.06") end)
+
+	Timers:CreateTimer(25, function()
+		EmitGlobalSound("game_end.05")
+		GlobalMessages:Send("5!")
+	end)
+
+	Timers:CreateTimer(26, function() EmitGlobalSound("game_end.04") end)
+	Timers:CreateTimer(27, function()
+		EmitGlobalSound("game_end.03")
+		GlobalMessages:Send("3!")
+	end)
+	Timers:CreateTimer(28, function()
+		EmitGlobalSound("game_end.02")
+		GlobalMessages:Send("2!")
+	end)
+	Timers:CreateTimer(29, function()
+		EmitGlobalSound("game_end.01")
+		GlobalMessages:Send("1!")
+	end)
 end

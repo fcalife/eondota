@@ -40,4 +40,101 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/ui/outpost_capture_notify.vsnd"
 	}
+	bounty_rune.picked_up = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/items/rune_bounty.vsnd"
+	}
+	game_end.timer_start = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/ambient/mega_horn_radiant.vsnd"
+	}
+	game_end.10 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_10.vsnd"
+	}
+	game_end.09 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_09.vsnd"
+	}
+	game_end.08 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_08.vsnd"
+	}
+	game_end.07 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_07.vsnd"
+	}
+	game_end.06 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_06.vsnd"
+	}
+	game_end.05 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_05.vsnd"
+	}
+	game_end.04 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_04.vsnd"
+	}
+	game_end.03 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_03.vsnd"
+	}
+	game_end.02 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_02.vsnd"
+	}
+	game_end.01 = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_01.vsnd"
+	}
+	
 }

@@ -1,3 +1,13 @@
+local instant_turn_orders = {
+	[DOTA_UNIT_ORDER_MOVE_TO_POSITION] = true,
+	[DOTA_UNIT_ORDER_MOVE_TO_TARGET] = true,
+	[DOTA_UNIT_ORDER_ATTACK_TARGET] = true,
+	[DOTA_UNIT_ORDER_DROP_ITEM] = true,
+	[DOTA_UNIT_ORDER_GIVE_ITEM] = true,
+	[DOTA_UNIT_ORDER_PICKUP_ITEM] = true,
+	[DOTA_UNIT_ORDER_PICKUP_RUNE] = true
+}
+
 function Filters:ExecuteOrderFilter(keys)
 	local order_type = keys.order_type
 
@@ -14,4 +24,12 @@ function Filters:ExecuteOrderFilter(keys)
 	if keys.units and keys.units["0"] then unit = EntIndexToHScript(keys.units["0"]) end
 
 	if (not unit) or unit:IsNull() then return true end
+
+	if order_type and instant_turn_orders[order_type] then
+		local target_loc = (target and target:GetAbsOrigin()) or keys.target
+
+		if target_loc then
+			unit:SetForwardVector((target_loc - unit:GetAbsOrigin()):Normalized())
+		end
+	end
 end

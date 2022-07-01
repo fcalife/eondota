@@ -10,7 +10,12 @@ function modifier_hero_base_state:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_LIMIT 
+		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+		MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
+		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
+		MODIFIER_PROPERTY_MODEL_SCALE,
+		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE
 	}
 end
 
@@ -26,4 +31,24 @@ end
 
 function modifier_hero_base_state:GetModifierMoveSpeed_Limit()
 	return 1100
+end
+
+function modifier_hero_base_state:GetModifierTurnRate_Percentage()
+	return 1000
+end
+
+function modifier_hero_base_state:GetModifierPercentageRespawnTime()
+	return 0.5
+end
+
+function modifier_hero_base_state:GetModifierModelScale()
+	return 30
+end
+
+function modifier_hero_base_state:GetModifierIgnoreCastAngle()
+	return 1
+end
+
+function modifier_hero_base_state:GetModifierPercentageCasttime()
+	return 100
 end

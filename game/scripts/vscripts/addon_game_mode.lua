@@ -103,6 +103,7 @@ function GameMode:InitGameMode()
 	SpeedBoosts:Init()
 	RuneSpawner:Init()
 	PatrolGolems:Init()
+	Shrines:Init()
 
 	-- Event Hooks
 	RegisterGameEventListener('player_connect_full', function(event) GameEvents:OnPlayerConnect(event) end)

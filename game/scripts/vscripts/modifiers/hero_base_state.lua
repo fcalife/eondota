@@ -15,7 +15,8 @@ function modifier_hero_base_state:DeclareFunctions()
 		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
 		MODIFIER_PROPERTY_MODEL_SCALE,
 		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE
+		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
 	}
 end
 
@@ -30,7 +31,7 @@ function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
 end
 
 function modifier_hero_base_state:GetModifierMoveSpeed_Limit()
-	return 1100
+	return (self:GetParent():HasModifier("modifier_item_eon_stone") and 500) or 1100
 end
 
 function modifier_hero_base_state:GetModifierTurnRate_Percentage()
@@ -51,4 +52,8 @@ end
 
 function modifier_hero_base_state:GetModifierPercentageCasttime()
 	return 100
+end
+
+function modifier_hero_base_state:GetModifierIncomingDamage_Percentage()
+	return -15
 end

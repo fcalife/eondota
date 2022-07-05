@@ -8,5 +8,6 @@ require('core/global_messages')
 require('core/speed_boosts')
 require('core/rune_spawner')
 require('core/patrol_golems')
+require('core/shrines')
 
 require("core/filters/init")

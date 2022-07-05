@@ -21,6 +21,7 @@
 		"npc_dota_hero_luna"				"Luna (Ranged DPS)"
 
 		"npc_patrol_golem"					"Patrol Tower"
+		"npc_control_shrine"				"Shrine"
 
 		// Shop
 		"DOTA_SUBSHOP_CONSUMABLES"			"STARTING ITEMS"

@@ -2,10 +2,10 @@ _G.PatrolGolems = PatrolGolems or {}
 
 local golem_paths = {}
 
-golem_paths["radiant_golem_a_"] = { team = DOTA_TEAM_GOODGUYS, color = Vector(110, 110, 240) }
-golem_paths["radiant_golem_b_"] = { team = DOTA_TEAM_GOODGUYS, color = Vector(110, 110, 240) }
-golem_paths["dire_golem_a_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 110, 110) }
-golem_paths["dire_golem_b_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 110, 110) }
+golem_paths["radiant_golem_a_"] = { team = DOTA_TEAM_GOODGUYS, color = Vector(80, 110, 240) }
+golem_paths["radiant_golem_b_"] = { team = DOTA_TEAM_GOODGUYS, color = Vector(80, 110, 240) }
+golem_paths["dire_golem_a_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 80, 110) }
+golem_paths["dire_golem_b_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 80, 110) }
 
 function PatrolGolems:Init()
 	for path_name, _ in pairs(golem_paths) do

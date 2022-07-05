@@ -28,16 +28,19 @@ GAME_MAX_DURATION = 900			-- Time after which the game will end in favor of the 
 GAME_END_WARNING_TIME = 30		-- Time before the game's end for it to start being counted down to
 GAME_TARGET_SCORE = 50			-- Score a team needs to achieve in order to end the game before the time limit
 
-BOUNTY_RUNE_BASE_GOLD = 200			-- Base gold granted to the whole team when picking up a bounty rune
-BOUNTY_RUNE_GOLD_PER_SECOND = 1		-- Amount by which the above increases every second
-BOUNTY_RUNE_BASE_EXP = 200			-- Base experience granted to the whole team when picking up a bounty rune
-BOUNTY_RUNE_EXP_PER_SECOND = 2		-- Amount by which the above increases every second
+BOUNTY_RUNE_BASE_GOLD = 100			-- Base gold granted to the whole team when picking up a bounty rune
+BOUNTY_RUNE_GOLD_PER_SECOND = 0.5	-- Amount by which the above increases every second
+BOUNTY_RUNE_BASE_EXP = 50			-- Base experience granted to the whole team when picking up a bounty rune
+BOUNTY_RUNE_EXP_PER_SECOND = 1		-- Amount by which the above increases every second
 BOUNTY_RUNE_SPAWN_INTERVAL = 45		-- Time between two consecutive bounty rune spawns
 
-PATROL_GOLEM_AGGRO_RANGE = 900
+PATROL_GOLEM_AGGRO_RANGE = 900		-- Maximum distance at which the patrol golems will "see" and attack enemy players
+
+SHRINE_CAPTURE_ZONE_RADIUS = 300
+SHRINE_CAPTURE_TIME = 5
 
 EON_STONE_SCORE = 7											-- How many points an eon stone is worth when delivered to the enemy goal
-EON_STONE_FIRST_SPAWN_TIME = (IsInToolsMode() and 0) or 60	-- How long does it take for the first eon stone to spawn
+EON_STONE_FIRST_SPAWN_TIME = (IsInToolsMode() and 0) or 35	-- How long does it take for the first eon stone to spawn
 EON_STONE_RESPAWN_TIME = 180								-- How long does it take for each subsequent eon stone to spawn
 EON_STONE_COUNTDOWN_TIME = 15								-- How long does it take for the eon stone to spawn after it is announced to players
 EON_STONE_VISION_RADIUS = 750								-- How much vision each eon stone gives to both teams around itself when dropped on the ground

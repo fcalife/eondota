@@ -1,9 +1,16 @@
 -- Link global modifiers
 LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_golem_base_state", "modifiers/golem_base_state", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_speed_bonus", "modifiers/modifier_speed_bonus", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dummy_state", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_not_on_minimap", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_speed_bonus", "modifiers/modifier_speed_bonus", LUA_MODIFIER_MOTION_NONE)
+
+LinkLuaModifier("modifier_shrine_base_state", "modifiers/shrine_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shrine_active", "modifiers/shrine_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shrine_buff_arcane", "modifiers/shrine_buffs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shrine_buff_frenzy", "modifiers/shrine_buffs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shrine_buff_catastrophe", "modifiers/shrine_buffs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shrine_buff_ultimate", "modifiers/shrine_buffs", LUA_MODIFIER_MOTION_NONE)
 
 -- GAME STATE CONSTANTS
 
@@ -28,6 +35,8 @@ GAME_MAX_DURATION = 900			-- Time after which the game will end in favor of the 
 GAME_END_WARNING_TIME = 30		-- Time before the game's end for it to start being counted down to
 GAME_TARGET_SCORE = 50			-- Score a team needs to achieve in order to end the game before the time limit
 
+NEUTRAL_CREEP_FIRST_SPAWN_TIME = 20
+
 BOUNTY_RUNE_BASE_GOLD = 100			-- Base gold granted to the whole team when picking up a bounty rune
 BOUNTY_RUNE_GOLD_PER_SECOND = 0.5	-- Amount by which the above increases every second
 BOUNTY_RUNE_BASE_EXP = 50			-- Base experience granted to the whole team when picking up a bounty rune
@@ -36,8 +45,11 @@ BOUNTY_RUNE_SPAWN_INTERVAL = 45		-- Time between two consecutive bounty rune spa
 
 PATROL_GOLEM_AGGRO_RANGE = 900		-- Maximum distance at which the patrol golems will "see" and attack enemy players
 
-SHRINE_CAPTURE_ZONE_RADIUS = 300
+SHRINE_BUFF_EFFECT_RADIUS = 1200
+SHRINE_BUFF_DURATION = 30
+SHRINE_CAPTURE_ZONE_RADIUS = 500
 SHRINE_CAPTURE_TIME = 5
+SHRINE_REFRESH_TIME = 90
 
 EON_STONE_SCORE = 7											-- How many points an eon stone is worth when delivered to the enemy goal
 EON_STONE_FIRST_SPAWN_TIME = (IsInToolsMode() and 0) or 35	-- How long does it take for the first eon stone to spawn

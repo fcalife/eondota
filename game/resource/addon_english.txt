@@ -57,5 +57,17 @@
 
 		"DOTA_Tooltip_modifier_speed_bonus"							"Speed Boost"
 		"DOTA_Tooltip_modifier_speed_bonus_Description"				"Vroooommm!"
+
+		"DOTA_Tooltip_modifier_shrine_buff_arcane"					"Arcane Shrine"
+		"DOTA_Tooltip_modifier_shrine_buff_arcane_Description"		"Gaining %dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%% cooldown reduction and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification"
+
+		"DOTA_Tooltip_modifier_shrine_buff_frenzy"					"Frenzy Shrine"
+		"DOTA_Tooltip_modifier_shrine_buff_frenzy_Description"		"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, and immunity to slows"
+
+		"DOTA_Tooltip_modifier_shrine_buff_catastrophe"					"Catastrophe Shrine"
+		"DOTA_Tooltip_modifier_shrine_buff_catastrophe_Description"		"You have a %dMODIFIER_PROPERTY_TOOLTIP%%% chance to trigger random elemental effects on enemies every time you deal damage to them"
+
+		"DOTA_Tooltip_modifier_shrine_buff_ultimate"					"Unstoppable Shrine"
+		"DOTA_Tooltip_modifier_shrine_buff_ultimate_Description"		"All your attacks are automatic %dMODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE%%% critical hits, and you have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% bonus status resistance"
 	}
 }

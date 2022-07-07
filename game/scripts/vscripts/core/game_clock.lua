@@ -8,6 +8,10 @@ function GameClock:Start()
 
 	GameManager:SetGamePhase(GAME_STATE_BATTLE)
 
+	Timers:CreateTimer(NEUTRAL_CREEP_FIRST_SPAWN_TIME, function()
+		GameRules:SpawnNeutralCreeps()
+	end)
+
 	self:Tick()
 end
 

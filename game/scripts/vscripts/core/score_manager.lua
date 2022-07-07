@@ -1,5 +1,9 @@
 _G.ScoreManager = ScoreManager or {}
 
+ENEMY_TEAM = {}
+ENEMY_TEAM[DOTA_TEAM_GOODGUYS] = DOTA_TEAM_BADGUYS
+ENEMY_TEAM[DOTA_TEAM_BADGUYS] = DOTA_TEAM_GOODGUYS
+
 function ScoreManager:Init()
 	self.eon_points = {}
 	self.eon_points[DOTA_TEAM_GOODGUYS] = 0
@@ -46,4 +50,8 @@ function ScoreManager:OnGameTimeOver()
 	elseif self:GetTotalScore(DOTA_TEAM_BADGUYS) > self:GetTotalScore(DOTA_TEAM_GOODGUYS) then
 		GameManager:EndGameWithWinner(DOTA_TEAM_BADGUYS)
 	end
+end
+
+function ScoreManager:GetHandicap(team)
+	return math.max(0, self:GetTotalScore(ENEMY_TEAM[team]) - self:GetTotalScore(team))
 end

@@ -5,11 +5,14 @@ precache.particles = {
     "particles/eon_carrier.vpcf",
     "particles/eon_throw.vpcf",
     "particles/boost_panel.vpcf",
-    "particles/speed_buff.vpcf"
+    "particles/speed_buff.vpcf",
+    "particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl11_orb.vpcf",
+    "particles/econ/events/ti9/maelstorm_ti9.vpcf",
+    "particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf"
 }
 
 precache.particle_folders = {
-    --"particles/creature"
+    "particles/control_zone/",
 }
 
 precache.models = {

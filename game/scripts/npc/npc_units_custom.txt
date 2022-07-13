@@ -86,10 +86,10 @@
 		"ProjectileSpeed"			"2500"
 	}
 
-	"npc_patrol_golem"
+	"npc_patrol_golem_good"
 	{
-		"BaseClass"					"npc_dota_tower"
-		"Model"						"models/props_structures/radiant_tower002.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/courier/vaal_the_animated_constructradiant/vaal_the_animated_constructradiant_flying.vmdl"
 		"SoundSet"					"Tower.Water"
 		"MinimapIcon"				"minimap_siege"
 		"MinimapIconSize"			"800"
@@ -97,8 +97,54 @@
 		"Ability1"					"spirit_breaker_greater_bash"
 		"Ability2"					"life_stealer_ghoul_frenzy"
 
-		"ArmorPhysical"				"40"
-		"MagicalResistance"			"50"
+		"ArmorPhysical"				"50"
+		"MagicalResistance"			"100"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"95"
+		"BaseAttackSpeed"			"150"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.01"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"900"
+		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"260"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"200"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"7500"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"700"
+	}
+
+	"npc_patrol_golem_bad"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/courier/vaal_the_animated_constructdire/vaal_the_animated_constructdire_flying.vmdl"
+		"SoundSet"					"Tower.Fire"
+		"MinimapIcon"				"minimap_siege"
+		"MinimapIconSize"			"800"
+
+		"Ability1"					"spirit_breaker_greater_bash"
+		"Ability2"					"life_stealer_ghoul_frenzy"
+
+		"ArmorPhysical"				"50"
+		"MagicalResistance"			"100"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"85"
@@ -119,12 +165,12 @@
 		"RingRadius"				"130"
 		"HealthBarOffset"			"260"
 
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"				"200"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"4000"
-		"StatusHealthRegen"			"8.0"
+		"StatusHealth"				"7500"
+		"StatusHealthRegen"			"0.0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -179,9 +225,9 @@
 		"AttackDamageMin"			"10"
 		"AttackDamageMax"			"11"	
 
-		"BountyXP"					"30"
-		"BountyGoldMin"				"25"
-		"BountyGoldMax"				"25"
+		"BountyXP"					"15"
+		"BountyGoldMin"				"12"
+		"BountyGoldMax"				"13"
 
 		"MovementSpeed"				"490"
 
@@ -194,9 +240,9 @@
 		"AttackDamageMin"			"17"		// Damage range min.
 		"AttackDamageMax"			"18"		// Damage range max.	
 
-		"BountyXP"					"60"		// Experience earn.
-		"BountyGoldMin"				"50"		// Gold earned min.
-		"BountyGoldMax"				"50"		// Gold earned max.
+		"BountyXP"					"30"		// Experience earn.
+		"BountyGoldMin"				"25"		// Gold earned min.
+		"BountyGoldMax"				"25"		// Gold earned max.
 
 		"MovementSpeed"				"470"		// Speed.
 
@@ -211,9 +257,9 @@
 		"AttackDamageMin"			"19"		// Damage range min.
 		"AttackDamageMax"			"21"		// Damage range max.	
 
-		"BountyXP"					"100"		// Experience earn.
-		"BountyGoldMin"				"75"		// Gold earned min.
-		"BountyGoldMax"				"75"		// Gold earned max.
+		"BountyXP"					"40"		// Experience earn.
+		"BountyGoldMin"				"40"		// Gold earned min.
+		"BountyGoldMax"				"40"		// Gold earned max.
 
 		"MovementSpeed"				"530"		// Speed.
 
@@ -226,9 +272,9 @@
 		"AttackDamageMin"			"22"
 		"AttackDamageMax"			"24"
 
-		"BountyXP"					"200"
-		"BountyGoldMin"				"150"
-		"BountyGoldMax"				"150"
+		"BountyXP"					"100"
+		"BountyGoldMin"				"80"
+		"BountyGoldMax"				"80"
 
 		"MovementSpeed"				"500"
 
@@ -241,9 +287,9 @@
 		"AttackDamageMin"			"29"
 		"AttackDamageMax"			"31"
 
-		"BountyXP"					"300"
-		"BountyGoldMin"				"250"
-		"BountyGoldMax"				"250"
+		"BountyXP"					"150"
+		"BountyGoldMin"				"130"
+		"BountyGoldMax"				"130"
 
 		"MovementSpeed"				"510"
 
@@ -256,9 +302,9 @@
 		"AttackDamageMin"			"24"
 		"AttackDamageMax"			"26"
 
-		"BountyXP"					"150"
-		"BountyGoldMin"				"125"
-		"BountyGoldMax"				"125"
+		"BountyXP"					"75"
+		"BountyGoldMin"				"65"
+		"BountyGoldMax"				"65"
 
 		"MovementSpeed"				"480"
 
@@ -271,9 +317,9 @@
 		"AttackDamageMin"			"49"
 		"AttackDamageMax"			"51"
 
-		"BountyXP"					"450"
-		"BountyGoldMin"				"350"
-		"BountyGoldMax"				"350"
+		"BountyXP"					"240"
+		"BountyGoldMin"				"180"
+		"BountyGoldMax"				"180"
 
 		"MovementSpeed"				"490"
 
@@ -286,9 +332,9 @@
 		"AttackDamageMin"			"88"
 		"AttackDamageMax"			"95"
 
-		"BountyXP"					"500"
-		"BountyGoldMin"				"400"
-		"BountyGoldMax"				"400"
+		"BountyXP"					"250"
+		"BountyGoldMin"				"200"
+		"BountyGoldMax"				"200"
 
 		"MovementSpeed"				"520"
 
@@ -301,9 +347,9 @@
 		"AttackDamageMin"			"140"
 		"AttackDamageMax"			"150"
 
-		"BountyXP"					"1500"
-		"BountyGoldMin"				"1200"
-		"BountyGoldMax"				"1200"
+		"BountyXP"					"800"
+		"BountyGoldMin"				"600"
+		"BountyGoldMax"				"600"
 
 		"MovementSpeed"				"550"
 

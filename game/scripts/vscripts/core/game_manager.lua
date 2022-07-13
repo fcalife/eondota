@@ -17,6 +17,17 @@ function GameManager:Init()
 		table.insert(self.eon_stone_spawn_points, spawn_point:GetAbsOrigin())
 	end
 
+	self.match_spawn_points = {}
+	local shuffled_spawn_points = table.shuffle(self.eon_stone_spawn_points)
+
+	while #self.match_spawn_points < 10 do
+		if #shuffled_spawn_points > 0 then
+			table.insert(self.match_spawn_points, table.remove(shuffled_spawn_points))
+		else
+			shuffled_spawn_points = table.shuffle(self.eon_stone_spawn_points)
+		end
+	end
+
 	self.spawned_stones = {}
 end
 
@@ -45,7 +56,7 @@ function GameManager:GetGamePhase()
 end
 
 function GameManager:StartEonStoneCountdown()
-	local location = table.remove(self.eon_stone_spawn_points)
+	local location = table.remove(self.match_spawn_points)
 
 	if not location then return end
 

@@ -104,6 +104,7 @@ function GameMode:InitGameMode()
 	RuneSpawner:Init()
 	PatrolGolems:Init()
 	Shrines:Init()
+	Filters:Init()
 
 	-- Event Hooks
 	RegisterGameEventListener('player_connect_full', function(event) GameEvents:OnPlayerConnect(event) end)

@@ -7,17 +7,28 @@ function modifier_hero_base_state:RemoveOnDeath() return false end
 function modifier_hero_base_state:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_hero_base_state:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
-		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
-		MODIFIER_PROPERTY_MODEL_SCALE,
-		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
-		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
-	}
+	if IsServer() then
+		return {
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+			MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+			MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
+			MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_MODEL_SCALE,
+			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+		} else return {
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+			MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+			MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
+			MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_MODEL_SCALE,
+			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE
+		}
+	end
 end
 
 function modifier_hero_base_state:GetModifierMoveSpeedBonus_Constant()
@@ -31,7 +42,7 @@ function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
 end
 
 function modifier_hero_base_state:GetModifierMoveSpeed_Limit()
-	return (self:GetParent():HasModifier("modifier_item_eon_stone") and 500) or 1100
+	return (self:GetParent():HasModifier("modifier_item_eon_stone") and 400) or 1100
 end
 
 function modifier_hero_base_state:GetModifierTurnRate_Percentage()
@@ -54,6 +65,6 @@ function modifier_hero_base_state:GetModifierPercentageCasttime()
 	return 100
 end
 
-function modifier_hero_base_state:GetModifierIncomingDamage_Percentage()
-	return -15
+function modifier_hero_base_state:GetModifierPhysicalArmorBonus()
+	return 7
 end

@@ -13,7 +13,7 @@ function ScoreManager:Init()
 end
 
 function ScoreManager:GetTotalScore(team)
-	return (self.eon_points and self.eon_points[team] or 0) + PlayerResource:GetTeamKills(team)
+	return (self.eon_points and self.eon_points[team] or 0)
 end
 
 function ScoreManager:Score(team, points)
@@ -38,16 +38,6 @@ function ScoreManager:CheckForPointWin()
 		GameManager:EndGameWithWinner(DOTA_TEAM_GOODGUYS)
 	end
 	if self:GetTotalScore(DOTA_TEAM_BADGUYS) >= GAME_TARGET_SCORE then
-		GameManager:EndGameWithWinner(DOTA_TEAM_BADGUYS)
-	end
-end
-
-function ScoreManager:OnGameTimeOver()
-	self:CheckForPointWin()
-
-	if self:GetTotalScore(DOTA_TEAM_GOODGUYS) > self:GetTotalScore(DOTA_TEAM_BADGUYS) then
-		GameManager:EndGameWithWinner(DOTA_TEAM_GOODGUYS)
-	elseif self:GetTotalScore(DOTA_TEAM_BADGUYS) > self:GetTotalScore(DOTA_TEAM_GOODGUYS) then
 		GameManager:EndGameWithWinner(DOTA_TEAM_BADGUYS)
 	end
 end

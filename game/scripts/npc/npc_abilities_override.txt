@@ -1178,6 +1178,296 @@
 		}
 	}
 
+	"item_recipe_dagon_2"
+	{
+		"ItemRequirements"
+		{
+			"02"						"item_dagon*;item_dagon"
+		}
+	}
+
+	"item_recipe_dagon_3"
+	{
+		"ItemRequirements"
+		{
+			"02"						"item_dagon_2*;item_dagon"
+		}
+	}
+
+	"item_recipe_dagon_4"
+	{
+		"ItemRequirements"
+		{
+			"02"						"item_dagon_3*;item_dagon"
+		}
+	}
+
+	"item_recipe_dagon_5"
+	{
+		"ItemRequirements"
+		{
+			"02"						"item_dagon_4*;item_dagon"
+		}
+	}
+
+	"item_dagon"
+	{
+		"ItemCost"						"1500"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"				"0 10 20 30 40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"				"0 4 8 12 16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"				"0 4 8 12 16"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 500 600 700 800"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_cost_tooltip"		"120 140 160 180 200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int_damage"		"0"
+			}
+		}
+	}
+
+	"item_dagon_2"
+	{
+		"ItemCost"						"3000"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"				"0 10 20 30 40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"				"0 4 8 12 16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"				"0 4 8 12 16"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 500 600 700 800"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_cost_tooltip"		"120 140 160 180 200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int_damage"		"0"
+			}
+		}
+	}
+
+	"item_dagon_3"
+	{
+		"ItemCost"						"4500"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"				"0 10 20 30 40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"				"0 4 8 12 16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"				"0 4 8 12 16"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 500 600 700 800"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_cost_tooltip"		"120 140 160 180 200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int_damage"		"0"
+			}
+		}
+	}
+
+	"item_dagon_4"
+	{
+		"ItemCost"						"6000"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"				"0 10 20 30 40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"				"0 4 8 12 16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"				"0 4 8 12 16"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 500 600 700 800"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_cost_tooltip"		"120 140 160 180 200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int_damage"		"0"
+			}
+		}
+	}
+
+	"item_dagon_5"
+	{
+		"ItemCost"						"7500"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"				"0 10 20 30 40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"				"0 4 8 12 16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"				"0 4 8 12 16"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 500 600 700 800"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_cost_tooltip"		"120 140 160 180 200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int_damage"		"0"
+			}
+		}
+	}
+
+	"item_ethereal_blade"
+	{
+		"AbilityCooldown"				"20"	    
+		"ItemCost"						"3500"
+
+		"AbilityValues"
+		{
+				"bonus_agility"				"10"
+				"bonus_strength"			"10"
+				"bonus_intellect"			"30"
+				"spell_amp"					"15"
+				"spell_lifesteal_amp"		"30"
+				"mana_regen_multiplier"		"100"
+				"blast_movement_slow"		"-80"
+				"duration"					"4.0"
+				"blast_agility_multiplier"	"1.5"
+				"blast_damage_base"			"50"
+				"duration_ally"				"4.0"
+				"ethereal_damage_bonus"		"-40"
+				"projectile_speed"			"1275"
+
+		}
+	}
+
+	"item_orchid"
+	{
+		"ItemCost"						"3000"
+
+		"AbilityValues"
+		{
+				"bonus_attack_speed"		"40"
+				"bonus_damage"				"30"
+				"bonus_mana_regen"			"5"
+				"silence_damage_percent"	"30"
+				"silence_duration"			"5"
+		}
+	}
+
 
 
 	"item_arcane_blink"					"REMOVE"
@@ -1289,7 +1579,6 @@
 	"item_headdress"			"REMOVE"
 	"item_recipe_sheepstick"			"REMOVE"
 	"item_recipe_orchid"			"REMOVE"
-	"item_orchid"			"REMOVE"
 	"item_recipe_bloodthorn"			"REMOVE"
 	"item_bloodthorn"			"REMOVE"
 	"item_recipe_echo_sabre"			"REMOVE"
@@ -1305,15 +1594,6 @@
 	"item_recipe_hurricane_pike"			"REMOVE"
 	"item_hurricane_pike"			"REMOVE"
 	"item_recipe_dagon"			"REMOVE"
-	"item_recipe_dagon_2"			"REMOVE"
-	"item_recipe_dagon_3"			"REMOVE"
-	"item_recipe_dagon_4"			"REMOVE"
-	"item_recipe_dagon_5"			"REMOVE"
-	"item_dagon"			"REMOVE"
-	"item_dagon_2"			"REMOVE"
-	"item_dagon_3"			"REMOVE"
-	"item_dagon_4"			"REMOVE"
-	"item_dagon_5"			"REMOVE"
 	"item_recipe_necronomicon"			"REMOVE"
 	"item_recipe_necronomicon_2"			"REMOVE"
 	"item_recipe_necronomicon_3"			"REMOVE"
@@ -1408,7 +1688,6 @@
 	"item_recipe_diffusal_blade"			"REMOVE"
 	"item_diffusal_blade"			"REMOVE"
 	"item_recipe_ethereal_blade"			"REMOVE"
-	"item_ethereal_blade"			"REMOVE"
 	"item_recipe_soul_ring"			"REMOVE"
 	"item_soul_ring"			"REMOVE"
 	"item_recipe_arcane_boots"			"REMOVE"

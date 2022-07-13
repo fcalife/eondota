@@ -57,12 +57,15 @@
 		"item"		"item_witch_blade"
 		"item"		"item_basher"
 		"item"		"item_ultimate_scepter"
+		"item"		"item_orchid"
 		"item"		"item_satanic"
+		"item"		"item_ethereal_blade"
 		"item"		"item_butterfly"
 		"item"		"item_greater_crit"
 		"item"		"item_assault"
 		"item"		"item_skadi"
 		"item"		"item_refresher"
+		"item"		"item_dagon_5"
 	}
 
 	"magics"

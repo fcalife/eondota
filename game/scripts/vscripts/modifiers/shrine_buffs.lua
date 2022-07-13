@@ -30,11 +30,11 @@ function modifier_shrine_buff_arcane:DeclareFunctions()
 end
 
 function modifier_shrine_buff_arcane:GetModifierPercentageCooldown()
-	return 25 + 2 * self:GetStackCount()
+	return 30 + 10 * self:GetStackCount()
 end
 
 function modifier_shrine_buff_arcane:GetModifierSpellAmplify_Percentage()
-	return 20 + 3 * self:GetStackCount()
+	return 20 + 15 * self:GetStackCount()
 end
 
 
@@ -77,11 +77,11 @@ function modifier_shrine_buff_frenzy:DeclareFunctions()
 end
 
 function modifier_shrine_buff_frenzy:GetModifierAttackSpeedBonus_Constant()
-	return 100 + 10 * self:GetStackCount()
+	return 100 + 50 * self:GetStackCount()
 end
 
 function modifier_shrine_buff_frenzy:GetModifierMoveSpeedBonus_Percentage()
-	return 20 + 1.5 * self:GetStackCount()
+	return 20 + 10 * self:GetStackCount()
 end
 
 
@@ -125,13 +125,13 @@ function modifier_shrine_buff_catastrophe:DeclareFunctions()
 end
 
 function modifier_shrine_buff_catastrophe:OnTooltip()
-	return 25 + 2 * self:GetStackCount()
+	return math.min(100, 30 + 20 * self:GetStackCount())
 end
 
 function modifier_shrine_buff_catastrophe:OnTakeDamage(keys)
 	if keys.attacker and keys.attacker == self:GetParent() then
 		if keys.unit and keys.attacker:GetTeam() ~= keys.unit:GetTeam() then
-			if (not self.damage_lock) and RollPercentage(25 + 2 * self:GetStackCount()) then
+			if (not self.damage_lock) and RollPercentage(math.min(100, 30 + 20 * self:GetStackCount())) then
 				self.damage_lock = true
 
 				self:TriggerRandomEffect(keys.unit)
@@ -205,9 +205,9 @@ function modifier_shrine_buff_ultimate:DeclareFunctions()
 end
 
 function modifier_shrine_buff_ultimate:GetModifierPreAttack_CriticalStrike()
-	return 150 + 10 * self:GetStackCount()
+	return 150 + 50 * self:GetStackCount()
 end
 
 function modifier_shrine_buff_ultimate:GetModifierStatusResistanceStacking()
-	return 30 + 2 * self:GetStackCount()
+	return 30 + 15 * self:GetStackCount()
 end

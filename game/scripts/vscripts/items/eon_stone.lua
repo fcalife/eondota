@@ -1,8 +1,10 @@
 item_eon_stone = class({})
 
 LinkLuaModifier("modifier_item_eon_stone", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_eon_stone_visual", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
 
-
+local banned_abilities = {}
+banned_abilities["witch_doctor_voodoo_switcheroo"] = true
 
 function item_eon_stone:GetIntrinsicModifierName()
 	return "modifier_item_eon_stone"
@@ -24,30 +26,33 @@ function item_eon_stone:OnSpellStart(keys)
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
 	local direction = (target - caster:GetAbsOrigin()):Normalized()
-	local duration = EON_STONE_THROW_DISTANCE / EON_STONE_THROW_SPEED + 0.01
+	local distance = math.max(200, (target - caster:GetAbsOrigin()):Length2D())
+	local speed = distance / EON_STONE_THROW_DURATION
 
 	local stone_projectile = {
 		Ability				= self,
 		EffectName			= "particles/eon_throw.vpcf",
 		vSpawnOrigin		= caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_mouth")),
-		fDistance			= EON_STONE_THROW_DISTANCE,
-		fStartRadius		= EON_STONE_CATCH_RADIUS,
-		fEndRadius			= EON_STONE_CATCH_RADIUS,
+		fDistance			= distance,
+		fStartRadius		= 0,
+		fEndRadius			= 0,
 		Source				= caster,
 		bHasFrontalCone		= false,
 		bReplaceExisting	= false,
 		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_BOTH,
 		iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		iUnitTargetType		= DOTA_UNIT_TARGET_HERO,
-		fExpireTime 		= GameRules:GetGameTime() + duration,
+		fExpireTime 		= GameRules:GetGameTime() + 1.01,
 		bDeleteOnHit		= true,
-		vVelocity			= Vector(direction.x, direction.y, 0) * EON_STONE_THROW_SPEED,
+		vVelocity			= Vector(direction.x, direction.y, 0) * speed,
 		bProvidesVision		= true,
 		iVisionRadius 		= 350,
 		iVisionTeamNumber 	= caster:GetTeam(),
 	}
 
 	ProjectileManager:CreateLinearProjectile(stone_projectile)
+
+	caster:RemoveModifierByName("modifier_item_eon_stone_visual")
 
 	caster:EmitSound("Throw.EonStone")
 end
@@ -56,15 +61,6 @@ function item_eon_stone:OnProjectileHit(target, location)
 	if not self then return end
 
 	local caster = self:GetCaster() or nil
-
-	if target and caster ~= target then
-		local target_stone = target:FindItemInInventory("item_eon_stone")
-		if not target_stone then
-			target:AddItemByName("item_eon_stone")
-			self:Destroy()
-			return true
-		end
-	end
 
 	if location and (not target) then
 		GridNav:DestroyTreesAroundPoint(location, 300, true)
@@ -81,14 +77,6 @@ function modifier_item_eon_stone:IsPurgable() return false end
 function modifier_item_eon_stone:RemoveOnDeath() return false end
 function modifier_item_eon_stone:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
-function modifier_item_eon_stone:GetEffectName()
-	return "particles/eon_carrier.vpcf"
-end
-
-function modifier_item_eon_stone:GetEffectAttachType()
-	return PATTACH_OVERHEAD_FOLLOW
-end
-
 function modifier_item_eon_stone:OnCreated(keys)
 	if IsClient() then return end
 
@@ -96,11 +84,45 @@ function modifier_item_eon_stone:OnCreated(keys)
 
 	parent:EmitSound("Drop.EonStone")
 
+	parent:AddNewModifier(parent, nil, "modifier_item_eon_stone_visual", {})
+
+	for banned_ability, _ in pairs(banned_abilities) do
+		local this_ability = parent:FindAbilityByName(banned_ability)
+		if this_ability then this_ability:SetActivated(false) end
+	end
+
 	GameManager:OnEonStonePickedUp(parent:GetAbsOrigin())
 
-	if self:GetAbility() then
-		self:GetAbility():StartCooldown(EON_STONE_CATCH_COOLDOWN)
+	self.previous_position = parent:GetAbsOrigin()
+
+	self:StartIntervalThink(0.03)
+end
+
+function modifier_item_eon_stone:OnDestroy()
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	parent:RemoveModifierByName("modifier_item_eon_stone_visual")
+
+	for banned_ability, _ in pairs(banned_abilities) do
+		local this_ability = parent:FindAbilityByName(banned_ability)
+		if this_ability then this_ability:SetActivated(true) end
 	end
+end
+
+function modifier_item_eon_stone:OnIntervalThink()
+	local parent = self:GetParent()
+	local current_position = parent:GetAbsOrigin()
+	local distance = (current_position - self.previous_position):Length2D()
+
+	if (distance > 200) then
+		local stone = parent:FindItemInInventory("item_eon_stone")
+
+		if stone and stone:IsActivated() then stone:DropOnLocation(self.previous_position) end
+	end
+
+	if self then self.previous_position = parent:GetAbsOrigin() end
 end
 
 function modifier_item_eon_stone:DeclareFunctions()
@@ -131,5 +153,21 @@ function modifier_item_eon_stone:OnDeath(keys)
 
 	local stone = keys.unit:FindItemInInventory("item_eon_stone")
 
-	if stone then stone:DropOnLocation(self:GetParent():GetAbsOrigin()) end
+	if stone and stone:IsActivated() then stone:DropOnLocation(self:GetParent():GetAbsOrigin()) end
+end
+
+
+
+modifier_item_eon_stone_visual = class({})
+
+function modifier_item_eon_stone_visual:IsHidden() return true end
+function modifier_item_eon_stone_visual:IsDebuff() return false end
+function modifier_item_eon_stone_visual:IsPurgable() return false end
+
+function modifier_item_eon_stone_visual:GetEffectName()
+	return "particles/eon_carrier.vpcf"
+end
+
+function modifier_item_eon_stone_visual:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW
 end

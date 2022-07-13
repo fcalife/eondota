@@ -14,22 +14,36 @@ function modifier_golem_base_state:OnIntervalThink()
 	self:IncrementStackCount()
 end
 
+function modifier_golem_base_state:CheckState()
+	return { [MODIFIER_STATE_MAGIC_IMMUNE] = true }
+end
+
 function modifier_golem_base_state:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
 		MODIFIER_PROPERTY_MODEL_SCALE,
-		MODIFIER_PROPERTY_DISABLE_TURNING
+		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
 	}
 end
 
+function modifier_golem_base_state:GetModifierProvidesFOWVision()
+	return 1
+end
+
+function modifier_golem_base_state:GetOverrideAnimation()
+	return ACT_DOTA_IDLE
+end
+
 function modifier_golem_base_state:GetModifierPreAttack_BonusDamage()
-	return 10 * self:GetStackCount()
+	return 20 * self:GetStackCount()
 end
 
 function modifier_golem_base_state:GetModifierAttackSpeedBonus_Constant()
-	return 5 * self:GetStackCount()
+	return 7 * self:GetStackCount()
 end
 
 function modifier_golem_base_state:GetModifierTurnRate_Percentage()
@@ -37,9 +51,9 @@ function modifier_golem_base_state:GetModifierTurnRate_Percentage()
 end
 
 function modifier_golem_base_state:GetModifierModelScale()
-	return 20
+	return 90 + 3 * self:GetStackCount()
 end
 
-function modifier_golem_base_state:GetModifierDisableTurning()
-	return 0
+function modifier_golem_base_state:GetModifierConstantHealthRegen()
+	return 20 + 8 * self:GetStackCount()
 end

@@ -128,7 +128,7 @@ function GameEvents:OnPlayerKilled(keys)
 	local killed_id = keys.PlayerID
 	local hero_kill = keys.HeroKill
 
-	Timers:CreateTimer(0.1, function()
-		ScoreManager:UpdateScores()
-	end)
+	--	Timers:CreateTimer(0.1, function()
+	--		ScoreManager:UpdateScores()
+	--	end)
 end

@@ -20,7 +20,8 @@
 		"npc_dota_hero_warlock"				"Warlock (Support)"
 		"npc_dota_hero_luna"				"Luna (Ranged DPS)"
 
-		"npc_patrol_golem"					"Patrol Tower"
+		"npc_patrol_golem_good"				"Patrol Golem"
+		"npc_patrol_golem_bad"				"Patrol Golem"
 		"npc_control_shrine"				"Shrine"
 
 		// Shop

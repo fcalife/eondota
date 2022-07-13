@@ -8,8 +8,9 @@ golem_paths["dire_golem_a_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 8
 golem_paths["dire_golem_b_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 80, 110) }
 
 function PatrolGolems:Init()
+	self.patrol_golems = {}
 	for path_name, _ in pairs(golem_paths) do
-		PatrolGolem(path_name)
+		table.insert(self.patrol_golems, PatrolGolem(path_name))
 	end
 end
 
@@ -33,7 +34,9 @@ function PatrolGolem:constructor(path_name)
 		path_entity = Entities:FindByName(nil, path_name..path_counter)
 	end
 
-	self.golem = CreateUnitByName("npc_patrol_golem", self.path[1], false, nil, nil, golem_paths[path_name].team)
+	local golem_name = (golem_paths[path_name].team == DOTA_TEAM_GOODGUYS and "npc_patrol_golem_good") or "npc_patrol_golem_bad"
+
+	self.golem = CreateUnitByName(golem_name, self.path[1], false, nil, nil, golem_paths[path_name].team)
 	self.golem:AddNewModifier(self.golem, nil, "modifier_golem_base_state", {})
 	self.golem:SetRenderColor(golem_paths[path_name].color.x, golem_paths[path_name].color.y, golem_paths[path_name].color.z)
 

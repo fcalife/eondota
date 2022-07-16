@@ -77,6 +77,81 @@
 		"VisionNighttimeRange"		"1"
 	}
 
+	"npc_camp_dummy_1"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_creepcamp"
+		"MinimapIconSize"			"350"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
+	}
+
+	"npc_camp_dummy_2"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_creepcamp_mid"
+		"MinimapIconSize"			"350"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
+	}
+
+	"npc_camp_dummy_3"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_creepcamp_big"
+		"MinimapIconSize"			"350"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
+	}
+
+	"npc_camp_dummy_4"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_creepcamp_ancient"
+		"MinimapIconSize"			"350"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
+	}
+
+	"npc_camp_dummy_5"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
+	}
+
 	"dota_fountain"
 	{
 		"AttackDamageMin"			"475"
@@ -233,24 +308,7 @@
 
 		"StatusHealth"				"125"
 		"StatusHealthRegen"			"0.5"
-	}
-
-	"npc_dota_neutral_kobold_tunneler"
-	{
-		"AttackDamageMin"			"17"		// Damage range min.
-		"AttackDamageMax"			"18"		// Damage range max.	
-
-		"BountyXP"					"20"		// Experience earn.
-		"BountyGoldMin"				"16"		// Gold earned min.
-		"BountyGoldMax"				"17"		// Gold earned max.
-
-		"MovementSpeed"				"470"		// Speed.
-
-		"StatusHealth"				"175"		// Base health.
-		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
-
-		"Ability1"					""
-	}		
+	}	
 
 	"npc_dota_neutral_kobold_taskmaster"
 	{										
@@ -302,9 +360,9 @@
 		"AttackDamageMin"			"24"
 		"AttackDamageMax"			"26"
 
-		"BountyXP"					"55"
-		"BountyGoldMin"				"45"
-		"BountyGoldMax"				"45"
+		"BountyXP"					"45"
+		"BountyGoldMin"				"35"
+		"BountyGoldMax"				"35"
 
 		"MovementSpeed"				"480"
 
@@ -324,6 +382,21 @@
 		"MovementSpeed"				"490"
 
 		"StatusHealth"				"1350"
+		"StatusHealthRegen"			"0.5"
+	}
+
+	"npc_dota_neutral_prowler_shaman"
+	{
+		"AttackDamageMin"			"125"
+		"AttackDamageMax"			"130"
+
+		"BountyXP"					"400"
+		"BountyGoldMin"				"250"
+		"BountyGoldMax"				"250"
+
+		"MovementSpeed"				"525"
+
+		"StatusHealth"				"1800"
 		"StatusHealthRegen"			"0.5"
 	}
 

@@ -39,7 +39,7 @@ function modifier_golem_base_state:GetOverrideAnimation()
 end
 
 function modifier_golem_base_state:GetModifierPreAttack_BonusDamage()
-	return 20 * self:GetStackCount()
+	return 25 * self:GetStackCount()
 end
 
 function modifier_golem_base_state:GetModifierAttackSpeedBonus_Constant()

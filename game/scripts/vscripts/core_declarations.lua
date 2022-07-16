@@ -4,6 +4,7 @@ LinkLuaModifier("modifier_golem_base_state", "modifiers/golem_base_state", LUA_M
 LinkLuaModifier("modifier_dummy_state", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_not_on_minimap", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_speed_bonus", "modifiers/modifier_speed_bonus", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_neutral_size", "modifiers/modifier_neutral_size", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_shrine_base_state", "modifiers/shrine_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shrine_active", "modifiers/shrine_base_state", LUA_MODIFIER_MOTION_NONE)
@@ -36,6 +37,7 @@ GAME_END_WARNING_TIME = 30		-- Time before the game's end for it to start being 
 GAME_TARGET_SCORE = 5			-- Score a team needs to achieve in order to end the game before the time limit
 
 NEUTRAL_CREEP_FIRST_SPAWN_TIME = 20
+NEUTRAL_CREEP_RESPAWN_TIME = 60
 
 BOUNTY_RUNE_BASE_GOLD = 75			-- Base gold granted to the whole team when picking up a bounty rune
 BOUNTY_RUNE_GOLD_PER_SECOND = 0.25	-- Amount by which the above increases every second

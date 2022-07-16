@@ -145,6 +145,18 @@ function GameManager:InitializeHero(hero)
 		hero:AddItemByName("item_tpscroll")
 	end
 
+	for i = 0, 10 do
+		if hero:GetAbilityByIndex(i) then
+			hero:GetAbilityByIndex(i):SetLevel(1)
+		end
+	end
+
+	for i = 1, 3 do
+		hero:HeroLevelUp(false)
+	end
+
+	hero:SetAbilityPoints(0)
+
 	if IsInToolsMode() then
 		hero:AddItemByName("item_dev_blink")
 		hero:AddItemByName("item_dev_dagon")

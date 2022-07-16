@@ -18,6 +18,15 @@ function item_eon_stone:DropOnLocation(location)
 	end
 end
 
+function item_eon_stone:CastFilterResultLocation(location)
+	if IsServer() then
+		local caster = self:GetCaster()
+		if GridNav:IsNearbyTree(location, 50, true) or (caster and (not GridNav:CanFindPath(caster:GetAbsOrigin(), location)))then
+			return UF_FAIL_INVALID_LOCATION
+		end
+	end
+end
+
 function item_eon_stone:OnSpellStart(keys)
 	if IsClient() then return end
 
@@ -39,7 +48,7 @@ function item_eon_stone:OnSpellStart(keys)
 		Source				= caster,
 		bHasFrontalCone		= false,
 		bReplaceExisting	= false,
-		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_BOTH,
+		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 		iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		iUnitTargetType		= DOTA_UNIT_TARGET_HERO,
 		fExpireTime 		= GameRules:GetGameTime() + 1.01,
@@ -63,7 +72,7 @@ function item_eon_stone:OnProjectileHit(target, location)
 	local caster = self:GetCaster() or nil
 
 	if location and (not target) then
-		GridNav:DestroyTreesAroundPoint(location, 300, true)
+		GridNav:DestroyTreesAroundPoint(location, 200, true)
 		self:DropOnLocation(GetGroundPosition(location, nil))
 		return true
 	end
@@ -95,6 +104,9 @@ function modifier_item_eon_stone:OnCreated(keys)
 
 	self.previous_position = parent:GetAbsOrigin()
 
+	self.minimap_dummy = CreateUnitByName("npc_stone_dummy", self.previous_position, false, nil, nil, parent:GetTeam())
+	self.minimap_dummy:AddNewModifier(self.minimap_dummy, nil, "modifier_dummy_state", {})
+
 	self:StartIntervalThink(0.03)
 end
 
@@ -109,12 +121,16 @@ function modifier_item_eon_stone:OnDestroy()
 		local this_ability = parent:FindAbilityByName(banned_ability)
 		if this_ability then this_ability:SetActivated(true) end
 	end
+
+	if self.minimap_dummy and (not self.minimap_dummy:IsNull()) then self.minimap_dummy:Destroy() end
 end
 
 function modifier_item_eon_stone:OnIntervalThink()
 	local parent = self:GetParent()
 	local current_position = parent:GetAbsOrigin()
 	local distance = (current_position - self.previous_position):Length2D()
+
+	if self.minimap_dummy and (not self.minimap_dummy:IsNull()) then self.minimap_dummy:SetAbsOrigin(current_position) end
 
 	if (distance > 200) then
 		local stone = parent:FindItemInInventory("item_eon_stone")
@@ -125,23 +141,21 @@ function modifier_item_eon_stone:OnIntervalThink()
 	if self then self.previous_position = parent:GetAbsOrigin() end
 end
 
+function modifier_item_eon_stone:CheckState()
+	return { [MODIFIER_STATE_NOT_ON_MINIMAP] = true }
+end
+
 function modifier_item_eon_stone:DeclareFunctions()
 	if IsServer() then
 		return {
-			MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
 			MODIFIER_EVENT_ON_DEATH
 		}
 	else
 		return {
-			MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
 		}
 	end
-end
-
-function modifier_item_eon_stone:GetModifierMoveSpeedBonus_Percentage()
-	return 0
 end
 
 function modifier_item_eon_stone:GetModifierProvidesFOWVision()

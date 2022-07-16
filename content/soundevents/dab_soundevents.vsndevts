@@ -194,17 +194,13 @@
 					{
 						"value"
 						{
-							"value0"	"sounds/items/item_mael_lightning_01.vsnd"
-							"value1"	"sounds/items/item_mael_lightning_02.vsnd"
-							"value2"	"sounds/items/item_mael_lightning_03.vsnd"
-							"value3"	"sounds/items/item_mael_lightning_04.vsnd"
-							"value4"	"sounds/items/item_mael_lightning_05.vsnd"
+							"value0"	"sounds/weapons/hero/zuus/lightning_bolt.vsnd"
 						}
 					}
 					"volume"				{	"value"		"0.9"	}
 					"pitch_rand_min"		{	"value"		"0.0"	}
-					"pitch_rand_max"		{	"value"		"0.2"	}
-					"pitch"					{	"value"		"1.0"	}
+					"pitch_rand_max"		{	"value"		"0.05"	}
+					"pitch"					{	"value"		"1.3"	}
 					"soundlevel"			{	"value"		"100"	}
 					"distance_max"			{	"value"		"2500"	}
 					"event_type"			{	"value"		"1.0"	}
@@ -277,6 +273,44 @@
 					"pitch_rand_min"		{	"value"		"0.0"	}
 					"pitch_rand_max"		{	"value"		"0.05"	}
 					"pitch"					{	"value"		"1.0"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Catastrophe.Spike"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/lion/lion_impale_target_hit1.vsnd"
+							"value1"	"sounds/weapons/hero/lion/lion_impale_target_hit1.vsnd"
+							"value2"	"sounds/weapons/hero/lion/lion_impale_target_hit1.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.05"	}
+					"pitch"					{	"value"		"1.1"	}
 					"soundlevel"			{	"value"		"100"	}
 					"distance_max"			{	"value"		"2500"	}
 					"event_type"			{	"value"		"1.0"	}

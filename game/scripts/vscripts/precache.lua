@@ -7,8 +7,9 @@ precache.particles = {
     "particles/boost_panel.vpcf",
     "particles/speed_buff.vpcf",
     "particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl11_orb.vpcf",
-    "particles/econ/events/ti9/maelstorm_ti9.vpcf",
-    "particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf"
+    "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf",
+    "particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf",
+    "particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf"
 }
 
 precache.particle_folders = {

@@ -17,7 +17,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"maximum_distance"		"125"
+				"maximum_distance"		"275"
 			}
 			"03"
 			{
@@ -163,48 +163,6 @@
 		}
 	}
 
-	"item_gloves"
-	{
-		"ItemCost"						"400"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30"
-			}
-		}
-	}
-
-	"item_chainmail"
-	{
-		"ItemCost"						"400"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"4"
-			}
-		}
-	}
-
-	"item_broadsword"
-	{
-		"ItemCost"						"400"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"20"
-			}
-		}
-	}
-
 	"item_sobi_mask"
 	{
 		"ItemCost"						"300"
@@ -229,25 +187,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"bonus_health_regen"	"5.0"
-			}
-		}
-	}
-
-	"item_cloak"
-	{
-		"ItemCost"						"400"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"		"20"
 			}
 		}
 	}
@@ -746,26 +685,26 @@
 
 	"item_black_king_bar"
 	{
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"40"
 
-		"ItemCost"						"5000"
+		"ItemCost"						"3000"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"30"
+				"bonus_strength"		"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50"
+				"bonus_damage"			"40"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"8.0"
+				"duration"				"3.5"
 			}
 			"04"
 			{
@@ -921,7 +860,7 @@
 
 	"item_bfury"
 	{
-		"ItemCost"						"1200"
+		"ItemCost"						"1500"
 
 		"AbilitySpecial"
 		{
@@ -1470,6 +1409,10 @@
 
 
 
+	"item_gloves"				"REMOVE"
+	"item_chainmail"			"REMOVE"
+	"item_broadsword"			"REMOVE"
+	"item_cloak"				"REMOVE"
 	"item_arcane_blink"					"REMOVE"
 	"item_swift_blink"					"REMOVE"
 	"item_overwhelming_blink"			"REMOVE"
@@ -1918,5 +1861,125 @@
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_7"
 			}
 		}
+	}
+
+	"antimage_mana_void"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"axe_culling_blade"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"bloodseeker_rupture"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"crystal_maiden_freezing_field"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"dragon_knight_elder_dragon_form"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"drow_ranger_marksmanship"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"earthshaker_echo_slam"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"enigma_black_hole"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"faceless_void_chronosphere"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"leshrac_pulse_nova"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"lina_laguna_blade"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"pudge_dismember"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"rattletrap_hookshot"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"razor_eye_of_the_storm"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"sniper_assassinate"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"tiny_grow"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"venomancer_poison_nova"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"witch_doctor_death_ward"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"jakiro_macropyre"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
+	}
+
+	"huskar_life_break"
+	{
+		"LevelsBetweenUpgrades"		"8"
+		"RequiredLevel"				"4"
 	}
 }

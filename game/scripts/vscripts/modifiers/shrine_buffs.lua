@@ -30,11 +30,11 @@ function modifier_shrine_buff_arcane:DeclareFunctions()
 end
 
 function modifier_shrine_buff_arcane:GetModifierPercentageCooldown()
-	return 30 + 10 * self:GetStackCount()
+	return 40 + 10 * self:GetStackCount()
 end
 
 function modifier_shrine_buff_arcane:GetModifierSpellAmplify_Percentage()
-	return 20 + 15 * self:GetStackCount()
+	return 30 + 10 * self:GetStackCount()
 end
 
 
@@ -77,11 +77,11 @@ function modifier_shrine_buff_frenzy:DeclareFunctions()
 end
 
 function modifier_shrine_buff_frenzy:GetModifierAttackSpeedBonus_Constant()
-	return 100 + 50 * self:GetStackCount()
+	return 150 + 50 * self:GetStackCount()
 end
 
 function modifier_shrine_buff_frenzy:GetModifierMoveSpeedBonus_Percentage()
-	return 20 + 10 * self:GetStackCount()
+	return 25 + 10 * self:GetStackCount()
 end
 
 
@@ -131,8 +131,8 @@ end
 function modifier_shrine_buff_catastrophe:OnTakeDamage(keys)
 	if keys.attacker and keys.attacker == self:GetParent() then
 		if keys.unit and keys.attacker:GetTeam() ~= keys.unit:GetTeam() then
-			if (not self.damage_lock) and RollPercentage(math.min(100, 30 + 20 * self:GetStackCount())) then
-				self.damage_lock = true
+			if (not keys.unit.damage_lock) and RollPercentage(math.min(100, 20 + 20 * self:GetStackCount())) then
+				keys.unit.damage_lock = true
 
 				self:TriggerRandomEffect(keys.unit)
 			end
@@ -141,16 +141,17 @@ function modifier_shrine_buff_catastrophe:OnTakeDamage(keys)
 end
 
 function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
-	if RollPercentage(50) then
-		local zap_pfx = ParticleManager:CreateParticle("particles/econ/events/ti9/maelstorm_ti9.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	if RollPercentage(34) then
+		local zap_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(zap_pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 800))
 		ParticleManager:SetParticleControlEnt(zap_pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
 		ParticleManager:ReleaseParticleIndex(zap_pfx)
 
-		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 100 + 0.06 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
-		self.damage_lock = false
+		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 100 + 0.1 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+		target.damage_lock = false
 
 		target:EmitSound("Catastrophe.Zap")
-	else
+	elseif RollPercentage(50) then
 		target:EmitSound("Catastrophe.MeteorLaunch")
 
 		local meteor_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
@@ -164,10 +165,20 @@ function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
 				ApplyDamage({victim = target, attacker = self:GetParent(), damage = 200 + 0.08 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
 			end
 
-			self.damage_lock = false
+			target.damage_lock = false
 
 			target:EmitSound("Catastrophe.MeteorLand")
 		end)
+	else
+		local spike_pfx = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(spike_pfx, 0, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(spike_pfx, 1, target:GetAbsOrigin())
+		ParticleManager:ReleaseParticleIndex(spike_pfx)
+
+		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 300 + 0.06 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+		target.damage_lock = false
+
+		target:EmitSound("Catastrophe.Spike")
 	end
 end
 
@@ -205,9 +216,9 @@ function modifier_shrine_buff_ultimate:DeclareFunctions()
 end
 
 function modifier_shrine_buff_ultimate:GetModifierPreAttack_CriticalStrike()
-	return 150 + 50 * self:GetStackCount()
+	return 175 + 50 * self:GetStackCount()
 end
 
 function modifier_shrine_buff_ultimate:GetModifierStatusResistanceStacking()
-	return 30 + 15 * self:GetStackCount()
+	return 40 + 15 * self:GetStackCount()
 end

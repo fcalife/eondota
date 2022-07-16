@@ -37,19 +37,21 @@ GAME_TARGET_SCORE = 5			-- Score a team needs to achieve in order to end the gam
 
 NEUTRAL_CREEP_FIRST_SPAWN_TIME = 20
 
-BOUNTY_RUNE_BASE_GOLD = 100			-- Base gold granted to the whole team when picking up a bounty rune
-BOUNTY_RUNE_GOLD_PER_SECOND = 0.5	-- Amount by which the above increases every second
-BOUNTY_RUNE_BASE_EXP = 00			-- Base experience granted to the whole team when picking up a bounty rune
+BOUNTY_RUNE_BASE_GOLD = 75			-- Base gold granted to the whole team when picking up a bounty rune
+BOUNTY_RUNE_GOLD_PER_SECOND = 0.25	-- Amount by which the above increases every second
+BOUNTY_RUNE_BASE_EXP = 0			-- Base experience granted to the whole team when picking up a bounty rune
 BOUNTY_RUNE_EXP_PER_SECOND = 0		-- Amount by which the above increases every second
 BOUNTY_RUNE_SPAWN_INTERVAL = 60		-- Time between two consecutive bounty rune spawns
 
 PATROL_GOLEM_AGGRO_RANGE = 900		-- Maximum distance at which the patrol golems will "see" and attack enemy players
 
-SHRINE_BUFF_EFFECT_RADIUS = 1200
-SHRINE_BUFF_DURATION = 45
+DRAGON_BUFF_DURATION = 60
+DRAGON_SPAWN_TIME = 180
+DRAGON_RESPAWN_TIME = 180
+
 SHRINE_CAPTURE_ZONE_RADIUS = 500
 SHRINE_CAPTURE_TIME = 5
-SHRINE_REFRESH_TIME = 120
+SHRINE_COOLDOWN_TIME = 30
 
 EON_STONE_SCORE = 1											-- How many points an eon stone is worth when delivered to the enemy goal
 EON_STONE_FIRST_SPAWN_TIME = (IsInToolsMode() and 0) or 35	-- How long does it take for the first eon stone to spawn

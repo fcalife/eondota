@@ -46,7 +46,7 @@
 		"Level"						"1"
 
 		"MinimapIcon"				"minimap_ancient"
-		"MinimapIconSize"			"400"
+		"MinimapIconSize"			"550"
 
 		"Ability1"					""
 
@@ -216,8 +216,8 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
-		"VisionDaytimeRange"		"900"
-		"VisionNighttimeRange"		"700"
+		"VisionDaytimeRange"		"1600"
+		"VisionNighttimeRange"		"900"
 	}
 
 	"npc_dota_neutral_kobold"
@@ -225,9 +225,9 @@
 		"AttackDamageMin"			"10"
 		"AttackDamageMax"			"11"	
 
-		"BountyXP"					"15"
-		"BountyGoldMin"				"12"
-		"BountyGoldMax"				"13"
+		"BountyXP"					"10"
+		"BountyGoldMin"				"8"
+		"BountyGoldMax"				"9"
 
 		"MovementSpeed"				"490"
 
@@ -240,9 +240,9 @@
 		"AttackDamageMin"			"17"		// Damage range min.
 		"AttackDamageMax"			"18"		// Damage range max.	
 
-		"BountyXP"					"30"		// Experience earn.
-		"BountyGoldMin"				"25"		// Gold earned min.
-		"BountyGoldMax"				"25"		// Gold earned max.
+		"BountyXP"					"20"		// Experience earn.
+		"BountyGoldMin"				"16"		// Gold earned min.
+		"BountyGoldMax"				"17"		// Gold earned max.
 
 		"MovementSpeed"				"470"		// Speed.
 
@@ -257,9 +257,9 @@
 		"AttackDamageMin"			"19"		// Damage range min.
 		"AttackDamageMax"			"21"		// Damage range max.	
 
-		"BountyXP"					"40"		// Experience earn.
-		"BountyGoldMin"				"40"		// Gold earned min.
-		"BountyGoldMax"				"40"		// Gold earned max.
+		"BountyXP"					"25"		// Experience earn.
+		"BountyGoldMin"				"25"		// Gold earned min.
+		"BountyGoldMax"				"25"		// Gold earned max.
 
 		"MovementSpeed"				"530"		// Speed.
 
@@ -272,9 +272,9 @@
 		"AttackDamageMin"			"22"
 		"AttackDamageMax"			"24"
 
-		"BountyXP"					"100"
-		"BountyGoldMin"				"80"
-		"BountyGoldMax"				"80"
+		"BountyXP"					"70"
+		"BountyGoldMin"				"55"
+		"BountyGoldMax"				"56"
 
 		"MovementSpeed"				"500"
 
@@ -287,9 +287,9 @@
 		"AttackDamageMin"			"29"
 		"AttackDamageMax"			"31"
 
-		"BountyXP"					"150"
-		"BountyGoldMin"				"130"
-		"BountyGoldMax"				"130"
+		"BountyXP"					"110"
+		"BountyGoldMin"				"90"
+		"BountyGoldMax"				"90"
 
 		"MovementSpeed"				"510"
 
@@ -302,9 +302,9 @@
 		"AttackDamageMin"			"24"
 		"AttackDamageMax"			"26"
 
-		"BountyXP"					"75"
-		"BountyGoldMin"				"65"
-		"BountyGoldMax"				"65"
+		"BountyXP"					"55"
+		"BountyGoldMin"				"45"
+		"BountyGoldMax"				"45"
 
 		"MovementSpeed"				"480"
 
@@ -317,9 +317,9 @@
 		"AttackDamageMin"			"49"
 		"AttackDamageMax"			"51"
 
-		"BountyXP"					"240"
-		"BountyGoldMin"				"180"
-		"BountyGoldMax"				"180"
+		"BountyXP"					"165"
+		"BountyGoldMin"				"125"
+		"BountyGoldMax"				"125"
 
 		"MovementSpeed"				"490"
 
@@ -329,31 +329,31 @@
 
 	"npc_dota_neutral_black_drake"	
 	{
-		"AttackDamageMin"			"88"
-		"AttackDamageMax"			"95"
+		"AttackDamageMin"			"130"
+		"AttackDamageMax"			"140"
 
-		"BountyXP"					"250"
-		"BountyGoldMin"				"200"
-		"BountyGoldMax"				"200"
+		"BountyXP"					"175"
+		"BountyGoldMin"				"150"
+		"BountyGoldMax"				"150"
 
 		"MovementSpeed"				"520"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"2000"
 		"StatusHealthRegen"			"0.5"
 	}	
 
 	"npc_dota_neutral_black_dragon"	
 	{
-		"AttackDamageMin"			"140"
-		"AttackDamageMax"			"150"
+		"AttackDamageMin"			"180"
+		"AttackDamageMax"			"200"
 
-		"BountyXP"					"800"
-		"BountyGoldMin"				"600"
-		"BountyGoldMax"				"600"
+		"BountyXP"					"550"
+		"BountyGoldMin"				"450"
+		"BountyGoldMax"				"450"
 
 		"MovementSpeed"				"550"
 
-		"StatusHealth"				"4500"
+		"StatusHealth"				"7000"
 		"StatusHealthRegen"			"0.5"
 	}
 }

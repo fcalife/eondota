@@ -112,7 +112,7 @@
 
 		"AbilityCastRange"				"1300"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.0"
+		"AbilityCooldown"				"6.0"
 		"AbilityManaCost"				"0"
 
 		"ItemCost"						"0"

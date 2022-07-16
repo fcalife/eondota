@@ -33,17 +33,15 @@ table.insert(SHRINE_TYPES, {
 	active_buff = "modifier_shrine_buff_ultimate"
 })
 
-SHRINE_BASE_COLOR = Vector(70, 70, 70)
+SHRINE_BASE_COLOR = Vector(50, 50, 50)
 SHRINE_TEAM_COLOR = {
-	[DOTA_TEAM_GOODGUYS] = Vector(70, 70, 400),
-	[DOTA_TEAM_BADGUYS]  = Vector(400, 70, 70)
+	[DOTA_TEAM_GOODGUYS] = Vector(140, 140, 400),
+	[DOTA_TEAM_BADGUYS]  = Vector(400, 140, 140)
 }
 
 function Shrines:Init()
-	local shrines = table.deepshuffle(SHRINE_TYPES)
-
 	for _, spawn_point in pairs(Entities:FindAllByName("shrine_spawn")) do
-		Shrine(spawn_point:GetAbsOrigin(), table.remove(shrines))
+		Shrine(spawn_point:GetAbsOrigin())
 	end
 end
 
@@ -56,12 +54,9 @@ if Shrine == nil then Shrine = class({
 	progress = 0,
 }) end
 
-function Shrine:constructor(location, shrine_type)
-	self.shrine_type = shrine_type
-
+function Shrine:constructor(location)
 	self.tower = CreateUnitByName("npc_control_shrine", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	self.tower:AddNewModifier(self.tower, nil, "modifier_shrine_base_state", {})
-	self.tower:SetRenderColor(shrine_type.tower_color.x, shrine_type.tower_color.y, shrine_type.tower_color.z)
 
 	self.trigger = MapTrigger(location, TRIGGER_TYPE_CIRCLE, {
 		radius = self.radius
@@ -81,7 +76,7 @@ function Shrine:OnUnitsInRange(units)
 	end
 
 	if self.state == SHRINE_STATE_READY then
-		self:OnStartCapture()
+		self:OnStartCapture(units)
 	end
 
 	if self.state == SHRINE_STATE_DISPUTED then
@@ -103,7 +98,22 @@ function Shrine:OnGetReady()
 	self.state = SHRINE_STATE_READY
 end
 
-function Shrine:OnStartCapture()
+function Shrine:OnStartCapture(units)
+	local unit_count = {}
+	unit_count[DOTA_TEAM_GOODGUYS] = 0
+	unit_count[DOTA_TEAM_BADGUYS] = 0
+
+	for _, unit in pairs(units) do
+		local team = unit:GetTeam()
+		unit_count[team] = (unit_count[team] and unit_count[team] + 1) or 1
+	end
+
+	if self.tower:GetTeam() == DOTA_TEAM_GOODGUYS and unit_count[DOTA_TEAM_BADGUYS] <= 0 then
+		return
+	elseif self.tower:GetTeam() == DOTA_TEAM_BADGUYS and unit_count[DOTA_TEAM_GOODGUYS] <= 0 then
+		return
+	end
+
 	self.tower:EmitSound("Shrine.Activation")
 
 	self.capture_ring_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_point_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.tower)
@@ -163,11 +173,13 @@ function Shrine:OnTeamFinishCapture(team)
 
 	self.tower:EmitSound("Shrine.Capture")
 
+	self.tower:SetRenderColor(SHRINE_TEAM_COLOR[team].x, SHRINE_TEAM_COLOR[team].y, SHRINE_TEAM_COLOR[team].z)
+
 	self.active_pfx = ParticleManager:CreateParticle("particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl11_orb.vpcf", PATTACH_OVERHEAD_FOLLOW, self.tower)
 
 	local shockwave_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_point_shockwave.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(shockwave_pfx, 0, self.tower:GetAbsOrigin())
-	ParticleManager:SetParticleControl(shockwave_pfx, 1, self.shrine_type.tower_color)
+	ParticleManager:SetParticleControl(shockwave_pfx, 1, SHRINE_TEAM_COLOR[team])
 	ParticleManager:ReleaseParticleIndex(shockwave_pfx)
 
 	self.tower:SetTeam(team)
@@ -187,35 +199,25 @@ function Shrine:OnTeamFinishCapture(team)
 		ParticleManager:ReleaseParticleIndex(self.capture_progress_pfx)
 	end
 
-	Timers:CreateTimer(SHRINE_BUFF_DURATION, function()
-		self:OnCaptureDurationExpire()
+	Timers:CreateTimer(SHRINE_COOLDOWN_TIME, function()
+		self:OnCaptureCooldownExpire()
 	end)
 
-	local handicap = ScoreManager:GetHandicap(team)
-	local allies = FindUnitsInRadius(team, self.tower:GetAbsOrigin(), nil, SHRINE_BUFF_EFFECT_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+	-- local handicap = ScoreManager:GetHandicap(team)
+	-- local allies = FindUnitsInRadius(team, self.tower:GetAbsOrigin(), nil, SHRINE_BUFF_EFFECT_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 
-	for _, ally in pairs(allies) do
-		ally:AddNewModifier(ally, nil, self.shrine_type.active_buff, {duration = SHRINE_BUFF_DURATION, handicap = handicap})
-
-		local hit_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_point_shockwave_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
-		ParticleManager:SetParticleControl(hit_pfx, 1, self.shrine_type.tower_color)
-		ParticleManager:ReleaseParticleIndex(hit_pfx)
-	end
+	-- for _, ally in pairs(allies) do
+	-- 	local hit_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_point_shockwave_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
+	-- 	ParticleManager:SetParticleControl(hit_pfx, 1, SHRINE_TEAM_COLOR[team])
+	-- 	ParticleManager:ReleaseParticleIndex(hit_pfx)
+	-- end
 end
 
-function Shrine:OnCaptureDurationExpire()
-	self.state = SHRINE_STATE_COOLDOWN
-
+function Shrine:OnCaptureCooldownExpire()
 	if self.active_pfx then
 		ParticleManager:DestroyParticle(self.active_pfx, false)
 		ParticleManager:ReleaseParticleIndex(self.active_pfx)
 	end
 
-	self.tower:RemoveModifierByName("modifier_shrine_active")
-
-	self.tower:SetTeam(DOTA_TEAM_NEUTRALS)
-
-	Timers:CreateTimer(SHRINE_REFRESH_TIME - SHRINE_BUFF_DURATION, function()
-		self:OnGetReady()
-	end)
+	self:OnGetReady()
 end

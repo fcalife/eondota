@@ -4,31 +4,59 @@
 	{
 		"item"		"item_quelling_blade"
 		"item"		"item_orb_of_venom"
-		"item"		"item_sobi_mask"
-		"item"		"item_ring_of_regen"
-	}
-
-	"attributes"
-	{
-		"item"		"item_clarity"
-		"item"		"item_flask"
-		"item"		"item_bfury"
-		"item"		"item_maelstrom"
-	}
-
-	"weapons_armor"
-	{
-		"item"		"item_gloves"
-		"item"		"item_chainmail"
-		"item"		"item_broadsword"
-		"item"		"item_cloak"
 		"item"		"item_bracer"
 		"item"		"item_wraith_band"
 		"item"		"item_null_talisman"
 		"item"		"item_aghanims_shard"
 	}
 
+	"attributes"
+	{
+		"item"		"item_clarity"
+		"item"		"item_flask"
+		"item"		"item_sobi_mask"
+		"item"		"item_ring_of_regen"
+	}
+
+	"weapons_armor"
+	{
+		"item"		"item_bfury"
+		"item"		"item_maelstrom"
+	}
+
 	"misc"
+	{
+		"item"		"item_power_treads"
+		"item"		"item_travel_boots"
+		"item"		"item_blink"
+		"item"		"item_vanguard"
+		"item"		"item_dragon_lance"
+		"item"		"item_rod_of_atos"
+		"item"		"item_desolator"
+		"item"		"item_vladmir"
+		"item"		"item_witch_blade"
+		"item"		"item_guardian_greaves"
+		"item"		"item_boots_of_bearing"
+		"item"		"item_bloodstone"
+		"item"		"item_basher"
+		"item"		"item_ultimate_scepter"
+		"item"		"item_orchid"
+		"item"		"item_black_king_bar"
+		"item"		"item_octarine_core"
+		"item"		"item_satanic"
+		"item"		"item_ethereal_blade"
+		"item"		"item_heart"
+		"item"		"item_shivas_guard"
+		"item"		"item_butterfly"
+		"item"		"item_greater_crit"
+		"item"		"item_assault"
+		"item"		"item_sheepstick"
+		"item"		"item_skadi"
+		"item"		"item_refresher"
+		"item"		"item_dagon_5"
+	}
+
+	"basics"
 	{
 		"item"		"item_power_treads"
 		"item"		"item_travel_boots"
@@ -37,74 +65,73 @@
 		"item"		"item_blink"
 	}
 
-	"basics"
-	{
-		"item"		"item_vanguard"
-		"item"		"item_dragon_lance"
-		"item"		"item_rod_of_atos"
-		"item"		"item_vladmir"
-		"item"		"item_bloodstone"
-		"item"		"item_octarine_core"
-		"item"		"item_heart"
-		"item"		"item_shivas_guard"
-		"item"		"item_sheepstick"
-		"item"		"item_black_king_bar"
-	}
-
 	"support"
 	{
-		"item"		"item_desolator"
-		"item"		"item_witch_blade"
+		"item"		"item_rod_of_atos"
 		"item"		"item_basher"
-		"item"		"item_ultimate_scepter"
 		"item"		"item_orchid"
-		"item"		"item_satanic"
 		"item"		"item_ethereal_blade"
-		"item"		"item_butterfly"
-		"item"		"item_greater_crit"
-		"item"		"item_assault"
+		"item"		"item_shivas_guard"
+		"item"		"item_sheepstick"
 		"item"		"item_skadi"
-		"item"		"item_refresher"
-		"item"		"item_dagon_5"
 	}
 
 	"magics"
 	{
-		"item"		"item_blink"
-		"item"		"item_rod_of_atos"
-		"item"		"item_octarine_core"
-		"item"		"item_boots_of_bearing"
-		"item"		"item_ultimate_scepter"
-		"item"		"item_sheepstick"
+		"item"		"item_vanguard"
+		"item"		"item_dragon_lance"
+		"item"		"item_guardian_greaves"
+		"item"		"item_bloodstone"
+		"item"		"item_black_king_bar"
+		"item"		"item_satanic"
+		"item"		"item_ethereal_blade"
+		"item"		"item_heart"
+		"item"		"item_shivas_guard"
+		"item"		"item_assault"
+		"item"		"item_skadi"
 	}
 
 	"defense"
 	{
 		"item"		"item_power_treads"
-		"item"		"item_vanguard"
-		"item"		"item_assault"
+		"item"		"item_blink"
+		"item"		"item_dragon_lance"
+		"item"		"item_desolator"
+		"item"		"item_witch_blade"
+		"item"		"item_boots_of_bearing"
+		"item"		"item_basher"
+		"item"		"item_orchid"
+		"item"		"item_ethereal_blade"
+		"item"		"item_butterfly"
 		"item"		"item_greater_crit"
-		"item"		"item_satanic"
-		"item"		"item_black_king_bar"
+		"item"		"item_assault"
+		"item"		"item_dagon_5"
 	}
 
 	"weapons"
 	{
+		"item"		"item_travel_boots"
 		"item"		"item_vladmir"
-		"item"		"item_blink"
 		"item"		"item_guardian_greaves"
+		"item"		"item_boots_of_bearing"
+		"item"		"item_ethereal_blade"
 		"item"		"item_shivas_guard"
-		"item"		"item_refresher"
-		"item"		"item_heart"
+		"item"		"item_assault"
 	}
 
 	"artifacts"
 	{
-		"item"		"item_power_treads"
-		"item"		"item_dragon_lance"
-		"item"		"item_maelstrom"
+		"item"		"item_blink"
+		"item"		"item_rod_of_atos"
+		"item"		"item_witch_blade"
+		"item"		"item_guardian_greaves"
+		"item"		"item_bloodstone"
 		"item"		"item_ultimate_scepter"
-		"item"		"item_butterfly"
-		"item"		"item_skadi"
+		"item"		"item_orchid"
+		"item"		"item_octarine_core"
+		"item"		"item_ethereal_blade"
+		"item"		"item_sheepstick"
+		"item"		"item_refresher"
+		"item"		"item_dagon_5"
 	}
 }

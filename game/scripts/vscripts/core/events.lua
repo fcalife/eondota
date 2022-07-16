@@ -97,6 +97,24 @@ function GameEvents:OnEntityKilled(keys)
 
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
+
+	if killed_unit:GetUnitName() == "npc_dota_neutral_black_dragon" then
+		local buffs = {
+			"modifier_shrine_buff_arcane",
+			"modifier_shrine_buff_frenzy",
+			"modifier_shrine_buff_catastrophe",
+			"modifier_shrine_buff_ultimate"
+		}
+		local buff = buffs[RandomInt(1, #buffs)]
+		local team = attacker:GetTeam()
+		local handicap = ScoreManager:GetHandicap(team)
+
+		for _, hero in pairs(HeroList:GetAllHeroes()) do
+			if hero:GetTeam() == team then
+				hero:AddNewModifier(hero, nil, buff, {duration = DRAGON_BUFF_DURATION, handicap = handicap})
+			end
+		end
+	end
 end
 
 function GameEvents:OnTreeCut(keys)

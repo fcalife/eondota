@@ -147,11 +147,13 @@ function GameManager:InitializeHero(hero)
 
 	for i = 0, 10 do
 		if hero:GetAbilityByIndex(i) then
-			hero:GetAbilityByIndex(i):SetLevel(1)
+			if hero:GetAbilityByIndex(i):GetAbilityType() == ABILITY_TYPE_BASIC then
+				hero:GetAbilityByIndex(i):SetLevel(1)
+			end
 		end
 	end
 
-	for i = 1, 3 do
+	for i = 1, 2 do
 		hero:HeroLevelUp(false)
 	end
 

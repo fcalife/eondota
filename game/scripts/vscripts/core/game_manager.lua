@@ -3,48 +3,24 @@ _G.GameManager = GameManager or {}
 function GameManager:Init()
 	self:SetGamePhase(GAME_STATE_INIT)
 
-	for _, radiant_goal in pairs(Entities:FindAllByName("radiant_goal")) do
-		self:SpawnGoalTrigger(radiant_goal:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
-	end
-
-	for _, dire_goal in pairs(Entities:FindAllByName("dire_goal")) do
-		self:SpawnGoalTrigger(dire_goal:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
-	end
-
 	self.eon_stone_spawn_points = {}
 
 	for _, spawn_point in pairs(Entities:FindAllByName("eon_stone_spawn")) do
 		table.insert(self.eon_stone_spawn_points, spawn_point:GetAbsOrigin())
 	end
 
-	self.match_spawn_points = {}
-	local shuffled_spawn_points = table.shuffle(self.eon_stone_spawn_points)
+	-- self.match_spawn_points = {}
+	-- local shuffled_spawn_points = table.shuffle(self.eon_stone_spawn_points)
 
-	while #self.match_spawn_points < 10 do
-		if #shuffled_spawn_points > 0 then
-			table.insert(self.match_spawn_points, table.remove(shuffled_spawn_points))
-		else
-			shuffled_spawn_points = table.shuffle(self.eon_stone_spawn_points)
-		end
-	end
+	-- while #self.match_spawn_points < 10 do
+	-- 	if #shuffled_spawn_points > 0 then
+	-- 		table.insert(self.match_spawn_points, table.remove(shuffled_spawn_points))
+	-- 	else
+	-- 		shuffled_spawn_points = table.shuffle(self.eon_stone_spawn_points)
+	-- 	end
+	-- end
 
 	self.spawned_stones = {}
-end
-
-function GameManager:SpawnGoalTrigger(position, team)
-	MapTrigger(position, TRIGGER_TYPE_CIRCLE, {
-		radius = EON_STONE_GOAL_RADIUS
-	}, {
-		trigger_team = team,
-		team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-		unit_filter = DOTA_UNIT_TARGET_HERO,
-		flag_filter = DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
-	}, function(units)
-		for _, unit in pairs(units) do
-			local stone = unit:FindItemInInventory("item_eon_stone")
-			if stone and stone:IsActivated() then GameManager:OnEonStoneTouchGoal(unit) end
-		end
-	end)
 end
 
 function GameManager:SetGamePhase(phase)
@@ -56,7 +32,7 @@ function GameManager:GetGamePhase()
 end
 
 function GameManager:StartEonStoneCountdown()
-	local location = table.remove(self.match_spawn_points)
+	local location = self.eon_stone_spawn_points[1]
 
 	if not location then return end
 
@@ -111,6 +87,18 @@ function GameManager:SpawnEonStone(location)
 	end
 	
 	table.insert(self.spawned_stones, stone_data)
+
+	Timers:CreateTimer(10, function()
+		if container and (not container:IsNull()) then
+			local distance = (location - self.eon_stone_spawn_points[1]):Length2D()
+			if distance > 200 then
+				container:Destroy()
+				GameManager:OnEonStonePickedUp(location)
+
+				self:SpawnEonStone(self.eon_stone_spawn_points[1])
+			end
+		end
+	end)
 end
 
 function GameManager:OnEonStonePickedUp(location)
@@ -134,6 +122,13 @@ function GameManager:OnEonStonePickedUp(location)
 		end
 
 		table.remove(self.spawned_stones, id)
+	end
+
+	for player_id = 0, 24 do
+		if PlayerResource:IsValidPlayer(player_id) then
+			local hero = PlayerResource:GetSelectedHeroEntity(player_id)
+			if hero then hero:RemoveModifierByName("modifier_item_eon_stone_cooldown") end
+		end
 	end
 end
 
@@ -169,15 +164,6 @@ function GameManager:EndGameWithWinner(team)
 	self:SetGamePhase(GAME_STATE_END)
 
 	GameRules:SetGameWinner(team)
-end
-
-function GameManager:OnEonStoneTouchGoal(unit)
-	local stone = unit:FindItemInInventory("item_eon_stone")
-
-	if stone then
-		ScoreManager:Score(unit:GetTeam(), EON_STONE_SCORE)
-		stone:Destroy()
-	end
 end
 
 function GameManager:StartGameEndCountdown()

@@ -176,8 +176,8 @@
 		"MagicalResistance"			"100"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"85"
-		"AttackDamageMax"			"95"
+		"AttackDamageMin"			"75"
+		"AttackDamageMax"			"85"
 		"BaseAttackSpeed"			"150"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.01"
@@ -222,8 +222,8 @@
 		"MagicalResistance"			"100"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"85"
-		"AttackDamageMax"			"95"
+		"AttackDamageMin"			"75"
+		"AttackDamageMax"			"85"
 		"BaseAttackSpeed"			"150"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.01"
@@ -291,8 +291,8 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
-		"VisionDaytimeRange"		"1600"
-		"VisionNighttimeRange"		"900"
+		"VisionDaytimeRange"		"2000"
+		"VisionNighttimeRange"		"1200"
 	}
 
 	"npc_dota_neutral_kobold"
@@ -398,6 +398,10 @@
 
 		"StatusHealth"				"1800"
 		"StatusHealthRegen"			"0.5"
+
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
 	}
 
 	"npc_dota_neutral_black_drake"	

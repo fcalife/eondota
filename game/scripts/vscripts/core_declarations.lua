@@ -60,7 +60,8 @@ EON_STONE_FIRST_SPAWN_TIME = (IsInToolsMode() and 0) or 35	-- How long does it t
 EON_STONE_RESPAWN_TIME = 180								-- How long does it take for each subsequent eon stone to spawn
 EON_STONE_COUNTDOWN_TIME = 15								-- How long does it take for the eon stone to spawn after it is announced to players
 EON_STONE_VISION_RADIUS = 750								-- How much vision each eon stone gives to both teams around itself when dropped on the ground
-EON_STONE_GOAL_RADIUS = 240									-- How big is the radius of both teams' goals
+EON_STONE_GOAL_RADIUS = 750									-- How big is the radius of both teams' goals
 
-EON_STONE_THROW_DISTANCE = 1300			-- Maximum distance the stone travels when thrown
-EON_STONE_THROW_DURATION = 1.0			-- Time the stone stays in the air when being thrown
+EON_STONE_MIN_THROW_DISTANCE = 500			-- Maximum distance the stone travels when thrown
+EON_STONE_MAX_THROW_DISTANCE = 1300			-- Maximum distance the stone travels when thrown
+EON_STONE_THROW_DURATION = 1.0				-- Time the stone stays in the air when being thrown

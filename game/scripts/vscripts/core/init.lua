@@ -9,6 +9,7 @@ require('core/speed_boosts')
 require('core/rune_spawner')
 require('core/patrol_golems')
 require('core/shrines')
+require('core/objectives')
 require('core/neutral_camps')
 
 require("core/filters/init")

@@ -104,6 +104,7 @@ function GameMode:InitGameMode()
 	RuneSpawner:Init()
 	PatrolGolems:Init()
 	Shrines:Init()
+	Objectives:Init()
 	Filters:Init()
 
 	-- Event Hooks

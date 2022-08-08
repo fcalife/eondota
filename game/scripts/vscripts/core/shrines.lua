@@ -57,6 +57,7 @@ if Shrine == nil then Shrine = class({
 function Shrine:constructor(location)
 	self.tower = CreateUnitByName("npc_control_shrine", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	self.tower:AddNewModifier(self.tower, nil, "modifier_shrine_base_state", {})
+	self.tower:AddNewModifier(self.tower, nil, "modifier_tower_truesight_aura", {})
 
 	self.trigger = MapTrigger(location, TRIGGER_TYPE_CIRCLE, {
 		radius = self.radius
@@ -67,7 +68,8 @@ function Shrine:constructor(location)
 		flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 	}, function(units)
 		self:OnUnitsInRange(units)
-	end)
+	end,
+	{})
 end
 
 function Shrine:OnUnitsInRange(units)

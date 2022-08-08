@@ -25,12 +25,15 @@
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/silencer/silencer_ti10_immortal_shield/silencer_ti10_immortal_curse_debuff_body.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/silencer/silencer_ti10_immortal_shield/silencer_ti10_immortal_curse_debuff_flare.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/silencer/silencer_ti10_immortal_shield/silencer_ti10_immortal_curse_debuff_rays.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/eon_carrier_model.vpcf"
@@ -40,6 +43,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/silencer/silencer_ti10_immortal_shield/silencer_ti10_immortal_curse_debuff_flash.vpcf"
+			m_bDisableChild = true
 		},
 	]
 }

@@ -13,7 +13,7 @@ if MapTrigger == nil then MapTrigger = class({
 TRIGGER_TYPE_CIRCLE = 0
 TRIGGER_TYPE_RECTANGLE = 1
 
-function MapTrigger:constructor(center, trigger_type, dimensions, filters, callback)
+function MapTrigger:constructor(center, trigger_type, dimensions, filters, callback, options)
 	self.center = center or self.center
 	self.trigger_type = trigger_type or self.trigger_type
 	self.dimensions = dimensions or self.dimensions
@@ -23,6 +23,7 @@ function MapTrigger:constructor(center, trigger_type, dimensions, filters, callb
 	self.flag_filter = filters.flag_filter or self.flag_filter
 	self.find_order = filters.find_order or self.find_order
 	self.callback = callback or self.callback
+	self.options = options or {}
 
 	if self.trigger_type == TRIGGER_TYPE_RECTANGLE then
 		self.dimensions.start_pos = self.center - 0.5 * Vector(self.dimensions.width, 0, 0)
@@ -71,5 +72,5 @@ function MapTrigger:Tick()
 		)
 	end
 
-	if #units > 0 then self.callback(units) end
+	if (#units > 0 or self.options.tick_when_empty) then self.callback(units) end
 end

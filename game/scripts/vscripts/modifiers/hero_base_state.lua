@@ -25,6 +25,8 @@ function modifier_hero_base_state:DeclareFunctions()
 			MODIFIER_PROPERTY_MODEL_SCALE,
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
 			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
 		} else return {
 			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
@@ -34,7 +36,8 @@ function modifier_hero_base_state:DeclareFunctions()
 			MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
 			MODIFIER_PROPERTY_MODEL_SCALE,
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE
+			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
 		}
 	end
 end
@@ -50,7 +53,7 @@ function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
 end
 
 function modifier_hero_base_state:GetModifierMoveSpeed_Limit()
-	return (self:GetParent():HasModifier("modifier_item_eon_stone") and 400) or 1100
+	return 1200
 end
 
 function modifier_hero_base_state:GetModifierTurnRate_Percentage()
@@ -58,7 +61,9 @@ function modifier_hero_base_state:GetModifierTurnRate_Percentage()
 end
 
 function modifier_hero_base_state:GetModifierPercentageRespawnTime()
-	return 0.5
+	local level = self:GetParent():GetLevel()
+
+	return math.min(0.65, 0.5 + math.max(0, 0.01 * (level - 10)))
 end
 
 function modifier_hero_base_state:GetModifierModelScale()
@@ -75,4 +80,8 @@ end
 
 function modifier_hero_base_state:GetModifierPhysicalArmorBonus()
 	return 7
+end
+
+function modifier_hero_base_state:GetModifierStatusResistanceStacking()
+	return 20
 end

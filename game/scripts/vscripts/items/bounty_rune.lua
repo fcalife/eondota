@@ -15,5 +15,10 @@ function item_bounty_rune:OnSpellStart(keys)
 
 	EmitAnnouncerSoundForTeam("bounty_rune.picked_up", team)
 
+	local location = self:GetContainer():GetAbsOrigin()
+	Timers:CreateTimer(BOUNTY_RUNE_SPAWN_INTERVAL, function()
+		RuneSpawner:SpawnBountyRune(location)
+	end)
+
 	self:Destroy()
 end

@@ -4,11 +4,12 @@ function GameClock:Start()
 	self.game_start_time = GameRules:GetGameTime()
 
 	self.next_eon_stone_spawn = self.game_start_time + EON_STONE_FIRST_SPAWN_TIME
-	self.next_bounty_rune_spawn = self.game_start_time
 
 	GameManager:SetGamePhase(GAME_STATE_BATTLE)
 
 	NeutralCamps:StartSpawning()
+
+	RuneSpawner:SpawnAllBountyRunes()
 
 	self:Tick()
 end
@@ -19,11 +20,6 @@ function GameClock:Tick()
 	if GameRules:GetGameTime() >= (self.next_eon_stone_spawn - EON_STONE_COUNTDOWN_TIME) then
 		GameManager:StartEonStoneCountdown()
 		self.next_eon_stone_spawn = self.next_eon_stone_spawn + EON_STONE_RESPAWN_TIME
-	end
-
-	if GameRules:GetGameTime() >= self.next_bounty_rune_spawn then
-		RuneSpawner:SpawnBountyRunes()
-		self.next_bounty_rune_spawn = self.next_bounty_rune_spawn + BOUNTY_RUNE_SPAWN_INTERVAL
 	end
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then

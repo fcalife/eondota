@@ -18,5 +18,6 @@ function SpeedBoosts:SpawnSpeedBoost(position)
 		for _, unit in pairs(units) do
 			unit:AddNewModifier(unit, nil, "modifier_speed_bonus", {duration = 6})
 		end
-	end)
+	end,
+	{})
 end

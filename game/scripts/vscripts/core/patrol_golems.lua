@@ -38,6 +38,7 @@ function PatrolGolem:constructor(path_name)
 
 	self.golem = CreateUnitByName(golem_name, self.path[1], false, nil, nil, golem_paths[path_name].team)
 	self.golem:AddNewModifier(self.golem, nil, "modifier_golem_base_state", {})
+	self.golem:AddNewModifier(self.golem, nil, "modifier_tower_truesight_aura", {})
 	self.golem:SetRenderColor(golem_paths[path_name].color.x, golem_paths[path_name].color.y, golem_paths[path_name].color.z)
 
 	Timers:CreateTimer(1, function()

@@ -8,18 +8,6 @@
 		"DOTA_GoodGuys"						"BLUE"
 		"DOTA_BadGuys"						"RED"
 
-		// Heroes/couriers
-		"npc_dota_hero_juggernaut"			"Juggernaut (Melee DPS)"
-		"npc_dota_hero_lich"				"Lich (Support)"
-		"npc_dota_hero_lion"				"Lion (Support)"
-		"npc_dota_hero_sven"				"Sven (Melee DPS)"
-		"npc_dota_hero_tidehunter"			"Tidehunter (Tank)"
-		"npc_dota_hero_vengefulspirit"		"Vengeful Spirit (Support)"
-		"npc_dota_hero_viper"				"Viper (Ranged DPS)"
-		"npc_dota_hero_skeleton_king"		"Wraith King (Tank)"
-		"npc_dota_hero_warlock"				"Warlock (Support)"
-		"npc_dota_hero_luna"				"Luna (Ranged DPS)"
-
 		"npc_patrol_golem_good"				"Patrol Golem"
 		"npc_patrol_golem_bad"				"Patrol Golem"
 		"npc_control_shrine"				"Shrine"
@@ -28,8 +16,8 @@
 
 
 		// Items
-		"DOTA_Tooltip_ability_item_eon_stone"						"Eon Stone"
-		"DOTA_Tooltip_ability_item_eon_stone_Description"			"<h1>Active: Pass</h1>Throw the stone; hopefully an ally catches it!\n<h1>Passive: Shiny</h1>Step on the enemy goal with the stone in your possession in order to score 7 points. Drops on the ground if you die."
+		"DOTA_Tooltip_ability_item_eon_stone"						"Eon Sphere"
+		"DOTA_Tooltip_ability_item_eon_stone_Description"			"<h1>Active: Pass</h1>Throw the sphere; hopefully an ally catches it!\n<h1>Passive: Shiny</h1>Step on the enemy goal with the stone in your possession in order to score a point. Drops on the ground if you die."
 
 		"DOTA_Tooltip_ability_item_bounty_rune"						"Bounty Rune"
 		"DOTA_Tooltip_ability_item_bounty_rune_Description"			"Collect it to gain bonus gold and experience for your whole team!"
@@ -54,5 +42,11 @@
 
 		"DOTA_Tooltip_modifier_shrine_buff_ultimate"					"Unstoppable Blessing"
 		"DOTA_Tooltip_modifier_shrine_buff_ultimate_Description"		"All your attacks are automatic %dMODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE%%% critical hits, and you have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% bonus status resistance"
+
+		"DOTA_Tooltip_modifier_item_eon_stone_overheat"					"Overheating"
+		"DOTA_Tooltip_modifier_item_eon_stone_overheat_Description"		"Gaining %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp. Don't go too high!"
+
+		"DOTA_Tooltip_modifier_item_eon_stone_cooldown"					"Cooling Down"
+		"DOTA_Tooltip_modifier_item_eon_stone_cooldown_Description"		"Recovering from overheating. Can't pick up an Eon Sphere meanwhile."
 	}
 }

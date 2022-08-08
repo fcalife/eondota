@@ -22,6 +22,8 @@ end
 
 function GameEvents:OnPreGameStart()
 	self:DebugPrint("New state: pregame")
+
+	EmitGlobalSound("game_start")
 end
 
 function GameEvents:OnGameStart()
@@ -99,6 +101,10 @@ function GameEvents:OnEntityKilled(keys)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 
 	if killed_unit.camp then killed_unit.camp:OnCreepDied(attacker) end
+
+	if killed_unit:IsRealHero() and attacker and (not attacker:IsHero()) and attacker:GetTeam() == DOTA_TEAM_NEUTRALS then
+		EmitGlobalSound("neutral_death")
+	end
 end
 
 function GameEvents:OnTreeCut(keys)

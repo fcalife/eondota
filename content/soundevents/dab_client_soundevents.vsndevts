@@ -136,5 +136,20 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_01.vsnd"
 	}
-	
+	game_start = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.150000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/game_start.vsnd"
+	}
+	neutral_death = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.100000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/neutral_death.vsnd"
+	}
 }

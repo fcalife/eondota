@@ -1,5 +1,5 @@
 function Filters:GoldFilter(keys)
-	keys.gold = 1.3 * keys.gold
+	keys.gold = 1.13 * keys.gold
 
 	return true
 end

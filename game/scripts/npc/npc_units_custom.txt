@@ -301,8 +301,8 @@
 		"AttackDamageMax"			"11"	
 
 		"BountyXP"					"10"
-		"BountyGoldMin"				"8"
-		"BountyGoldMax"				"9"
+		"BountyGoldMin"				"9"
+		"BountyGoldMax"				"10"
 
 		"MovementSpeed"				"490"
 
@@ -316,8 +316,8 @@
 		"AttackDamageMax"			"21"		// Damage range max.	
 
 		"BountyXP"					"25"		// Experience earn.
-		"BountyGoldMin"				"25"		// Gold earned min.
-		"BountyGoldMax"				"25"		// Gold earned max.
+		"BountyGoldMin"				"29"		// Gold earned min.
+		"BountyGoldMax"				"29"		// Gold earned max.
 
 		"MovementSpeed"				"530"		// Speed.
 
@@ -331,8 +331,8 @@
 		"AttackDamageMax"			"24"
 
 		"BountyXP"					"70"
-		"BountyGoldMin"				"55"
-		"BountyGoldMax"				"56"
+		"BountyGoldMin"				"63"
+		"BountyGoldMax"				"64"
 
 		"MovementSpeed"				"500"
 
@@ -346,8 +346,8 @@
 		"AttackDamageMax"			"31"
 
 		"BountyXP"					"110"
-		"BountyGoldMin"				"90"
-		"BountyGoldMax"				"90"
+		"BountyGoldMin"				"104"
+		"BountyGoldMax"				"104"
 
 		"MovementSpeed"				"510"
 
@@ -361,8 +361,8 @@
 		"AttackDamageMax"			"26"
 
 		"BountyXP"					"45"
-		"BountyGoldMin"				"35"
-		"BountyGoldMax"				"35"
+		"BountyGoldMin"				"40"
+		"BountyGoldMax"				"40"
 
 		"MovementSpeed"				"480"
 
@@ -376,8 +376,8 @@
 		"AttackDamageMax"			"51"
 
 		"BountyXP"					"165"
-		"BountyGoldMin"				"125"
-		"BountyGoldMax"				"125"
+		"BountyGoldMin"				"144"
+		"BountyGoldMax"				"144"
 
 		"MovementSpeed"				"490"
 
@@ -391,8 +391,8 @@
 		"AttackDamageMax"			"130"
 
 		"BountyXP"					"400"
-		"BountyGoldMin"				"250"
-		"BountyGoldMax"				"250"
+		"BountyGoldMin"				"287"
+		"BountyGoldMax"				"287"
 
 		"MovementSpeed"				"525"
 
@@ -410,8 +410,8 @@
 		"AttackDamageMax"			"140"
 
 		"BountyXP"					"175"
-		"BountyGoldMin"				"150"
-		"BountyGoldMax"				"150"
+		"BountyGoldMin"				"172"
+		"BountyGoldMax"				"172"
 
 		"MovementSpeed"				"520"
 
@@ -425,8 +425,8 @@
 		"AttackDamageMax"			"200"
 
 		"BountyXP"					"550"
-		"BountyGoldMin"				"450"
-		"BountyGoldMax"				"450"
+		"BountyGoldMin"				"515"
+		"BountyGoldMax"				"515"
 
 		"MovementSpeed"				"550"
 

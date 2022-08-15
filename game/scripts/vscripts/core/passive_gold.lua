@@ -57,10 +57,10 @@ function PassiveGold:GiveGoldFromPickup(unit, gold)
 	for _, ally in pairs(allies) do
 		if ally == unit then
 			ally:ModifyGold(gold_share * 2, false, DOTA_ModifyGold_CreepKill)
-			SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, ally, gold_share * 2, nil)
+			--SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, ally, gold_share * 2, nil)
 		else
 			ally:ModifyGold(gold_share, false, DOTA_ModifyGold_CreepKill)
-			SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, ally, gold_share, nil)
+			--SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, ally, gold_share, nil)
 		end
 	end
 end

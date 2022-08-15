@@ -3,7 +3,10 @@ _G.GameClock = GameClock or {}
 function GameClock:Start()
 	self.game_start_time = GameRules:GetGameTime()
 
-	self.next_eon_stone_spawn = self.game_start_time + EON_STONE_FIRST_SPAWN_TIME
+	self.eon_stone_spawn_time = self.game_start_time + EON_STONE_FIRST_SPAWN_TIME
+	self.stone_spawned = false
+
+	self.next_creep_spawn = self.game_start_time + LANE_CREEP_FIRST_SPAWN
 
 	GameManager:SetGamePhase(GAME_STATE_BATTLE)
 
@@ -11,15 +14,23 @@ function GameClock:Start()
 
 	RuneSpawner:SpawnAllBountyRunes()
 
+	if GetMapName() == "eon_lane" then TreasureChests:Spawn() end
+
 	self:Tick()
 end
 
 function GameClock:Tick()
 	PassiveGold:Tick()
 
-	if GameRules:GetGameTime() >= (self.next_eon_stone_spawn - EON_STONE_COUNTDOWN_TIME) then
+	if GameRules:GetGameTime() >= (self.eon_stone_spawn_time - EON_STONE_COUNTDOWN_TIME) and (not self.stone_spawned) then
 		GameManager:StartEonStoneCountdown()
-		self.next_eon_stone_spawn = self.next_eon_stone_spawn + EON_STONE_RESPAWN_TIME
+		self.stone_spawned = true
+	end
+
+	if GameRules:GetGameTime() >= self.next_creep_spawn then
+		self.next_creep_spawn = self.next_creep_spawn + LANE_CREEP_SPAWN_DELAY
+
+		if GetMapName() == "eon_lane" then LaneCreeps:SpawnWave() end
 	end
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then

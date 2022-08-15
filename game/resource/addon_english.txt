@@ -11,6 +11,7 @@
 		"npc_patrol_golem_good"				"Patrol Golem"
 		"npc_patrol_golem_bad"				"Patrol Golem"
 		"npc_control_shrine"				"Shrine"
+		"npc_treasure"						"Gold Chest"
 
 		// Units
 
@@ -22,6 +23,21 @@
 		"DOTA_Tooltip_ability_item_bounty_rune"						"Bounty Rune"
 		"DOTA_Tooltip_ability_item_bounty_rune_Description"			"Collect it to gain bonus gold and experience for your whole team!"
 
+		"DOTA_Tooltip_ability_item_neutral_gold"					"Gold"
+		"DOTA_Tooltip_ability_item_neutral_gold_Description"		"Grants gold to all nearby alllies"
+
+		"DOTA_Tooltip_ability_item_dragon_drop_arcane"						"Arcane Dragon Essence"
+		"DOTA_Tooltip_ability_item_dragon_drop_arcane_Description"			"Grants the Arcane Blessing to all allies"
+
+		"DOTA_Tooltip_ability_item_dragon_drop_frenzy"						"Frenzy Dragon Essence"
+		"DOTA_Tooltip_ability_item_dragon_drop_frenzy_Description"			"Grants the Frenzy Blessing to all allies"
+
+		"DOTA_Tooltip_ability_item_dragon_drop_catastrophe"					"Catastrophe Dragon Essence"
+		"DOTA_Tooltip_ability_item_dragon_drop_catastrophe_Description"		"Grants the Catastrophic Blessing to all allies"
+
+		"DOTA_Tooltip_ability_item_dragon_drop_ultimate"					"Unstoppable Dragon Essence"
+		"DOTA_Tooltip_ability_item_dragon_drop_ultimate_Description"		"Grants the Unstoppable Blessing to all allies"
+
 		"DOTA_Tooltip_ability_item_dev_blink"						"Mega Blink"
 		"DOTA_Tooltip_ability_item_dev_blink_Description"			"<h1>Active: Warp</h1>Instantly teleports to the target point of the map"
 
@@ -30,6 +46,9 @@
 
 		"DOTA_Tooltip_modifier_speed_bonus"							"Speed Boost"
 		"DOTA_Tooltip_modifier_speed_bonus_Description"				"Vroooommm!"
+
+		"DOTA_Tooltip_modifier_shrine_base_state_aura"				"Shrine Regen"
+		"DOTA_Tooltip_modifier_shrine_base_state_aura_Description"	"Slowly regenerating health and mana"
 
 		"DOTA_Tooltip_modifier_shrine_buff_arcane"					"Arcane Blessing"
 		"DOTA_Tooltip_modifier_shrine_buff_arcane_Description"		"Gaining %dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%% cooldown reduction and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification"
@@ -48,5 +67,8 @@
 
 		"DOTA_Tooltip_modifier_item_eon_stone_cooldown"					"Cooling Down"
 		"DOTA_Tooltip_modifier_item_eon_stone_cooldown_Description"		"Recovering from overheating. Can't pick up an Eon Sphere meanwhile."
+
+		"DOTA_Tooltip_modifier_respawning_tower_state"					"Reactivation"
+		"DOTA_Tooltip_modifier_respawning_tower_state_Description"		"This tower was recently destroyed, and is rebuilding itself."
 	}
 }

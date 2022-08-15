@@ -38,3 +38,29 @@ function PassiveGold:GiveGoldToPlayersInTeam(team, gold, exp)
 		end
 	end
 end
+
+function PassiveGold:GiveGoldFromPickup(unit, gold)
+	local allies = FindUnitsInRadius(
+		unit:GetTeam(),
+		unit:GetAbsOrigin(),
+		nil,
+		GOLD_SHARING_RADIUS,
+		DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+		FIND_ANY_ORDER,
+		false
+	)
+
+	local gold_share = gold / (1 + #allies)
+
+	for _, ally in pairs(allies) do
+		if ally == unit then
+			ally:ModifyGold(gold_share * 2, false, DOTA_ModifyGold_CreepKill)
+			SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, ally, gold_share * 2, nil)
+		else
+			ally:ModifyGold(gold_share, false, DOTA_ModifyGold_CreepKill)
+			SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, ally, gold_share, nil)
+		end
+	end
+end

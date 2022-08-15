@@ -20,7 +20,7 @@ function GameManager:Init()
 	-- 	end
 	-- end
 
-	self.spawned_stones = {}
+	--self.spawned_stones = {}
 end
 
 function GameManager:SetGamePhase(phase)
@@ -74,19 +74,17 @@ function GameManager:SpawnEonStone(location)
 	local container = CreateItemOnPositionForLaunch(location, CreateItem("item_eon_stone", nil, nil))
 	local item = container:GetContainedItem()
 
-	local stone_data = {}
+	self.stone_data = {}
 
-	stone_data.location = location
+	self.stone_data.location = location
 
-	stone_data.dummy = CreateUnitByName("npc_stone_dummy", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
-	stone_data.dummy:AddNewModifier(stone_data.dummy, nil, "modifier_dummy_state", {})
+	self.stone_data.dummy = CreateUnitByName("npc_stone_dummy", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	self.stone_data.dummy:AddNewModifier(self.stone_data.dummy, nil, "modifier_dummy_state", {})
 
-	stone_data.fow_viewers = {}
+	self.stone_data.fow_viewers = {}
 	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-		table.insert(stone_data.fow_viewers, AddFOWViewer(team, location, EON_STONE_VISION_RADIUS, GAME_MAX_DURATION, false))
+		table.insert(self.stone_data.fow_viewers, AddFOWViewer(team, location, EON_STONE_VISION_RADIUS, GAME_MAX_DURATION, false))
 	end
-	
-	table.insert(self.spawned_stones, stone_data)
 
 	Timers:CreateTimer(10, function()
 		if container and (not container:IsNull()) then
@@ -102,26 +100,11 @@ function GameManager:SpawnEonStone(location)
 end
 
 function GameManager:OnEonStonePickedUp(location)
-	local id = 0
-	local distance = 99999
+	self.stone_data.dummy:Destroy()
 
-	for stone_id, stone in pairs(self.spawned_stones) do
-		local this_stone_distance = (stone.location - location):Length2D()
-		if this_stone_distance < distance then
-			distance = this_stone_distance
-			id = stone_id
-		end
-	end
-
-	if id > 0 and self.spawned_stones[id] then
-		self.spawned_stones[id].dummy:Destroy()
-
-		for _, viewer in pairs(self.spawned_stones[id].fow_viewers) do
-			RemoveFOWViewer(DOTA_TEAM_GOODGUYS, viewer)
-			RemoveFOWViewer(DOTA_TEAM_BADGUYS, viewer)
-		end
-
-		table.remove(self.spawned_stones, id)
+	for _, viewer in pairs(self.stone_data.fow_viewers) do
+		RemoveFOWViewer(DOTA_TEAM_GOODGUYS, viewer)
+		RemoveFOWViewer(DOTA_TEAM_BADGUYS, viewer)
 	end
 
 	for player_id = 0, 24 do

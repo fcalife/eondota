@@ -10,7 +10,8 @@ precache.particles = {
     "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf",
     "particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf",
     "particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf",
-    "particles/overheat_buff.vpcf"
+    "particles/overheat_buff.vpcf",
+    "particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
 }
 
 precache.particle_folders = {

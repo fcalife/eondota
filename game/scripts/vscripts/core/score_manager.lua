@@ -22,6 +22,12 @@ function ScoreManager:Score(team, points)
 	GlobalMessages:NotifyTeamScored(team)
 
 	self:UpdateScores()
+
+	PassiveGold:GiveGoldToPlayersInTeam(team, EON_STONE_GOLD_REWARD, 0)
+
+	Timers:CreateTimer(math.max(0, EON_STONE_RESPAWN_TIME - EON_STONE_COUNTDOWN_TIME), function()
+		GameManager:StartEonStoneCountdown()
+	end)
 end
 
 function ScoreManager:UpdateScores()

@@ -8,8 +8,8 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 
-		"AbilityCastRange"				"20000"
-		"AbilityOvershootCastRange"		"20000"
+		"AbilityCastRange"				"50000"
+		"AbilityOvershootCastRange"		"50000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0.1"
 		"AbilityManaCost"				"0"
@@ -25,7 +25,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"20000"
+				"blink_range"			"50000"
 			}
 			"02"
 			{
@@ -35,7 +35,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blink_range_clamp"		"20000"
+				"blink_range_clamp"		"50000"
 			}
 		}
 	}
@@ -138,6 +138,156 @@
 		"Model"							"models/props_gameplay/rune_goldxp.vmdl"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"1"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_neutral_gold"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"alchemist_goblins_greed"
+		"Model"							"models/props_gameplay/gold_coin001.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"1"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_dragon_drop_arcane"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/dragon_drop.lua"
+		"AbilityTextureName"			"rune_arcane"
+		"Model"							"models/props_gameplay/rune_arcane.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"1"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_dragon_drop_frenzy"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/dragon_drop.lua"
+		"AbilityTextureName"			"rune_haste"
+		"Model"							"models/props_gameplay/rune_haste01.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"1"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_dragon_drop_catastrophe"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/dragon_drop.lua"
+		"AbilityTextureName"			"item_fusion_rune"
+		"Model"							"models/props_gameplay/rune_water.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"1"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_dragon_drop_ultimate"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/dragon_drop.lua"
+		"AbilityTextureName"			"rune_doubledamage"
+		"Model"							"models/props_gameplay/rune_doubledamage01.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.0"

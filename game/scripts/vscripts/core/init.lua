@@ -11,5 +11,8 @@ require('core/patrol_golems')
 require('core/shrines')
 require('core/objectives')
 require('core/neutral_camps')
+require('core/treasure_chest')
+require('core/tower')
+require('core/lane_creep')
 
 require("core/filters/init")

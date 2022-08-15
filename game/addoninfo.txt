@@ -4,6 +4,7 @@
 	maps = 
 	[
 		"eon",
+		"eon_lane",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false

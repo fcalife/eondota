@@ -14,6 +14,25 @@ DRAGON_BUFF_COLORS = {
 	["modifier_shrine_buff_ultimate"] = Vector(0, 0, 255),	
 }
 
+DRAGON_BUFF_DROPS = {
+	["modifier_shrine_buff_arcane"] = "item_dragon_drop_arcane",
+	["modifier_shrine_buff_frenzy"] = "item_dragon_drop_frenzy",
+	["modifier_shrine_buff_catastrophe"] = "item_dragon_drop_catastrophe",
+	["modifier_shrine_buff_ultimate"] = "item_dragon_drop_ultimate",
+}
+
+NEUTRAL_GOLD_BOUNTY = {
+	["npc_dota_neutral_kobold"] = 11,
+	["npc_dota_neutral_kobold_taskmaster"] = 34,
+	["npc_dota_neutral_giant_wolf"] = 73,
+	["npc_dota_neutral_alpha_wolf"] = 118,
+	["npc_dota_neutral_wildkin"] = 45,
+	["npc_dota_neutral_enraged_wildkin"] = 159,
+	["npc_dota_neutral_prowler_shaman"] = 325,
+	["npc_dota_neutral_black_drake"] = 195,
+	["npc_dota_neutral_black_dragon"] = 584,
+}
+
 function NeutralCamps:StartSpawning()
 	self.camp_data = {
 		[1] = {
@@ -142,7 +161,7 @@ function NeutralCamp:Spawn()
 	end
 end
 
-function NeutralCamp:OnCreepDied(killer)
+function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 	local camp_clear = true
 
 	for _, creep in pairs(self.creeps) do
@@ -153,7 +172,7 @@ function NeutralCamp:OnCreepDied(killer)
 
 	if camp_clear then
 		if self.is_dragon then
-			self:ApplyDragonBuff(killer:GetTeam())
+			DragonCoin(killed_unit:GetAbsOrigin(), self.dragon_buff)
 		end
 
 		self.dummy:AddNewModifier(self.dummy, nil, "modifier_not_on_minimap", {})
@@ -162,14 +181,92 @@ function NeutralCamp:OnCreepDied(killer)
 			self:Spawn()
 		end)
 	end
+
+	NeutralCoin(killed_unit:GetAbsOrigin(), NEUTRAL_GOLD_BOUNTY[killed_unit:GetUnitName()])
 end
 
-function NeutralCamp:ApplyDragonBuff(team)
+
+
+if NeutralCoin == nil then NeutralCoin = class({
+	value = 0,
+}) end
+
+function NeutralCoin:constructor(location, value)
+	self.gold_drop = CreateItem("item_neutral_gold", nil, nil)
+	self.value = value
+
+	self.location = location + RandomVector(RandomFloat(150, 200))
+	self.drop = CreateItemOnPositionForLaunch(location, self.gold_drop)
+	self.gold_drop:LaunchLootInitialHeight(false, 0, 300, 0.4, self.location)
+
+	Timers:CreateTimer(0.4, function()
+		self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
+			radius = 128
+		}, {
+			trigger_team = DOTA_TEAM_NEUTRALS,
+			team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			unit_filter = DOTA_UNIT_TARGET_HERO,
+			flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+		}, function(units)
+			self:OnHeroInRange(units)
+		end, {})
+	end)
+end
+
+function NeutralCoin:OnHeroInRange(units)
+	if units[1] then
+		PassiveGold:GiveGoldFromPickup(units[1], self.value)
+
+		self.gold_drop:Destroy()
+		self.drop:Destroy()
+		self.trigger:Stop()
+	end
+end
+
+
+
+if DragonCoin == nil then DragonCoin = class({
+	buff_name = "modifier_shrine_buff_arcane",
+}) end
+
+function DragonCoin:constructor(location, buff_name)
+	self.buff_name = buff_name
+	self.gold_drop = CreateItem(DRAGON_BUFF_DROPS[self.buff_name], nil, nil)
+
+	self.location = location + RandomVector(RandomFloat(150, 200))
+	self.drop = CreateItemOnPositionForLaunch(location, self.gold_drop)
+	self.gold_drop:LaunchLootInitialHeight(false, 0, 300, 0.4, self.location)
+
+	Timers:CreateTimer(0.4, function()
+		self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
+			radius = 128
+		}, {
+			trigger_team = DOTA_TEAM_NEUTRALS,
+			team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			unit_filter = DOTA_UNIT_TARGET_HERO,
+			flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+		}, function(units)
+			self:OnHeroInRange(units)
+		end, {})
+	end)
+end
+
+function DragonCoin:OnHeroInRange(units)
+	if units[1] then
+		self:ApplyDragonBuff(units[1]:GetTeam())
+
+		self.gold_drop:Destroy()
+		self.drop:Destroy()
+		self.trigger:Stop()
+	end
+end
+
+function DragonCoin:ApplyDragonBuff(team)
 	local handicap = ScoreManager:GetHandicap(team)
 
 	for _, hero in pairs(HeroList:GetAllHeroes()) do
 		if hero:GetTeam() == team then
-			hero:AddNewModifier(hero, nil, self.dragon_buff, {duration = DRAGON_BUFF_DURATION, handicap = handicap})
+			hero:AddNewModifier(hero, nil, self.buff_name, {duration = DRAGON_BUFF_DURATION, handicap = handicap})
 		end
 	end
 end

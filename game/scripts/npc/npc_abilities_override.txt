@@ -83,30 +83,6 @@
 		}
 	}
 
-	"item_blink" {
-		"AbilityCastRange"				"900"
-		"AbilityOvershootCastRange"     "900"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blink_damage_cooldown"	"3.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_range_clamp"		"900"
-			}
-		}
-	}
-
 	"item_black_king_bar"
 	{
 		"AbilityCooldown"				"75"

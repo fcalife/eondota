@@ -146,15 +146,15 @@ function modifier_item_eon_stone:OnIntervalThink()
 
 	self.elapsed_time = self.elapsed_time + 0.03
 
-	if self.elapsed_time > 0.33 then
-		self.elapsed_time = self.elapsed_time - 0.33
+	if self.elapsed_time > 0.4 then
+		self.elapsed_time = self.elapsed_time - 0.4
 		self:IncrementOverheat(1)
 	end
 
 	if parent:GetHealth() < self.previous_health then
 		self.damage_taken = self.damage_taken + (self.previous_health - parent:GetHealth())
 
-		local stack_damage = parent:GetMaxHealth() * 0.02
+		local stack_damage = parent:GetMaxHealth() * 0.025
 
 		if self.damage_taken > stack_damage then
 			local stack_count = math.floor(self.damage_taken / stack_damage)
@@ -167,8 +167,8 @@ function modifier_item_eon_stone:OnIntervalThink()
 
 	self.distance_moved = self.distance_moved + distance
 
-	if self.distance_moved >= 110 then
-		local stack_count = math.floor(self.distance_moved / 110)
+	if self.distance_moved >= 250 then
+		local stack_count = math.floor(self.distance_moved / 250)
 		self:IncrementOverheat(stack_count)
 		self.distance_moved = self.distance_moved - 110 * stack_count
 	end

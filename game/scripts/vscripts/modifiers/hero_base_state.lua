@@ -11,7 +11,7 @@ function modifier_hero_base_state:OnCreated(keys)
 
 	local parent = self:GetParent()
 
-	parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 10})
+	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 10}) end
 end
 
 function modifier_hero_base_state:DeclareFunctions()
@@ -24,8 +24,6 @@ function modifier_hero_base_state:DeclareFunctions()
 			MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
 			MODIFIER_PROPERTY_MODEL_SCALE,
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
-			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
 			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
 		} else return {
@@ -36,7 +34,6 @@ function modifier_hero_base_state:DeclareFunctions()
 			MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
 			MODIFIER_PROPERTY_MODEL_SCALE,
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
 			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
 		}
 	end
@@ -74,12 +71,8 @@ function modifier_hero_base_state:GetModifierIgnoreCastAngle()
 	return 1
 end
 
-function modifier_hero_base_state:GetModifierPercentageCasttime()
-	return 100
-end
-
 function modifier_hero_base_state:GetModifierPhysicalArmorBonus()
-	return 7
+	return 3.5
 end
 
 function modifier_hero_base_state:GetModifierStatusResistanceStacking()

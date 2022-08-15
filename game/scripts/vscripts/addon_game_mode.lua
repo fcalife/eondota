@@ -70,7 +70,7 @@ function GameMode:InitGameMode()
 	GameRules:SetTimeOfDay(0.5)
 
 	if IsInToolsMode() then
-		GameRules:SetPreGameTime(30)
+		GameRules:SetPreGameTime(3)
 	end
 
 	local game_mode_entity = GameRules:GetGameModeEntity()
@@ -102,10 +102,11 @@ function GameMode:InitGameMode()
 	ScoreManager:Init()
 	SpeedBoosts:Init()
 	RuneSpawner:Init()
-	PatrolGolems:Init()
+	--PatrolGolems:Init()
 	Shrines:Init()
 	Objectives:Init()
 	Filters:Init()
+	if GetMapName() == "eon_lane" then LaneCreeps:Init() end
 
 	-- Event Hooks
 	RegisterGameEventListener('player_connect_full', function(event) GameEvents:OnPlayerConnect(event) end)

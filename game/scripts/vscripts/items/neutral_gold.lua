@@ -1,0 +1,1 @@
+item_neutral_gold = class({})

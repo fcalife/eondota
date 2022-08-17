@@ -9,6 +9,8 @@
 		"ItemPermanent"					"1"
 		"ItemPurchasable"				"0"
 
+		"AbilityCooldown"				"1.0"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -81,6 +83,21 @@
 				"break_on_hero_damage"	"1"
 			}
 		}
+	}
+
+	"item_bracer"
+	{
+		"ItemLevelByGameTime"			"10"
+	}
+
+	"item_wraith_band"
+	{
+		"ItemLevelByGameTime"			"10"
+	}
+
+	"item_null_talisman"
+	{
+		"ItemLevelByGameTime"			"10"
 	}
 
 	"item_black_king_bar"

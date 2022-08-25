@@ -35,13 +35,13 @@
 		{
 			_class = "C_OP_SetControlPointPositions"
 			m_bUseWorldLocation = true
-			m_vecCP4Pos = [ 95.0, -95.0, 10.0 ]
+			m_vecCP4Pos = [ 99.0, -99.0, 10.0 ]
 			m_nCP4 = 5
-			m_vecCP3Pos = [ 95.0, 95.0, 10.0 ]
+			m_vecCP3Pos = [ 99.0, 99.0, 10.0 ]
 			m_nCP3 = 4
-			m_vecCP2Pos = [ -95.0, 95.0, 10.0 ]
+			m_vecCP2Pos = [ -99.0, 99.0, 10.0 ]
 			m_nCP2 = 3
-			m_vecCP1Pos = [ -95.0, -105.0, 10.0 ]
+			m_vecCP1Pos = [ -99.0, -99.0, 10.0 ]
 			m_nCP1 = 2
 			m_flOpEndFadeOutTime = 0.1
 			m_flOpStartFadeOutTime = 0.1
@@ -269,8 +269,8 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 5.0
-			m_flRadiusMax = 16.0
+			m_flRadiusMin = 4.0
+			m_flRadiusMax = 10.0
 		},
 		{
 			_class = "C_INIT_DistanceToCPInit"
@@ -355,9 +355,6 @@
 		},
 		{
 			m_ChildRef = resource:"particles/overheat_screen_c_03.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/overheat_screen_d_03.vpcf"
 		},
 	]
 }

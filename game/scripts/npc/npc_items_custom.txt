@@ -190,12 +190,13 @@
 		"IsTempestDoubleClonable"		"0"
 	}
 
+	// dire gold coin
 	"item_dragon_drop_arcane"
 	{
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/dragon_drop.lua"
 		"AbilityTextureName"			"rune_arcane"
-		"Model"							"models/props_gameplay/rune_arcane.vmdl"
+		"Model"							"models/props_gameplay/gold_bag.vmdl"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 
@@ -285,7 +286,7 @@
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/dragon_drop.lua"
 		"AbilityTextureName"			"rune_doubledamage"
-		"Model"							"models/props_gameplay/rune_doubledamage01.vmdl"
+		"Model"							"models/props_items/bloodstone.vmdl"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 

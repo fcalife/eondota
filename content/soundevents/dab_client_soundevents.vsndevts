@@ -160,4 +160,20 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/ui/coins.vsnd"
 	}
+	dragons_activate = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/addons/conquest/stinger_radiant_hallow.vsnd"
+	}
+	knights_activate = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/addons/conquest/stinger_hulk_hallow.vsnd"
+	}
 }

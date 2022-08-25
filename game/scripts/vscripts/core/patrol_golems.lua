@@ -1,5 +1,7 @@
 _G.PatrolGolems = PatrolGolems or {}
 
+PATROL_GOLEMS = {}
+
 local golem_paths = {}
 
 golem_paths["radiant_golem_a_"] = { team = DOTA_TEAM_GOODGUYS, color = Vector(80, 110, 240) }
@@ -8,10 +10,10 @@ golem_paths["dire_golem_a_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 8
 golem_paths["dire_golem_b_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 80, 110) }
 
 function PatrolGolems:Init()
-	self.patrol_golems = {}
-	for path_name, _ in pairs(golem_paths) do
-		table.insert(self.patrol_golems, PatrolGolem(path_name))
-	end
+	PATROL_GOLEMS[DOTA_TEAM_GOODGUYS] = PatrolGolem("radiant_golem_a_")
+	PATROL_GOLEMS[DOTA_TEAM_GOODGUYS] = PatrolGolem("radiant_golem_b_")
+	PATROL_GOLEMS[DOTA_TEAM_BADGUYS] = PatrolGolem("dire_golem_a_")
+	PATROL_GOLEMS[DOTA_TEAM_BADGUYS] = PatrolGolem("dire_golem_b_")
 end
 
 
@@ -36,18 +38,32 @@ function PatrolGolem:constructor(path_name)
 
 	local golem_name = (golem_paths[path_name].team == DOTA_TEAM_GOODGUYS and "npc_patrol_golem_good") or "npc_patrol_golem_bad"
 
-	self.golem = CreateUnitByName(golem_name, self.path[1], false, nil, nil, golem_paths[path_name].team)
-	self.golem:AddNewModifier(self.golem, nil, "modifier_golem_base_state", {})
-	self.golem:AddNewModifier(self.golem, nil, "modifier_tower_truesight_aura", {})
-	self.golem:SetRenderColor(golem_paths[path_name].color.x, golem_paths[path_name].color.y, golem_paths[path_name].color.z)
+	if self.path[1] then
+		self.golem = CreateUnitByName(golem_name, self.path[1], false, nil, nil, golem_paths[path_name].team)
+		self.golem:AddNewModifier(self.golem, nil, "modifier_golem_base_state", {})
+		self.golem:AddNewModifier(self.golem, nil, "modifier_tower_truesight_aura", {})
+		self.golem:SetRenderColor(golem_paths[path_name].color.x, golem_paths[path_name].color.y, golem_paths[path_name].color.z)
 
-	Timers:CreateTimer(1, function()
-		return self:Think()
-	end)
+		Timers:CreateTimer(1, function()
+			return self:Think()
+		end)
+	end
 end
 
 function PatrolGolem:Think()
-	local enemies = FindUnitsInRadius(
+	local creeps = FindUnitsInRadius(
+		self.golem:GetTeam(),
+		self.golem:GetAbsOrigin(),
+		nil,
+		PATROL_GOLEM_AGGRO_RANGE,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		FIND_CLOSEST,
+		false
+	)
+
+	local heroes = FindUnitsInRadius(
 		self.golem:GetTeam(),
 		self.golem:GetAbsOrigin(),
 		nil,
@@ -59,12 +75,28 @@ function PatrolGolem:Think()
 		false
 	)
 
-	if #enemies > 0 then
+	local i = 1
+	while creeps[i] and creeps[i]:IsNeutralUnitType() do
+		i = i + 1
+	end
+
+	local creep_target = creeps[i]
+
+	if creep_target then
 
 		ExecuteOrderFromTable({
 			unitIndex = self.golem:entindex(),
 			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-			TargetIndex = enemies[1]:entindex()
+			TargetIndex = creep_target:entindex()
+		})
+
+		return 0.5
+	elseif #heroes > 0 then
+
+		ExecuteOrderFromTable({
+			unitIndex = self.golem:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+			TargetIndex = heroes[1]:entindex()
 		})
 
 		return 0.5

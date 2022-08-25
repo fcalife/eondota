@@ -97,6 +97,11 @@ function modifier_item_eon_stone:OnCreated(keys)
 
 	local parent = self:GetParent()
 
+	if parent and (parent:IsIllusion() or parent:IsClone()) then
+		self:Destroy()
+		return
+	end
+
 	parent:EmitSound("Drop.EonStone")
 
 	parent:AddNewModifier(parent, nil, "modifier_item_eon_stone_visual", {})
@@ -125,6 +130,8 @@ function modifier_item_eon_stone:OnDestroy()
 	if IsClient() then return end
 
 	local parent = self:GetParent()
+
+	if parent and (parent:IsIllusion() or parent:IsClone()) then return end
 
 	parent:RemoveModifierByName("modifier_item_eon_stone_visual")
 	parent:RemoveModifierByName("modifier_item_eon_stone_overheat")
@@ -388,11 +395,11 @@ function modifier_item_eon_stone_overheat:DeclareFunctions()
 end
 
 function modifier_item_eon_stone_overheat:GetModifierDamageOutgoing_Percentage()
-	return 2 * self:GetStackCount()
+	return self:GetStackCount()
 end
 
 function modifier_item_eon_stone_overheat:GetModifierSpellAmplify_Percentage()
-	return self:GetStackCount()
+	return 0.5 * self:GetStackCount()
 end
 
 

@@ -14,7 +14,7 @@ function GameClock:Start()
 
 	RuneSpawner:SpawnAllBountyRunes()
 
-	if GetMapName() == "eon_lane" then TreasureChests:Spawn() end
+	if IS_EXPERIMENTAL_MAP then TreasureChests:Spawn() end
 
 	self:Tick()
 end
@@ -30,7 +30,7 @@ function GameClock:Tick()
 	if GameRules:GetGameTime() >= self.next_creep_spawn then
 		self.next_creep_spawn = self.next_creep_spawn + LANE_CREEP_SPAWN_DELAY
 
-		if GetMapName() == "eon_lane" then LaneCreeps:SpawnWave() end
+		if IS_EXPERIMENTAL_MAP then LaneCreeps:SpawnWave() end
 	end
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then

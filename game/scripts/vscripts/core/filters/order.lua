@@ -20,5 +20,13 @@ function Filters:OrderFilter(keys)
 		end
 	end
 
+	if keys.units and keys.units["0"] and keys.order_type and keys.order_type == DOTA_UNIT_ORDER_PURCHASE_ITEM then
+		local unit = EntIndexToHScript(keys.units["0"])
+
+		if unit and unit:HasModifier("modifier_damage_taken") then
+			return false
+		end
+	end
+
 	return true
 end

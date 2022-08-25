@@ -11,7 +11,10 @@
 		"npc_patrol_golem_good"				"Patrol Golem"
 		"npc_patrol_golem_bad"				"Patrol Golem"
 		"npc_control_shrine"				"Shrine"
-		"npc_treasure"						"Gold Chest"
+		"npc_eon_nexus"						"Nexus"
+		"npc_eon_roshan"					"Roshan"
+		"npc_eon_knight"					"Ethereal Knight"
+		"npc_eon_knight_ally"				"Ethereal Knight"
 
 		// Units
 
@@ -26,8 +29,8 @@
 		"DOTA_Tooltip_ability_item_neutral_gold"					"Gold"
 		"DOTA_Tooltip_ability_item_neutral_gold_Description"		"Grants gold to all nearby alllies"
 
-		"DOTA_Tooltip_ability_item_dragon_drop_arcane"						"Arcane Dragon Essence"
-		"DOTA_Tooltip_ability_item_dragon_drop_arcane_Description"			"Grants the Arcane Blessing to all allies"
+		"DOTA_Tooltip_ability_item_dragon_drop_arcane"						"Gold"
+		"DOTA_Tooltip_ability_item_dragon_drop_arcane_Description"			"Grants gold to all nearby allies"
 
 		"DOTA_Tooltip_ability_item_dragon_drop_frenzy"						"Frenzy Dragon Essence"
 		"DOTA_Tooltip_ability_item_dragon_drop_frenzy_Description"			"Grants the Frenzy Blessing to all allies"
@@ -35,8 +38,8 @@
 		"DOTA_Tooltip_ability_item_dragon_drop_catastrophe"					"Catastrophe Dragon Essence"
 		"DOTA_Tooltip_ability_item_dragon_drop_catastrophe_Description"		"Grants the Catastrophic Blessing to all allies"
 
-		"DOTA_Tooltip_ability_item_dragon_drop_ultimate"					"Unstoppable Dragon Essence"
-		"DOTA_Tooltip_ability_item_dragon_drop_ultimate_Description"		"Grants the Unstoppable Blessing to all allies"
+		"DOTA_Tooltip_ability_item_dragon_drop_ultimate"					"Dragon Essence"
+		"DOTA_Tooltip_ability_item_dragon_drop_ultimate_Description"		"Grants the Dragon Blessing to all allies"
 
 		"DOTA_Tooltip_ability_item_dev_blink"						"Mega Blink"
 		"DOTA_Tooltip_ability_item_dev_blink_Description"			"<h1>Active: Warp</h1>Instantly teleports to the target point of the map"
@@ -59,8 +62,8 @@
 		"DOTA_Tooltip_modifier_shrine_buff_catastrophe"					"Catastrophic Blessing"
 		"DOTA_Tooltip_modifier_shrine_buff_catastrophe_Description"		"You have a %dMODIFIER_PROPERTY_TOOLTIP%%% chance to trigger random elemental effects on enemies every time you deal damage to them"
 
-		"DOTA_Tooltip_modifier_shrine_buff_ultimate"					"Unstoppable Blessing"
-		"DOTA_Tooltip_modifier_shrine_buff_ultimate_Description"		"All your attacks are automatic %dMODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE%%% critical hits, and you have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% bonus status resistance"
+		"DOTA_Tooltip_modifier_shrine_buff_ultimate"					"Dragon Blessing"
+		"DOTA_Tooltip_modifier_shrine_buff_ultimate_Description"		"Gaining %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp."
 
 		"DOTA_Tooltip_modifier_item_eon_stone_overheat"					"Overheating"
 		"DOTA_Tooltip_modifier_item_eon_stone_overheat_Description"		"Gaining %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp. Don't go too high!"
@@ -70,5 +73,8 @@
 
 		"DOTA_Tooltip_modifier_respawning_tower_state"					"Reactivation"
 		"DOTA_Tooltip_modifier_respawning_tower_state_Description"		"This tower was recently destroyed, and is rebuilding itself."
+
+		"DOTA_Tooltip_modifier_nexus_state_debuff"						"Sunburn"
+		"DOTA_Tooltip_modifier_nexus_state_debuff_Description"			"Proximity to the enemy Nexus is causing you to take damage over time. Calm down, Icarus."
 	}
 }

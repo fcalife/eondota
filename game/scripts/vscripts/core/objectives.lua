@@ -3,15 +3,17 @@ _G.Objectives = Objectives or {}
 OBJECTIVE_STATE_INACTIVE = 0
 OBJECTIVE_STATE_IN_PROGRESS = 1
 
-OBJECTIVE_PROGRESS_TICK = SHRINE_UPDATE_RATE / 8
+OBJECTIVE_PROGRESS_TICK = SHRINE_UPDATE_RATE / OBJECTIVE_CAPTURE_TIME
+
+TEAM_GOALS = {}
 
 function Objectives:Init()
 	for _, radiant_goal in pairs(Entities:FindAllByName("radiant_goal")) do
-		Objective(radiant_goal:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
+		TEAM_GOALS[DOTA_TEAM_GOODGUYS] = Objective(radiant_goal:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
 	end
 
 	for _, dire_goal in pairs(Entities:FindAllByName("dire_goal")) do
-		Objective(dire_goal:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
+		TEAM_GOALS[DOTA_TEAM_BADGUYS] = Objective(dire_goal:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
 	end
 end
 
@@ -100,9 +102,9 @@ function Objective:OnCaptureThink(units)
 	end
 
 	if valid_units then
-		self.progress = math.min(1, self.progress + SHRINE_PROGRESS_TICK)
+		self.progress = math.min(1, self.progress + OBJECTIVE_PROGRESS_TICK)
 	else
-		self.progress = math.max(0, self.progress - SHRINE_PROGRESS_TICK)
+		self.progress = math.max(0, self.progress - OBJECTIVE_PROGRESS_TICK)
 	end
 
 	if self.capture_progress_pfx then

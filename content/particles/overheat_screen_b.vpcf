@@ -46,8 +46,7 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMax = 5.0
-			m_flRadiusMin = 2.0
+			m_flRadiusMax = 3.0
 		},
 		{
 			_class = "C_INIT_InitialVelocityNoise"

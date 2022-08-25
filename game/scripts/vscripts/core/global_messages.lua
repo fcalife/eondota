@@ -15,3 +15,19 @@ function GlobalMessages:NotifyTeamScored(team)
 
 	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.score" or "dire.score")
 end
+
+function GlobalMessages:NotifyDragon(team)
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has slain the Dragon!"
+
+	self:SendAnimated(message)
+
+	EmitGlobalSound("dragons_activate")
+end
+
+function GlobalMessages:NotifyKnights(team)
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has recruited the Ethereal Knights!"
+
+	self:SendAnimated(message)
+
+	EmitGlobalSound("knights_activate")
+end

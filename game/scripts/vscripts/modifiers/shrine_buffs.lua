@@ -191,7 +191,7 @@ function modifier_shrine_buff_ultimate:IsDebuff() return false end
 function modifier_shrine_buff_ultimate:IsPurgable() return false end
 
 function modifier_shrine_buff_ultimate:GetTexture()
-	return "rune_doubledamage"
+	return "black_dragon_dragonhide_aura"
 end
 
 function modifier_shrine_buff_ultimate:GetEffectName()
@@ -205,20 +205,20 @@ end
 function modifier_shrine_buff_ultimate:OnCreated(keys)
 	if IsClient() then return end
 
-	self:SetStackCount(keys.handicap)
+	self:SetStackCount(keys.stacks)
 end
 
 function modifier_shrine_buff_ultimate:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
-		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
 	}
 end
 
-function modifier_shrine_buff_ultimate:GetModifierPreAttack_CriticalStrike()
-	return 175 + 50 * self:GetStackCount()
+function modifier_shrine_buff_ultimate:GetModifierSpellAmplify_Percentage()
+	return 20 + 30 * (self:GetStackCount() - 1)
 end
 
-function modifier_shrine_buff_ultimate:GetModifierStatusResistanceStacking()
-	return 40 + 15 * self:GetStackCount()
+function modifier_shrine_buff_ultimate:GetModifierDamageOutgoing_Percentage()
+	return 20 + 30 * (self:GetStackCount() - 1)
 end

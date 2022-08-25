@@ -1,9 +1,9 @@
 _G.NeutralCamps = NeutralCamps or {}
 
 DRAGON_BUFFS = {
-	"modifier_shrine_buff_arcane",
-	"modifier_shrine_buff_frenzy",
-	"modifier_shrine_buff_catastrophe",
+	--"modifier_shrine_buff_arcane",
+	--"modifier_shrine_buff_frenzy",
+	--"modifier_shrine_buff_catastrophe",
 	"modifier_shrine_buff_ultimate"
 }
 
@@ -31,7 +31,13 @@ NEUTRAL_GOLD_BOUNTY = {
 	["npc_dota_neutral_prowler_shaman"] = 325,
 	["npc_dota_neutral_black_drake"] = 195,
 	["npc_dota_neutral_black_dragon"] = 584,
+	["npc_eon_knight"] = 350,
+	["npc_eon_roshan"] = 0,
 }
+
+DRAGON_KILLS = {}
+DRAGON_KILLS[DOTA_TEAM_GOODGUYS] = 0
+DRAGON_KILLS[DOTA_TEAM_BADGUYS] = 0
 
 function NeutralCamps:StartSpawning()
 	self.camp_data = {
@@ -75,19 +81,37 @@ function NeutralCamps:StartSpawning()
 			minimap_dummy = "npc_camp_dummy_5",
 			scale = 60,
 		},
+		[6] = {
+			leader = "npc_eon_knight",
+			min_leaders = 3,
+			max_leaders = 3,
+			respawn_time = DRAGON_RESPAWN_TIME,
+			minimap_dummy = "npc_camp_dummy_5",
+			scale = 0,
+		},
 	}
 
 	Timers:CreateTimer(NEUTRAL_CREEP_FIRST_SPAWN_TIME, function()
 		for level = 1, 4 do
 			for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_"..level)) do
-				NeutralCamp(camp_location:GetAbsOrigin(), false, self.camp_data[level])
+				NeutralCamp(camp_location:GetAbsOrigin(), false, false, false, self.camp_data[level])
 			end
 		end
 	end)
 
+	self.dragon_camps = {}
+
 	Timers:CreateTimer(DRAGON_SPAWN_TIME, function()
-		for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_5")) do
-			NeutralCamp(camp_location:GetAbsOrigin(), true, self.camp_data[5])
+		local ancient_spawn_points = Entities:FindAllByName("neutral_spawn_5")
+
+		if IS_EXPERIMENTAL_MAP then
+			local random = RandomInt(0, 1)
+
+			table.insert(self.dragon_camps, NeutralCamp(ancient_spawn_points[1 + random]:GetAbsOrigin(), true, false, false, self.camp_data[5]))
+			NeutralCamp(ancient_spawn_points[2 - random]:GetAbsOrigin(), false, true, false, self.camp_data[6])
+		else
+			table.insert(self.dragon_camps, NeutralCamp(ancient_spawn_points[1]:GetAbsOrigin(), true, false, false, self.camp_data[5]))
+			table.insert(self.dragon_camps, NeutralCamp(ancient_spawn_points[2]:GetAbsOrigin(), true, false, false, self.camp_data[5]))
 		end
 	end)
 end
@@ -102,9 +126,11 @@ if NeutralCamp == nil then NeutralCamp = class({
 	respawn_time = NEUTRAL_CREEP_RESPAWN_TIME
 }) end
 
-function NeutralCamp:constructor(location, is_dragon, data)
+function NeutralCamp:constructor(location, is_dragon, is_knight, is_roshan, data)
 	self.location = location
 	self.is_dragon = is_dragon
+	self.is_knight = is_knight
+	self.is_roshan = is_roshan
 	self.leader = data.leader
 	self.minion = data.minion
 	self.minimap_dummy = data.minimap_dummy
@@ -131,8 +157,7 @@ function NeutralCamp:Spawn()
 	local minion_count = RandomInt(self.min_minions, self.max_minions)
 
 	if self.is_dragon then
-		self.dragon_buff = DRAGON_BUFFS[RandomInt(1, 4)]
-		self.dragon_color = DRAGON_BUFF_COLORS[self.dragon_buff]
+		self.dragon_buff = DRAGON_BUFFS[RandomInt(1, 1)]
 	end
 
 	for i = 1, leader_count do
@@ -141,8 +166,6 @@ function NeutralCamp:Spawn()
 		creep.camp = self
 
 		table.insert(self.creeps, creep)
-
-		if self.dragon_color then creep:SetRenderColor(self.dragon_color.x, self.dragon_color.y, self.dragon_color.z) end 
 	end
 
 	if minion_count > 0 then
@@ -155,13 +178,12 @@ function NeutralCamp:Spawn()
 			creep.camp = self
 
 			table.insert(self.creeps, creep)
-
-			if self.dragon_color then creep:SetRenderColor(self.dragon_color.x, self.dragon_color.y, self.dragon_color.z) end 
 		end
 	end
 end
 
 function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
+	local team = killer:GetTeam()
 	local camp_clear = true
 
 	for _, creep in pairs(self.creeps) do
@@ -171,18 +193,72 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 	end
 
 	if camp_clear then
+		if self.is_roshan then
+			local roshan_drop = CreateItem("item_ultimate_scepter_roshan", nil, nil)
+			CreateItemOnPositionForLaunch(killed_unit:GetAbsOrigin(), roshan_drop)
+			PassiveGold:GiveGoldToPlayersInTeam(team, ROSHAN_GOLD_BOUNTY, 0)
+		end
+
 		if self.is_dragon then
+			GlobalMessages:NotifyDragon(team)
+			DRAGON_KILLS[team] = DRAGON_KILLS[team] + 1
 			DragonCoin(killed_unit:GetAbsOrigin(), self.dragon_buff)
+		end
+
+		if self.is_knight then
+			self:SpawnKnightsForTeam(team)
 		end
 
 		self.dummy:AddNewModifier(self.dummy, nil, "modifier_not_on_minimap", {})
 
-		Timers:CreateTimer(self.respawn_time, function()
-			self:Spawn()
-		end)
+		if self.is_dragon and (DRAGON_KILLS[DOTA_TEAM_GOODGUYS] >= 2 or DRAGON_KILLS[DOTA_TEAM_BADGUYS] >= 2) then
+			for _, dragon_camp in pairs(NeutralCamps.dragon_camps) do
+				dragon_camp:ConvertToRoshanCamp()
+
+				if self == dragon_camp then
+					Timers:CreateTimer(self.respawn_time, function()
+						self:Spawn()
+					end)
+				else
+					dragon_camp:Spawn()
+				end
+			end
+		else
+			Timers:CreateTimer(self.respawn_time, function()
+				self:Spawn()
+			end)
+		end
 	end
 
-	NeutralCoin(killed_unit:GetAbsOrigin(), NEUTRAL_GOLD_BOUNTY[killed_unit:GetUnitName()])
+	local bounty = NEUTRAL_GOLD_BOUNTY[killed_unit:GetUnitName()]
+
+	if bounty > 0 then PassiveGold:GiveGoldFromPickup(killer, NEUTRAL_GOLD_BOUNTY[killed_unit:GetUnitName()]) end
+end
+
+function NeutralCamp:SpawnKnightsForTeam(team)
+	GlobalMessages:NotifyKnights(team)
+
+	LaneCreeps:SpawnKnightWave(team)
+end
+
+function NeutralCamp:ConvertToRoshanCamp()
+	self.is_roshan = true
+	self.is_dragon = false
+	self.leader = "npc_eon_roshan"
+	self.minion = nil
+	self.min_minions = 0
+	self.max_minions = 0
+	self.min_leaders = 1
+	self.max_leaders = 1
+
+	self.dummy:AddNewModifier(self.dummy, nil, "modifier_not_on_minimap", {})
+
+	for _, creep in pairs(self.creeps) do
+		if creep and (not creep:IsNull()) and creep:IsAlive() then
+			creep:Destroy()
+			UTIL_Remove(creep)
+		end
+	end
 end
 
 
@@ -195,21 +271,26 @@ function NeutralCoin:constructor(location, value)
 	self.gold_drop = CreateItem("item_neutral_gold", nil, nil)
 	self.value = value
 
-	self.location = location + RandomVector(RandomFloat(150, 200))
+	self.location = location
 	self.drop = CreateItemOnPositionForLaunch(location, self.gold_drop)
-	self.gold_drop:LaunchLootInitialHeight(false, 0, 300, 0.4, self.location)
 
-	Timers:CreateTimer(0.4, function()
-		self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
-			radius = 128
-		}, {
-			trigger_team = DOTA_TEAM_NEUTRALS,
-			team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			unit_filter = DOTA_UNIT_TARGET_HERO,
-			flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
-		}, function(units)
-			self:OnHeroInRange(units)
-		end, {})
+	self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
+		radius = 128
+	}, {
+		trigger_team = DOTA_TEAM_NEUTRALS,
+		team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		unit_filter = DOTA_UNIT_TARGET_HERO,
+		flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+	}, function(units)
+		self:OnHeroInRange(units)
+	end, {})
+
+	Timers:CreateTimer(GOLD_COIN_DURATION, function()
+		if self.gold_drop and self.drop and (not (self.drop:IsNull() or self.gold_drop:IsNull())) then
+			self.gold_drop:Destroy()
+			self.drop:Destroy()
+			self.trigger:Stop()
+		end
 	end)
 end
 
@@ -233,13 +314,16 @@ function DragonCoin:constructor(location, buff_name)
 	self.buff_name = buff_name
 	self.gold_drop = CreateItem(DRAGON_BUFF_DROPS[self.buff_name], nil, nil)
 
-	self.location = location + RandomVector(RandomFloat(150, 200))
+	self.location = location + RandomVector(RandomFloat(400, 500))
 	self.drop = CreateItemOnPositionForLaunch(location, self.gold_drop)
-	self.gold_drop:LaunchLootInitialHeight(false, 0, 300, 0.4, self.location)
+	self.drop:SetModelScale(2.0)
+	self.gold_drop:LaunchLootInitialHeight(false, 0, 550, 0.75, self.location)
 
-	Timers:CreateTimer(0.4, function()
+	Timers:CreateTimer(0.75, function()
+		GridNav:DestroyTreesAroundPoint(self.location, 175, true)
+
 		self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
-			radius = 128
+			radius = 175
 		}, {
 			trigger_team = DOTA_TEAM_NEUTRALS,
 			team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -253,7 +337,7 @@ end
 
 function DragonCoin:OnHeroInRange(units)
 	if units[1] then
-		self:ApplyDragonBuff(units[1]:GetTeam())
+		self:ApplyDragonBuff(units[1])
 
 		self.gold_drop:Destroy()
 		self.drop:Destroy()
@@ -261,12 +345,23 @@ function DragonCoin:OnHeroInRange(units)
 	end
 end
 
-function DragonCoin:ApplyDragonBuff(team)
-	local handicap = ScoreManager:GetHandicap(team)
+function DragonCoin:ApplyDragonBuff(unit)
+	local team = unit:GetTeam()
+	local stacks = 1
+
+	if DRAGON_KILLS[team] >= 2 then stacks = 2 end
+
+	unit:EmitSound("Shrine.Capture")
+
+	local shockwave_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_point_shockwave.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(shockwave_pfx, 0, unit:GetAbsOrigin())
+	ParticleManager:SetParticleControl(shockwave_pfx, 1, Vector(50, 50, 225))
+	ParticleManager:ReleaseParticleIndex(shockwave_pfx)
 
 	for _, hero in pairs(HeroList:GetAllHeroes()) do
 		if hero:GetTeam() == team then
-			hero:AddNewModifier(hero, nil, self.buff_name, {duration = DRAGON_BUFF_DURATION, handicap = handicap})
+			hero:RemoveModifierByName(self.buff_name)
+			hero:AddNewModifier(hero, nil, self.buff_name, {duration = DRAGON_BUFF_DURATION, stacks = stacks})
 		end
 	end
 end

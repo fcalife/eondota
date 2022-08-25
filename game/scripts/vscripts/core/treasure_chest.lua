@@ -16,6 +16,8 @@ function TreasureChest:constructor(team, location)
 	self.location = location
 	self.team = team
 
-	self.chest = CreateUnitByName("npc_treasure", self.location, true, nil, nil, team)
-	self.chest:AddNewModifier(self.chest, nil, "modifier_treasure_state", {})
+	self.unit = CreateUnitByName("npc_eon_nexus", self.location, true, nil, nil, self.team)
+	self.unit:AddNewModifier(self.unit, nil, "modifier_nexus_state", {})
+
+	ScoreManager.nexus[team] = self.unit
 end

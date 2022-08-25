@@ -4,6 +4,13 @@ function modifier_tower_state:IsHidden() return true end
 function modifier_tower_state:IsDebuff() return false end
 function modifier_tower_state:IsPurgable() return false end
 
+function modifier_tower_state:CheckState()
+	return {
+		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
+		[MODIFIER_STATE_PROVIDES_VISION] = true
+	}
+end
+
 function modifier_tower_state:DeclareFunctions()
 	if IsServer() then
 		return {

@@ -64,8 +64,8 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 9.0
-			m_flRadiusMax = 32.0
+			m_flRadiusMin = 3.0
+			m_flRadiusMax = 8.0
 		},
 		{
 			_class = "C_INIT_RandomAlpha"

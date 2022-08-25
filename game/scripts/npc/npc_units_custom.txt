@@ -181,10 +181,10 @@
 		"BaseAttackSpeed"			"150"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.01"
-		"AttackAcquisitionRange"	"900"
-		"AttackRange"				"900"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"1200"
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"
-		"ProjectileSpeed"			"1000"
+		"ProjectileSpeed"			"1200"
 
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
@@ -227,10 +227,10 @@
 		"BaseAttackSpeed"			"150"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.01"
-		"AttackAcquisitionRange"	"900"
-		"AttackRange"				"900"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"1200"
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"
-		"ProjectileSpeed"			"1000"
+		"ProjectileSpeed"			"1200"
 
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
@@ -255,7 +255,7 @@
 
 	"npc_control_shrine"
 	{
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/props_structures/tower_upgrade/tower_upgrade.vmdl"
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"350"
@@ -295,16 +295,16 @@
 		"VisionNighttimeRange"		"1200"
 	}
 
-	"npc_treasure"
+	"npc_nexus_bad"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/props_gameplay/treasure_chest_gold.vmdl"
-		"MinimapIcon"				"diretide_pumpkin"
-		"MinimapIconSize"			"350"
-		"ModelScale"				"3.5"
+		"Model"						"models/buildings/building_racks_melee_reference.vmdl"
+		"MinimapIcon"				"minimap_ancient"
+		"MinimapIconSize"			"400"
+		"ModelScale"				"2.0"
 
-		"ArmorPhysical"				"1000"
-		"MagicalResistance"			"100"
+		"ArmorPhysical"				"30"
+		"MagicalResistance"			"50"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"1"
@@ -323,14 +323,57 @@
 		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
 		"ProjectileCollisionSize"	"24"
 		"RingRadius"				"130"
-		"HealthBarOffset"			"260"
+		"HealthBarOffset"			"400"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
 		"MovementSpeed"				"0"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"10000"
-		"StatusHealthRegen"			"100"
+		"StatusHealth"				"80000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
+	}
+
+	"npc_eon_nexus"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/rattletrap/knight_of_the_clock_tower_power_cogs/knight_of_the_clock_tower_power_cogs.vmdl"
+		"MinimapIcon"				"minimap_ancient"
+		"MinimapIconSize"			"400"
+		"ModelScale"				"4.5"
+
+		"ArmorPhysical"				"30"
+		"MagicalResistance"			"50"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"80000"
+		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -340,16 +383,19 @@
 
 	"npc_dota_goodguys_tower1_mid"
 	{
+		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				"1.3"
 	}
 
 	"npc_dota_badguys_tower1_mid"
 	{
+		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				"1.3"
 	}
 
 	"npc_dota_goodguys_tower1_top"
 	{
+		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				"1.3"
 		"StatusHealth"				"540"
 
@@ -359,6 +405,7 @@
 
 	"npc_dota_badguys_tower1_top"
 	{
+		"BaseClass"					"npc_dota_creature"
 		"StatusHealth"				"540"
 
 		"AttackDamageMin"			"61"
@@ -526,5 +573,134 @@
 	{
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
+	}
+
+	"npc_eon_roshan"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/creeps/roshan/roshan.vmdl"
+		"SoundSet"					"Roshan"
+		"ModelScale"				"1"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"20"
+		"MagicalResistance"			"55"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"225"
+		"AttackDamageMax"			"250"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"2.0"
+		"AttackAnimationPoint"		"0.6"
+		"AttackAcquisitionRange"	"150"
+		"AttackRange"				"150"
+
+		"BountyXP"					"1000"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"RingRadius"				"110"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"9000"
+		"StatusHealthRegen"			"20"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
+	}
+
+	"npc_eon_knight"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/creeps/omniknight_golem/omniknight_golem.vmdl"
+		"SoundSet"					"Hero.Omniknight"
+		"ModelScale"				"1.8"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"40"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"150"
+		"AttackDamageMax"			"155"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"2.0"
+		"AttackAnimationPoint"		"0.433"
+		"AttackAcquisitionRange"	"250"
+		"AttackRange"				"250"
+
+		"BountyXP"					"425"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"550"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"2750"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+	}
+
+	"npc_eon_knight_ally"
+	{
+		"BaseClass"					"npc_dota_creep_lane"
+		"Model"						"models/creeps/omniknight_golem/omniknight_golem.vmdl"
+		"SoundSet"					"Hero.Omniknight"
+		"ModelScale"				"1.8"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"40"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"150"
+		"AttackDamageMax"			"155"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"2.0"
+		"AttackAnimationPoint"		"0.433"
+		"AttackAcquisitionRange"	"250"
+		"AttackRange"				"250"
+
+		"BountyXP"					"425"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"2750"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
 	}
 }

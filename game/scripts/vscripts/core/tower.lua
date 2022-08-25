@@ -31,6 +31,8 @@ function RespawningTower:constructor(team, location, unit_name)
 
 	self.unit:AddNewModifier(self.unit, nil, "modifier_tower_state", {})
 
+	if self.team == DOTA_TEAM_BADGUYS then self.unit:SetRenderColor(65, 78, 63) end
+
 	self.unit.respawning_tower = self
 end
 
@@ -41,6 +43,8 @@ function RespawningTower:Respawn()
 	self.unit:AddNewModifier(self.unit, nil, "modifier_tower_state", {})
 	self.unit:AddNewModifier(self.unit, nil, "modifier_respawning_tower_state", {duration = TOWER_RESPAWN_TIME})
 	self.unit:SetHealth(1)
+
+	if self.team == DOTA_TEAM_BADGUYS then self.unit:SetRenderColor(65, 78, 63) end
 
 	self.unit.respawning_tower = self
 end

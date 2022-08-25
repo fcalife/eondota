@@ -11,7 +11,9 @@ precache.particles = {
     "particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf",
     "particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf",
     "particles/overheat_buff.vpcf",
-    "particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
+    "particles/units/heroes/hero_treant/treant_livingarmor.vpcf",
+    "particles/econ/events/spring_2021/teleport_end_spring_2021.vpcf",
+    "particles/status_fx/status_effect_dark_seer_illusion.vpcf",
 }
 
 precache.particle_folders = {
@@ -29,7 +31,8 @@ precache.model_folders = {
 precache.sounds = {
     "soundevents/dab_soundevents.vsndevts",
     "soundevents/dab_client_soundevents.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+    "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
 }
 
 precache.units = {

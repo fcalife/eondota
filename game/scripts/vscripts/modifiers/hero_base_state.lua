@@ -17,6 +17,7 @@ end
 function modifier_hero_base_state:DeclareFunctions()
 	if IsServer() then
 		return {
+			MODIFIER_EVENT_ON_TAKEDAMAGE,
 			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 			MODIFIER_PROPERTY_MOVESPEED_LIMIT,
@@ -77,4 +78,12 @@ end
 
 function modifier_hero_base_state:GetModifierStatusResistanceStacking()
 	return 20
+end
+
+function modifier_hero_base_state:OnTakeDamage(keys)
+	if keys.unit and keys.unit == self:GetParent() and keys.unit:IsAlive() then
+		if keys.attacker and keys.attacker:GetTeam() ~= keys.unit:GetTeam() then
+			keys.unit:AddNewModifier(keys.unit, nil, "modifier_damage_taken", {duration = 5})
+		end
+	end
 end

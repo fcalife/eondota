@@ -12,6 +12,7 @@ LANE_CREEP_GOLD_BOUNTY = {
 	["npc_dota_creep_goodguys_ranged"] = 55,
 	["npc_dota_creep_badguys_melee"] = 42,
 	["npc_dota_creep_badguys_ranged"] = 55,
+	["npc_eon_knight_ally"] = 0,
 }
 
 function LaneCreeps:Init()
@@ -87,6 +88,13 @@ function LaneCreeps:SpawnWave()
 	end
 end
 
+function LaneCreeps:SpawnKnightWave(team)
+	for _, spawn_point in pairs(self.spawn_points[team].melee) do
+		if team == DOTA_TEAM_GOODGUYS then LaneCreep(team, self.good_path, spawn_point, "npc_eon_knight_ally") end
+		if team == DOTA_TEAM_BADGUYS then LaneCreep(team, self.bad_path, spawn_point, "npc_eon_knight_ally") end
+	end
+end
+
 
 
 if LaneCreep == nil then LaneCreep = class({}) end
@@ -98,6 +106,11 @@ function LaneCreep:constructor(team, path, location, unit_name)
 	self.unit_name = unit_name
 
 	self.unit = CreateUnitByName(self.unit_name, self.location, true, nil, nil, self.team)
+	ResolveNPCPositions(self.location, 200)
+
+	self.unit:EmitSound("Creep.Teleport")
+
+	if self.unit_name == "npc_eon_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_knight_state", {}) end
 
 	self.unit.lane = self
 
@@ -116,7 +129,8 @@ function LaneCreep:constructor(team, path, location, unit_name)
 end
 
 function LaneCreep:OnLaneCreepDied(killer, killed_unit)
-	LaneCoin(killed_unit:GetAbsOrigin(), LANE_CREEP_GOLD_BOUNTY[killed_unit:GetUnitName()], killed_unit:GetTeam())
+	local bounty = LANE_CREEP_GOLD_BOUNTY[killed_unit:GetUnitName()]
+	if bounty > 0 then LaneCoin(killed_unit:GetAbsOrigin(), bounty, killed_unit:GetTeam()) end
 end
 
 
@@ -126,28 +140,44 @@ if LaneCoin == nil then LaneCoin = class({
 }) end
 
 function LaneCoin:constructor(location, value, team)
-	self.gold_drop = CreateItem("item_neutral_gold", nil, nil)
+	if team == DOTA_TEAM_GOODGUYS then
+		self.gold_drop = CreateItem("item_neutral_gold", nil, nil)
+	else
+		self.gold_drop = CreateItem("item_dragon_drop_arcane", nil, nil)
+	end
+
 	self.value = value
 	self.team = team
 
-	self.location = location + RandomVector(RandomFloat(150, 200))
+	self.location = location
 	self.drop = CreateItemOnPositionForLaunch(location, self.gold_drop)
-	self.gold_drop:LaunchLootInitialHeight(false, 0, 300, 0.4, self.location)
 
-	if team == DOTA_TEAM_GOODGUYS then self.drop:SetRenderColor(0, 255, 0) end
-	if team == DOTA_TEAM_BADGUYS then self.drop:SetRenderColor(255, 0, 0) end
+	if team == DOTA_TEAM_GOODGUYS then
+		self.drop:SetRenderColor(50, 255, 50)
+		self.drop:SetModelScale(1.4)
+	end
+	if team == DOTA_TEAM_BADGUYS then
+		self.drop:SetRenderColor(255, 50, 50)
+		self.drop:SetModelScale(2.5)
+	end
 
-	Timers:CreateTimer(0.4, function()
-		self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
-			radius = 128
-		}, {
-			trigger_team = self.team,
-			team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			unit_filter = DOTA_UNIT_TARGET_HERO,
-			flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
-		}, function(units)
-			self:OnHeroInRange(units)
-		end, {})
+	self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
+		radius = 170
+	}, {
+		trigger_team = self.team,
+		team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		unit_filter = DOTA_UNIT_TARGET_HERO,
+		flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+	}, function(units)
+		self:OnHeroInRange(units)
+	end, {})
+
+	Timers:CreateTimer(GOLD_COIN_DURATION, function()
+		if self.gold_drop and self.drop and (not (self.drop:IsNull() or self.gold_drop:IsNull())) then
+			self.gold_drop:Destroy()
+			self.drop:Destroy()
+			self.trigger:Stop()
+		end
 	end)
 end
 

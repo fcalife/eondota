@@ -174,10 +174,10 @@ function modifier_item_eon_stone:OnIntervalThink()
 
 	self.distance_moved = self.distance_moved + distance
 
-	if self.distance_moved >= 250 then
-		local stack_count = math.floor(self.distance_moved / 250)
+	if self.distance_moved >= 160 then
+		local stack_count = math.floor(self.distance_moved / 160)
 		self:IncrementOverheat(stack_count)
-		self.distance_moved = self.distance_moved - 110 * stack_count
+		self.distance_moved = self.distance_moved - 160 * stack_count
 	end
 
 	if self.minimap_dummy and (not self.minimap_dummy:IsNull()) then self.minimap_dummy:SetAbsOrigin(current_position) end

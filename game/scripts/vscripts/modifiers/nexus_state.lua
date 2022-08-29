@@ -78,7 +78,7 @@ function modifier_nexus_state_debuff:OnIntervalThink()
 	local parent = self:GetParent()
 	local caster = self:GetCaster()
 
-	if parent and caster and parent:IsAlive() and (not parent:IsNull()) then
+	if parent and caster and parent:IsAlive() and (not parent:IsNull()) and parent:GetTeam() ~= DOTA_TEAM_NEUTRALS then
 		ApplyDamage({attacker = caster, victim = parent, damage = 30 + 0.07 * parent:GetHealth(), damage_type = DAMAGE_TYPE_PURE})
 	end
 end

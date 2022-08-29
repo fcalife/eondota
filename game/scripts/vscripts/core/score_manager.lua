@@ -8,28 +8,32 @@ function ScoreManager:Init()
 	self.nexus = {}
 
 	self.eon_points = {}
-	self.eon_points[DOTA_TEAM_GOODGUYS] = 100
-	self.eon_points[DOTA_TEAM_BADGUYS] = 100
+	self.eon_points[DOTA_TEAM_GOODGUYS] = IS_EXPERIMENTAL_MAP and 100 or 0
+	self.eon_points[DOTA_TEAM_BADGUYS] = IS_EXPERIMENTAL_MAP and 100 or 0
 
 	self:UpdateScores()
 end
 
 function ScoreManager:OnNexusHealth(team, health)
-	if health < self.eon_points[team] then
+	if IS_EXPERIMENTAL_MAP and health < self.eon_points[team] then
 		self.eon_points[team] = health
 		self:UpdateScores()
 	end
 end
 
 function ScoreManager:Score(team, points)
-	--self.eon_points[team] = math.min(self.eon_points[team] + points, GAME_TARGET_SCORE)
-	if self.nexus[team] and self.nexus[ENEMY_TEAM[team]] then
-		local damage = self.nexus[ENEMY_TEAM[team]]:GetMaxHealth() * EON_STONE_NEXUS_DAMAGE
-		ApplyDamage({attacker = self.nexus[team], victim = self.nexus[ENEMY_TEAM[team]], damage = damage, damage_type = DAMAGE_TYPE_PURE})
+	if IS_EXPERIMENTAL_MAP then
+		if self.nexus[team] and self.nexus[ENEMY_TEAM[team]] then
+			local damage = self.nexus[ENEMY_TEAM[team]]:GetMaxHealth() * EON_STONE_NEXUS_DAMAGE
+			ApplyDamage({attacker = self.nexus[team], victim = self.nexus[ENEMY_TEAM[team]], damage = damage, damage_type = DAMAGE_TYPE_PURE})
 
-		self.eon_points[ENEMY_TEAM[team]] = math.ceil(100 * self.nexus[ENEMY_TEAM[team]]:GetHealth() / self.nexus[ENEMY_TEAM[team]]:GetMaxHealth())
-		self:UpdateScores()
+			self.eon_points[ENEMY_TEAM[team]] = math.ceil(100 * self.nexus[ENEMY_TEAM[team]]:GetHealth() / self.nexus[ENEMY_TEAM[team]]:GetMaxHealth())
+		end
+	else
+		self.eon_points[team] = math.min(self.eon_points[team] + points, GAME_TARGET_SCORE)
 	end
+
+	self:UpdateScores()
 
 	GlobalMessages:NotifyTeamScored(team)
 
@@ -46,7 +50,7 @@ function ScoreManager:UpdateScores()
 	game_mode_entity:SetCustomRadiantScore(self.eon_points[DOTA_TEAM_GOODGUYS])
 	game_mode_entity:SetCustomDireScore(self.eon_points[DOTA_TEAM_BADGUYS])
 
-	--self:CheckForPointWin()
+	if (not IS_EXPERIMENTAL_MAP) then self:CheckForPointWin() end
 end
 
 function ScoreManager:CheckForPointWin()

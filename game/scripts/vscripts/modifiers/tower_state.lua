@@ -4,6 +4,16 @@ function modifier_tower_state:IsHidden() return true end
 function modifier_tower_state:IsDebuff() return false end
 function modifier_tower_state:IsPurgable() return false end
 
+function modifier_tower_state:OnCreated(keys)
+	if IsClient() then return end
+
+	self:StartIntervalThink(60)
+end
+
+function modifier_tower_state:OnIntervalThink()
+	self:IncrementStackCount()
+end
+
 function modifier_tower_state:CheckState()
 	return {
 		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
@@ -14,9 +24,24 @@ end
 function modifier_tower_state:DeclareFunctions()
 	if IsServer() then
 		return {
+			MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			MODIFIER_EVENT_ON_DEATH
 		}
+	else
+		return {
+			MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+		}
 	end
+end
+
+function modifier_tower_state:GetModifierPreAttack_BonusDamage()
+	return 10 * self:GetStackCount()
+end
+
+function modifier_tower_state:GetModifierAttackSpeedBonus_Constant()
+	return 4 * self:GetStackCount()
 end
 
 function modifier_tower_state:OnDeath(keys)
@@ -63,5 +88,5 @@ function modifier_respawning_tower_state:DeclareFunctions()
 end
 
 function modifier_respawning_tower_state:GetModifierConstantHealthRegen()
-	return self:GetParent():GetMaxHealth() / 180
+	return self:GetParent():GetMaxHealth() / 60
 end

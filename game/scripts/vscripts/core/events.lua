@@ -23,7 +23,7 @@ end
 function GameEvents:OnPreGameStart()
 	self:DebugPrint("New state: pregame")
 
-	EmitGlobalSound("game_start")
+	EmitGlobalSound("game_start.0"..RandomInt(1, 3))
 
 	Towers:Spawn()
 end

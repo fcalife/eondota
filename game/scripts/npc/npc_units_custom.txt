@@ -176,13 +176,13 @@
 		"MagicalResistance"			"100"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"85"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"60"
 		"BaseAttackSpeed"			"150"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.01"
-		"AttackAcquisitionRange"	"1200"
-		"AttackRange"				"1200"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"1000"
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"
 		"ProjectileSpeed"			"1200"
 
@@ -222,13 +222,13 @@
 		"MagicalResistance"			"100"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"85"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"60"
 		"BaseAttackSpeed"			"150"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.01"
-		"AttackAcquisitionRange"	"1200"
-		"AttackRange"				"1200"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"1000"
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"
 		"ProjectileSpeed"			"1200"
 
@@ -553,24 +553,28 @@
 
 	"npc_dota_creep_goodguys_melee"
 	{
+		"BountyXP"					"64"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
 
 	"npc_dota_creep_goodguys_ranged"
 	{
+		"BountyXP"					"76"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
 
 	"npc_dota_creep_badguys_melee"
 	{
+		"BountyXP"					"64"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
 
 	"npc_dota_creep_badguys_ranged"
 	{
+		"BountyXP"					"76"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
@@ -674,8 +678,8 @@
 		"MagicalResistance"			"40"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"150"
-		"AttackDamageMax"			"155"
+		"AttackDamageMin"			"225"
+		"AttackDamageMax"			"230"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"2.0"
 		"AttackAnimationPoint"		"0.433"
@@ -694,7 +698,7 @@
 		"MovementSpeed"				"350"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"2750"
+		"StatusHealth"				"4000"
 		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

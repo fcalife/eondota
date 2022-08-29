@@ -60,7 +60,7 @@ BOUNTY_RUNE_BASE_EXP = 0			-- Base experience granted to the whole team when pic
 BOUNTY_RUNE_EXP_PER_SECOND = 0		-- Amount by which the above increases every second
 BOUNTY_RUNE_SPAWN_INTERVAL = 60		-- Time between two consecutive bounty rune spawns
 
-PATROL_GOLEM_AGGRO_RANGE = 1200		-- Maximum distance at which the patrol golems will "see" and attack enemy players
+PATROL_GOLEM_AGGRO_RANGE = 1000		-- Maximum distance at which the patrol golems will "see" and attack enemy players
 
 DRAGON_BUFF_DURATION = 60
 DRAGON_SPAWN_TIME = IsInToolsMode() and 3 or 180
@@ -69,13 +69,13 @@ DRAGON_RESPAWN_TIME = IsInToolsMode() and 10 or 180
 ROSHAN_GOLD_BOUNTY = 200
 
 TREASURE_GOLD_PER_HIT = 1
-TOWER_RESPAWN_TIME = 180
+TOWER_RESPAWN_TIME = 60
 
 SHRINE_CAPTURE_ZONE_RADIUS = 500
 SHRINE_CAPTURE_TIME = 5
 SHRINE_COOLDOWN_TIME = 30
 
-OBJECTIVE_CAPTURE_TIME = 8
+OBJECTIVE_CAPTURE_TIME = 10
 
 EON_STONE_SCORE = 1											-- How many points an eon stone is worth when delivered to the enemy goal
 EON_STONE_FIRST_SPAWN_TIME = (IsInToolsMode() and 0) or (IS_EXPERIMENTAL_MAP and 180 or 35)	-- How long does it take for the first eon stone to spawn
@@ -83,7 +83,7 @@ EON_STONE_RESPAWN_TIME = 120								-- How long does it take for each subsequent
 EON_STONE_COUNTDOWN_TIME = 15								-- How long does it take for the eon stone to spawn after it is announced to players
 EON_STONE_VISION_RADIUS = 750								-- How much vision each eon stone gives to both teams around itself when dropped on the ground
 EON_STONE_GOAL_RADIUS = 750									-- How big is the radius of both teams' goals
-EON_STONE_GOLD_REWARD = 200
+EON_STONE_GOLD_REWARD = 150
 
 EON_STONE_NEXUS_DAMAGE = 0.2
 

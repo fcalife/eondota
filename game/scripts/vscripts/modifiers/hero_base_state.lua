@@ -12,6 +12,12 @@ function modifier_hero_base_state:OnCreated(keys)
 	local parent = self:GetParent()
 
 	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 10}) end
+
+	if IS_EXPERIMENTAL_MAP then
+		self:SetStackCount(parent:IsRangedAttacker() and 40 or 50)
+	else
+		self:SetStackCount(parent:IsRangedAttacker() and 80 or 100)
+	end
 end
 
 function modifier_hero_base_state:DeclareFunctions()
@@ -41,9 +47,7 @@ function modifier_hero_base_state:DeclareFunctions()
 end
 
 function modifier_hero_base_state:GetModifierMoveSpeedBonus_Constant()
-	local parent = self:GetParent()
-
-	return parent and (parent:IsRangedAttacker() and 175 or 200)
+	return self:GetStackCount()
 end
 
 function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()

@@ -4,12 +4,9 @@ function modifier_nexus_state:IsHidden() return true end
 function modifier_nexus_state:IsDebuff() return false end
 function modifier_nexus_state:IsPurgable() return false end
 
-function modifier_nexus_state:IsAura() return true end
-function modifier_nexus_state:GetModifierAura() return "modifier_nexus_state_debuff" end
-function modifier_nexus_state:GetAuraRadius() return 900 end
-function modifier_nexus_state:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_ENEMY end
-function modifier_nexus_state:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
-function modifier_nexus_state:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES end
+function modifier_nexus_state:OnCreated(keys)
+	if IsServer() then self:StartIntervalThink(3.0) end
+end
 
 function modifier_nexus_state:CheckState()
 	return {
@@ -25,13 +22,19 @@ function modifier_nexus_state:DeclareFunctions()
 		return {
 			MODIFIER_EVENT_ON_ATTACK_LANDED,
 			MODIFIER_EVENT_ON_DEATH,
-			MODIFIER_PROPERTY_OVERRIDE_ANIMATION
+			MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
 		}
 	else
 		return {
-			MODIFIER_PROPERTY_OVERRIDE_ANIMATION
+			MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
 		}
 	end
+end
+
+function modifier_nexus_state:GetModifierProvidesFOWVision()
+	return 1
 end
 
 function modifier_nexus_state:GetOverrideAnimation()
@@ -55,30 +58,40 @@ function modifier_nexus_state:OnDeath(keys)
 	end
 end
 
-
-
-modifier_nexus_state_debuff = class({})
-
-function modifier_nexus_state_debuff:IsHidden() return false end
-function modifier_nexus_state_debuff:IsDebuff() return true end
-function modifier_nexus_state_debuff:IsPurgable() return false end
-
-function modifier_nexus_state_debuff:GetTexture()
-	return "item_radiance"
-end
-
-function modifier_nexus_state_debuff:OnCreated()
-	if IsServer() then
-		self:OnIntervalThink()
-		self:StartIntervalThink(1.0)
-	end
-end
-
-function modifier_nexus_state_debuff:OnIntervalThink()
+function modifier_nexus_state:OnIntervalThink()
 	local parent = self:GetParent()
-	local caster = self:GetCaster()
 
-	if parent and caster and parent:IsAlive() and (not parent:IsNull()) and parent:GetTeam() ~= DOTA_TEAM_NEUTRALS then
-		ApplyDamage({attacker = caster, victim = parent, damage = 30 + 0.07 * parent:GetHealth(), damage_type = DAMAGE_TYPE_PURE})
+	local enemies = FindUnitsInRadius(
+		parent:GetTeam(),
+		parent:GetAbsOrigin(),
+		nil,
+		900,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		FIND_ANY_ORDER,
+		false
+	)
+
+	local plasma_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_razor/razor_plasmafield.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(plasma_pfx, 0, parent:GetAbsOrigin())
+	ParticleManager:SetParticleControl(plasma_pfx, 1, Vector(1800, 900, 0))
+
+	parent:EmitSound("Nexus.Plasma")
+
+	Timers:CreateTimer(0.3, function()
+		ParticleManager:DestroyParticle(plasma_pfx, false)
+		ParticleManager:ReleaseParticleIndex(plasma_pfx)
+	end)
+
+	for _, enemy in pairs(enemies) do
+		if enemy:GetTeam() ~= DOTA_TEAM_NEUTRALS then
+			local delay = 0.5 * (enemy:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() / 900
+			Timers:CreateTimer(delay, function()
+				enemy:EmitSound("Nexus.Plasma.Hit")
+
+				ApplyDamage({attacker = parent, victim = enemy, damage = 45 + 0.1 * enemy:GetHealth(), damage_type = DAMAGE_TYPE_PURE})
+			end)
+		end
 	end
 end

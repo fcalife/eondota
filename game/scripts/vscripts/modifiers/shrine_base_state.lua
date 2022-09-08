@@ -19,7 +19,6 @@ function modifier_shrine_base_state:CheckState()
 		[MODIFIER_STATE_INVULNERABLE] = true,
 		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
 		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
-		[MODIFIER_STATE_PROVIDES_VISION] = true,
 		[MODIFIER_STATE_UNTARGETABLE] = true
 	}
 end

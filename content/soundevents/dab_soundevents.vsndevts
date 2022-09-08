@@ -286,7 +286,7 @@
 	}
 }
 
-"Catastrophe.Spike"
+"Catastrophe.Sunstrike"
 {
 	"operator_stacks"
 	{
@@ -302,15 +302,13 @@
 					{
 						"value"
 						{
-							"value0"	"sounds/weapons/hero/lion/lion_impale_target_hit1.vsnd"
-							"value1"	"sounds/weapons/hero/lion/lion_impale_target_hit1.vsnd"
-							"value2"	"sounds/weapons/hero/lion/lion_impale_target_hit1.vsnd"
+							"value0"	"sounds/weapons/hero/invoker/sunstrike_ignite.vsnd"
 						}
 					}
 					"volume"				{	"value"		"1.1"	}
 					"pitch_rand_min"		{	"value"		"0.0"	}
 					"pitch_rand_max"		{	"value"		"0.05"	}
-					"pitch"					{	"value"		"1.1"	}
+					"pitch"					{	"value"		"1.2"	}
 					"soundlevel"			{	"value"		"100"	}
 					"distance_max"			{	"value"		"2500"	}
 					"event_type"			{	"value"		"1.0"	}
@@ -559,10 +557,192 @@
 							"value0"	"sounds/ui/portal_disappear.vsnd"
 						}
 					}
-					"volume"				{	"value"		"0.9"	}
+					"volume"				{	"value"		"0.8"	}
 					"pitch_rand_min"		{	"value"		"0.0"	}
 					"pitch_rand_max"		{	"value"		"0.03"	}
 					"pitch"					{	"value"		"1.2"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Nexus.Plasma"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/razor/plasma_field.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.6"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Nexus.Plasma.Hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/razor/plasma_field_impact01.vsnd"
+							"value1"	"sounds/weapons/hero/razor/plasma_field_impact02.vsnd"
+							"value2"	"sounds/weapons/hero/razor/plasma_field_impact03.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Hero.Teleport.Loop"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/ui/portal_loop.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.9"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.15"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Hero.Teleport.PopOut"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/ui/portal_disappear.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.9"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.15"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Hero.Teleport.PopIn"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/ui/portal_appear.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.9"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.15"	}
 					"soundlevel"			{	"value"		"100"	}
 					"distance_max"			{	"value"		"2500"	}
 					"event_type"			{	"value"		"1.0"	}

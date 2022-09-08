@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_item_eon_stone_overheat", "items/eon_stone", LUA_MODIF
 LinkLuaModifier("modifier_item_eon_stone_cooldown", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
 
 local banned_abilities = {}
---banned_abilities["witch_doctor_voodoo_switcheroo"] = true
+banned_abilities["witch_doctor_voodoo_switcheroo"] = true
 
 function item_eon_stone:GetIntrinsicModifierName()
 	return "modifier_item_eon_stone"
@@ -105,6 +105,11 @@ function modifier_item_eon_stone:OnCreated(keys)
 	parent:EmitSound("Drop.EonStone")
 
 	parent:AddNewModifier(parent, nil, "modifier_item_eon_stone_visual", {})
+
+	local distance = (parent:GetAbsOrigin() - GameManager.eon_stone_spawn_points[1]):Length2D()
+	if distance > 200 then
+		parent:AddNewModifier(parent, nil, "modifier_speed_bonus", {duration = 5})
+	end
 
 	for banned_ability, _ in pairs(banned_abilities) do
 		local this_ability = parent:FindAbilityByName(banned_ability)

@@ -29,5 +29,5 @@ function modifier_speed_bonus:DeclareFunctions()
 end
 
 function modifier_speed_bonus:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetRemainingTime() * 12.5
+	return self:GetRemainingTime() * 20
 end

@@ -13,6 +13,8 @@ LANE_CREEP_GOLD_BOUNTY = {
 	["npc_dota_creep_badguys_melee"] = 42,
 	["npc_dota_creep_badguys_ranged"] = 55,
 	["npc_eon_knight_ally"] = 0,
+	["npc_eon_samurai_knight_ally"] = 0,
+	["npc_eon_trio_knight_ally"] = 0,
 }
 
 function LaneCreeps:Init()
@@ -88,10 +90,15 @@ function LaneCreeps:SpawnWave()
 	end
 end
 
-function LaneCreeps:SpawnKnightWave(team)
+function LaneCreeps:SpawnKnightWave(team, amount, unit_name)
+	local path = ((team == DOTA_TEAM_GOODGUYS) and self.good_path) or ((team == DOTA_TEAM_BADGUYS) and self.bad_path) or nil
+	local count = amount
+
 	for _, spawn_point in pairs(self.spawn_points[team].melee) do
-		if team == DOTA_TEAM_GOODGUYS then LaneCreep(team, self.good_path, spawn_point, "npc_eon_knight_ally") end
-		if team == DOTA_TEAM_BADGUYS then LaneCreep(team, self.bad_path, spawn_point, "npc_eon_knight_ally") end
+		if count > 0 then
+			LaneCreep(team, path, spawn_point, unit_name)
+			count = count - 1
+		end
 	end
 end
 
@@ -110,7 +117,8 @@ function LaneCreep:constructor(team, path, location, unit_name)
 
 	self.unit:EmitSound("Creep.Teleport")
 
-	if self.unit_name == "npc_eon_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_knight_state", {}) end
+	if self.unit_name == "npc_eon_knight_ally" or self.unit_name == "npc_eon_trio_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_knight_state", {}) end
+	if self.unit_name == "npc_eon_samurai_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_samurai_state", {}) end
 
 	self.unit.lane = self
 
@@ -130,7 +138,7 @@ end
 
 function LaneCreep:OnLaneCreepDied(killer, killed_unit)
 	local bounty = LANE_CREEP_GOLD_BOUNTY[killed_unit:GetUnitName()]
-	if bounty > 0 then LaneCoin(killed_unit:GetAbsOrigin(), bounty, killed_unit:GetTeam()) end
+	if bounty and bounty > 0 then LaneCoin(killed_unit:GetAbsOrigin(), bounty, killed_unit:GetTeam()) end
 end
 
 

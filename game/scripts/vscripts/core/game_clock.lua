@@ -14,7 +14,9 @@ function GameClock:Start()
 
 	RuneSpawner:SpawnAllBountyRunes()
 
-	if IS_EXPERIMENTAL_MAP then TreasureChests:Spawn() end
+	if IS_LANE_MAP then TreasureChests:Spawn() end
+
+	Timers:CreateTimer(SHRINE_INITIAL_SPAWN_DELAY, function() Shrines:Init() end)
 
 	self:Tick()
 end
@@ -30,7 +32,7 @@ function GameClock:Tick()
 	if GameRules:GetGameTime() >= self.next_creep_spawn then
 		self.next_creep_spawn = self.next_creep_spawn + LANE_CREEP_SPAWN_DELAY
 
-		if IS_EXPERIMENTAL_MAP then LaneCreeps:SpawnWave() end
+		if IS_LANE_MAP then LaneCreeps:SpawnWave() end
 	end
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then

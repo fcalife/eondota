@@ -201,9 +201,11 @@ function Shrine:OnTeamFinishCapture(team)
 		ParticleManager:ReleaseParticleIndex(self.capture_progress_pfx)
 	end
 
-	Timers:CreateTimer(SHRINE_COOLDOWN_TIME, function()
+	Timers:CreateTimer(SHRINE_ACTIVE_TIME, function()
 		self:OnCaptureCooldownExpire()
 	end)
+
+	ShrineToken(self.tower:GetAbsOrigin(), team)
 
 	-- local handicap = ScoreManager:GetHandicap(team)
 	-- local allies = FindUnitsInRadius(team, self.tower:GetAbsOrigin(), nil, SHRINE_BUFF_EFFECT_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
@@ -221,5 +223,60 @@ function Shrine:OnCaptureCooldownExpire()
 		ParticleManager:ReleaseParticleIndex(self.active_pfx)
 	end
 
-	self:OnGetReady()
+	self.tower:SetTeam(DOTA_TEAM_NEUTRALS)
+
+	Timers:CreateTimer(SHRINE_COOLDOWN_TIME, function()
+		self:OnGetReady()
+	end)
+end
+
+
+
+if ShrineToken == nil then ShrineToken = class({
+	buff_name = "modifier_shrine_buff_arcane",
+}) end
+
+function ShrineToken:constructor(location, team)
+	self.team = team
+	self.token_drop = CreateItem("item_dragon_drop_frenzy", nil, nil)
+
+	self.location = location + RandomVector(RandomFloat(300, 400))
+	self.drop = CreateItemOnPositionForLaunch(location, self.token_drop)
+	self.drop:SetModelScale(2.0)
+	self.token_drop:LaunchLootInitialHeight(false, 0, 550, 0.75, self.location)
+
+	Timers:CreateTimer(0.75, function()
+		GridNav:DestroyTreesAroundPoint(self.location, 175, true)
+
+		self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
+			radius = 175
+		}, {
+			trigger_team = self.team,
+			team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+			unit_filter = DOTA_UNIT_TARGET_HERO,
+			flag_filter = DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+		}, function(units)
+			self:OnHeroInRange(units)
+		end, {})
+	end)
+end
+
+function ShrineToken:OnHeroInRange(units)
+	if units[1] then
+		self:ApplyShrineBuff(units[1])
+
+		self.token_drop:Destroy()
+		self.drop:Destroy()
+		self.trigger:Stop()
+	end
+end
+
+function ShrineToken:ApplyShrineBuff(unit)
+	local shockwave_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_point_shockwave.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(shockwave_pfx, 0, unit:GetAbsOrigin())
+	ParticleManager:SetParticleControl(shockwave_pfx, 1, Vector(50, 50, 225))
+	ParticleManager:ReleaseParticleIndex(shockwave_pfx)
+
+	unit:RemoveModifierByName(self.buff_name)
+	unit:AddNewModifier(unit, nil, self.buff_name, {duration = SHRINE_ACTIVE_TIME})
 end

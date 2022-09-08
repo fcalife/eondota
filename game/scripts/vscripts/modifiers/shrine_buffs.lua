@@ -5,7 +5,7 @@ function modifier_shrine_buff_arcane:IsDebuff() return false end
 function modifier_shrine_buff_arcane:IsPurgable() return false end
 
 function modifier_shrine_buff_arcane:GetTexture()
-	return "rune_arcane"
+	return "rune_doubledamage"
 end
 
 function modifier_shrine_buff_arcane:GetEffectName()
@@ -16,25 +16,19 @@ function modifier_shrine_buff_arcane:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_shrine_buff_arcane:OnCreated(keys)
-	if IsClient() then return end
-
-	self:SetStackCount(keys.handicap)
-end
-
 function modifier_shrine_buff_arcane:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
 	}
 end
 
-function modifier_shrine_buff_arcane:GetModifierPercentageCooldown()
-	return 40 + 10 * self:GetStackCount()
+function modifier_shrine_buff_arcane:GetModifierSpellAmplify_Percentage()
+	return 20
 end
 
-function modifier_shrine_buff_arcane:GetModifierSpellAmplify_Percentage()
-	return 30 + 10 * self:GetStackCount()
+function modifier_shrine_buff_arcane:GetModifierDamageOutgoing_Percentage()
+	return 20
 end
 
 
@@ -57,12 +51,6 @@ function modifier_shrine_buff_frenzy:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_shrine_buff_frenzy:OnCreated(keys)
-	if IsClient() then return end
-
-	self:SetStackCount(keys.handicap)
-end
-
 function modifier_shrine_buff_frenzy:CheckState()
 	return {
 		[MODIFIER_STATE_UNSLOWABLE] = true
@@ -71,17 +59,12 @@ end
 
 function modifier_shrine_buff_frenzy:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
 	}
 end
 
-function modifier_shrine_buff_frenzy:GetModifierAttackSpeedBonus_Constant()
-	return 150 + 50 * self:GetStackCount()
-end
-
 function modifier_shrine_buff_frenzy:GetModifierMoveSpeedBonus_Percentage()
-	return 25 + 10 * self:GetStackCount()
+	return 50
 end
 
 
@@ -97,17 +80,20 @@ function modifier_shrine_buff_catastrophe:GetTexture()
 end
 
 function modifier_shrine_buff_catastrophe:GetEffectName()
-	return "particles/control_zone/shrine_catastrophe_buff.vpcf"
+	return "particles/nightshade/nightshade_attach_alt.vpcf"
 end
 
 function modifier_shrine_buff_catastrophe:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 
+function modifier_shrine_buff_catastrophe:GetStatusEffectName()
+	return "particles/nightshade/nightshade.vpcf"
+end
+
 function modifier_shrine_buff_catastrophe:OnCreated(keys)
 	if IsClient() then return end
 
-	self:SetStackCount(keys.handicap)
 	self.damage_lock = false
 end
 
@@ -125,13 +111,13 @@ function modifier_shrine_buff_catastrophe:DeclareFunctions()
 end
 
 function modifier_shrine_buff_catastrophe:OnTooltip()
-	return math.min(100, 30 + 20 * self:GetStackCount())
+	return 50
 end
 
 function modifier_shrine_buff_catastrophe:OnTakeDamage(keys)
 	if keys.attacker and keys.attacker == self:GetParent() then
 		if keys.unit and keys.attacker:GetTeam() ~= keys.unit:GetTeam() then
-			if (not keys.unit.damage_lock) and RollPercentage(math.min(100, 20 + 20 * self:GetStackCount())) then
+			if (not keys.unit.damage_lock) and RollPercentage(50) then
 				keys.unit.damage_lock = true
 
 				self:TriggerRandomEffect(keys.unit)
@@ -147,7 +133,7 @@ function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
 		ParticleManager:SetParticleControlEnt(zap_pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
 		ParticleManager:ReleaseParticleIndex(zap_pfx)
 
-		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 100 + 0.1 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 100 + 0.08 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
 		target.damage_lock = false
 
 		target:EmitSound("Catastrophe.Zap")
@@ -158,11 +144,13 @@ function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
 		ParticleManager:SetParticleControl(meteor_pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 1200) + RandomVector(300))
 		ParticleManager:SetParticleControlEnt(meteor_pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
 		ParticleManager:SetParticleControl(meteor_pfx, 2, Vector(1.4, 0, 0))
+		ParticleManager:SetParticleControl(meteor_pfx, 60, Vector(35, 90, 230))
+		ParticleManager:SetParticleControl(meteor_pfx, 61, Vector(1, 0, 0))
 		ParticleManager:ReleaseParticleIndex(meteor_pfx)
 
 		Timers:CreateTimer(1.4, function()
 			if target and target:IsAlive() then
-				ApplyDamage({victim = target, attacker = self:GetParent(), damage = 200 + 0.08 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+				ApplyDamage({victim = target, attacker = self:GetParent(), damage = 175 + 0.07 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
 			end
 
 			target.damage_lock = false
@@ -170,15 +158,15 @@ function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
 			target:EmitSound("Catastrophe.MeteorLand")
 		end)
 	else
-		local spike_pfx = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local spike_pfx = ParticleManager:CreateParticle("particles/catastrophe/catastrophe_sunstrike.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(spike_pfx, 0, target:GetAbsOrigin())
-		ParticleManager:SetParticleControl(spike_pfx, 1, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(spike_pfx, 1, Vector(275, 0, 0))
 		ParticleManager:ReleaseParticleIndex(spike_pfx)
 
-		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 300 + 0.06 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 250 + 0.06 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
 		target.damage_lock = false
 
-		target:EmitSound("Catastrophe.Spike")
+		target:EmitSound("Catastrophe.Sunstrike")
 	end
 end
 

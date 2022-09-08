@@ -505,8 +505,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 255, 143, 51 ]
-			m_ColorMax = [ 255, 163, 87 ]
+			m_ColorMin = [ 255, 51, 51 ]
+			m_ColorMax = [ 255, 87, 87 ]
 		},
 	]
 	m_Operators = 
@@ -586,7 +586,7 @@
 			m_vecTexturesInput = 
 			[
 				{
-					m_hTexture = resource:"materials/particle/particle_flares/aircraft_red.vtex"
+					m_hTexture = resource:"materials/particle/particle_flares/aircraft_blue2.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"

@@ -103,10 +103,9 @@ function GameMode:InitGameMode()
 	SpeedBoosts:Init()
 	RuneSpawner:Init()
 	PatrolGolems:Init()
-	Shrines:Init()
 	Objectives:Init()
 	Filters:Init()
-	if IS_EXPERIMENTAL_MAP then LaneCreeps:Init() end
+	if IS_LANE_MAP then LaneCreeps:Init() end
 
 	-- Event Hooks
 	RegisterGameEventListener('player_connect_full', function(event) GameEvents:OnPlayerConnect(event) end)

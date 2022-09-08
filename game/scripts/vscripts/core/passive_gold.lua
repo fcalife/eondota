@@ -52,15 +52,17 @@ function PassiveGold:GiveGoldFromPickup(unit, gold)
 		false
 	)
 
-	local gold_share = gold / (1 + #allies)
+	if #allies > 0 then
+		local gold_share = gold / #allies
 
-	for _, ally in pairs(allies) do
-		ally:ModifyGold(gold_share, false, DOTA_ModifyGold_CreepKill)
+		for _, ally in pairs(allies) do
+			ally:ModifyGold(gold_share, false, DOTA_ModifyGold_CreepKill)
 
-		for _, nearby_ally in pairs(allies) do
-			local player = nearby_ally:GetPlayerOwner()
+			for _, nearby_ally in pairs(allies) do
+				local player = nearby_ally:GetPlayerOwner()
 
-			if player then SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, ally, gold_share, nil) end
+				if player then SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, ally, gold_share, nil) end
+			end
 		end
 	end
 end

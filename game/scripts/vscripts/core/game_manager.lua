@@ -86,21 +86,32 @@ function GameManager:SpawnEonStone(location)
 		table.insert(self.stone_data.fow_viewers, AddFOWViewer(team, location, EON_STONE_VISION_RADIUS, GAME_MAX_DURATION, false))
 	end
 
-	Timers:CreateTimer(10, function()
-		if container and (not container:IsNull()) then
-			local distance = (location - self.eon_stone_spawn_points[1]):Length2D()
-			if distance > 200 then
+	local distance = (location - self.eon_stone_spawn_points[1]):Length2D()
+	if distance > 200 then
+		self.stone_pfx = ParticleManager:CreateParticle("particles/eon_timer.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(self.stone_pfx, 0, location + Vector(0, 0, 50))
+		ParticleManager:SetParticleControl(self.stone_pfx, 1, Vector(350, 1/EON_STONE_TIME_ON_GROUND, 0))
+		ParticleManager:SetParticleControl(self.stone_pfx, 15, Vector(255, 255, 255))
+		ParticleManager:SetParticleControl(self.stone_pfx, 16, Vector(1, 0, 0))
+
+		Timers:CreateTimer(EON_STONE_TIME_ON_GROUND, function()
+			if container and (not container:IsNull()) then
 				container:Destroy()
 				GameManager:OnEonStonePickedUp(location)
 
 				self:SpawnEonStone(self.eon_stone_spawn_points[1])
 			end
-		end
-	end)
+		end)
+	end
 end
 
 function GameManager:OnEonStonePickedUp(location)
 	self.stone_data.dummy:Destroy()
+
+	if self.stone_pfx then
+		ParticleManager:DestroyParticle(self.stone_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.stone_pfx)
+	end
 
 	for _, viewer in pairs(self.stone_data.fow_viewers) do
 		RemoveFOWViewer(DOTA_TEAM_GOODGUYS, viewer)

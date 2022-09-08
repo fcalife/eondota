@@ -9,4 +9,12 @@ function Filters:DamageFilter(keys)
 
 	if (not attacker) or attacker:IsNull() then return false end
 	if (not victim) or victim:IsNull() then return false end
+
+	if victim.GetUnitName and attacker.GetUnitName and victim:GetUnitName() == "npc_dota_goodguys_tower1_mid" or victim:GetUnitName() == "npc_dota_badguys_tower1_mid" then
+		if attacker:GetUnitName() == "npc_eon_knight_ally" or attacker:GetUnitName() == "npc_eon_trio_knight_ally" then
+			keys.damage = 0.4 * keys.damage
+		end
+	end
+
+	return true
 end

@@ -15,6 +15,12 @@
 		"npc_eon_roshan"					"Roshan"
 		"npc_eon_knight"					"Ethereal Knight"
 		"npc_eon_knight_ally"				"Ethereal Knight"
+		"npc_eon_samurai_knight"			"Demon Samurai"
+		"npc_eon_samurai_knight_ally"		"Demon Samurai"
+		"npc_eon_trio_knight"				"Ethereal Knight"
+		"npc_eon_trio_knight_ally"			"Ethereal Knight"
+		"npc_eon_speed_beast"				"Speed Demon"
+		"npc_eon_treasure_goblin"			"GIGA DEMON"
 
 		// Units
 
@@ -32,8 +38,8 @@
 		"DOTA_Tooltip_ability_item_dragon_drop_arcane"						"Gold"
 		"DOTA_Tooltip_ability_item_dragon_drop_arcane_Description"			"Grants gold to all nearby allies"
 
-		"DOTA_Tooltip_ability_item_dragon_drop_frenzy"						"Frenzy Dragon Essence"
-		"DOTA_Tooltip_ability_item_dragon_drop_frenzy_Description"			"Grants the Frenzy Blessing to all allies"
+		"DOTA_Tooltip_ability_item_dragon_drop_frenzy"						"Shrine Blessing"
+		"DOTA_Tooltip_ability_item_dragon_drop_frenzy_Description"			"Grants the Shrine Blessing to one ally"
 
 		"DOTA_Tooltip_ability_item_dragon_drop_catastrophe"					"Catastrophe Dragon Essence"
 		"DOTA_Tooltip_ability_item_dragon_drop_catastrophe_Description"		"Grants the Catastrophic Blessing to all allies"
@@ -47,19 +53,58 @@
 		"DOTA_Tooltip_ability_item_dev_dagon"						"Banhammer"
 		"DOTA_Tooltip_ability_item_dev_dagon_Description"			"<h1>Active: Delete</h1>Kills the target enemy unit"
 
-		"DOTA_Tooltip_modifier_speed_bonus"							"Speed Boost"
-		"DOTA_Tooltip_modifier_speed_bonus_Description"				"Vroooommm!"
+		"DOTA_Tooltip_ability_item_goblin_bkb"						"Goblin King Bar"
+		"DOTA_Tooltip_ability_item_goblin_bkb_Description"			"A one-time-use version of a Black King Bar"
+
+		"DOTA_Tooltip_ability_item_goblin_sheepstick"				"Scythe of Goblinkind"
+		"DOTA_Tooltip_ability_item_goblin_sheepstick_Description"	"A one-time-use version of a Scythe of Vyse"
+
+		"DOTA_Tooltip_ability_item_goblin_blink_str"				"Overwhelming Gobdagger"
+		"DOTA_Tooltip_ability_item_goblin_blink_str_Description"	"A one-time-use version of an Overwhelming Blink "
+
+		"DOTA_Tooltip_ability_item_goblin_blink_agi"				"Swift Gobdagger"
+		"DOTA_Tooltip_ability_item_goblin_blink_agi_Description"	"A one-time-use version of a Swift Blink"
+
+		"DOTA_Tooltip_ability_item_goblin_blink_int"				"Arcane Gobdagger"
+		"DOTA_Tooltip_ability_item_goblin_blink_int_Description"	"A one-time-use version of an Arcane Blink"
+
+		"DOTA_Tooltip_ability_item_goblin_dagon_1"					"Dagob"
+		"DOTA_Tooltip_ability_item_goblin_dagon_1_Description"		"A one-time-use version of a Dagon"
+
+		"DOTA_Tooltip_ability_item_goblin_dagon_2"					"Dagob 2"
+		"DOTA_Tooltip_ability_item_goblin_dagon_2_Description"		"A one-time-use version of a Dagon 2"
+
+		"DOTA_Tooltip_ability_item_goblin_dagon_3"					"Dagob 3"
+		"DOTA_Tooltip_ability_item_goblin_dagon_3_Description"		"A one-time-use version of a Dagon 3"
+
+		"DOTA_Tooltip_ability_item_goblin_dagon_4"					"Dagob 4"
+		"DOTA_Tooltip_ability_item_goblin_dagon_4_Description"		"A one-time-use version of a Dagon 4"
+
+		"DOTA_Tooltip_ability_item_goblin_dagon_5"					"Dagob 5"
+		"DOTA_Tooltip_ability_item_goblin_dagon_5_Description"		"A one-time-use version of a Dagon 5"
+
+		"DOTA_Tooltip_ability_item_goblin_cyclone"					"Goblin Waker"
+		"DOTA_Tooltip_ability_item_goblin_cyclone_Description"		"A one-time-use version of a Wind Waker"
+
+		"DOTA_Tooltip_ability_item_knight_blink"					"Demonic Dagger"
+		"DOTA_Tooltip_ability_item_knight_blink_Description"		"<h1>Active: Giga Blink</h1>Instantly teleports to the target point, while also granting %status_resist%%% status resistance for %duration% seconds.<br><br>Using Giga Blink will NOT cause you to drop an Eon Stone.<br><br>Not disabled by damage.<br><br>Consumed after use."
+
+
+
+
+		"DOTA_Tooltip_modifier_speed_bonus"							"Adrenaline Rush"
+		"DOTA_Tooltip_modifier_speed_bonus_Description"				"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed"
 
 		"DOTA_Tooltip_modifier_shrine_base_state_aura"				"Shrine Regen"
 		"DOTA_Tooltip_modifier_shrine_base_state_aura_Description"	"Slowly regenerating health and mana"
 
-		"DOTA_Tooltip_modifier_shrine_buff_arcane"					"Arcane Blessing"
-		"DOTA_Tooltip_modifier_shrine_buff_arcane_Description"		"Gaining %dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%% cooldown reduction and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification"
+		"DOTA_Tooltip_modifier_shrine_buff_arcane"					"Shrine Blessing"
+		"DOTA_Tooltip_modifier_shrine_buff_arcane_Description"		"Gaining %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp."
 
-		"DOTA_Tooltip_modifier_shrine_buff_frenzy"					"Frenzy Blessing"
-		"DOTA_Tooltip_modifier_shrine_buff_frenzy_Description"		"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, and immunity to slows"
+		"DOTA_Tooltip_modifier_shrine_buff_frenzy"					"Speed Beast's Blessing"
+		"DOTA_Tooltip_modifier_shrine_buff_frenzy_Description"		"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed and immunity to slows"
 
-		"DOTA_Tooltip_modifier_shrine_buff_catastrophe"					"Catastrophic Blessing"
+		"DOTA_Tooltip_modifier_shrine_buff_catastrophe"					"Catastrophe Blessing"
 		"DOTA_Tooltip_modifier_shrine_buff_catastrophe_Description"		"You have a %dMODIFIER_PROPERTY_TOOLTIP%%% chance to trigger random elemental effects on enemies every time you deal damage to them"
 
 		"DOTA_Tooltip_modifier_shrine_buff_ultimate"					"Dragon Blessing"
@@ -76,5 +121,14 @@
 
 		"DOTA_Tooltip_modifier_nexus_state_debuff"						"Sunburn"
 		"DOTA_Tooltip_modifier_nexus_state_debuff_Description"			"Proximity to the enemy Nexus is causing you to take damage over time. Calm down, Icarus."
+
+		"DOTA_Tooltip_modifier_tower_damage_up"							"Tower Focus"
+		"DOTA_Tooltip_modifier_tower_damage_up_Description"				"A nearby tower is focusing you really hard. Damage taken from it increases with every consecutive hit."
+
+		"DOTA_Tooltip_modifier_knight_nexus_debuff"						"Ethereal Smash"
+		"DOTA_Tooltip_modifier_knight_nexus_debuff_Description"			"Taking %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% extra damage from all sources."
+
+		"DOTA_Tooltip_modifier_item_knight_blink_buff"					"Demonic Blink"
+		"DOTA_Tooltip_modifier_item_knight_blink_buff_Description"		"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% bonus status resistance."
 	}
 }

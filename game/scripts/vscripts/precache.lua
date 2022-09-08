@@ -14,10 +14,15 @@ precache.particles = {
     "particles/units/heroes/hero_treant/treant_livingarmor.vpcf",
     "particles/econ/events/spring_2021/teleport_end_spring_2021.vpcf",
     "particles/status_fx/status_effect_dark_seer_illusion.vpcf",
+    "particles/eon_timer.vpcf",
+    "particles/units/heroes/hero_visage/visage_familiar_base_attack.vpcf",
 }
 
 precache.particle_folders = {
     "particles/control_zone/",
+    "particles/nightshade/",
+    "particles/catastrophe/",
+    "particles/samurai/",
 }
 
 precache.models = {
@@ -33,6 +38,8 @@ precache.sounds = {
     "soundevents/dab_client_soundevents.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts",
 }
 
 precache.units = {

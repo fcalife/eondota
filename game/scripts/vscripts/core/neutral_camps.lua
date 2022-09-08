@@ -22,17 +22,29 @@ DRAGON_BUFF_DROPS = {
 }
 
 NEUTRAL_GOLD_BOUNTY = {
-	["npc_dota_neutral_kobold"] = 11,
+	["npc_dota_neutral_kobold"] = 20,
 	["npc_dota_neutral_kobold_taskmaster"] = 34,
-	["npc_dota_neutral_giant_wolf"] = 73,
-	["npc_dota_neutral_alpha_wolf"] = 118,
-	["npc_dota_neutral_wildkin"] = 45,
+	["npc_dota_neutral_giant_wolf"] = 118,
+	["npc_dota_neutral_alpha_wolf"] = 146,
+	["npc_dota_neutral_wildkin"] = 60,
 	["npc_dota_neutral_enraged_wildkin"] = 159,
-	["npc_dota_neutral_prowler_shaman"] = 325,
-	["npc_dota_neutral_black_drake"] = 195,
+	["npc_dota_neutral_prowler_shaman"] = 400,
+	["npc_eon_speed_beast"] = 400,
+	["npc_eon_treasure_goblin"] = 400,
+	["npc_dota_neutral_black_drake"] = 290,
 	["npc_dota_neutral_black_dragon"] = 584,
-	["npc_eon_knight"] = 350,
+	["npc_eon_knight"] = 400,
+	["npc_eon_samurai_knight"] = 400,
+	["npc_eon_trio_knight"] = 400,
 	["npc_eon_roshan"] = 0,
+}
+
+GOBLIN_DROPS = {
+	"item_goblin_bkb",
+	"item_goblin_sheepstick",
+	"item_goblin_blink",
+	"item_goblin_dagon",
+	"item_goblin_cyclone"
 }
 
 DRAGON_KILLS = {}
@@ -82,6 +94,22 @@ function NeutralCamps:StartSpawning()
 			scale = 60,
 		},
 		[6] = {
+			leader = "npc_eon_samurai_knight",
+			min_leaders = 1,
+			max_leaders = 1,
+			respawn_time = DRAGON_RESPAWN_TIME,
+			minimap_dummy = "npc_camp_dummy_4",
+			scale = 0,
+		},
+		[7] = {
+			leader = "npc_eon_trio_knight",
+			min_leaders = 3,
+			max_leaders = 3,
+			respawn_time = DRAGON_RESPAWN_TIME,
+			minimap_dummy = "npc_camp_dummy_5",
+			scale = 0,
+		},
+		[8] = {
 			leader = "npc_eon_knight",
 			min_leaders = 3,
 			max_leaders = 3,
@@ -89,6 +117,13 @@ function NeutralCamps:StartSpawning()
 			minimap_dummy = "npc_camp_dummy_5",
 			scale = 0,
 		},
+		[9] = {
+			leader = "npc_eon_treasure_goblin",
+			min_leaders = 1,
+			max_leaders = 1,
+			minimap_dummy = "npc_camp_dummy_4",
+			scale = 3,
+		}
 	}
 
 	Timers:CreateTimer(NEUTRAL_CREEP_FIRST_SPAWN_TIME, function()
@@ -97,21 +132,23 @@ function NeutralCamps:StartSpawning()
 				NeutralCamp(camp_location:GetAbsOrigin(), false, false, false, self.camp_data[level])
 			end
 		end
+
+		for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_9")) do
+			NeutralCamp(camp_location:GetAbsOrigin(), false, false, false, self.camp_data[9])
+		end
 	end)
 
 	self.dragon_camps = {}
 
 	Timers:CreateTimer(DRAGON_SPAWN_TIME, function()
-		local ancient_spawn_points = Entities:FindAllByName("neutral_spawn_5")
-
-		if IS_EXPERIMENTAL_MAP then
-			local random = RandomInt(0, 1)
-
-			table.insert(self.dragon_camps, NeutralCamp(ancient_spawn_points[1 + random]:GetAbsOrigin(), true, false, false, self.camp_data[5]))
-			NeutralCamp(ancient_spawn_points[2 - random]:GetAbsOrigin(), false, true, false, self.camp_data[6])
-		else
-			table.insert(self.dragon_camps, NeutralCamp(ancient_spawn_points[1]:GetAbsOrigin(), true, false, false, self.camp_data[5]))
-			table.insert(self.dragon_camps, NeutralCamp(ancient_spawn_points[2]:GetAbsOrigin(), true, false, false, self.camp_data[5]))
+		for level = 5, 8 do
+			for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_"..level)) do
+				if level == 5 then
+					table.insert(self.dragon_camps, NeutralCamp(camp_location:GetAbsOrigin(), true, false, false, self.camp_data[level]))
+				else
+					NeutralCamp(camp_location:GetAbsOrigin(), false, true, false, self.camp_data[level])
+				end
+			end
 		end
 	end)
 end
@@ -130,7 +167,10 @@ function NeutralCamp:constructor(location, is_dragon, is_knight, is_roshan, data
 	self.location = location
 	self.is_dragon = is_dragon
 	self.is_knight = is_knight
+	self.is_samurai = data.leader == "npc_eon_samurai_knight"
+	self.is_trio_knight = data.leader == "npc_eon_trio_knight"
 	self.is_roshan = is_roshan
+	self.is_demon = data.leader == "npc_eon_treasure_goblin"
 	self.leader = data.leader
 	self.minion = data.minion
 	self.minimap_dummy = data.minimap_dummy
@@ -154,7 +194,7 @@ function NeutralCamp:Spawn()
 	self.dummy:RemoveModifierByName("modifier_not_on_minimap")
 
 	local leader_count = RandomInt(self.min_leaders, self.max_leaders)
-	local minion_count = RandomInt(self.min_minions, self.max_minions)
+	local minion_count = self.min_minions + math.floor((self.max_minions - self.min_minions) * math.min(1, GameClock:GetActualGameTime() / (60 * NEUTRAL_CREEP_SCALING_LIMIT)))
 
 	if self.is_dragon then
 		self.dragon_buff = DRAGON_BUFFS[RandomInt(1, 1)]
@@ -164,6 +204,8 @@ function NeutralCamp:Spawn()
 		local creep = CreateUnitByName(self.leader, self.location, true, nil, nil, DOTA_TEAM_NEUTRALS)
 		creep:AddNewModifier(creep, nil, "modifier_neutral_size", {scale = self.scale})
 		creep.camp = self
+
+		if self.is_demon then creep:AddNewModifier(creep, nil, "modifier_treasure_goblin_state", {time = GameClock:GetActualGameTime()}) end
 
 		table.insert(self.creeps, creep)
 	end
@@ -205,8 +247,40 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 			DragonCoin(killed_unit:GetAbsOrigin(), self.dragon_buff)
 		end
 
-		if self.is_knight then
+		if self.is_knight or self.is_samurai or self.is_trio_knight then
 			self:SpawnKnightsForTeam(team)
+		end
+
+		if self.is_demon then
+			killer:AddNewModifier(killer, nil, "modifier_shrine_buff_catastrophe", {duration = CATASTROPHE_BUFF_DURATION})
+			-- local random_item = GOBLIN_DROPS[RandomInt(1, 5)]
+
+			-- if random_item == "item_goblin_blink" then
+			-- 	if killer:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
+			-- 		random_item = "item_goblin_blink_str"
+			-- 	elseif killer:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
+			-- 		random_item = "item_goblin_blink_agi"
+			-- 	elseif killer:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then
+			-- 		random_item = "item_goblin_blink_int"
+			-- 	end
+			-- end
+
+			-- if random_item == "item_goblin_dagon" then
+			-- 	local dagon_level = math.min(5, math.floor(1 + GameClock:GetActualGameTime() / 180))
+			-- 	random_item = "item_goblin_dagon_"..dagon_level
+			-- end
+
+			-- local goblin_drop = CreateItem(random_item, nil, nil)
+			-- CreateItemOnPositionForLaunch(killed_unit:GetAbsOrigin(), goblin_drop)
+			-- goblin_drop:LaunchLootInitialHeight(false, 0, 300, 0.3, killer:GetAbsOrigin())
+			-- goblin_drop.is_goblin_item = true
+		end
+
+		if self.is_samurai then
+			local item_drop = CreateItem("item_knight_blink", nil, nil)
+			local drop = CreateItemOnPositionForLaunch(killed_unit:GetAbsOrigin(), item_drop)
+			drop:SetModelScale(2.25)
+			item_drop:LaunchLootInitialHeight(false, 0, 300, 0.3, killer:GetAbsOrigin())
 		end
 
 		self.dummy:AddNewModifier(self.dummy, nil, "modifier_not_on_minimap", {})
@@ -232,13 +306,20 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 
 	local bounty = NEUTRAL_GOLD_BOUNTY[killed_unit:GetUnitName()]
 
-	if bounty > 0 then PassiveGold:GiveGoldFromPickup(killer, NEUTRAL_GOLD_BOUNTY[killed_unit:GetUnitName()]) end
+	if bounty > 0 then PassiveGold:GiveGoldFromPickup(killer, bounty) end
 end
 
 function NeutralCamp:SpawnKnightsForTeam(team)
-	GlobalMessages:NotifyKnights(team)
-
-	LaneCreeps:SpawnKnightWave(team)
+	if self.is_samurai then
+		GlobalMessages:NotifySamurai(team)
+		LaneCreeps:SpawnKnightWave(team, 1, "npc_eon_samurai_knight_ally")
+	elseif self.is_trio_knight then
+		GlobalMessages:NotifyKnights(team)
+		LaneCreeps:SpawnKnightWave(team, 3, "npc_eon_trio_knight_ally")
+	else
+		GlobalMessages:NotifyKnights(team)
+		LaneCreeps:SpawnKnightWave(team, 3, "npc_eon_knight_ally")
+	end
 end
 
 function NeutralCamp:ConvertToRoshanCamp()

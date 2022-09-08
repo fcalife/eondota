@@ -5,6 +5,7 @@
 	[
 		"eon",
 		"eon_lane",
+		"eon_lane_experimental",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false

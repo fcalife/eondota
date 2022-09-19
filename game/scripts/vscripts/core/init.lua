@@ -14,5 +14,7 @@ require('core/neutral_camps')
 require('core/treasure_chest')
 require('core/tower')
 require('core/lane_creep')
+require('core/portals')
+require('core/push_cart')
 
 require("core/filters/init")

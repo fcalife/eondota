@@ -1,3 +1,4 @@
+-- giga golem buff
 modifier_shrine_buff_arcane = class({})
 
 function modifier_shrine_buff_arcane:IsHidden() return false end
@@ -17,22 +18,63 @@ function modifier_shrine_buff_arcane:GetEffectAttachType()
 end
 
 function modifier_shrine_buff_arcane:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
-	}
+	if IsServer() then
+		return {
+			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+		}
+	end
 end
 
-function modifier_shrine_buff_arcane:GetModifierSpellAmplify_Percentage()
-	return 20
+function modifier_shrine_buff_arcane:GetModifierStatusResistanceStacking()
+	return 50
 end
 
-function modifier_shrine_buff_arcane:GetModifierDamageOutgoing_Percentage()
-	return 20
+function modifier_shrine_buff_arcane:GetModifierMoveSpeedBonus_Percentage()
+	return 30
+end
+
+function modifier_shrine_buff_arcane:GetModifierProcAttack_Feedback(keys)
+	if keys.target and keys.attacker and keys.attacker:GetTeam() ~= keys.target:GetTeam() then
+
+		-- Patrol tower
+		if keys.target:HasModifier("modifier_golem_base_state") then
+			keys.target:AddNewModifier(keys.attacker, nil, "modifier_stunned", {duration = 10})
+
+			local disabled_counter = keys.target:AddNewModifier(keys.attacker, nil, "modifier_golem_disabled_counter", {})
+
+			if disabled_counter then
+				disabled_counter:IncrementStackCount()
+
+				if disabled_counter:GetStackCount() >= 3 then
+					keys.target:Kill(nil, keys.attacker)
+				end
+			end
+
+			if keys.attacker:IsRealHero() then keys.attacker:ModifyGold(400, false, DOTA_ModifyGold_CreepKill) end
+
+			self:Destroy()
+
+		-- Portal creep
+		elseif keys.target:HasModifier("modifier_portal_creep_state") then
+			ApplyDamage({attacker = keys.attacker, victim = keys.target, damage = keys.target:GetMaxHealth() * 0.25, damage_type = DAMAGE_TYPE_PURE})
+
+			if keys.attacker:IsRealHero() then keys.attacker:ModifyGold(100, false, DOTA_ModifyGold_CreepKill) end
+
+			self:Destroy()
+		end
+	end
 end
 
 
 
+-- unused
 modifier_shrine_buff_frenzy = class({})
 
 function modifier_shrine_buff_frenzy:IsHidden() return false end
@@ -69,6 +111,7 @@ end
 
 
 
+-- catastrophe buff
 modifier_shrine_buff_catastrophe = class({})
 
 function modifier_shrine_buff_catastrophe:IsHidden() return false end
@@ -133,7 +176,7 @@ function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
 		ParticleManager:SetParticleControlEnt(zap_pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
 		ParticleManager:ReleaseParticleIndex(zap_pfx)
 
-		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 100 + 0.08 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 50 + 0.04 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
 		target.damage_lock = false
 
 		target:EmitSound("Catastrophe.Zap")
@@ -150,7 +193,7 @@ function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
 
 		Timers:CreateTimer(1.4, function()
 			if target and target:IsAlive() then
-				ApplyDamage({victim = target, attacker = self:GetParent(), damage = 175 + 0.07 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+				ApplyDamage({victim = target, attacker = self:GetParent(), damage = 90 + 0.035 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
 			end
 
 			target.damage_lock = false
@@ -163,7 +206,7 @@ function modifier_shrine_buff_catastrophe:TriggerRandomEffect(target)
 		ParticleManager:SetParticleControl(spike_pfx, 1, Vector(275, 0, 0))
 		ParticleManager:ReleaseParticleIndex(spike_pfx)
 
-		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 250 + 0.06 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
+		ApplyDamage({victim = target, attacker = self:GetParent(), damage = 130 + 0.03 * target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL})
 		target.damage_lock = false
 
 		target:EmitSound("Catastrophe.Sunstrike")
@@ -172,6 +215,7 @@ end
 
 
 
+-- dragon buff
 modifier_shrine_buff_ultimate = class({})
 
 function modifier_shrine_buff_ultimate:IsHidden() return false end

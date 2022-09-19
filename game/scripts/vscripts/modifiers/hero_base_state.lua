@@ -14,7 +14,7 @@ function modifier_hero_base_state:OnCreated(keys)
 	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 10}) end
 
 	if IS_EXPERIMENTAL_MAP then
-		self:SetStackCount(parent:IsRangedAttacker() and 40 or 50)
+		self:SetStackCount(parent:IsRangedAttacker() and 80 or 100)
 	else
 		self:SetStackCount(parent:IsRangedAttacker() and 80 or 100)
 	end

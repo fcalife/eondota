@@ -1,0 +1,123 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 16
+	m_flConstantRadius = 96.0
+	m_ConstantColor = [ 173, 238, 255, 255 ]
+	m_nBehaviorVersion = 5
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 16.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateSequentialPath"
+			m_flNumToAssign = 16.0
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 1
+			}
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+		},
+		{
+			_class = "C_OP_EndCapTimedDecay"
+		},
+		{
+			_class = "C_OP_MaintainSequentialPath"
+			m_flNumToAssign = 16.0
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 1
+				m_vStartPointOffset = [ 0.0, 0.0, 100.0 ]
+				m_vEndOffset = [ 0.0, 0.0, 100.0 ]
+			}
+		},
+		{
+			_class = "C_OP_DistanceBetweenCPs"
+			m_flOutputMax = 0.01
+			m_flOutputMin = 1.0
+			m_flInputMax = 1000.0
+			m_flInputMin = 64.0
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderRopes"
+			m_flOverbrightFactor = 2.0
+			m_flRadiusScale = 0.5
+			m_flTextureVWorldSize = 10000.0
+			m_nMaxTesselation = 2
+			m_nMinTesselation = 2
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/beam_hotblue.vtex"
+					m_TextureControls = 
+					{
+						m_flFinalTextureScaleU = 
+						{
+							m_nType = "PF_TYPE_LITERAL"
+							m_flLiteralValue = -1.0
+						}
+					}
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_i.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_rope_end.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_wisp/wisp_tether_g.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_h.vpcf"
+		},
+	]
+}

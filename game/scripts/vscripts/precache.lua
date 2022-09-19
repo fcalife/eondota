@@ -16,6 +16,8 @@ precache.particles = {
     "particles/status_fx/status_effect_dark_seer_illusion.vpcf",
     "particles/eon_timer.vpcf",
     "particles/units/heroes/hero_visage/visage_familiar_base_attack.vpcf",
+    "particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_portal_buildup.vpcf",
+    "particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_portal.vpcf",
 }
 
 precache.particle_folders = {
@@ -23,6 +25,7 @@ precache.particle_folders = {
     "particles/nightshade/",
     "particles/catastrophe/",
     "particles/samurai/",
+    "particles/carts/",
 }
 
 precache.models = {
@@ -40,6 +43,9 @@ precache.sounds = {
     "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_mars.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts",
 }
 
 precache.units = {

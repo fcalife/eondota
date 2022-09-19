@@ -54,10 +54,10 @@ function modifier_tower_state:OnDeath(keys)
 	if keys.unit and keys.unit == self:GetParent() then
 		PassiveGold:GiveGoldToPlayersInTeam(ENEMY_TEAM[keys.unit:GetTeam()], TOWER_KILL_GOLD, 0)
 
-		if keys.unit.respawning_tower then
-			keys.unit.respawning_tower:Respawn()
-			keys.unit:Destroy()
-		end
+		-- if keys.unit.respawning_tower then
+		-- 	keys.unit.respawning_tower:Respawn()
+		-- 	keys.unit:Destroy()
+		-- end
 	end
 end
 

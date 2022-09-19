@@ -21,6 +21,10 @@
 		"npc_eon_trio_knight_ally"			"Ethereal Knight"
 		"npc_eon_speed_beast"				"Speed Demon"
 		"npc_eon_treasure_goblin"			"GIGA DEMON"
+		"npc_dota_neutral_prowler_shaman"	"Portal Demon"
+		"npc_dota_neutral_black_drake"		"Krakenling"
+		"npc_dota_neutral_black_dragon"		"The Kraken"
+		"npc_eon_cart"						"Push Cart"
 
 		// Units
 
@@ -89,8 +93,30 @@
 		"DOTA_Tooltip_ability_item_knight_blink"					"Demonic Dagger"
 		"DOTA_Tooltip_ability_item_knight_blink_Description"		"<h1>Active: Giga Blink</h1>Instantly teleports to the target point, while also granting %status_resist%%% status resistance for %duration% seconds.<br><br>Using Giga Blink will NOT cause you to drop an Eon Stone.<br><br>Not disabled by damage.<br><br>Consumed after use."
 
+		"DOTA_Tooltip_ability_item_knight_book"						"Knightonomicon"
+		"DOTA_Tooltip_ability_item_knight_book_Description"			"<h1>Active: Summon Ethereal Knights</h1>Summon a trio of Ethereal Knights under your control. They last for %duration% seconds, or until dying."
+
+		"DOTA_Tooltip_ability_item_catastrophe_potion"				"Catastrophe Potion"
+		"DOTA_Tooltip_ability_item_catastrophe_potion_Description"	"<h1>Active: Drink</h1>Grants the Catastrophe buff for 15 seconds."
+
+		"DOTA_Tooltip_ability_knight_storm_bolt"					"Hammertime"
+		"DOTA_Tooltip_ability_knight_storm_bolt_Description"		"Throws your hammer at the enemy's lane tower, stunning it for %stun_duration% seconds."
+
+		"DOTA_Tooltip_ability_knight_sacrifice"						"Noble Sacrifice"
+		"DOTA_Tooltip_ability_knight_sacrifice_Description"			"When this unit dies, it explodes, dealing %damage% magic damage to all enemies in %aoe% radius."
+
+		"DOTA_Tooltip_ability_knight_spear"							"Spear Throw"
+		"DOTA_Tooltip_ability_knight_spear_Description"				"The knight throws a spear with deadly precision, damaging each enemy unit it strikes. The first enemy hero it hits is skewered on the spear, pushing it back. If a skewered hero hits a tree, building, or cliff, they will be impaled to it and stunned."
+		"DOTA_Tooltip_ability_knight_spear_Note0"					"Spear Throw can hit invisible units and reveals them if they are stunned."
+		"DOTA_Tooltip_ability_knight_spear_Note1"					"Spear Throw will only pin a unit to cliffs onto elevated areas, otherwise it will push them off onto lower ground."
+		"DOTA_Tooltip_ability_knight_spear_spear_range"				"CAST RANGE:"
+ 		"DOTA_Tooltip_ability_knight_spear_stun_duration"			"STUN DURATION:"
+  		"DOTA_Tooltip_ability_knight_spear_damage"					"DAMAGE:"
 
 
+
+		"DOTA_Tooltip_modifier_golem_disabled_counter"				"Destruction Counter"
+		"DOTA_Tooltip_modifier_golem_disabled_counter_Description"	"Destroys this tower if it reaches 3"
 
 		"DOTA_Tooltip_modifier_speed_bonus"							"Adrenaline Rush"
 		"DOTA_Tooltip_modifier_speed_bonus_Description"				"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed"
@@ -98,8 +124,8 @@
 		"DOTA_Tooltip_modifier_shrine_base_state_aura"				"Shrine Regen"
 		"DOTA_Tooltip_modifier_shrine_base_state_aura_Description"	"Slowly regenerating health and mana"
 
-		"DOTA_Tooltip_modifier_shrine_buff_arcane"					"Shrine Blessing"
-		"DOTA_Tooltip_modifier_shrine_buff_arcane_Description"		"Gaining %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp."
+		"DOTA_Tooltip_modifier_shrine_buff_arcane"					"Demonic Rage"
+		"DOTA_Tooltip_modifier_shrine_buff_arcane_Description"		"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed."
 
 		"DOTA_Tooltip_modifier_shrine_buff_frenzy"					"Speed Beast's Blessing"
 		"DOTA_Tooltip_modifier_shrine_buff_frenzy_Description"		"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed and immunity to slows"
@@ -130,5 +156,8 @@
 
 		"DOTA_Tooltip_modifier_item_knight_blink_buff"					"Demonic Blink"
 		"DOTA_Tooltip_modifier_item_knight_blink_buff_Description"		"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% bonus status resistance."
+
+		// Extra
+		"error_not_lane_tower"			"Can only be used on enemy Lane towers"
 	}
 }

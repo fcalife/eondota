@@ -45,5 +45,21 @@ function Filters:OrderFilter(keys)
 		end
 	end
 
+	if keys.units and keys.units["0"] and keys.order_type and keys.order_type == DOTA_UNIT_ORDER_CAST_TARGET then
+		local unit = EntIndexToHScript(keys.units["0"])
+		local target = EntIndexToHScript(keys.entindex_target)
+
+		if unit and target and (not unit:IsNull()) and (not target:IsNull()) and target.active_teams then
+			if (not target.active_teams[unit:GetTeam()]) then
+				local new_position = target:GetAbsOrigin()
+
+				keys.order_type = DOTA_UNIT_ORDER_MOVE_TO_POSITION
+				keys.position_x = new_position.x
+				keys.position_y = new_position.y
+				keys.position_z = new_position.z
+			end
+		end
+	end
+
 	return true
 end

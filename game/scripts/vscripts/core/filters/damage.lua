@@ -16,5 +16,11 @@ function Filters:DamageFilter(keys)
 		end
 	end
 
+	if victim.HasModifier then
+		if victim:HasModifier("modifier_teleporting") or victim:HasModifier("modifier_underlord_portal_warp_channel") then
+			victim:InterruptChannel()
+		end
+	end
+
 	return true
 end

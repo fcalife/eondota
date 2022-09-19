@@ -12,9 +12,13 @@ function GameClock:Start()
 
 	NeutralCamps:StartSpawning()
 
-	RuneSpawner:SpawnAllBountyRunes()
+	Portals:Spawn()
+
+	--RuneSpawner:SpawnAllBountyRunes()
 
 	if IS_LANE_MAP then TreasureChests:Spawn() end
+
+	if IS_CART_MAP then Timers:CreateTimer(CART_INITIAL_SPAWN_DELAY - CART_COUNTDOWN_TIME, function() PushCarts:StartCountdown() end) end
 
 	Timers:CreateTimer(SHRINE_INITIAL_SPAWN_DELAY, function() Shrines:Init() end)
 

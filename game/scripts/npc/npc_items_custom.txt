@@ -66,17 +66,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_int"				"0"
+				"bonus_int"				"1000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_str"				"0"
+				"bonus_str"				"1000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agi"				"0"
+				"bonus_agi"				"1000"
 			}
 			"04"
 			{
@@ -147,6 +147,85 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"5.0"
+			}
+		}
+	}
+
+	"item_knight_book"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/knight_book.lua"
+		"AbilityTextureName"			"item_necronomicon_3"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1.0"
+		"AbilityManaCost"				"0"
+
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"1"
+		"IsTempestDoubleClonable"		"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"60.0"
+			}
+		}
+	}
+
+	"item_catastrophe_potion"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/catastrophe_potion.lua"
+		"AbilityTextureName"			"item_fusion_rune"
+		"Model"							"models/props_gameplay/bottle_blue.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"0"
+
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"1"
+		"IsTempestDoubleClonable"		"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"15.0"
 			}
 		}
 	}

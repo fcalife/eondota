@@ -295,56 +295,13 @@
 		"VisionNighttimeRange"		"1200"
 	}
 
-	"npc_nexus_bad"
-	{
-		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/ui/treasure/aghanim_oval_2021_treasure/aghanim_oval_2021_treasure.vmdl"
-		"MinimapIcon"				"minimap_ping_baseattacked"
-		"MinimapIconSize"			"550"
-		"ModelScale"				"2.0"
-
-		"ArmorPhysical"				"30"
-		"MagicalResistance"			"90"
-
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
-		"AttackDamageMin"			"1"
-		"AttackDamageMax"			"1"
-		"BaseAttackSpeed"			"100"
-		"AttackRate"				"1.0"
-		"AttackAnimationPoint"		"0.0"
-		"AttackAcquisitionRange"	"0"
-		"AttackRange"				"0"
-		"ProjectileModel"			""
-		"ProjectileSpeed"			"1000"
-
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
-		"ProjectileCollisionSize"	"24"
-		"RingRadius"				"130"
-		"HealthBarOffset"			"400"
-
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-		"MovementSpeed"				"0"
-		"MovementTurnRate"			"0.0"
-
-		"StatusHealth"				"80000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
-		"VisionDaytimeRange"		"900"
-		"VisionNighttimeRange"		"900"
-	}
-
 	"npc_eon_nexus"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/ui/treasure/aghanim_oval_2021_treasure/aghanim_oval_2021_treasure.vmdl"
+		"Model"						"models/items/phoenix/ultimate/blazing_wing_blazing_egg/blazing_wing_blazing_egg.vmdl"
 		"MinimapIcon"				"minimap_ping_baseattacked"
 		"MinimapIconSize"			"550"
-		"ModelScale"				"2.0"
+		"ModelScale"				"1.7"
 
 		"ArmorPhysical"				"30"
 		"MagicalResistance"			"90"
@@ -386,7 +343,7 @@
 		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				"1.3"
 
-		"StatusHealth"				"1800"
+		"StatusHealth"				"4000"
 		"ArmorPhysical"				"12"
 	}
 
@@ -394,6 +351,9 @@
 	{
 		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				"1.3"
+
+		"StatusHealth"				"4000"
+		"ArmorPhysical"				"12"
 	}
 
 	"npc_dota_goodguys_tower1_top"
@@ -480,35 +440,40 @@
 		"AttackDamageMin"			"24"
 		"AttackDamageMax"			"26"
 
-		"BountyXP"					"45"
+		"BountyXP"					"60"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
 		"MovementSpeed"				"480"
 
-		"StatusHealth"				"900"
+		"StatusHealth"				"600"
 		"StatusHealthRegen"			"0.5"
 	}		
 
 	"npc_dota_neutral_enraged_wildkin"
 	{
-		"AttackDamageMin"			"49"
-		"AttackDamageMax"			"51"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"37"
 
-		"BountyXP"					"165"
+		"BountyXP"					"220"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
 		"MovementSpeed"				"490"
 
-		"StatusHealth"				"1350"
+		"StatusHealth"				"900"
 		"StatusHealthRegen"			"0.5"
 	}
 
 	"npc_dota_neutral_prowler_shaman"
 	{
-		"AttackDamageMin"			"125"
-		"AttackDamageMax"			"130"
+		"Model"						"models/items/warlock/golem/tevent_2_gatekeeper_golem/tevent_2_gatekeeper_golem.vmdl"
+
+		"AttackAnimationPoint"		"0.26"
+		"AttackRange"				"200"
+
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"30"
 
 		"BountyXP"					"400"
 		"BountyGoldMin"				"0"
@@ -516,7 +481,7 @@
 
 		"MovementSpeed"				"525"
 
-		"StatusHealth"				"1800"
+		"StatusHealth"				"5000"
 		"StatusHealthRegen"			"0.5"
 
 		"Ability1"					""
@@ -526,10 +491,16 @@
 
 	"npc_dota_neutral_black_drake"	
 	{
+		"Model"						"models/items/undying/flesh_golem/ti8_undying_miner_flesh_golem/ti8_undying_miner_flesh_golem.vmdl"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackAnimationPoint"		"0.3"
+		"AttackRange"				"250"
+
 		"AttackDamageMin"			"130"
 		"AttackDamageMax"			"140"
 
-		"BountyXP"					"175"
+		"BountyXP"					"200"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
@@ -541,10 +512,16 @@
 
 	"npc_dota_neutral_black_dragon"	
 	{
+		"Model"						"models/items/undying/flesh_golem/davy_jones_set_davy_jones_set_kraken/davy_jones_set_davy_jones_set_kraken.vmdl"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackAnimationPoint"		"0.3"
+		"AttackRange"				"250"
+
 		"AttackDamageMin"			"180"
 		"AttackDamageMax"			"200"
 
-		"BountyXP"					"550"
+		"BountyXP"					"600"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
@@ -552,32 +529,34 @@
 
 		"StatusHealth"				"7000"
 		"StatusHealthRegen"			"0.5"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
 	}
 
 	"npc_dota_creep_goodguys_melee"
 	{
-		"BountyXP"					"64"
+		"BountyXP"					"100"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
 
 	"npc_dota_creep_goodguys_ranged"
 	{
-		"BountyXP"					"76"
+		"BountyXP"					"120"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
 
 	"npc_dota_creep_badguys_melee"
 	{
-		"BountyXP"					"64"
+		"BountyXP"					"100"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
 
 	"npc_dota_creep_badguys_ranged"
 	{
-		"BountyXP"					"76"
+		"BountyXP"					"120"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 	}
@@ -758,7 +737,7 @@
 
 	"npc_eon_knight_ally"
 	{
-		"BaseClass"					"npc_dota_creep_lane"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/creeps/omniknight_golem/omniknight_golem.vmdl"
 		"SoundSet"					"Hero_Omniknight"
 		"ModelScale"				"1.8"
@@ -768,9 +747,11 @@
 		"ArmorPhysical"				"10"
 		"MagicalResistance"			"40"
 
+		"Ability1"					""
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"245"
-		"AttackDamageMax"			"255"
+		"AttackDamageMin"			"205"
+		"AttackDamageMax"			"215"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"2.0"
 		"AttackAnimationPoint"		"0.433"
@@ -789,7 +770,7 @@
 		"MovementSpeed"				"350"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"4000"
+		"StatusHealth"				"3500"
 		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -969,5 +950,173 @@
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
 		"VisionNighttimeRange"		"1200"
+	}
+
+	"npc_cart_objective_radiant"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/pedestal/mesh/effigy_pedestal_wm16.vmdl"
+		"MinimapIcon"				"minimap_shop"
+		"MinimapIconSize"			"850"
+		"ModelScale"				"2.0"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"100"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"100"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"600"
+		"VisionNighttimeRange"		"600"
+	}
+
+	"npc_cart_objective_dire"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/queenofpain/queenofpain_arcana/queenofpain_arcana_pedestal.vmdl"
+		"MinimapIcon"				"minimap_shop"
+		"MinimapIconSize"			"850"
+		"ModelScale"				"2.0"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"100"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"100"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"600"
+		"VisionNighttimeRange"		"600"
+	}
+
+	"npc_eon_cart"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/props_generic/wagon_wood_02_centaur.vmdl"
+		"MinimapIcon"				"minimap_shield"
+		"MinimapIconSize"			"750"
+		"ModelScale"				"0.95"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"100"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"100"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"600"
+		"VisionNighttimeRange"		"600"
+	}
+
+	"npc_portal_dummy"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+		"ModelScale"				"1.0"
+		"Level"						"1"
+
+		"MinimapIcon"				"minimap_underlord_portal"
+		"MinimapIconSize"			"500"
+
+		"Ability1"					"abyssal_underlord_dark_portal"
+
+		"ArmorPhysical"				"0"
+		"StatusHealth"				"1"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"MovementSpeed"				"0"
+
+		"AttackAnimationPoint"		"0.3"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1200"
+		"MagicalResistance"			"0"
+		"AttackRate"				"1.5"
+		"RingRadius"				"16"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"HealthBarOffset"			"150"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0.0"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
 	}
 }

@@ -149,8 +149,17 @@ function GameManager:InitializeHero(hero)
 	hero:SetAbilityPoints(0)
 
 	if IsInToolsMode() then
+		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
 		hero:AddItemByName("item_dev_blink")
 		hero:AddItemByName("item_dev_dagon")
+
+		for i = 1, 30 do hero:HeroLevelUp(false) end
+
+		for i = 0, 30 do
+			if hero:GetAbilityByIndex(i) then
+				hero:GetAbilityByIndex(i):SetLevel(hero:GetAbilityByIndex(i):GetMaxLevel())
+			end
+		end
 	end
 end
 

@@ -1,0 +1,60 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 4
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 3
+			m_vecCP1Pos = [ 0.0, 0.0, 0.0 ]
+		},
+		{
+			_class = "C_OP_SetCPOrientationToPointAtCP"
+			m_nOutputCP = 3
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_rope.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/econ/items/wisp/wisp_tether_ti7_rope_thick.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_elec.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_ember.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_scrolling_trail.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_scrolling.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/carts/cart_tether_glow.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/econ/items/wisp/wisp_tether_ti7_hearts.vpcf"
+			m_bDisableChild = true
+		},
+	]
+}

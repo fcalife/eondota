@@ -57,3 +57,13 @@ end
 function modifier_golem_base_state:GetModifierConstantHealthRegen()
 	return 20 + 8 * self:GetStackCount()
 end
+
+
+
+modifier_golem_disabled_counter = class({})
+
+function modifier_golem_disabled_counter:IsHidden() return false end
+function modifier_golem_disabled_counter:IsDebuff() return true end
+function modifier_golem_disabled_counter:IsPurgable() return false end
+
+function modifier_golem_disabled_counter:GetTexture() return "slardar_amplify_damage" end

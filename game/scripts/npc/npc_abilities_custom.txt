@@ -1,103 +1,176 @@
 "DOTAAbilities"
 {
-	"player_move_unit"
+	"knight_storm_bolt"
 	{
 		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/player/move_unit"
+		"ScriptFile"				"abilities/knight_storm_bolt"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
-		"AbilityCastRange"			"0"
+
+		"AbilityCastRange"			"750"
 		"AbilityManaCost"			"0"
-		"AbilityCooldown"			"0.25"
+		"AbilityCooldown"			"30"
 		"MaxLevel"					"1"
 
-		"AbilityTextureName"		"antimage_blink"
-	}
+		"AbilityCastPoint"			"0.2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 
-	"player_place_unit"
-	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/player/place_unit"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityCastRange"			"0"
-		"AbilityManaCost"			"0"
-		"AbilityCooldown"			"0.25"
-		"MaxLevel"					"1"
-
-		"AbilityTextureName"		"antimage_mana_void"
-	}
-
-	"player_move_to_bench"
-	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/player/move_to_bench"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
-		"AbilityCastRange"			"0"
-		"AbilityManaCost"			"0"
-		"AbilityCooldown"			"0.25"
-		"MaxLevel"					"1"
-
-		"AbilityTextureName"		"obsidian_destroyer_astral_imprisonment"
-	}
-
-	"player_sell_unit"
-	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/player/sell_unit"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
-		"AbilityCastRange"			"0"
-		"AbilityManaCost"			"0"
-		"AbilityCooldown"			"0.25"
-		"MaxLevel"					"1"
-
-		"AbilityTextureName"		"alchemist_goblins_greed"
-	}
-
-	"player_reroll_shop"
-	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/player/reroll_shop"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityCastRange"			"0"
-		"AbilityManaCost"			"0"
-		"AbilityCooldown"			"0.25"
-		"MaxLevel"					"1"
-
-		"AbilityTextureName"		"chaos_knight_chaos_strike"
-	}
-
-	"player_start_overtime"
-	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/player/start_overtime"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityCastRange"			"0"
-		"AbilityManaCost"			"0"
-		"AbilityCooldown"			"1.0"
-		"MaxLevel"					"1"
-
-		"AbilityTextureName"		"oracle_false_promise"
+		"AbilityTextureName"		"sven_storm_bolt"
 
 		"AbilitySpecial"
 		{
 			"1"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"20"
+				"projectile_speed"	"1000"
+			}
+			"2"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"8.0"
+			}
+		}
+	}
+
+	"knight_sacrifice"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/knight_sacrifice"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		"AbilityCastRange"			"475"
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"			"0"
+		"MaxLevel"					"1"
+
+		"AbilityTextureName"		"techies_suicide"
+
+		"AbilitySpecial"
+		{
+			"1"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe"				"475"
+			}
+			"2"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500"
+			}
+		}
+	}
+
+	"knight_spear"
+	{
+		"BaseClass"					"mars_spear"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"12.0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"325"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_bonus_damage"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"spear_speed"		"1400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_width"		"125"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_vision"		"300"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_range"		"1200"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"activity_duration"		"1.7"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.6"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_stun_duration"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_duration"	"0.25"
+			}			
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_distance"	"75"
+			}			
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shard_trail_duration"	"10.0"
+				"RequiresShard"			"1"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_trail_radius"	"200"
+				"RequiresShard"			"1"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_dps"				"35"
+				"RequiresShard"			"1"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_move_slow_pct"	"20"
+				"RequiresShard"			"1"
+			}
+			"14"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shard_debuff_linger_duration"	"2.0"
+				"RequiresShard"					"1"
+			}
+			"15"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shard_interval"				"0.5"
+				"RequiresShard"					"1"
 			}
 		}
 	}

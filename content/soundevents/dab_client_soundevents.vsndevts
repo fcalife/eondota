@@ -40,6 +40,22 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/ui/outpost_capture_notify.vsnd"
 	}
+	cart.warning = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/music/deadmau5_01/stingers/respawn.vsnd"
+	}
+	cart.spawn = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/music/stingers/jug_arc_takeover.vsnd"
+	}
 	bounty_rune.picked_up = 
 	{
 		type = "dota_src1_2d"

@@ -38,7 +38,7 @@ function modifier_nexus_state:GetModifierProvidesFOWVision()
 end
 
 function modifier_nexus_state:GetOverrideAnimation()
-	return ACT_DOTA_IDLE
+	return ACT_DOTA_CAPTURE
 end
 
 function modifier_nexus_state:OnAttackLanded(keys)

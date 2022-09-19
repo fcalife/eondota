@@ -51,18 +51,6 @@ function PatrolGolem:constructor(path_name)
 end
 
 function PatrolGolem:Think()
-	local creeps = FindUnitsInRadius(
-		self.golem:GetTeam(),
-		self.golem:GetAbsOrigin(),
-		nil,
-		PATROL_GOLEM_AGGRO_RANGE,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_BASIC,
-		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		FIND_CLOSEST,
-		false
-	)
-
 	local heroes = FindUnitsInRadius(
 		self.golem:GetTeam(),
 		self.golem:GetAbsOrigin(),
@@ -75,23 +63,7 @@ function PatrolGolem:Think()
 		false
 	)
 
-	local i = 1
-	while creeps[i] and creeps[i]:IsNeutralUnitType() do
-		i = i + 1
-	end
-
-	local creep_target = creeps[i]
-
-	if creep_target then
-
-		ExecuteOrderFromTable({
-			unitIndex = self.golem:entindex(),
-			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-			TargetIndex = creep_target:entindex()
-		})
-
-		return 0.5
-	elseif #heroes > 0 then
+	if #heroes > 0 then
 
 		ExecuteOrderFromTable({
 			unitIndex = self.golem:entindex(),

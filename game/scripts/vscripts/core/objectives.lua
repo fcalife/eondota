@@ -60,6 +60,20 @@ function Objective:constructor(location, team)
 	end, {
 		tick_when_empty = true,
 	})
+
+	self.aura_trigger = MapTrigger(location, TRIGGER_TYPE_RECTANGLE, {
+		width = 1325,
+		height = 875,
+	}, {
+		trigger_team = ENEMY_TEAM[team],
+		team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		unit_filter = DOTA_UNIT_TARGET_HERO,
+		flag_filter = DOTA_UNIT_TARGET_FLAG_NONE,
+	}, function(units)
+		self:OnUnitsInAuraRange(units)
+	end, {
+		tick_when_empty = false,
+	})
 end
 
 function Objective:OnUnitsInRange(units)
@@ -73,6 +87,12 @@ function Objective:OnUnitsInRange(units)
 		if self.progress >= 1 then
 			self:OnCaptureSuccess(units)
 		end
+	end
+end
+
+function Objective:OnUnitsInAuraRange(units)
+	for _, unit in pairs(units) do
+		unit:AddNewModifier(unit, nil, "modifier_objective_buff", {duration = 0.5})
 	end
 end
 
@@ -283,6 +303,78 @@ function PowerObjective:constructor(location)
 end
 
 function PowerObjective:OnCaptureSuccess(units)
+	self.progress = 0
+	self.state = OBJECTIVE_STATE_INACTIVE
+
+	local shockwave_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_point_shockwave.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(shockwave_pfx, 0, self.location)
+	ParticleManager:SetParticleControl(shockwave_pfx, 1, self.current_color)
+	ParticleManager:ReleaseParticleIndex(shockwave_pfx)
+
+	if self.capture_ring_pfx then
+		ParticleManager:DestroyParticle(self.capture_ring_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.capture_ring_pfx)
+	end
+
+	if self.capturing_pfx then
+		ParticleManager:DestroyParticle(self.capturing_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.capturing_pfx)
+	end
+
+	if self.capture_progress_pfx then
+		ParticleManager:DestroyParticle(self.capture_progress_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.capture_progress_pfx)
+	end
+
+	local unit = units[1]
+
+	if unit then
+		local scored = false
+
+		for _, this_unit in pairs(units) do
+			if (not scored) then
+				local stone = this_unit:FindItemInInventory("item_eon_stone")
+
+				if stone then
+					GlobalMessages:NotifyTeamScoredPower(this_unit:GetTeam())
+
+					ScoreManager:ScoreSecondary(this_unit:GetTeam())
+
+					scored = true
+					stone:Destroy()
+				end
+			end
+		end
+	end
+end
+
+
+
+if CartObjective == nil then CartObjective = class(Objective) end
+
+function CartObjective:constructor(location, team)
+	self.state = OBJECTIVE_STATE_INACTIVE
+	self.radius = SECONDARY_CAPTURE_RADIUS
+	self.current_color = Vector(200, 80, 200)
+	self.progress = 0
+	self.progress_tick = SHRINE_UPDATE_RATE / SECONDARY_CAPTURE_TIME
+	self.location = location
+
+	self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
+		radius = self.radius
+	}, {
+		trigger_team = team,
+		team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		unit_filter = DOTA_UNIT_TARGET_HERO,
+		flag_filter = DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+	}, function(units)
+		self:OnUnitsInRange(units)
+	end, {
+		tick_when_empty = true,
+	})
+end
+
+function CartObjective:OnCaptureSuccess(units)
 	self.progress = 0
 	self.state = OBJECTIVE_STATE_INACTIVE
 

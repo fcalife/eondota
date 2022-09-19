@@ -16,8 +16,16 @@ function GlobalMessages:NotifyTeamScored(team)
 	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.score" or "dire.score")
 end
 
+function GlobalMessages:NotifyTeamReachedCartGoal(team)
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has delivered one of the carts!"
+
+	self:SendAnimated(message)
+
+	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.score" or "dire.score")
+end
+
 function GlobalMessages:NotifyDragon(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has slain the Dragons!"
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has slain the Kraken!"
 
 	self:SendAnimated(message)
 

@@ -11,6 +11,8 @@
 
 		"AbilityCooldown"				"1.0"
 
+		"AbilityChannelTime"			"5.0"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -31,7 +33,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"tooltip_channel_time"	"3.0"
+				"tooltip_channel_time"	"5.0"
 			}
 		}
 	}
@@ -42,47 +44,6 @@
 
 	"item_ward_sentry" {
 		"ItemCost"						"0"
-	}
-
-	"item_clarity" {
-		"ItemCost"						"100"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_regen"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"30"
-			}			
-		}
-	}
-
-	"item_flask" {
-		"ItemCost"						"100"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_on_hero_damage"	"1"
-			}
-		}
 	}
 
 	"item_bracer"
@@ -134,42 +95,46 @@
 		}
 	}
 
-	"item_bottle"				"REMOVE"
-	"item_keen_optic"			"REMOVE"
-	"item_grove_bow"			"REMOVE"
+	"item_recipe_travel_boots"		"REMOVE"
+	"item_recipe_travel_boots_2"	"REMOVE"
+	"item_travel_boots"				"REMOVE"
+	"item_travel_boots_2"			"REMOVE"
+	"item_bottle"					"REMOVE"
+	"item_keen_optic"				"REMOVE"
+	"item_grove_bow"				"REMOVE"
 	"item_quickening_charm"			"REMOVE"
-	"item_philosophers_stone"			"REMOVE"
-	"item_force_boots"			"REMOVE"
-	"item_desolator_2"			"REMOVE"
-	"item_phoenix_ash"			"REMOVE"
-	"item_seer_stone"			"REMOVE"
+	"item_philosophers_stone"		"REMOVE"
+	"item_force_boots"				"REMOVE"
+	"item_desolator_2"				"REMOVE"
+	"item_phoenix_ash"				"REMOVE"
+	"item_seer_stone"				"REMOVE"
 	"item_greater_mango"			"REMOVE"
-	"item_elixer"			"REMOVE"
+	"item_elixer"					"REMOVE"
 	"item_vampire_fangs"			"REMOVE"
-	"item_force_field"			"REMOVE"
+	"item_force_field"				"REMOVE"
 	"item_black_powder_bag"			"REMOVE"
 	"item_mechanical_arm"			"REMOVE"
-	"item_craggy_coat"			"REMOVE"
-	"item_greater_faerie_fire"			"REMOVE"
+	"item_craggy_coat"				"REMOVE"
+	"item_greater_faerie_fire"		"REMOVE"
 	"item_timeless_relic"			"REMOVE"
 	"item_mirror_shield"			"REMOVE"
-	"item_recipe_ironwood_tree"			"REMOVE"
+	"item_recipe_ironwood_tree"		"REMOVE"
 	"item_ironwood_tree"			"REMOVE"
-	"item_mango_tree"			"REMOVE"
-	"item_royal_jelly"			"REMOVE"
-	"item_pupils_gift"			"REMOVE"
+	"item_mango_tree"				"REMOVE"
+	"item_royal_jelly"				"REMOVE"
+	"item_pupils_gift"				"REMOVE"
 	"item_tome_of_aghanim"			"REMOVE"
-	"item_repair_kit"			"REMOVE"
-	"item_mind_breaker"			"REMOVE"
-	"item_third_eye"			"REMOVE"
-	"item_spell_prism"			"REMOVE"
+	"item_repair_kit"				"REMOVE"
+	"item_mind_breaker"				"REMOVE"
+	"item_third_eye"				"REMOVE"
+	"item_spell_prism"				"REMOVE"
 	"item_princes_knife"			"REMOVE"
 	"item_witless_shako"			"REMOVE"
-	"item_imp_claw"			"REMOVE"
-	"item_flicker"			"REMOVE"
-	"item_spy_gadget"			"REMOVE"
-	"item_spider_legs"			"REMOVE"
-	"item_helm_of_the_undying"			"REMOVE"
+	"item_imp_claw"					"REMOVE"
+	"item_flicker"					"REMOVE"
+	"item_spy_gadget"				"REMOVE"
+	"item_spider_legs"				"REMOVE"
+	"item_helm_of_the_undying"		"REMOVE"
 	"item_recipe_vambrace"			"REMOVE"
 	"item_vambrace"			"REMOVE"
 	"item_horizon"			"REMOVE"
@@ -340,6 +305,39 @@
 				"attack_speed_bonus"	"0"
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_7"
 			}
+		}
+	}
+
+	"abyssal_underlord_dark_portal"
+	{
+		"MaxLevel"					"1"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"AbilityValues"
+		{
+			"duration"				"99999"
+			"damage_reduction"		"0"
+			"bonus_ms"				"0"
+			"buff_duration"			"0.0"
+			"minimum_distance"		"100"
+		}
+	}
+
+	"abyssal_underlord_portal_warp"
+	{
+		"AbilityChannelTime"			"3.0"
+
+		"AbilityCastRange"				"300"
+
+		"AbilityValues"
+		{
+			"animation_rate"		"0.8"
+			"stop_distance"			"100"
 		}
 	}
 }

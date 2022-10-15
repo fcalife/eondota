@@ -20,6 +20,12 @@ function Filters:DamageFilter(keys)
 		if victim:HasModifier("modifier_teleporting") or victim:HasModifier("modifier_underlord_portal_warp_channel") then
 			victim:InterruptChannel()
 		end
+
+		if (victim:HasModifier("modifier_jungle_attacker") or victim:HasModifier("modifier_lane_creep_state")) and attacker.HasModifier then
+			if attacker:HasModifier("modifier_tower_state") then
+				keys.damage = 2 * keys.damage
+			end
+		end
 	end
 
 	return true

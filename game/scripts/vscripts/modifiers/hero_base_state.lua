@@ -18,7 +18,18 @@ function modifier_hero_base_state:OnCreated(keys)
 	else
 		self:SetStackCount(parent:IsRangedAttacker() and 80 or 100)
 	end
+
+	--self.debug_counter_pfx = ParticleManager:CreateParticle("particles/debug_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, parent)
+	--ParticleManager:SetParticleControl(self.debug_counter_pfx, 1, Vector(0, 0, 0))
+
+	--self:StartIntervalThink(0.03)
 end
+
+-- function modifier_hero_base_state:OnIntervalThink()
+-- 	local offensive_value = math.abs(100 * self:GetParent():GetPositionOffensiveValue())
+
+-- 	ParticleManager:SetParticleControl(self.debug_counter_pfx, 1, Vector((offensive_value - offensive_value % 10) / 10, offensive_value % 10, 0))
+-- end
 
 function modifier_hero_base_state:DeclareFunctions()
 	if IsServer() then
@@ -32,7 +43,9 @@ function modifier_hero_base_state:DeclareFunctions()
 			MODIFIER_PROPERTY_MODEL_SCALE,
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
 			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+			MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+			MODIFIER_EVENT_ON_ABILITY_END_CHANNEL
 		} else return {
 			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
@@ -88,6 +101,16 @@ function modifier_hero_base_state:OnTakeDamage(keys)
 	if keys.unit and keys.unit == self:GetParent() and keys.unit:IsAlive() then
 		if keys.attacker and keys.attacker:GetTeam() ~= keys.unit:GetTeam() then
 			keys.unit:AddNewModifier(keys.unit, nil, "modifier_damage_taken", {duration = 5})
+		end
+	end
+end
+
+function modifier_hero_base_state:OnAbilityEndChannel(keys)
+	if keys.unit and keys.unit == self:GetParent() then
+		if keys.ability and keys.ability:GetAbilityName() == "abyssal_underlord_portal_warp" then
+			if keys.ability:GetChannelStartTime() <= (GameRules:GetGameTime() - keys.ability:GetChannelTime() + 0.01) then
+				Portals:OnUnitUsedPortal(keys.unit)
+			end
 		end
 	end
 end

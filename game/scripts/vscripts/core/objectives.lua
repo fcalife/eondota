@@ -7,11 +7,14 @@ TEAM_GOALS = {}
 
 TEAM_FOUNTAINS = {}
 
-if IS_LANE_MAP then
-	TEAM_FOUNTAINS[DOTA_TEAM_GOODGUYS] = Vector(-7360, -5344, 256)
-	TEAM_FOUNTAINS[DOTA_TEAM_BADGUYS] = Vector(7360, 3040, 256)
+if IS_NEW_EXPERIMENTAL_MAP then
+	TEAM_FOUNTAINS[DOTA_TEAM_GOODGUYS] = Vector(-6016, -2816, 160)
+	TEAM_FOUNTAINS[DOTA_TEAM_BADGUYS] = Vector(6016, 2816, 160)
+elseif IS_EXPERIMENTAL_MAP then
+	TEAM_FOUNTAINS[DOTA_TEAM_GOODGUYS] = Vector(-7840, -4192, 160)
+	TEAM_FOUNTAINS[DOTA_TEAM_BADGUYS] = Vector(7840, 4192, 160)
 else
-	TEAM_FOUNTAINS[DOTA_TEAM_GOODGUYS] = Vector(-7328, -5376, 256)
+	TEAM_FOUNTAINS[DOTA_TEAM_GOODGUYS] = Vector(-7360, -5344, 256)
 	TEAM_FOUNTAINS[DOTA_TEAM_BADGUYS] = Vector(7360, 3040, 256)
 end
 
@@ -28,8 +31,12 @@ function Objectives:Init()
 	--	GreedObjective(greed_goal:GetAbsOrigin())
 	--end
 
-	for _, power_goal in pairs(Entities:FindAllByName("power_goal")) do
-		PowerObjective(power_goal:GetAbsOrigin())
+	for _, goal in pairs(Entities:FindAllByName("radiant_goal_small")) do
+		SmallObjective(goal:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
+	end
+
+	for _, goal in pairs(Entities:FindAllByName("dire_goal_small")) do
+		SmallObjective(goal:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
 	end
 end
 
@@ -61,19 +68,19 @@ function Objective:constructor(location, team)
 		tick_when_empty = true,
 	})
 
-	self.aura_trigger = MapTrigger(location, TRIGGER_TYPE_RECTANGLE, {
-		width = 1325,
-		height = 875,
-	}, {
-		trigger_team = ENEMY_TEAM[team],
-		team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-		unit_filter = DOTA_UNIT_TARGET_HERO,
-		flag_filter = DOTA_UNIT_TARGET_FLAG_NONE,
-	}, function(units)
-		self:OnUnitsInAuraRange(units)
-	end, {
-		tick_when_empty = false,
-	})
+	-- self.aura_trigger = MapTrigger(location, TRIGGER_TYPE_RECTANGLE, {
+	-- 	width = (IS_NEW_EXPERIMENTAL_MAP and 1408) or 1325,
+	-- 	height = (IS_NEW_EXPERIMENTAL_MAP and 896) or 875,
+	-- }, {
+	-- 	trigger_team = ENEMY_TEAM[team],
+	-- 	team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+	-- 	unit_filter = DOTA_UNIT_TARGET_HERO,
+	-- 	flag_filter = DOTA_UNIT_TARGET_FLAG_NONE,
+	-- }, function(units)
+	-- 	self:OnUnitsInAuraRange(units)
+	-- end, {
+	-- 	tick_when_empty = false,
+	-- })
 end
 
 function Objective:OnUnitsInRange(units)
@@ -278,9 +285,10 @@ end
 
 
 
-if PowerObjective == nil then PowerObjective = class(Objective) end
+if SmallObjective == nil then SmallObjective = class(Objective) end
 
-function PowerObjective:constructor(location)
+function SmallObjective:constructor(location, team)
+	self.team = team
 	self.state = OBJECTIVE_STATE_INACTIVE
 	self.radius = SECONDARY_CAPTURE_RADIUS
 	self.current_color = Vector(200, 80, 200)
@@ -288,13 +296,21 @@ function PowerObjective:constructor(location)
 	self.progress_tick = SHRINE_UPDATE_RATE / SECONDARY_CAPTURE_TIME
 	self.location = location
 
+	for _, entity in pairs(Entities:FindAllByModel("models/heroes/pedestal/effigy_aghs_standard_pedestal.vmdl")) do
+		if (entity:GetAbsOrigin() - self.location):Length2D() < 500 then print("found something") self.visual_unit = entity end
+	end
+
+	for _, entity in pairs(Entities:FindAllByModel("models/heroes/pedestal/effigy_aghs_standard_elite_pedestal.vmdl")) do
+		if (entity:GetAbsOrigin() - self.location):Length2D() < 500 then print("found something") self.visual_unit = entity end
+	end
+
 	self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
 		radius = self.radius
 	}, {
-		trigger_team = DOTA_TEAM_NEUTRALS,
-		team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		trigger_team = self.team,
+		team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 		unit_filter = DOTA_UNIT_TARGET_HERO,
-		flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+		flag_filter = DOTA_UNIT_TARGET_FLAG_NONE,
 	}, function(units)
 		self:OnUnitsInRange(units)
 	end, {
@@ -302,7 +318,7 @@ function PowerObjective:constructor(location)
 	})
 end
 
-function PowerObjective:OnCaptureSuccess(units)
+function SmallObjective:OnCaptureSuccess(units)
 	self.progress = 0
 	self.state = OBJECTIVE_STATE_INACTIVE
 
@@ -339,6 +355,18 @@ function PowerObjective:OnCaptureSuccess(units)
 					GlobalMessages:NotifyTeamScoredPower(this_unit:GetTeam())
 
 					ScoreManager:ScoreSecondary(this_unit:GetTeam())
+
+					ScoreManager:SmallGoalAchieved(this_unit:GetTeam(), self.location)
+
+					if self.visual_unit then self.visual_unit:Destroy() end
+
+					if self.trigger then self.trigger:Stop() end
+
+					local blast_pfx = ParticleManager:CreateParticle("particles/control_zone/capture_blast.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(blast_pfx, 0, self.location)
+					ParticleManager:SetParticleControl(blast_pfx, 1, Vector(self.radius, 0, 0))
+					ParticleManager:SetParticleControl(blast_pfx, 2, this_unit:GetTeam() == DOTA_TEAM_GOODGUYS and Vector(0, 100, 225) or Vector(225, 100, 0))
+					ParticleManager:ReleaseParticleIndex(blast_pfx)
 
 					scored = true
 					stone:Destroy()

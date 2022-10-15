@@ -18,6 +18,12 @@ precache.particles = {
     "particles/units/heroes/hero_visage/visage_familiar_base_attack.vpcf",
     "particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_portal_buildup.vpcf",
     "particles/econ/items/underlord/underlord_2021_immortal/underlord_2021_immortal_portal.vpcf",
+    "particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_ambient.vpcf",
+    "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf",
+    "particles/econ/courier/courier_beetlejaw_gold/courier_beetlejaw_gold_ambient.vpcf",
+    "particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf",
+    "particles/speed_lane.vpcf",
+    "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf",
 }
 
 precache.particle_folders = {

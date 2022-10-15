@@ -3,8 +3,7 @@
 	TeamCount = 2
 	maps = 
 	[
-		"eon_lane",
-		"eon_lane_experimental",
+		"eon_new_new",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false
@@ -13,7 +12,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "eon_lane"
+	DefaultMap = "eon_new_new"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false

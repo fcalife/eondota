@@ -26,15 +26,16 @@ NEUTRAL_GOLD_BOUNTY = {
 	["npc_dota_neutral_kobold_taskmaster"] = 35,
 	["npc_dota_neutral_giant_wolf"] = 120,
 	["npc_dota_neutral_alpha_wolf"] = 150,
-	["npc_dota_neutral_wildkin"] = 80,
-	["npc_dota_neutral_enraged_wildkin"] = 200,
-	["npc_dota_neutral_prowler_shaman"] = 400,
+	["npc_dota_neutral_wildkin"] = 100,
+	["npc_dota_neutral_enraged_wildkin"] = 250,
+	["npc_dota_neutral_prowler_shaman"] = 600,
 	["npc_eon_speed_beast"] = 400,
 	["npc_eon_treasure_goblin"] = 400,
-	["npc_dota_neutral_black_drake"] = 300,
-	["npc_dota_neutral_black_dragon"] = 600,
+	["npc_dota_neutral_black_drake"] = 250,
+	["npc_dota_neutral_black_dragon"] = 700,
 	["npc_eon_knight"] = 300,
-	["npc_eon_samurai_knight"] = 400,
+	["npc_eon_lesser_samurai"] = 180,
+	["npc_eon_samurai_knight"] = 700,
 	["npc_eon_trio_knight"] = 300,
 	["npc_eon_roshan"] = 0,
 }
@@ -52,6 +53,18 @@ DRAGON_KILLS[DOTA_TEAM_GOODGUYS] = 0
 DRAGON_KILLS[DOTA_TEAM_BADGUYS] = 0
 
 function NeutralCamps:StartSpawning()
+	self.jungle_attack_routes = {}
+	self.jungle_attack_routes[DOTA_TEAM_GOODGUYS] = {}
+	self.jungle_attack_routes[DOTA_TEAM_BADGUYS] = {}
+
+	for step = 1, 8 do
+		local next_radiant_position = Entities:FindByName(nil, "radiant_jungle_attack_route_"..step)
+		local next_dire_position = Entities:FindByName(nil, "dire_jungle_attack_route_"..step)
+
+		if next_radiant_position then table.insert(self.jungle_attack_routes[DOTA_TEAM_GOODGUYS], next_radiant_position:GetAbsOrigin()) end
+		if next_dire_position then table.insert(self.jungle_attack_routes[DOTA_TEAM_BADGUYS], next_dire_position:GetAbsOrigin()) end
+	end
+
 	self.camp_data = {
 		[1] = {
 			leader = "npc_dota_neutral_kobold_taskmaster",
@@ -83,7 +96,7 @@ function NeutralCamps:StartSpawning()
 			min_leaders = 1,
 			max_leaders = 1,
 			minimap_dummy = "npc_camp_dummy_4",
-			scale = 25,
+			scale = 10,
 		},
 		[5] = {
 			leader = "npc_dota_neutral_black_dragon",
@@ -95,19 +108,19 @@ function NeutralCamps:StartSpawning()
 			scale = 50,
 		},
 		[6] = {
-			leader = "npc_eon_samurai_knight",
-			min_leaders = 1,
-			max_leaders = 1,
-			respawn_time = 150,
+			leader = "npc_eon_lesser_samurai",
+			min_leaders = 3,
+			max_leaders = 3,
+			respawn_time = 90,
 			minimap_dummy = "npc_camp_dummy_4",
 			scale = 0,
 		},
 		[7] = {
-			leader = "npc_eon_trio_knight",
-			min_leaders = 3,
-			max_leaders = 3,
+			leader = "npc_eon_samurai_knight",
+			min_leaders = 1,
+			max_leaders = 1,
 			respawn_time = DRAGON_RESPAWN_TIME,
-			minimap_dummy = "npc_camp_dummy_5",
+			minimap_dummy = "npc_camp_dummy_6",
 			scale = 0,
 		},
 		[8] = {
@@ -128,27 +141,23 @@ function NeutralCamps:StartSpawning()
 	}
 
 	Timers:CreateTimer(NEUTRAL_CREEP_FIRST_SPAWN_TIME, function()
-		for level = 1, 4 do
+		for level = 1, 6 do
 			for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_"..level)) do
-				NeutralCamp(camp_location:GetAbsOrigin(), false, false, false, self.camp_data[level])
+				NeutralCamp(camp_location:GetAbsOrigin(), self.camp_data[level])
 			end
-		end
-
-		for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_9")) do
-			NeutralCamp(camp_location:GetAbsOrigin(), false, false, false, self.camp_data[9])
 		end
 	end)
 
 	self.dragon_camps = {}
 
 	Timers:CreateTimer(DRAGON_SPAWN_TIME, function()
-		for level = 5, 8 do
+		-- for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_5")) do
+		-- 	table.insert(self.dragon_camps, NeutralCamp(camp_location:GetAbsOrigin(), self.camp_data[5]))
+		-- end
+
+		for level = 7, 9 do
 			for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_"..level)) do
-				if level == 5 then
-					table.insert(self.dragon_camps, NeutralCamp(camp_location:GetAbsOrigin(), true, false, false, self.camp_data[level]))
-				else
-					NeutralCamp(camp_location:GetAbsOrigin(), false, true, false, self.camp_data[level])
-				end
+				NeutralCamp(camp_location:GetAbsOrigin(), self.camp_data[level])
 			end
 		end
 	end)
@@ -164,15 +173,16 @@ if NeutralCamp == nil then NeutralCamp = class({
 	respawn_time = NEUTRAL_CREEP_RESPAWN_TIME
 }) end
 
-function NeutralCamp:constructor(location, is_dragon, is_knight, is_roshan, data)
+function NeutralCamp:constructor(location, data)
 	self.location = location
-	self.is_dragon = is_dragon
-	self.is_knight = is_knight
+	self.is_dragon = data.leader == "npc_dota_neutral_black_dragon"
+	self.is_knight = data.leader == "npc_eon_knight"
 	self.is_samurai = data.leader == "npc_eon_samurai_knight"
 	self.is_trio_knight = data.leader == "npc_eon_trio_knight"
 	self.is_roshan = is_roshan
 	self.is_demon = data.leader == "npc_eon_treasure_goblin"
 	self.is_portal = data.leader == "npc_dota_neutral_prowler_shaman"
+	self.is_greevil = data.leader == "npc_eon_lesser_samurai"
 	self.leader = data.leader
 	self.minion = data.minion
 	self.minimap_dummy = data.minimap_dummy
@@ -208,6 +218,7 @@ function NeutralCamp:Spawn()
 		creep.camp = self
 
 		if self.is_demon then creep:AddNewModifier(creep, nil, "modifier_treasure_goblin_state", {time = GameClock:GetActualGameTime()}) end
+		if self.is_greevil then creep:AddNewModifier(creep, nil, "modifier_treasure_goblin_state", {}) end
 		if self.is_portal then creep:AddNewModifier(creep, nil, "modifier_portal_creep_state", {}) end
 
 		table.insert(self.creeps, creep)
@@ -250,13 +261,13 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 			DragonCoin(killed_unit:GetAbsOrigin(), self.dragon_buff)
 		end
 
-		if self.is_knight or self.is_samurai or self.is_trio_knight then
-			--self:SpawnKnightsForTeam(team)
+		if self.is_knight or self.is_trio_knight then
+			self:SpawnKnightsForTeam(team)
 
-			local book_drop = CreateItem("item_knight_book", nil, nil)
-			local drop = CreateItemOnPositionForLaunch(killed_unit:GetAbsOrigin(), book_drop)
-			drop:SetModelScale(2.0)
-			book_drop:LaunchLootInitialHeight(false, 0, 300, 0.4, killer:GetAbsOrigin())
+			-- local book_drop = CreateItem("item_knight_book", nil, nil)
+			-- local drop = CreateItemOnPositionForLaunch(killed_unit:GetAbsOrigin(), book_drop)
+			-- drop:SetModelScale(2.0)
+			-- book_drop:LaunchLootInitialHeight(false, 0, 300, 0.4, killer:GetAbsOrigin())
 		end
 
 		if self.is_demon then
@@ -294,11 +305,17 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 			self:SpawnPortal()
 		end
 
-		if self.is_samurai then
-			local item_drop = CreateItem("item_knight_blink", nil, nil)
-			local drop = CreateItemOnPositionForLaunch(killed_unit:GetAbsOrigin(), item_drop)
-			drop:SetModelScale(2.25)
-			item_drop:LaunchLootInitialHeight(false, 0, 300, 0.3, killer:GetAbsOrigin())
+		if killer:IsRealHero() and self.is_samurai then
+			GlobalMessages:NotifySamurai(team)
+			Timers:CreateTimer(1.0, function() killer:AddNewModifier(killer, nil, "modifier_major_stealth_buff", {duration = MAJOR_STEALTH_BUFF_DURATION}) end)
+		end
+
+		if IS_NEW_EXPERIMENTAL_MAP and self.is_greevil or self.is_samurai then
+			local enemy_tower = Towers:GetTeamJungleTower(ENEMY_TEAM[team])
+
+			if enemy_tower and enemy_tower.location and (enemy_tower.location - self.location):Length2D() < 3000 then
+				self:SpawnJungleAttackers(team, enemy_tower)
+			end
 		end
 
 		self.dummy:AddNewModifier(self.dummy, nil, "modifier_not_on_minimap", {})
@@ -326,11 +343,20 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 
 	local bounty = NEUTRAL_GOLD_BOUNTY[killed_unit:GetUnitName()]
 
-	if bounty > 0 then PassiveGold:GiveGoldFromPickup(killer, bounty) end
+	if bounty > 0 then
+		if killer:IsHero() then
+			PassiveGold:GiveGoldFromPickup(killer, bounty)
+		elseif killer:HasModifier("modifier_jungle_attacker") then
+			PassiveGold:GiveGoldToPlayersInTeam(team, bounty / 5, 0)
+		end
+	end
 end
 
 function NeutralCamp:SpawnPortal()
-	if self.portal then self.portal:ActivateForTeam(self.portal_team) end
+	if self.portal then
+		self.portal:ActivateForTeam(self.portal_team)
+		self.portal:ActivateForTeam(ENEMY_TEAM[self.portal_team])
+	end
 end
 
 function NeutralCamp:SpawnKnightsForTeam(team)
@@ -363,6 +389,38 @@ function NeutralCamp:ConvertToRoshanCamp()
 			creep:Destroy()
 			UTIL_Remove(creep)
 		end
+	end
+end
+
+function NeutralCamp:SpawnJungleAttackers(team, tower)
+	for i = 1, self.max_leaders do
+		local creep = CreateUnitByName(self.leader.."_attacker", self.location, true, nil, nil, team)
+
+		creep:AddNewModifier(creep, nil, "modifier_jungle_attacker", {})
+		creep:AddNewModifier(creep, nil, "modifier_kill", {duration = 90})
+
+		Timers:CreateTimer(i, function()
+
+			local creep_id = creep:entindex()
+
+			if tower and tower.unit and tower.location and (not tower.unit:IsNull()) and tower.unit:IsAlive() then
+				ExecuteOrderFromTable({
+					unitIndex = creep_id,
+					OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+					Position = tower.location,
+					Queue = true
+				})
+			end
+
+			for _, route_step in pairs(NeutralCamps.jungle_attack_routes[team]) do
+				ExecuteOrderFromTable({
+					unitIndex = creep_id,
+					OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+					Position = route_step,
+					Queue = true
+				})
+			end
+		end)
 	end
 end
 

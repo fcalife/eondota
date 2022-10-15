@@ -1,0 +1,8 @@
+eon_new_new
+{
+	material materials/overviews/eon_new_new.vmat
+	pos_x -8960
+	pos_y 8960
+	scale 17.500
+}
+

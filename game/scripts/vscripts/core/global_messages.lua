@@ -9,7 +9,7 @@ function GlobalMessages:SendAnimated(message)
 end
 
 function GlobalMessages:NotifyTeamScored(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." scored on the big goal!"
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." scored a big goal!"
 
 	self:SendAnimated(message)
 
@@ -33,7 +33,7 @@ function GlobalMessages:NotifyDragon(team)
 end
 
 function GlobalMessages:NotifySamurai(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has recruited the Demon Samurai!"
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE has slain Larry the Samurai!" or "RED has slain Jerry the Samurai!")
 
 	self:SendAnimated(message)
 
@@ -57,7 +57,7 @@ function GlobalMessages:NotifyTeamScoredGreed(team)
 end
 
 function GlobalMessages:NotifyTeamScoredPower(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." scored on the small goal!"
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." scored a small goal!"
 
 	self:SendAnimated(message)
 

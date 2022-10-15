@@ -1,0 +1,46 @@
+#Container {
+	align:  center center;
+	padding:  10px;
+	height:  300px;
+	width:  800px;
+	flow-children:  down;
+	background-color: #303030;
+	border-radius:  12px;
+	border: 2px solid black;
+	visibility: collapse;
+}
+
+#Header {
+	margin-top:  10px;
+	align:  center top;
+	text-align: center;
+	font-size:  28px;
+	font-weight:  bold;
+	color:  white;
+}
+
+#ChoiceReel {
+	margin-top:  20px;
+	margin-bottom:  20px;
+	height:  100%;
+	width:  100%;
+	flow-children:  right;
+}
+
+.Choice {
+	height:  100%;
+	width:  fill-parent-flow(1.0);
+	flow-children:  down;
+}
+
+.ChoiceHeader {
+	align:  center top;
+	text-align: center;
+	font-size:  24px;
+	color:  white;
+}
+
+.ChoiceIcon {
+	margin-top:  20px;
+	align:  center top;
+}

@@ -16,6 +16,8 @@ function GameClock:Start()
 
 	--RuneSpawner:SpawnAllBountyRunes()
 
+	Walls:Init()
+
 	if IS_LANE_MAP then TreasureChests:Spawn() end
 
 	if IS_CART_MAP then Timers:CreateTimer(CART_INITIAL_SPAWN_DELAY - CART_COUNTDOWN_TIME, function() PushCarts:StartCountdown() end) end

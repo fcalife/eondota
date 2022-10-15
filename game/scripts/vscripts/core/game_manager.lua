@@ -66,11 +66,11 @@ function GameManager:StartEonStoneCountdown()
 
 		minimap_dummy:Destroy()
 
-		self:SpawnEonStone(location)
+		self:SpawnEonStone(location, nil)
 	end)
 end
 
-function GameManager:SpawnEonStone(location)
+function GameManager:SpawnEonStone(location, dropped_by_team)
 	local container = CreateItemOnPositionForLaunch(location, CreateItem("item_eon_stone", nil, nil))
 	local item = container:GetContainedItem()
 
@@ -88,41 +88,45 @@ function GameManager:SpawnEonStone(location)
 
 	local distance = (location - self.eon_stone_spawn_points[1]):Length2D()
 	if distance > 200 then
+		local time_on_ground = math.min(EON_STONE_MAX_TIME_ON_GROUND, EON_STONE_MAX_TIME_ON_GROUND + (EON_STONE_MAX_TIME_ON_GROUND - EON_STONE_MIN_TIME_ON_GROUND) * self:GetPositionOffensiveValueForTeam(location, dropped_by_team))
+
 		self.stone_pfx = ParticleManager:CreateParticle("particles/eon_timer.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(self.stone_pfx, 0, location + Vector(0, 0, 50))
-		ParticleManager:SetParticleControl(self.stone_pfx, 1, Vector(350, 1/EON_STONE_TIME_ON_GROUND, 0))
+		ParticleManager:SetParticleControl(self.stone_pfx, 1, Vector(350, 1/time_on_ground, 0))
 		ParticleManager:SetParticleControl(self.stone_pfx, 15, Vector(255, 255, 255))
 		ParticleManager:SetParticleControl(self.stone_pfx, 16, Vector(1, 0, 0))
 
-		Timers:CreateTimer(EON_STONE_TIME_ON_GROUND, function()
+		Timers:CreateTimer(time_on_ground, function()
 			if container and (not container:IsNull()) then
 				container:Destroy()
 				GameManager:OnEonStonePickedUp(location)
 
-				self:SpawnEonStone(self.eon_stone_spawn_points[1])
+				self:SpawnEonStone(self.eon_stone_spawn_points[1], nil)
 			end
 		end)
 	end
 end
 
 function GameManager:OnEonStonePickedUp(location)
-	self.stone_data.dummy:Destroy()
-
-	if self.stone_pfx then
-		ParticleManager:DestroyParticle(self.stone_pfx, false)
-		ParticleManager:ReleaseParticleIndex(self.stone_pfx)
-	end
-
-	for _, viewer in pairs(self.stone_data.fow_viewers) do
-		RemoveFOWViewer(DOTA_TEAM_GOODGUYS, viewer)
-		RemoveFOWViewer(DOTA_TEAM_BADGUYS, viewer)
-	end
-
 	for player_id = 0, 24 do
 		if PlayerResource:IsValidPlayer(player_id) then
 			local hero = PlayerResource:GetSelectedHeroEntity(player_id)
 			if hero then hero:RemoveModifierByName("modifier_item_eon_stone_cooldown") end
 		end
+	end
+
+	if self.stone_data then
+		if self.stone_data.dummy and (not self.stone_data.dummy:IsNull()) then self.stone_data.dummy:Destroy() end
+
+		for _, viewer in pairs(self.stone_data.fow_viewers) do
+			RemoveFOWViewer(DOTA_TEAM_GOODGUYS, viewer)
+			RemoveFOWViewer(DOTA_TEAM_BADGUYS, viewer)
+		end
+	end
+
+	if self.stone_pfx then
+		ParticleManager:DestroyParticle(self.stone_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.stone_pfx)
 	end
 end
 
@@ -206,4 +210,20 @@ function GameManager:StartGameEndCountdown()
 		EmitGlobalSound("game_end.01")
 		GlobalMessages:Send("1!")
 	end)
+end
+
+function GameManager:GetPositionOffensiveValueForTeam(position, team)
+	if (not ScoreManager.nexus) then return 0 end
+
+	local center_line = (ScoreManager.nexus[ENEMY_TEAM[team]]:GetAbsOrigin() - ScoreManager.nexus[team]:GetAbsOrigin()):Normalized()
+
+	local distance = DotProduct(position, center_line)
+
+	if math.abs(distance) <= OFFENSIVE_VALUE_DEADZONE_RADIUS then
+		return 0
+	elseif math.abs(distance) <= OFFENSIVE_VALUE_CENTER_LIMIT then
+		return (distance / math.abs(distance)) * (math.abs(distance) - OFFENSIVE_VALUE_DEADZONE_RADIUS) / (OFFENSIVE_VALUE_CENTER_LIMIT - OFFENSIVE_VALUE_DEADZONE_RADIUS)
+	else
+		return distance / math.abs(distance)
+	end
 end

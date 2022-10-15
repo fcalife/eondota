@@ -16,5 +16,7 @@ require('core/tower')
 require('core/lane_creep')
 require('core/portals')
 require('core/push_cart')
+require('core/ball_abilities')
+require('core/wall')
 
 require("core/filters/init")

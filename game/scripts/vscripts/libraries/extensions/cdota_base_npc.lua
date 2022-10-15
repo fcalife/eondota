@@ -29,3 +29,23 @@ function CDOTA_BaseNPC:GetTalentValue(talent_name, key)
 
 	return 0
 end
+
+function CDOTA_BaseNPC:GetPositionOffensiveValue()
+	local position = self:GetAbsOrigin()
+	local team = self:GetTeam()
+
+	if (not ScoreManager.nexus) then return 0 end
+
+	local center_line = (ScoreManager.nexus[ENEMY_TEAM[team]]:GetAbsOrigin() - ScoreManager.nexus[team]:GetAbsOrigin()):Normalized()
+
+	local distance = DotProduct(position, center_line)
+
+	if math.abs(distance) <= OFFENSIVE_VALUE_DEADZONE_RADIUS then
+		return 0
+	elseif math.abs(distance) <= OFFENSIVE_VALUE_CENTER_LIMIT then
+		return (distance / math.abs(distance)) * (math.abs(distance) - OFFENSIVE_VALUE_DEADZONE_RADIUS) / (OFFENSIVE_VALUE_CENTER_LIMIT - OFFENSIVE_VALUE_DEADZONE_RADIUS)
+	else
+		return distance / math.abs(distance)
+	end
+end
+

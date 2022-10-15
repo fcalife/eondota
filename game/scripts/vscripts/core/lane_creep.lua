@@ -120,6 +120,8 @@ function LaneCreep:constructor(team, path, location, unit_name)
 	if self.unit_name == "npc_eon_knight_ally" or self.unit_name == "npc_eon_trio_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_knight_state", {}) end
 	if self.unit_name == "npc_eon_samurai_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_samurai_state", {}) end
 
+	self.unit:AddNewModifier(self.unit, nil, "modifier_lane_creep_state", {})
+
 	self.unit.lane = self
 
 	Timers:CreateTimer(0.5, function()
@@ -191,7 +193,10 @@ end
 
 function LaneCoin:OnHeroInRange(units)
 	if units[1] then
-		PassiveGold:GiveGoldFromPickup(units[1], self.value)
+		units[1]:ModifyGold(self.value, false, DOTA_ModifyGold_CreepKill)
+
+		local player = units[1]:GetPlayerOwner()
+		if player then SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, units[1], self.value, nil) end
 
 		self.gold_drop:Destroy()
 		self.drop:Destroy()

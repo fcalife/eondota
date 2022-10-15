@@ -1,6 +1,8 @@
 _G.PatrolGolems = PatrolGolems or {}
 
 PATROL_GOLEMS = {}
+PATROL_GOLEMS[DOTA_TEAM_GOODGUYS] = {}
+PATROL_GOLEMS[DOTA_TEAM_BADGUYS] = {}
 
 local golem_paths = {}
 
@@ -10,10 +12,14 @@ golem_paths["dire_golem_a_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 8
 golem_paths["dire_golem_b_"] = { team = DOTA_TEAM_BADGUYS, color = Vector(240, 80, 110) }
 
 function PatrolGolems:Init()
-	PATROL_GOLEMS[DOTA_TEAM_GOODGUYS] = PatrolGolem("radiant_golem_a_")
-	PATROL_GOLEMS[DOTA_TEAM_GOODGUYS] = PatrolGolem("radiant_golem_b_")
-	PATROL_GOLEMS[DOTA_TEAM_BADGUYS] = PatrolGolem("dire_golem_a_")
-	PATROL_GOLEMS[DOTA_TEAM_BADGUYS] = PatrolGolem("dire_golem_b_")
+	table.insert(PATROL_GOLEMS[DOTA_TEAM_GOODGUYS], PatrolGolem("radiant_golem_a_"))
+	table.insert(PATROL_GOLEMS[DOTA_TEAM_GOODGUYS], PatrolGolem("radiant_golem_b_"))
+	table.insert(PATROL_GOLEMS[DOTA_TEAM_BADGUYS], PatrolGolem("dire_golem_a_"))
+	table.insert(PATROL_GOLEMS[DOTA_TEAM_BADGUYS], PatrolGolem("dire_golem_b_"))
+end
+
+function PatrolGolems:GetTeamGolems(team)
+	return PATROL_GOLEMS[team] or nil
 end
 
 

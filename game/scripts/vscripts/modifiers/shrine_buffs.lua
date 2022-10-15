@@ -44,25 +44,25 @@ function modifier_shrine_buff_arcane:GetModifierProcAttack_Feedback(keys)
 	if keys.target and keys.attacker and keys.attacker:GetTeam() ~= keys.target:GetTeam() then
 
 		-- Patrol tower
-		if keys.target:HasModifier("modifier_golem_base_state") then
-			keys.target:AddNewModifier(keys.attacker, nil, "modifier_stunned", {duration = 10})
+		-- if keys.target:HasModifier("modifier_golem_base_state") then
+		-- 	keys.target:AddNewModifier(keys.attacker, nil, "modifier_stunned", {duration = 10})
 
-			local disabled_counter = keys.target:AddNewModifier(keys.attacker, nil, "modifier_golem_disabled_counter", {})
+		-- 	local disabled_counter = keys.target:AddNewModifier(keys.attacker, nil, "modifier_golem_disabled_counter", {})
 
-			if disabled_counter then
-				disabled_counter:IncrementStackCount()
+		-- 	if disabled_counter then
+		-- 		disabled_counter:IncrementStackCount()
 
-				if disabled_counter:GetStackCount() >= 3 then
-					keys.target:Kill(nil, keys.attacker)
-				end
-			end
+		-- 		if disabled_counter:GetStackCount() >= 3 then
+		-- 			keys.target:Kill(nil, keys.attacker)
+		-- 		end
+		-- 	end
 
-			if keys.attacker:IsRealHero() then keys.attacker:ModifyGold(400, false, DOTA_ModifyGold_CreepKill) end
+		-- 	if keys.attacker:IsRealHero() then keys.attacker:ModifyGold(400, false, DOTA_ModifyGold_CreepKill) end
 
-			self:Destroy()
+		-- 	self:Destroy()
 
 		-- Portal creep
-		elseif keys.target:HasModifier("modifier_portal_creep_state") then
+		if keys.target:HasModifier("modifier_portal_creep_state") then
 			ApplyDamage({attacker = keys.attacker, victim = keys.target, damage = keys.target:GetMaxHealth() * 0.25, damage_type = DAMAGE_TYPE_PURE})
 
 			if keys.attacker:IsRealHero() then keys.attacker:ModifyGold(100, false, DOTA_ModifyGold_CreepKill) end

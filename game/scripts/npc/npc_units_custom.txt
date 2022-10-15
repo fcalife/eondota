@@ -152,6 +152,21 @@
 		"VisionNighttimeRange"		"1"
 	}
 
+	"npc_camp_dummy_6"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_sword"
+		"MinimapIconSize"			"350"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"1"
+		"VisionNighttimeRange"		"1"
+	}
+
 	"dota_fountain"
 	{
 		"AttackDamageMin"			"475"
@@ -340,39 +355,58 @@
 
 	"npc_dota_goodguys_tower1_mid"
 	{
-		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				"1.3"
 
 		"StatusHealth"				"4000"
 		"ArmorPhysical"				"12"
+
+		"BaseAttackSpeed"			"90"
+		"AttackDamageMin"			"54"
+		"AttackDamageMax"			"56"
+
+		"ProjectileSpeed"			"1500"
 	}
 
 	"npc_dota_badguys_tower1_mid"
 	{
-		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				"1.3"
 
 		"StatusHealth"				"4000"
 		"ArmorPhysical"				"12"
+
+		"BaseAttackSpeed"			"90"
+		"AttackDamageMin"			"54"
+		"AttackDamageMax"			"56"
+
+		"ProjectileSpeed"			"1500"
 	}
 
 	"npc_dota_goodguys_tower1_top"
 	{
-		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				"1.3"
-		"StatusHealth"				"540"
+		"Model"						"models/items/world/towers/radiant_tower_2021/radiant_tower_2021.vmdl"
+		
+		"StatusHealth"				"4000"
+		"ArmorPhysical"				"12"
 
-		"AttackDamageMin"			"61"
-		"AttackDamageMax"			"65"
+		"BaseAttackSpeed"			"90"
+		"AttackDamageMin"			"54"
+		"AttackDamageMax"			"56"
+
+		"ProjectileSpeed"			"1500"
 	}
 
 	"npc_dota_badguys_tower1_top"
 	{
-		"BaseClass"					"npc_dota_creature"
-		"StatusHealth"				"540"
+		"Model"						"models/items/world/towers/dire_tower_2021/dire_tower_2021.vmdl"
+		
+		"StatusHealth"				"4000"
+		"ArmorPhysical"				"12"
 
-		"AttackDamageMin"			"61"
-		"AttackDamageMax"			"65"
+		"BaseAttackSpeed"			"90"
+		"AttackDamageMin"			"54"
+		"AttackDamageMax"			"56"
+
+		"ProjectileSpeed"			"1500"
 	}
 
 	"npc_dota_neutral_kobold"
@@ -440,7 +474,7 @@
 		"AttackDamageMin"			"24"
 		"AttackDamageMax"			"26"
 
-		"BountyXP"					"60"
+		"BountyXP"					"80"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
@@ -455,7 +489,7 @@
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"37"
 
-		"BountyXP"					"220"
+		"BountyXP"					"280"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
@@ -475,13 +509,13 @@
 		"AttackDamageMin"			"25"
 		"AttackDamageMax"			"30"
 
-		"BountyXP"					"400"
+		"BountyXP"					"600"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
 		"MovementSpeed"				"525"
 
-		"StatusHealth"				"5000"
+		"StatusHealth"				"2500"
 		"StatusHealthRegen"			"0.5"
 
 		"Ability1"					""
@@ -500,7 +534,7 @@
 		"AttackDamageMin"			"130"
 		"AttackDamageMax"			"140"
 
-		"BountyXP"					"200"
+		"BountyXP"					"250"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
@@ -521,7 +555,7 @@
 		"AttackDamageMin"			"180"
 		"AttackDamageMax"			"200"
 
-		"BountyXP"					"600"
+		"BountyXP"					"750"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
@@ -737,7 +771,7 @@
 
 	"npc_eon_knight_ally"
 	{
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_creep_lane"
 		"Model"						"models/creeps/omniknight_golem/omniknight_golem.vmdl"
 		"SoundSet"					"Hero_Omniknight"
 		"ModelScale"				"1.8"
@@ -780,6 +814,49 @@
 		"VisionNighttimeRange"		"1200"
 	}
 
+	"npc_eon_lesser_samurai"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/courier/greevil/greevil.vmdl"
+		"SoundSet"					"Hero_WarlockGolem"
+		"ModelScale"				"1.8"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"3"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"29"
+		"AttackDamageMax"			"33"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.3"
+		"AttackAnimationPoint"		"0.26"
+		"AttackAcquisitionRange"	"250"
+		"AttackRange"				"250"
+
+		"BountyXP"					"180"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"750"
+		"StatusHealthRegen"			"3"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+	}
+
 	"npc_eon_samurai_knight"
 	{
 		"BaseClass"					"npc_dota_creep_neutral"
@@ -801,7 +878,107 @@
 		"AttackAcquisitionRange"	"250"
 		"AttackRange"				"250"
 
-		"BountyXP"					"400"
+		"BountyXP"					"700"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"3600"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+	}
+
+	"npc_eon_lesser_samurai_attacker"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/courier/greevil/greevil.vmdl"
+		"SoundSet"					"Hero_WarlockGolem"
+		"ModelScale"				"1.8"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"6"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"39"
+		"AttackDamageMax"			"41"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.3"
+		"AttackAnimationPoint"		"0.26"
+		"AttackAcquisitionRange"	"250"
+		"AttackRange"				"250"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"3"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"	{	"ItemDef"	"10071"	}	// lvl 1 ears
+				"Wearable2"	{	"ItemDef"	"10075"	}	// lvl 1 horns
+				"Wearable3"	{	"ItemDef"	"10078"	}	// lvl 1 nose
+				"Wearable4"	{	"ItemDef"	"10081"	}	// lvl 1 tail
+				"Wearable5"	{	"ItemDef"	"10084"	}	// lvl 1 teeth
+				"Wearable6"	{	"ItemDef"	"10087"	}	// lvl 1 wings
+				"Wearable7"	{	"ItemDef"	"10090"	}	// eyes
+			}
+		}
+	}
+
+	"npc_eon_samurai_knight_attacker"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/warlock/golem/puppet_summoner_golem/puppet_summoner_golem.vmdl"
+		"SoundSet"					"Hero_WarlockGolem"
+		"ModelScale"				"1.3"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"260"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.26"
+		"AttackAcquisitionRange"	"250"
+		"AttackRange"				"250"
+
+		"BountyXP"					"0"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 

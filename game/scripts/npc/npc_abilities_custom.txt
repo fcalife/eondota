@@ -174,4 +174,201 @@
 			}
 		}
 	}
+
+	"ability_ball_charger"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ball_charger"
+
+		"AbilityTextureName"		"spirit_breaker_charge_of_darkness"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_TELEPORT"
+		"AbilityCastPoint"			"0.1"
+
+		"AbilityCooldown"			"30"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_penalty"			"-50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_ms_bonus"			"75"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"acceleration_duration"	"2.5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_speed_duration"	"6.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"status_resist"			"80"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"turn_rate"				"0.001"
+			}
+		}
+	}
+
+	"ability_ball_runner"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ball_runner"
+
+		"AbilityTextureName"		"dark_seer_surge"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+
+		"AbilityCastAnimation"		"ACT_DOTA_TELEPORT"
+		"AbilityCastPoint"			"0.35"
+
+		"AbilityCooldown"			"15"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"distance"			"1400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1200"
+			}
+		}
+	}
+
+	"ability_ball_blocker"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ball_blocker"
+
+		"AbilityTextureName"		"primal_beast_onslaught"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+
+		"AbilityCastAnimation"		"ACT_DOTA_TELEPORT"
+		"AbilityCastPoint"			"0.55"
+
+		"AbilityCooldown"			"15"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"distance"			"1400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1800"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"knockback_distance"	"180"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"self_stun_duration"	"0.5"
+			}
+		}
+	}
+
+	"ability_ball_thrower"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ball_thrower"
+
+		"AbilityTextureName"		"primal_beast_rock_throw"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"10"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"distance"			"2500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1750"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_ms"			"60"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3.0"
+			}
+		}
+	}
+
+	"ability_ball_forcer"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ball_forcer"
+
+		"AbilityTextureName"		"forcer"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"15"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"push_length"			"1100"
+			"speed"					"1000"
+		}
+	}
 }

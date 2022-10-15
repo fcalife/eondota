@@ -26,8 +26,9 @@ function MapTrigger:constructor(center, trigger_type, dimensions, filters, callb
 	self.options = options or {}
 
 	if self.trigger_type == TRIGGER_TYPE_RECTANGLE then
-		self.dimensions.start_pos = self.center - 0.5 * Vector(self.dimensions.width, 0, 0)
-		self.dimensions.end_pos = self.center + 0.5 * Vector(self.dimensions.width, 0, 0)
+		self.start_pos = self.dimensions.start_pos or Vector(0, 0, 0)
+		self.end_pos = self.dimensions.end_pos or Vector(1, 0, 0)
+		self.height = self.dimensions.height or 100
 	end
 
 	self:Start()
@@ -62,10 +63,10 @@ function MapTrigger:Tick()
 	elseif self.trigger_type == TRIGGER_TYPE_RECTANGLE then
 		units = FindUnitsInLine(
 			self.trigger_team,
-			self.dimensions.start_pos,
-			self.dimensions.end_pos,
+			self.start_pos,
+			self.end_pos,
 			nil,
-			self.dimensions.height,
+			self.height,
 			self.team_filter,
 			self.unit_filter,
 			self.flag_filter

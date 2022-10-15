@@ -15,8 +15,11 @@
 		"npc_eon_roshan"					"Roshan"
 		"npc_eon_knight"					"Ethereal Knight"
 		"npc_eon_knight_ally"				"Ethereal Knight"
+		"npc_eon_lesser_samurai"			"Fat Demonling"
+		"npc_eon_lesser_samurai_attacker"	"Fat Demonling"
 		"npc_eon_samurai_knight"			"Demon Samurai"
 		"npc_eon_samurai_knight_ally"		"Demon Samurai"
+		"npc_eon_samurai_knight_attacker"	"Demon Samurai"
 		"npc_eon_trio_knight"				"Ethereal Knight"
 		"npc_eon_trio_knight_ally"			"Ethereal Knight"
 		"npc_eon_speed_beast"				"Speed Demon"
@@ -115,6 +118,38 @@
 
 
 
+
+  		"DOTA_Tooltip_ability_ability_ball_charger"					"All-out Charge"
+		"DOTA_Tooltip_ability_ability_ball_charger_Description"		"You brace for an all-or-nothing sprint. Your movement speed is reduced by %ms_penalty%%%, but then quickly accelerates to a %max_ms_bonus%%% bonus over the next %acceleration_duration% seconds. Upon reaching maximum speed, you gain %status_resist%%% status resistance, knock back enemies on your path, and keep running for up to %max_speed_duration% more seconds.\n<font color='#FF8080'>Can only be used while carrying the Eon Stone.</font>"
+
+		"DOTA_Tooltip_modifier_ball_charger"						"All-out Charge"
+		"DOTA_Tooltip_modifier_ball_charger_Description"			"He's heating up!"
+
+		"DOTA_Tooltip_modifier_ball_charger_max"					"All-out Charge"
+		"DOTA_Tooltip_modifier_ball_charger_max_Description"		"HE'S ON FIRE!"
+
+  		"DOTA_Tooltip_ability_ability_ball_runner"					"Dash"
+		"DOTA_Tooltip_ability_ability_ball_runner_Description"		"Rushes ahead in a straight line at high speed. Will stop running if you collide with an enemy.\n<font color='#FF8080'>Can only be used while carrying the Eon Stone.</font>"
+		"DOTA_Tooltip_ability_ability_ball_runner_distance"			"MAX DISTANCE:"
+ 		"DOTA_Tooltip_ability_ability_ball_runner_speed"			"DASH SPEED:"
+
+ 		"DOTA_Tooltip_ability_ability_ball_blocker"					"Tackle"
+		"DOTA_Tooltip_ability_ability_ball_blocker_Description"		"Rushes ahead in a straight line at high speed, knocking back any enemies in your path. If you hit the enemy Eon Stone carrier, they drop the stone by force. If you don't hit any enemies with your Tackle, you are stunned for %self_stun_duration% seconds at the end of it.\n<font color='#FF8080'>Can only be used while near an enemy Eon Stone carrier.</font>"
+		"DOTA_Tooltip_ability_ability_ball_blocker_distance"		"MAX DISTANCE:"
+ 		"DOTA_Tooltip_ability_ability_ball_blocker_speed"			"TACKLE SPEED:"
+
+ 		"DOTA_Tooltip_ability_ability_ball_thrower"					"Power Throw"
+		"DOTA_Tooltip_ability_ability_ball_thrower_Description"		"Sacrifices control for raw power, throwing the Eon Stone in a straight line at high speed. If it hits a hero, allied or enemy, that hero will become the stone's new carrier. If the throw connects with an ally, your adrenaline spikes, granting %bonus_ms%%% move speed for %duration% seconds.\n<font color='#FF8080'>Can only be used while carrying the Eon Stone.</font>"
+		"DOTA_Tooltip_ability_ability_ball_thrower_distance"		"MAX DISTANCE:"
+ 		"DOTA_Tooltip_ability_ability_ball_thrower_speed"			"THROW SPEED:"
+
+ 		"DOTA_Tooltip_ability_ability_ball_forcer"					"Force Slide"
+		"DOTA_Tooltip_ability_ability_ball_forcer_Description"		"Remotely pushes the target, causing it to slide %push_length% units in the direction it is facing. Does not disable them.\n<font color='#FF8080'>Can only be used on Eon Stone carriers.</font>"
+		"DOTA_Tooltip_ability_ability_ball_forcer_push_length"		"SLIDE DISTANCE:"
+ 		"DOTA_Tooltip_ability_ability_ball_forcer_speed"			"SLIDE SPEED:"
+
+
+
 		"DOTA_Tooltip_modifier_golem_disabled_counter"				"Destruction Counter"
 		"DOTA_Tooltip_modifier_golem_disabled_counter_Description"	"Destroys this tower if it reaches 3"
 
@@ -157,7 +192,17 @@
 		"DOTA_Tooltip_modifier_item_knight_blink_buff"					"Demonic Blink"
 		"DOTA_Tooltip_modifier_item_knight_blink_buff_Description"		"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% bonus status resistance."
 
+		"DOTA_Tooltip_modifier_minor_stealth_buff"						"Minor Stealth"
+		"DOTA_Tooltip_modifier_minor_stealth_buff_Description"			"Shhhh!"
+
+		"DOTA_Tooltip_modifier_major_stealth_buff"						"Major Stealth"
+		"DOTA_Tooltip_modifier_major_stealth_buff_Description"			"Shhhh!"
+
+		"DOTA_Tooltip_modifier_stealth_prevention"						"Too sneaky"
+		"DOTA_Tooltip_modifier_stealth_prevention_Description"			"Cannot benefit from Portal stealth for a while"
+
 		// Extra
 		"error_not_lane_tower"			"Can only be used on enemy Lane towers"
+		"error_not_carrying_ball"		"Can only be used on Eon Stone carriers"
 	}
 }

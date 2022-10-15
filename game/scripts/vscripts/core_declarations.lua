@@ -13,6 +13,7 @@ LinkLuaModifier("modifier_portal_cooldown", "modifiers/portal_buffs", LUA_MODIFI
 LinkLuaModifier("modifier_treasure_goblin_state", "modifiers/treasure_goblin_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lane_creep_state", "modifiers/lane_creep_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_jungle_tower_shield", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_respawning_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tower_damage_up", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_treasure_state", "modifiers/treasure_state", LUA_MODIFIER_MOTION_NONE)
@@ -27,6 +28,7 @@ LinkLuaModifier("modifier_portal_creep_state", "modifiers/portal_creep", LUA_MOD
 LinkLuaModifier("modifier_portal_caster_state", "modifiers/portal_caster_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cart_objective_state", "modifiers/cart_objective_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cart_state", "modifiers/cart_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_jungle_attacker", "modifiers/jungle_attacker", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_damage_taken", "modifiers/shrine_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shrine_base_state_aura", "modifiers/shrine_base_state", LUA_MODIFIER_MOTION_NONE)
@@ -37,8 +39,14 @@ LinkLuaModifier("modifier_shrine_buff_frenzy", "modifiers/shrine_buffs", LUA_MOD
 LinkLuaModifier("modifier_shrine_buff_catastrophe", "modifiers/shrine_buffs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shrine_buff_ultimate", "modifiers/shrine_buffs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_objective_buff", "modifiers/objective_buff", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stealth_prevention", "modifiers/stealth_buff", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_minor_stealth_buff", "modifiers/stealth_buff", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_major_stealth_buff", "modifiers/stealth_buff", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_major_stealth_buff_detect", "modifiers/stealth_buff", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_goblin_item_tracker", "modifiers/goblin_item_tracker", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wall_blocker", "modifiers/wall_blocker", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ignore_wall", "modifiers/wall_blocker", LUA_MODIFIER_MOTION_NONE)
 
 -- GAME STATE CONSTANTS
 
@@ -55,9 +63,10 @@ PLAYER_STATE_ACTIVE		 		= 2
 PLAYER_STATE_ELIMINATED	 		= 3
 PLAYER_STATE_ABANDONED	 		= 4
 
-IS_CART_MAP = GetMapName() == "eon_lane_experimental"
-IS_LANE_MAP = GetMapName() == "eon_lane" or GetMapName() == "eon_lane_experimental"
-IS_EXPERIMENTAL_MAP = GetMapName() == "eon_lane_experimental"
+IS_CART_MAP = GetMapName() == "eon_cart"
+IS_LANE_MAP = true
+IS_EXPERIMENTAL_MAP = true
+IS_NEW_EXPERIMENTAL_MAP = GetMapName() == "eon_new_new"
 
 
 
@@ -70,6 +79,8 @@ GAME_TARGET_SCORE = 5			-- Score a team needs to achieve in order to end the gam
 NEUTRAL_CREEP_FIRST_SPAWN_TIME = IsInToolsMode() and 0 or 0
 NEUTRAL_CREEP_RESPAWN_TIME = IsInToolsMode() and 3 or 60
 NEUTRAL_CREEP_SCALING_LIMIT = IsInToolsMode() and 1 or 25
+
+PORTAL_DURATION = 9999
 
 GOLD_SHARING_RADIUS = 1200
 GOLD_COIN_DURATION = 7
@@ -105,14 +116,18 @@ CART_COUNTDOWN_TIME = IsInToolsMode() and 1 or 15
 
 OBJECTIVE_CAPTURE_TIME = 10
 
-SECONDARY_CAPTURE_TIME = 10
+SECONDARY_CAPTURE_TIME = 8
 SECONDARY_CAPTURE_RADIUS = 275
-SECONDARY_CAPTURE_GOLD = 100
+SECONDARY_CAPTURE_GOLD = 150
 SECONDARY_CAPTURE_DURATION = 60
-SECONDARY_CAPTURE_SPAWN_TIME = 60
-SECONDARY_NEXUS_DAMAGE = 0.08
+SECONDARY_CAPTURE_SPAWN_TIME = IsInToolsMode() and 20 or 60
+SECONDARY_NEXUS_DAMAGE = 0.15
+SECONDARY_GOLEM_DISABLE_DURATION = 120
+SECONDARY_LANE_TOWER_DAMAGE = 0.34
 
 CATASTROPHE_BUFF_DURATION = 15
+MAJOR_STEALTH_BUFF_DURATION = 30
+MINOR_STEALTH_BUFF_DURATION = 20
 DEMON_BUFF_DURATION = 60
 
 EON_STONE_FIRST_SPAWN_TIME = 180
@@ -120,17 +135,23 @@ if IS_CART_MAP then EON_STONE_FIRST_SPAWN_TIME = 210 end
 if IsInToolsMode() then EON_STONE_FIRST_SPAWN_TIME = 0 end
 
 EON_STONE_SCORE = 1											-- How many points an eon stone is worth when delivered to the enemy goal
-EON_STONE_RESPAWN_TIME = 120								-- How long does it take for each subsequent eon stone to spawn
+EON_STONE_RESPAWN_TIME = IsInToolsMode() and 20 or 120		-- How long does it take for each subsequent eon stone to spawn
 EON_STONE_COUNTDOWN_TIME = 15								-- How long does it take for the eon stone to spawn after it is announced to players
 EON_STONE_VISION_RADIUS = 750								-- How much vision each eon stone gives to both teams around itself when dropped on the ground
 EON_STONE_GOAL_RADIUS = 750									-- How big is the radius of both teams' goals
 EON_STONE_GOLD_REWARD = 200
-EON_STONE_TIME_ON_GROUND = 15
+EON_STONE_MIN_TIME_ON_GROUND = 3
+EON_STONE_MAX_TIME_ON_GROUND = 15
+EON_STONE_DISTANCE_FOR_OVERCHARGE_RAMP = (IS_EXPERIMENTAL_MAP and 200) or 160
 
-EON_STONE_NEXUS_DAMAGE = 0.2
+EON_STONE_NEXUS_DAMAGE = 0.35
 
 EON_STONE_MIN_THROW_DISTANCE = 500			-- Maximum distance the stone travels when thrown
 EON_STONE_MAX_THROW_DISTANCE = 1300			-- Maximum distance the stone travels when thrown
 EON_STONE_THROW_DURATION = 1.0				-- Time the stone stays in the air when being thrown
 
 SPEED_BUFF_DURATION = 30
+
+OFFENSIVE_VALUE_DEADZONE_RADIUS = 1350
+OFFENSIVE_VALUE_CENTER_LIMIT = 4250
+OFFENSIVE_VALUE_MAX_OVERCHARGE_BOOST = 3

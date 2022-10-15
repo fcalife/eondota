@@ -4,6 +4,9 @@ LinkLuaModifier("modifier_item_eon_stone", "items/eon_stone", LUA_MODIFIER_MOTIO
 LinkLuaModifier("modifier_item_eon_stone_visual", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_eon_stone_overheat", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_eon_stone_cooldown", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_eon_stone_proximity", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_eon_stone_long_throw", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_eon_stone_no_overcharge", "items/eon_stone", LUA_MODIFIER_MOTION_NONE)
 
 local banned_abilities = {}
 banned_abilities["witch_doctor_voodoo_switcheroo"] = true
@@ -15,7 +18,7 @@ end
 function item_eon_stone:DropOnLocation(location)
 	if self then
 		EmitSoundOnLocationWithCaster(location, "Drop.EonStone", self:GetCaster())
-		GameManager:SpawnEonStone(location)
+		GameManager:SpawnEonStone(location, self:GetCaster():GetTeam())
 		self:Destroy()
 	end
 end
@@ -39,21 +42,28 @@ function item_eon_stone:OnSpellStart(keys)
 	local direction = (target - caster:GetAbsOrigin()):Normalized()
 	local distance = math.max(EON_STONE_MIN_THROW_DISTANCE, (target - caster:GetAbsOrigin()):Length2D())
 	local speed = distance / EON_STONE_THROW_DURATION
+	local projectile = "particles/eon_throw.vpcf"
+
+	if caster:HasModifier("modifier_item_eon_stone_long_throw") then
+		distance = 2500
+		speed = 1800
+		projectile = "particles/eon_throw_long.vpcf"
+	end
 
 	local stone_projectile = {
 		Ability				= self,
-		EffectName			= "particles/eon_throw.vpcf",
+		EffectName			= projectile,
 		vSpawnOrigin		= caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_mouth")),
 		fDistance			= distance,
-		fStartRadius		= 0,
-		fEndRadius			= 0,
+		fStartRadius		= 150,
+		fEndRadius			= 150,
 		Source				= caster,
 		bHasFrontalCone		= false,
 		bReplaceExisting	= false,
-		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_BOTH,
 		iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		iUnitTargetType		= DOTA_UNIT_TARGET_HERO,
-		fExpireTime 		= GameRules:GetGameTime() + 1.01,
+		fExpireTime 		= GameRules:GetGameTime() + distance / speed + 0.01,
 		bDeleteOnHit		= true,
 		vVelocity			= Vector(direction.x, direction.y, 0) * speed,
 		bProvidesVision		= true,
@@ -74,9 +84,21 @@ function item_eon_stone:OnProjectileHit(target, location)
 
 	local caster = self:GetCaster() or nil
 
+	if target and target ~= caster and caster:HasModifier("modifier_item_eon_stone_long_throw") then
+		if caster:GetTeam() == target:GetTeam() then
+			caster:AddNewModifier(caster, nil, "modifier_speed_bonus", {duration = 3.0})
+		end
+
+		self:Destroy()
+		target:AddItemByName("item_eon_stone")
+
+		return true
+	end
+
 	if location and (not target) then
 		GridNav:DestroyTreesAroundPoint(location, 200, true)
 		self:DropOnLocation(GetGroundPosition(location, nil))
+
 		return true
 	end
 end
@@ -91,6 +113,14 @@ function modifier_item_eon_stone:IsPurgable() return false end
 function modifier_item_eon_stone:RemoveOnDeath() return false end
 function modifier_item_eon_stone:GetPriority() return MODIFIER_PRIORITY_SUPER_ULTRA end
 function modifier_item_eon_stone:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_item_eon_stone:IsAura() return true end
+function modifier_item_eon_stone:GetModifierAura() return "modifier_item_eon_stone_proximity" end
+function modifier_item_eon_stone:GetAuraRadius() return 2400 end
+function modifier_item_eon_stone:GetAuraDuration() return 0.0 end
+function modifier_item_eon_stone:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_ENEMY end
+function modifier_item_eon_stone:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO end
+function modifier_item_eon_stone:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES end
 
 function modifier_item_eon_stone:OnCreated(keys)
 	if IsClient() then return end
@@ -126,6 +156,7 @@ function modifier_item_eon_stone:OnCreated(keys)
 	self.elapsed_time = 0
 	self.damage_taken = 0
 	self.distance_moved = 0
+	self.overheat_fraction = 0
 	self.previous_health = parent:GetHealth()
 
 	self:StartIntervalThink(0.03)
@@ -179,10 +210,10 @@ function modifier_item_eon_stone:OnIntervalThink()
 
 	self.distance_moved = self.distance_moved + distance
 
-	if self.distance_moved >= 160 then
-		local stack_count = math.floor(self.distance_moved / 160)
+	if self.distance_moved >= EON_STONE_DISTANCE_FOR_OVERCHARGE_RAMP then
+		local stack_count = math.floor(self.distance_moved / EON_STONE_DISTANCE_FOR_OVERCHARGE_RAMP)
 		self:IncrementOverheat(stack_count)
-		self.distance_moved = self.distance_moved - 160 * stack_count
+		self.distance_moved = self.distance_moved - EON_STONE_DISTANCE_FOR_OVERCHARGE_RAMP * stack_count
 	end
 
 	if self.minimap_dummy and (not self.minimap_dummy:IsNull()) then self.minimap_dummy:SetAbsOrigin(current_position) end
@@ -242,11 +273,26 @@ function modifier_item_eon_stone:IncrementOverheat(stacks)
 
 	if (not parent) or parent:IsNull() or (not parent:HasModifier("modifier_item_eon_stone_visual")) then return end
 
+	if parent:HasModifier("modifier_item_eon_stone_no_overcharge") then return end
+
 	local overheat_modifier = parent:FindModifierByName("modifier_item_eon_stone_overheat")
 
 	if (not overheat_modifier) then
 		overheat_modifier = parent:AddNewModifier(parent, nil, "modifier_item_eon_stone_overheat", {})
 	end
+
+	local offensive_value = parent:GetPositionOffensiveValue()
+
+	if offensive_value < 0 then
+		stacks = stacks * (1 - offensive_value * OFFENSIVE_VALUE_MAX_OVERCHARGE_BOOST)
+	end
+
+	if math.floor(stacks + self.overheat_fraction) > math.floor(stacks) then
+		stacks = stacks + self.overheat_fraction
+		self.overheat_fraction = 0
+	end
+
+	self.overheat_fraction = self.overheat_fraction + stacks - math.floor(stacks)
 
 	overheat_modifier:SetStackCount(math.min(100, overheat_modifier:GetStackCount() + stacks))
 
@@ -293,6 +339,62 @@ end
 
 function modifier_item_eon_stone_visual:GetEffectAttachType()
 	return PATTACH_OVERHEAD_FOLLOW
+end
+
+function modifier_item_eon_stone_visual:OnCreated(keys)
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	local runner = parent:FindAbilityByName("ability_ball_runner")
+	if runner then runner:SetActivated(true) end
+
+	local thrower = parent:FindAbilityByName("ability_ball_thrower")
+	if thrower then thrower:SetActivated(true) end
+
+	local blocker = parent:FindAbilityByName("ability_ball_charger")
+	if blocker then blocker:SetActivated(true) end
+end
+
+function modifier_item_eon_stone_visual:OnDestroy()
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	local runner = parent:FindAbilityByName("ability_ball_runner")
+	if runner then runner:SetActivated(false) end
+
+	local thrower = parent:FindAbilityByName("ability_ball_thrower")
+	if thrower then thrower:SetActivated(false) end
+
+	local blocker = parent:FindAbilityByName("ability_ball_charger")
+	if blocker then blocker:SetActivated(false) end
+end
+
+
+
+modifier_item_eon_stone_proximity = class({})
+
+function modifier_item_eon_stone_proximity:IsHidden() return true end
+function modifier_item_eon_stone_proximity:IsDebuff() return false end
+function modifier_item_eon_stone_proximity:IsPurgable() return false end
+
+function modifier_item_eon_stone_proximity:OnCreated(keys)
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	local blocker = parent:FindAbilityByName("ability_ball_blocker")
+	if blocker then blocker:SetActivated(true) end
+end
+
+function modifier_item_eon_stone_proximity:OnDestroy()
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	local blocker = parent:FindAbilityByName("ability_ball_blocker")
+	if blocker then blocker:SetActivated(false) end
 end
 
 
@@ -418,3 +520,19 @@ function modifier_item_eon_stone_cooldown:IsPurgable() return false end
 function modifier_item_eon_stone_cooldown:GetTexture()
 	return "crystal_maiden_brilliance_aura"
 end
+
+
+
+modifier_item_eon_stone_long_throw = class({})
+
+function modifier_item_eon_stone_long_throw:IsHidden() return true end
+function modifier_item_eon_stone_long_throw:IsDebuff() return false end
+function modifier_item_eon_stone_long_throw:IsPurgable() return false end
+
+
+
+modifier_item_eon_stone_no_overcharge = class({})
+
+function modifier_item_eon_stone_no_overcharge:IsHidden() return true end
+function modifier_item_eon_stone_no_overcharge:IsDebuff() return false end
+function modifier_item_eon_stone_no_overcharge:IsPurgable() return false end

@@ -65,11 +65,11 @@ end
 function SpeedLane:OnUnitsInAuraRange(units)
 	for _, unit in pairs(units) do
 		local unit_position = unit:GetAbsOrigin()
-		local new_position = unit_position + self.movement_tick
+		local unit_direction = unit:GetForwardVector()
 
-		if (not unit:HasModifier("modifier_knockback")) then
-			GridNav:DestroyTreesAroundPoint(new_position, 200, false)
-			FindClearSpaceForUnit(unit, new_position, true)
-		end
+		print("speed lane direction: ")
+		print(self.direction)
+		print("unit direction: ")
+		print(unit_direction)
 	end
 end

@@ -167,6 +167,36 @@
 		"VisionNighttimeRange"		"1"
 	}
 
+	"npc_objective_dummy_available"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_ping"
+		"MinimapIconSize"			"500"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
+	}
+
+	"npc_objective_dummy_taken"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/development/invisiblebox.vmdl"
+
+		"MinimapIcon"				"minimap_danger"
+		"MinimapIconSize"			"500"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
+	}
+
 	"dota_fountain"
 	{
 		"AttackDamageMin"			"475"

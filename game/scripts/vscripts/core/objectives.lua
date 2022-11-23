@@ -304,6 +304,14 @@ function SmallObjective:constructor(location, team)
 		if (entity:GetAbsOrigin() - self.location):Length2D() < 500 then print("found something") self.visual_unit = entity end
 	end
 
+	self.dummy = CreateUnitByName("npc_objective_dummy_available", self.location, true, nil, nil, ENEMY_TEAM[self.team])
+	self.dummy:AddNewModifier(self.dummy, nil, "modifier_dummy_state", {})
+
+	self.vision = {}
+
+	self.vision[DOTA_TEAM_GOODGUYS] = AddFOWViewer(DOTA_TEAM_GOODGUYS, self.location, self.radius + 50, 99999, false)
+	self.vision[DOTA_TEAM_BADGUYS] = AddFOWViewer(DOTA_TEAM_BADGUYS, self.location, self.radius + 50, 99999, false)
+
 	self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
 		radius = self.radius
 	}, {
@@ -359,6 +367,14 @@ function SmallObjective:OnCaptureSuccess(units)
 					ScoreManager:SmallGoalAchieved(this_unit:GetTeam(), self.location)
 
 					if self.visual_unit then self.visual_unit:Destroy() end
+
+					if self.dummy then self.dummy:Destroy() end
+
+					self.dummy = CreateUnitByName("npc_objective_dummy_taken", self.location, true, nil, nil, ENEMY_TEAM[self.team])
+					self.dummy:AddNewModifier(self.dummy, nil, "modifier_dummy_state", {})
+
+					if self.vision[DOTA_TEAM_GOODGUYS] then RemoveFOWViewer(DOTA_TEAM_GOODGUYS, self.vision[DOTA_TEAM_GOODGUYS]) end
+					if self.vision[DOTA_TEAM_BADGUYS] then RemoveFOWViewer(DOTA_TEAM_BADGUYS, self.vision[DOTA_TEAM_BADGUYS]) end
 
 					if self.trigger then self.trigger:Stop() end
 

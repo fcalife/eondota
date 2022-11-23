@@ -14,9 +14,9 @@ function modifier_hero_base_state:OnCreated(keys)
 	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 10}) end
 
 	if IS_EXPERIMENTAL_MAP then
-		self:SetStackCount(parent:IsRangedAttacker() and 80 or 100)
+		self:SetStackCount(parent:IsRangedAttacker() and 20 or 25)
 	else
-		self:SetStackCount(parent:IsRangedAttacker() and 80 or 100)
+		self:SetStackCount(parent:IsRangedAttacker() and 20 or 25)
 	end
 
 	--self.debug_counter_pfx = ParticleManager:CreateParticle("particles/debug_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, parent)
@@ -36,11 +36,11 @@ function modifier_hero_base_state:DeclareFunctions()
 		return {
 			MODIFIER_EVENT_ON_TAKEDAMAGE,
 			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-			MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+			-- MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+			-- MODIFIER_PROPERTY_MOVESPEED_LIMIT,
 			MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
 			MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
-			MODIFIER_PROPERTY_MODEL_SCALE,
+			-- MODIFIER_PROPERTY_MODEL_SCALE,
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
 			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
@@ -48,11 +48,11 @@ function modifier_hero_base_state:DeclareFunctions()
 			MODIFIER_EVENT_ON_ABILITY_END_CHANNEL
 		} else return {
 			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-			MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+			-- MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+			-- MODIFIER_PROPERTY_MOVESPEED_LIMIT,
 			MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
 			MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
-			MODIFIER_PROPERTY_MODEL_SCALE,
+			-- MODIFIER_PROPERTY_MODEL_SCALE,
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
 			MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
 		}
@@ -63,13 +63,13 @@ function modifier_hero_base_state:GetModifierMoveSpeedBonus_Constant()
 	return self:GetStackCount()
 end
 
-function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
-	return 1
-end
+-- function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
+-- 	return 1
+-- end
 
-function modifier_hero_base_state:GetModifierMoveSpeed_Limit()
-	return 1200
-end
+-- function modifier_hero_base_state:GetModifierMoveSpeed_Limit()
+-- 	return 1200
+-- end
 
 function modifier_hero_base_state:GetModifierTurnRate_Percentage()
 	return 1000
@@ -81,9 +81,9 @@ function modifier_hero_base_state:GetModifierPercentageRespawnTime()
 	return math.min(0.65, 0.5 + math.max(0, 0.01 * (level - 10)))
 end
 
-function modifier_hero_base_state:GetModifierModelScale()
-	return 30
-end
+-- function modifier_hero_base_state:GetModifierModelScale()
+-- 	return 30
+-- end
 
 function modifier_hero_base_state:GetModifierIgnoreCastAngle()
 	return 1

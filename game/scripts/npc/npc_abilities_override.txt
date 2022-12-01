@@ -239,12 +239,12 @@
 			"03"
 			{	
 				"var_type"			"FIELD_INTEGER"
-				"max_targets"		"2"
+				"max_targets"		"4"
 			}
 			"04"
 			{	
 				"var_type"			"FIELD_INTEGER"
-				"tooltip_max_targets_inc_dazzle"		"3"
+				"tooltip_max_targets_inc_dazzle"		"5"
 			}
 			"05"
 			{

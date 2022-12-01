@@ -98,7 +98,7 @@ function GameEvents:OnEntityKilled(keys)
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 
-	RoundManager:OnUnitKilled()
+	--RoundManager:OnUnitKilled()
 end
 
 function GameEvents:OnTreeCut(keys)

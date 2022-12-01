@@ -59,11 +59,11 @@ function modifier_red_rune_buff:DeclareFunctions()
 end
 
 function modifier_red_rune_buff:GetModifierTotalDamageOutgoing_Percentage()
-	return 30
+	return 50
 end
 
 function modifier_red_rune_buff:GetModifierIncomingDamage_Percentage()
-	return 10
+	return 20
 end
 
 
@@ -94,9 +94,9 @@ function modifier_green_rune_buff:DeclareFunctions()
 end
 
 function modifier_green_rune_buff:GetModifierMoveSpeedBonus_Percentage()
-	return 20
+	return 30
 end
 
 function modifier_green_rune_buff:GetModifierStatusResistanceStacking()
-	return 20
+	return 30
 end

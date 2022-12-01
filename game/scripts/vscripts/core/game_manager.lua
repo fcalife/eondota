@@ -11,12 +11,12 @@ function GameManager:Init()
 
 	Flags:Init()
 	RuneSpawners:Init()
-	RoundManager:Init()
+	--RoundManager:Init()
 	ScoreManager:Init()
 	BrushManager:Init()
+	--LaneCreeps:Init()
 
 	if TOWERS_ENABLED then Towers:Init() end
-	--if LANE_CREEPS_ENABLED then LaneCreeps:Init() end
 end
 
 function GameManager:SetGamePhase(phase)
@@ -28,7 +28,9 @@ function GameManager:GetGamePhase()
 end
 
 function GameManager:InitializeHero(hero)
-	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
+	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {duration = 15})
+	hero:HeroLevelUp(false)
+	hero:HeroLevelUp(false)
 
 	for i = 0, 10 do
 		if hero:GetAbilityByIndex(i) then
@@ -39,6 +41,8 @@ function GameManager:InitializeHero(hero)
 	end
 
 	hero:SetAbilityPoints(0)
+
+	hero:AddNewModifier(hero, nil, "modifier_stunned", {})
 
 	if IsInToolsMode() then
 		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)

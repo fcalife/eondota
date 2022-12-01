@@ -391,8 +391,8 @@
 		"ArmorPhysical"				"12"
 
 		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"54"
-		"AttackDamageMax"			"56"
+		"AttackDamageMin"			"74"
+		"AttackDamageMax"			"76"
 
 		"ProjectileSpeed"			"1500"
 	}
@@ -405,8 +405,8 @@
 		"ArmorPhysical"				"12"
 
 		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"54"
-		"AttackDamageMax"			"56"
+		"AttackDamageMin"			"74"
+		"AttackDamageMax"			"76"
 
 		"ProjectileSpeed"			"1500"
 	}

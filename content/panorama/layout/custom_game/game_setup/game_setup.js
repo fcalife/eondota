@@ -1,10 +1,11 @@
 TryGetHost();
 
 $('#reverse_ctf').SetSelected(false);
-$('#enable_towers').SetSelected(false);
-$('#enable_creeps').SetSelected(false);
+$('#enable_towers').SetSelected(true);
+$('#enable_creeps').SetSelected(true);
 $('#disable_fog').SetSelected(true);
 
+$('#reverse_ctf_container').visible = false;
 $('#creeps_container').visible = false;
 
 function UpdateOptions() {

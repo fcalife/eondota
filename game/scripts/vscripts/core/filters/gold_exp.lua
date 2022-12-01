@@ -1,11 +1,11 @@
 function Filters:GoldFilter(keys)
-	keys.gold = 0
+	keys.gold = 1.5 * keys.gold
 
 	return true
 end
 
 function Filters:ExpFilter(keys)
-	keys.experience = 0
+	keys.experience = 1.5 * keys.experience
 
 	return true
 end

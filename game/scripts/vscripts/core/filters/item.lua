@@ -18,15 +18,5 @@ function Filters:InventoryFilter(keys)
 		end
 	end
 
-	-- if item.is_goblin_item then
-	-- 	local free_slot = false
-
-	-- 	for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-	-- 		if (not inventory_owner:GetItemInSlot(i)) then free_slot = true end
-	-- 	end
-
-	-- 	if free_slot then inventory_owner:AddNewModifier(inventory_owner, item, "modifier_goblin_item_tracker", {duration = 60}) end
-	-- end
-
 	return true
 end

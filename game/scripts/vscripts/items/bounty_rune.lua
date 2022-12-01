@@ -11,7 +11,7 @@ function item_bounty_rune:OnSpellStart(keys)
 	local caster = self:GetCaster()
 	local team = caster:GetTeam()
 
-	PassiveGold:GiveGoldToPlayersInTeam(team, gold, exp)
+	GoldRewards:GiveGoldToPlayersInTeam(team, gold, exp)
 
 	EmitAnnouncerSoundForTeam("bounty_rune.picked_up", team)
 

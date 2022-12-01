@@ -38,14 +38,14 @@
 		"VisionNighttimeRange"		"1800"
 	}
 
-	"npc_stone_dummy"
+	"npc_flag_dummy"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/development/invisiblebox.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
 
-		"MinimapIcon"				"minimap_ancient"
+		"MinimapIcon"				"minimap_creepcamp"
 		"MinimapIconSize"			"550"
 
 		"Ability1"					""

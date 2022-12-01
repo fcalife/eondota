@@ -1,3 +1,90 @@
 "DOTAHeroes"
 {
+	"npc_dota_hero_abaddon"
+	{
+		"ArmorPhysical"			"2"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"60"
+		"AttackDamageMax"		"60"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"280"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"1200"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+	}
+
+	"npc_dota_hero_dazzle"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"50"
+		"AttackDamageMax"		"50"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"270"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"1000"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"dazzle_weave"
+	}
+
+	"npc_dota_hero_viper"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"60"
+		"AttackDamageMax"		"60"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"260"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"900"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+	}
 }

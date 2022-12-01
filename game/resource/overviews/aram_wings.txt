@@ -1,0 +1,8 @@
+aram_wings
+{
+	material materials/overviews/aram_wings.vmat
+	pos_x -6400
+	pos_y 6400
+	scale 12.500
+}
+

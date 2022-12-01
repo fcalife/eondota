@@ -8,6 +8,9 @@
 		"DOTA_GoodGuys"						"BLUE"
 		"DOTA_BadGuys"						"RED"
 
+		"DOTA_SUBSHOP_CONSUMABLES"			"BRANCHING UPGRADES"
+		"DOTA_SUBSHOP_ATTRIBUTES"			"LINEAR UPGRADES"
+
 		"npc_patrol_golem_good"				"Patrol Golem"
 		"npc_patrol_golem_bad"				"Patrol Golem"
 		"npc_control_shrine"				"Shrine"
@@ -33,8 +36,25 @@
 
 
 		// Items
-		"DOTA_Tooltip_ability_item_eon_stone"						"Eon Sphere"
-		"DOTA_Tooltip_ability_item_eon_stone_Description"			"<h1>Active: Pass</h1>Throw the sphere; hopefully an ally catches it!\n<h1>Passive: Shiny</h1>Step on the enemy goal with the stone in your possession in order to score a point. Drops on the ground if you die."
+		"DOTA_Tooltip_ability_item_flag"						"Flag"
+		"DOTA_Tooltip_ability_item_flag_Description"			"Get it to your base!"
+
+		"DOTA_Tooltip_modifier_item_flag"						"Flagbearer"
+		"DOTA_Tooltip_modifier_item_flag_Description"			"It's heavy! Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+		"DOTA_Tooltip_ability_item_red_rune"					"Red Buff"
+		"DOTA_Tooltip_ability_item_red_rune_Description"		"Increases damage dealt and taken"
+
+		"DOTA_Tooltip_modifier_red_rune_buff"					"Red Buff"
+		"DOTA_Tooltip_modifier_red_rune_buff_Description"		"Dealing %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%% increased damage, taking %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% increased damage"
+
+		"DOTA_Tooltip_ability_item_green_rune"					"Green Buff"
+		"DOTA_Tooltip_ability_item_green_rune_Description"		"Increases movement speed and status resistance"
+
+		"DOTA_Tooltip_modifier_green_rune_buff"					"Green Buff"
+		"DOTA_Tooltip_modifier_green_rune_buff_Description"		"Moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster and gaining %d%MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%% status resistance"
+
+
 
 		"DOTA_Tooltip_ability_item_bounty_rune"						"Bounty Rune"
 		"DOTA_Tooltip_ability_item_bounty_rune_Description"			"Collect it to gain bonus gold and experience for your whole team!"

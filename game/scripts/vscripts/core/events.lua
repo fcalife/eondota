@@ -22,10 +22,6 @@ end
 
 function GameEvents:OnPreGameStart()
 	self:DebugPrint("New state: pregame")
-
-	EmitGlobalSound("game_start.0"..RandomInt(1, 3))
-
-	Towers:Spawn()
 end
 
 function GameEvents:OnGameStart()
@@ -102,13 +98,7 @@ function GameEvents:OnEntityKilled(keys)
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 
-	if killed_unit.camp then killed_unit.camp:OnNeutralCreepDied(attacker, killed_unit) end
-
-	if killed_unit.lane then killed_unit.lane:OnLaneCreepDied(attacker, killed_unit) end
-
-	if killed_unit:IsRealHero() and attacker and (not attacker:IsHero()) and attacker:GetTeam() == DOTA_TEAM_NEUTRALS then
-		EmitGlobalSound("neutral_death")
-	end
+	RoundManager:OnUnitKilled()
 end
 
 function GameEvents:OnTreeCut(keys)
@@ -139,8 +129,4 @@ function GameEvents:OnPlayerKilled(keys)
 
 	local killed_id = keys.PlayerID
 	local hero_kill = keys.HeroKill
-
-	--	Timers:CreateTimer(0.1, function()
-	--		ScoreManager:UpdateScores()
-	--	end)
 end

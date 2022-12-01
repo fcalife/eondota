@@ -1,6 +1,22 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	radiant.score = 
+	radiant.round = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/addons/conquest/stinger_radiant_hallow.vsnd"
+	}
+	dire.round = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/addons/conquest/stinger_hulk_hallow.vsnd"
+	}
+	radiant.flag = 
 	{
 		type = "dota_src1_2d"
 		volume = 1.300000
@@ -8,13 +24,29 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/music/custom_games/stingers/radiant_capture.vsnd"
 	}
-	dire.score = 
+	dire.flag = 
 	{
 		type = "dota_src1_2d"
 		volume = 1.300000
 		pitch = 1.000000
 		limiter_on = 1.000000
 		vsnd_files = "sounds/music/custom_games/stingers/dire_capture.vsnd"
+	}
+	red_rune.activate = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/items/rune_haste.vsnd"
+	}
+	green_rune.activate = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/items/rune_regen.vsnd"
 	}
 	stone.warning = 
 	{
@@ -55,14 +87,6 @@
 		pitch = 1.000000
 		limiter_on = 1.000000
 		vsnd_files = "sounds/music/stingers/jug_arc_takeover.vsnd"
-	}
-	bounty_rune.picked_up = 
-	{
-		type = "dota_src1_2d"
-		volume = 1.000000
-		pitch = 1.000000
-		limiter_on = 1.000000
-		vsnd_files = "sounds/items/rune_bounty.vsnd"
 	}
 	game_end.timer_start = 
 	{
@@ -191,21 +215,5 @@
 		pitch = 1.000000
 		limiter_on = 1.000000
 		vsnd_files = "sounds/ui/coins.vsnd"
-	}
-	dragons_activate = 
-	{
-		type = "dota_src1_2d"
-		volume = 1.000000
-		pitch = 1.000000
-		limiter_on = 1.000000
-		vsnd_files = "sounds/addons/conquest/stinger_radiant_hallow.vsnd"
-	}
-	knights_activate = 
-	{
-		type = "dota_src1_2d"
-		volume = 1.000000
-		pitch = 1.000000
-		limiter_on = 1.000000
-		vsnd_files = "sounds/addons/conquest/stinger_hulk_hallow.vsnd"
 	}
 }

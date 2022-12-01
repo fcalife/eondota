@@ -1,0 +1,39 @@
+#Container {
+	align:  left center;
+	padding:  18px;
+	margin-left: 200px;
+	flow-children:  down;
+	background-color: #303030;
+	border-radius:  12px;
+	border: 2px solid black;
+	visibility: collapse;
+}
+
+#Header {
+	margin-bottom: 4px;
+	align:  center top;
+	text-align: center;
+	font-size:  28px;
+	font-weight:  bold;
+	color:  white;
+}
+
+.OptionContainer {
+	align: left center;
+	margin-top:  8px;
+	height: 22px;
+	flow-children:  right;
+}
+
+.OptionLabel {
+	align:  center center;
+	text-align: left;
+	font-size:  20px;
+	color:  white;
+}
+
+.OptionToggleButton {
+	align: center center;
+	height: 20px;
+	width: 30px;
+}

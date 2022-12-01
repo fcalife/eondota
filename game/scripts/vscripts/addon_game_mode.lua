@@ -53,19 +53,19 @@ function GameMode:InitGameMode()
 
 	-- Initial gamemode setup
 	GameRules:SetSameHeroSelectionEnabled(true)
-	GameRules:SetHeroRespawnEnabled(true)
-	GameRules:SetHeroSelectionTime(90)
+	GameRules:SetHeroRespawnEnabled(false)
+	GameRules:SetHeroSelectionTime(60)
 	GameRules:SetStrategyTime(0)
 	GameRules:SetShowcaseTime(0)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
 	GameRules:LockCustomGameSetupTeamAssignment(false)
 	GameRules:EnableCustomGameSetupAutoLaunch(false)
-	GameRules:SetPreGameTime(30)
-	GameRules:SetStartingGold(1000)
+	GameRules:SetPreGameTime(15)
+	GameRules:SetStartingGold(1500)
 	GameRules:SetUseUniversalShopMode(true)
 	GameRules:SetHeroMinimapIconScale(1)
-	GameRules:SetTreeRegrowTime(9999)
-	GameRules:SetFirstBloodActive(true)
+	GameRules:SetTreeRegrowTime(10)
+	GameRules:SetFirstBloodActive(false)
 	GameRules:SetHideKillMessageHeaders(false)
 	GameRules:SetTimeOfDay(0.5)
 
@@ -76,19 +76,19 @@ function GameMode:InitGameMode()
 	local game_mode_entity = GameRules:GetGameModeEntity()
 
 	game_mode_entity:SetBuybackEnabled(false)
-	game_mode_entity:SetFogOfWarDisabled(false)
+	-- game_mode_entity:SetFogOfWarDisabled(false)
 	game_mode_entity:SetLoseGoldOnDeath(false)
 	game_mode_entity:SetKillingSpreeAnnouncerDisabled(false)
 	game_mode_entity:SetMaximumAttackSpeed(1000)
 	game_mode_entity:SetDaynightCycleDisabled(true)
-	game_mode_entity:SetCameraDistanceOverride(-1)
+	game_mode_entity:SetCameraDistanceOverride(1250)
 	game_mode_entity:SetFreeCourierModeEnabled(false)
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)
 
 	-- Team configuration
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 5)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 5)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 3)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 3)
 
 	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_6 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
@@ -99,13 +99,7 @@ function GameMode:InitGameMode()
 
 	-- Initialize modules
 	GameManager:Init()
-	ScoreManager:Init()
-	SpeedBoosts:Init()
-	--RuneSpawner:Init()
-	PatrolGolems:Init()
-	Objectives:Init()
 	Filters:Init()
-	if IS_LANE_MAP then LaneCreeps:Init() end
 
 	-- Event Hooks
 	RegisterGameEventListener('player_connect_full', function(event) GameEvents:OnPlayerConnect(event) end)

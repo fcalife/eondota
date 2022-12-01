@@ -7,7 +7,7 @@ function modifier_tower_state:IsPurgable() return false end
 function modifier_tower_state:OnCreated(keys)
 	if IsClient() then return end
 
-	self:StartIntervalThink(60)
+	--self:StartIntervalThink(60)
 end
 
 function modifier_tower_state:OnIntervalThink()
@@ -52,28 +52,24 @@ end
 
 function modifier_tower_state:OnDeath(keys)
 	if keys.unit and keys.unit == self:GetParent() then
-		PassiveGold:GiveGoldToPlayersInTeam(ENEMY_TEAM[keys.unit:GetTeam()], TOWER_KILL_GOLD, 0)
-
-		if keys.unit.respawning_tower then
-			keys.unit.respawning_tower:OnDeath(keys)
-		end
+		GoldRewards:GiveGoldToPlayersInTeam(ENEMY_TEAM[keys.unit:GetTeam()], TOWER_KILL_GOLD, 0)
 	end
 end
 
 function modifier_tower_state:GetModifierProcAttack_Feedback(keys)
 	if keys.target and keys.target:IsHero() then
-		local modifier = keys.target:FindModifierByName("modifier_tower_damage_up")
-		if modifier then
-			ApplyDamage({
-				victim = keys.target,
-				attacker = keys.attacker,
-				damage_type = DAMAGE_TYPE_PHYSICAL,
-				damage = keys.attacker:GetAttackDamage() * (2 ^ modifier:GetStackCount() - 1)
-			})
-		end
+		-- local modifier = keys.target:FindModifierByName("modifier_tower_damage_up")
+		-- if modifier then
+		-- 	ApplyDamage({
+		-- 		victim = keys.target,
+		-- 		attacker = keys.attacker,
+		-- 		damage_type = DAMAGE_TYPE_PHYSICAL,
+		-- 		damage = keys.attacker:GetAttackDamage() * (2 ^ modifier:GetStackCount() - 1)
+		-- 	})
+		-- end
 
-		modifier = keys.target:AddNewModifier(keys.attacker, nil, "modifier_tower_damage_up", {duration = 15})
-		modifier:SetStackCount(math.min(TOWER_MAX_DAMAGE_STACKS, modifier:GetStackCount() + 1))
+		-- modifier = keys.target:AddNewModifier(keys.attacker, nil, "modifier_tower_damage_up", {duration = 15})
+		-- modifier:SetStackCount(math.min(TOWER_MAX_DAMAGE_STACKS, modifier:GetStackCount() + 1))
 	end
 end
 

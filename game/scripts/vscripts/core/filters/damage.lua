@@ -10,23 +10,5 @@ function Filters:DamageFilter(keys)
 	if (not attacker) or attacker:IsNull() then return false end
 	if (not victim) or victim:IsNull() then return false end
 
-	if victim.GetUnitName and attacker.GetUnitName and victim:GetUnitName() == "npc_dota_goodguys_tower1_mid" or victim:GetUnitName() == "npc_dota_badguys_tower1_mid" then
-		if attacker:GetUnitName() == "npc_eon_knight_ally" or attacker:GetUnitName() == "npc_eon_trio_knight_ally" then
-			keys.damage = 0.4 * keys.damage
-		end
-	end
-
-	if victim.HasModifier then
-		if victim:HasModifier("modifier_teleporting") or victim:HasModifier("modifier_underlord_portal_warp_channel") then
-			victim:InterruptChannel()
-		end
-
-		if (victim:HasModifier("modifier_jungle_attacker") or victim:HasModifier("modifier_lane_creep_state")) and attacker.HasModifier then
-			if attacker:HasModifier("modifier_tower_state") then
-				keys.damage = 2 * keys.damage
-			end
-		end
-	end
-
 	return true
 end

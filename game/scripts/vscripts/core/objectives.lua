@@ -267,7 +267,7 @@ function GreedObjective:OnCaptureSuccess(units)
 
 					GlobalMessages:NotifyTeamScoredGreed(team)
 
-					PassiveGold:GiveGoldToPlayersInTeam(team, SECONDARY_CAPTURE_GOLD, 0)
+					GoldRewards:GiveGoldToPlayersInTeam(team, SECONDARY_CAPTURE_GOLD, 0)
 
 					scored = true
 					stone:Destroy()

@@ -252,7 +252,7 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 		if self.is_roshan then
 			local roshan_drop = CreateItem("item_ultimate_scepter_roshan", nil, nil)
 			CreateItemOnPositionForLaunch(killed_unit:GetAbsOrigin(), roshan_drop)
-			PassiveGold:GiveGoldToPlayersInTeam(team, ROSHAN_GOLD_BOUNTY, 0)
+			GoldRewards:GiveGoldToPlayersInTeam(team, ROSHAN_GOLD_BOUNTY, 0)
 		end
 
 		if self.is_dragon then
@@ -345,9 +345,9 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 
 	if bounty > 0 then
 		if killer:IsHero() then
-			PassiveGold:GiveGoldFromPickup(killer, bounty)
+			GoldRewards:GiveGoldFromPickup(killer, bounty)
 		elseif killer:HasModifier("modifier_jungle_attacker") then
-			PassiveGold:GiveGoldToPlayersInTeam(team, bounty / 5, 0)
+			GoldRewards:GiveGoldToPlayersInTeam(team, bounty / 5, 0)
 		end
 	end
 end
@@ -459,7 +459,7 @@ end
 
 function NeutralCoin:OnHeroInRange(units)
 	if units[1] then
-		PassiveGold:GiveGoldFromPickup(units[1], self.value)
+		GoldRewards:GiveGoldFromPickup(units[1], self.value)
 
 		self.gold_drop:Destroy()
 		self.drop:Destroy()

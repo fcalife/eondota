@@ -1,6 +1,6 @@
 <root> 
 	<styles>
-		<include src="file://{resources}/layout/custom_game/scoreboard/dev_scoreboard.css" />
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 
 	<script>

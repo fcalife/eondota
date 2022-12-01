@@ -39,3 +39,11 @@ function RoundFloat(x)
 		return math.ceil(x - 0.5)
 	end
 end
+
+function CenterPlayerCameraOnHero(hero)
+	local player = hero:GetPlayerOwner()
+	if player then
+		PlayerResource:SetCameraTarget(player:GetPlayerID(), hero)
+		Timers:CreateTimer(0.01, function() PlayerResource:SetCameraTarget(player:GetPlayerID(), nil) end)
+	end
+end

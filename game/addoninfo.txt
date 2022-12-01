@@ -3,7 +3,9 @@
 	TeamCount = 2
 	maps = 
 	[
-		"eon_new_new",
+		"ctf",
+		"aram",
+		"aram_wings",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false
@@ -12,7 +14,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "eon_new_new"
+	DefaultMap = "ctf"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false
@@ -20,6 +22,6 @@
 	ForceDefaultGuide = false
 	MinimalPrecache = true
 	MinPlayers = 1
-	MaxPlayers = 10
+	MaxPlayers = 6
 	PenaltiesEnabled = false
 }

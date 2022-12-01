@@ -14,7 +14,7 @@ function GameManager:Init()
 	--RoundManager:Init()
 	ScoreManager:Init()
 	BrushManager:Init()
-	--LaneCreeps:Init()
+	LaneCreeps:Init()
 
 	if TOWERS_ENABLED then Towers:Init() end
 end

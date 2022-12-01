@@ -2,13 +2,11 @@
 -- require('core/patrol_golems')
 -- require('core/shrines')
 -- require('core/objectives')
--- require('core/treasure_chest')
 -- require('core/tower')
 -- require('core/portals')
 -- require('core/push_cart')
 -- require('core/ball_abilities')
 -- require('core/wall')
-
 
 require('core/events')
 require('core/debug_manager')
@@ -20,6 +18,7 @@ require('core/global_messages')
 require('core/runes')
 require('core/lane_creep')
 require('core/neutral_camps')
+require('core/nexus')
 
 require("core/filters/init")
 require("core/ctf/init")

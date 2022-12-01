@@ -39,8 +39,7 @@ function RuneSpawner:constructor(location, rune_type)
 end
 
 function RuneSpawner:Spawn()
-	if self.rune and (not self.rune:IsNull()) then self.rune:Destroy() end
-	if self.rune_container and (not self.rune_container:IsNull()) then self.rune_container:Destroy() end
+	if self.rune and (not self.rune:IsNull()) and self.rune_container and (not self.rune_container:IsNull()) then return end
 
 	self.rune = CreateItem(RUNE_NAME[self.rune_type], nil, nil)
 	self.rune_container = CreateItemOnPositionForLaunch(self.location, self.rune)

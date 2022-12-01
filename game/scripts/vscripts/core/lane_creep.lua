@@ -1,47 +1,36 @@
 _G.LaneCreeps = LaneCreeps or {}
 
 LANE_CREEP_FIRST_SPAWN = 0
-LANE_CREEP_SPAWN_DELAY = 30
+LANE_CREEP_RESPAWN_DELAY = 30
 LANE_CREEP_MELEE_COUNT = 5
 LANE_CREEP_RANGED_COUNT = 2
-LANE_CREEP_MELEE_OFFSET = -200
-LANE_CREEP_RANGED_OFFSET = -350
-
-LANE_CREEP_GOLD_BOUNTY = {
-	["npc_dota_creep_goodguys_melee"] = 84,
-	["npc_dota_creep_goodguys_ranged"] = 110,
-	["npc_dota_creep_badguys_melee"] = 84,
-	["npc_dota_creep_badguys_ranged"] = 110,
-	["npc_eon_knight_ally"] = 0,
-	["npc_eon_samurai_knight_ally"] = 0,
-	["npc_eon_trio_knight_ally"] = 0,
-}
+LANE_CREEP_MELEE_OFFSET = -450
+LANE_CREEP_RANGED_OFFSET = -700
+LANE_CREEP_MELEE_SPAWN_DISTANCE = 550
+LANE_CREEP_RANGED_SPAWN_DISTANCE = 225
 
 function LaneCreeps:Init()
-	local good_chest = Entities:FindByName(nil, "treasure_spawn_good"):GetAbsOrigin()
-	local good_tower = Entities:FindByName(nil, "good_tower_lane"):GetAbsOrigin()
-	local bad_tower = Entities:FindByName(nil, "bad_tower_lane"):GetAbsOrigin()
-	local bad_chest = Entities:FindByName(nil, "treasure_spawn_bad"):GetAbsOrigin()
-	local lane_center = Entities:FindByName(nil, "eon_stone_spawn"):GetAbsOrigin()
+	local good_nexus = Entities:FindByName(nil, "radiant_nexus"):GetAbsOrigin()
+	local bad_nexus = Entities:FindByName(nil, "dire_nexus"):GetAbsOrigin()
+	local lane_center = Vector(0, 0, 128)
 
-	local good_direction = (good_tower - good_chest):Normalized()
-	local bad_direction = (bad_tower - bad_chest):Normalized()
+	local good_direction = (lane_center - good_nexus):Normalized()
+	local bad_direction = (lane_center - bad_nexus):Normalized()
+
+	local good_normal = RotatePosition(Vector(0, 0, 0), QAngle(0, 90, 0), Vector(0, 0, 0) + 100 * good_direction):Normalized()
+	local bad_normal = RotatePosition(Vector(0, 0, 0), QAngle(0, 90, 0), Vector(0, 0, 0) + 100 * bad_direction):Normalized()
 
 	self.good_path = {}
 
-	table.insert(self.good_path, good_chest)
-	table.insert(self.good_path, good_tower)
+	table.insert(self.good_path, good_nexus)
 	table.insert(self.good_path, lane_center)
-	table.insert(self.good_path, bad_tower)
-	table.insert(self.good_path, bad_chest)
+	table.insert(self.good_path, bad_nexus)
 
 	self.bad_path = {}
 
-	table.insert(self.bad_path, bad_chest)
-	table.insert(self.bad_path, bad_tower)
+	table.insert(self.bad_path, bad_nexus)
 	table.insert(self.bad_path, lane_center)
-	table.insert(self.bad_path, good_tower)
-	table.insert(self.bad_path, good_chest)
+	table.insert(self.bad_path, good_nexus)
 
 	self.spawn_points = {}
 
@@ -49,22 +38,40 @@ function LaneCreeps:Init()
 	self.spawn_points[DOTA_TEAM_GOODGUYS].melee = {}
 	self.spawn_points[DOTA_TEAM_GOODGUYS].ranged = {}
 
-	self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[1] = good_chest + good_direction * LANE_CREEP_RANGED_OFFSET
+	if LANE_CREEP_RANGED_COUNT > 1 then
+		for i = 1, LANE_CREEP_RANGED_COUNT do
+			self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[i] = good_nexus + good_direction * LANE_CREEP_RANGED_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_RANGED_COUNT - 1)) * good_normal * LANE_CREEP_RANGED_SPAWN_DISTANCE
+		end
+	else
+		self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[1] = good_nexus + good_direction * LANE_CREEP_RANGED_OFFSET
+	end
 
-	for i = 1, LANE_CREEP_MELEE_COUNT do
-		local angle = -4 + 8 * (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)
-		table.insert(self.spawn_points[DOTA_TEAM_GOODGUYS].melee, RotatePosition(good_chest, QAngle(0, angle, 0), good_chest + good_direction * LANE_CREEP_MELEE_OFFSET))
+	if LANE_CREEP_MELEE_COUNT > 1 then
+		for i = 1, LANE_CREEP_MELEE_COUNT do
+			self.spawn_points[DOTA_TEAM_GOODGUYS].melee[i] = good_nexus + good_direction * LANE_CREEP_MELEE_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * good_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
+		end
+	else
+		self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[1] = good_nexus + good_direction * LANE_CREEP_MELEE_OFFSET
 	end
 
 	self.spawn_points[DOTA_TEAM_BADGUYS] = {}
 	self.spawn_points[DOTA_TEAM_BADGUYS].melee = {}
 	self.spawn_points[DOTA_TEAM_BADGUYS].ranged = {}
 
-	self.spawn_points[DOTA_TEAM_BADGUYS].ranged[1] = bad_chest + bad_direction * LANE_CREEP_RANGED_OFFSET
+	if LANE_CREEP_RANGED_COUNT > 1 then
+		for i = 1, LANE_CREEP_RANGED_COUNT do
+			self.spawn_points[DOTA_TEAM_BADGUYS].ranged[i] = bad_nexus + bad_direction * LANE_CREEP_RANGED_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_RANGED_COUNT - 1)) * bad_normal * LANE_CREEP_RANGED_SPAWN_DISTANCE
+		end
+	else
+		self.spawn_points[DOTA_TEAM_BADGUYS].ranged[1] = bad_nexus + bad_direction * LANE_CREEP_RANGED_OFFSET
+	end
 
-	for i = 1, LANE_CREEP_MELEE_COUNT do
-		local angle = -4 + 8 * (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)
-		table.insert(self.spawn_points[DOTA_TEAM_BADGUYS].melee, RotatePosition(bad_chest, QAngle(0, angle, 0), bad_chest + bad_direction * LANE_CREEP_MELEE_OFFSET))
+	if LANE_CREEP_MELEE_COUNT > 1 then
+		for i = 1, LANE_CREEP_MELEE_COUNT do
+			self.spawn_points[DOTA_TEAM_BADGUYS].melee[i] = bad_nexus + bad_direction * LANE_CREEP_MELEE_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * bad_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
+		end
+	else
+		self.spawn_points[DOTA_TEAM_BADGUYS].ranged[1] = bad_nexus + bad_direction * LANE_CREEP_MELEE_OFFSET
 	end
 
 	self.creep_names = {}
@@ -90,18 +97,6 @@ function LaneCreeps:SpawnWave()
 	end
 end
 
-function LaneCreeps:SpawnKnightWave(team, amount, unit_name)
-	local path = ((team == DOTA_TEAM_GOODGUYS) and self.good_path) or ((team == DOTA_TEAM_BADGUYS) and self.bad_path) or nil
-	local count = amount
-
-	for _, spawn_point in pairs(self.spawn_points[team].melee) do
-		if count > 0 then
-			LaneCreep(team, path, spawn_point, unit_name)
-			count = count - 1
-		end
-	end
-end
-
 
 
 if LaneCreep == nil then LaneCreep = class({}) end
@@ -114,11 +109,7 @@ function LaneCreep:constructor(team, path, location, unit_name)
 
 	self.unit = CreateUnitByName(self.unit_name, self.location, true, nil, nil, self.team)
 	ResolveNPCPositions(self.location, 200)
-
-	self.unit:EmitSound("Creep.Teleport")
-
-	if self.unit_name == "npc_eon_knight_ally" or self.unit_name == "npc_eon_trio_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_knight_state", {}) end
-	if self.unit_name == "npc_eon_samurai_knight_ally" then self.unit:AddNewModifier(self.unit, nil, "modifier_samurai_state", {}) end
+	self.unit:SetForwardVector((Vector(0, 0, 128) - self.location):Normalized())
 
 	self.unit:AddNewModifier(self.unit, nil, "modifier_lane_creep_state", {})
 
@@ -136,70 +127,4 @@ function LaneCreep:constructor(team, path, location, unit_name)
 			})
 		end
 	end)
-end
-
-function LaneCreep:OnLaneCreepDied(killer, killed_unit)
-	local bounty = LANE_CREEP_GOLD_BOUNTY[killed_unit:GetUnitName()]
-	if bounty and bounty > 0 then LaneCoin(killed_unit:GetAbsOrigin(), bounty, killed_unit:GetTeam()) end
-end
-
-
-
-if LaneCoin == nil then LaneCoin = class({
-	value = 0,
-}) end
-
-function LaneCoin:constructor(location, value, team)
-	if team == DOTA_TEAM_GOODGUYS then
-		self.gold_drop = CreateItem("item_neutral_gold", nil, nil)
-	else
-		self.gold_drop = CreateItem("item_dragon_drop_arcane", nil, nil)
-	end
-
-	self.value = value
-	self.team = team
-
-	self.location = location
-	self.drop = CreateItemOnPositionForLaunch(location, self.gold_drop)
-
-	if team == DOTA_TEAM_GOODGUYS then
-		self.drop:SetRenderColor(50, 255, 50)
-		self.drop:SetModelScale(1.4)
-	end
-	if team == DOTA_TEAM_BADGUYS then
-		self.drop:SetRenderColor(255, 50, 50)
-		self.drop:SetModelScale(2.5)
-	end
-
-	self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
-		radius = 170
-	}, {
-		trigger_team = self.team,
-		team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		unit_filter = DOTA_UNIT_TARGET_HERO,
-		flag_filter = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
-	}, function(units)
-		self:OnHeroInRange(units)
-	end, {})
-
-	Timers:CreateTimer(GOLD_COIN_DURATION, function()
-		if self.gold_drop and self.drop and (not (self.drop:IsNull() or self.gold_drop:IsNull())) then
-			self.gold_drop:Destroy()
-			self.drop:Destroy()
-			self.trigger:Stop()
-		end
-	end)
-end
-
-function LaneCoin:OnHeroInRange(units)
-	if units[1] then
-		units[1]:ModifyGold(self.value, false, DOTA_ModifyGold_CreepKill)
-
-		local player = units[1]:GetPlayerOwner()
-		if player then SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, units[1], self.value, nil) end
-
-		self.gold_drop:Destroy()
-		self.drop:Destroy()
-		self.trigger:Stop()
-	end
 end

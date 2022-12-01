@@ -46,13 +46,13 @@
 		"DOTA_Tooltip_ability_item_red_rune_Description"		"Increases damage dealt and taken"
 
 		"DOTA_Tooltip_modifier_red_rune_buff"					"Red Buff"
-		"DOTA_Tooltip_modifier_red_rune_buff_Description"		"Dealing %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%% increased damage, taking %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% increased damage"
+		"DOTA_Tooltip_modifier_red_rune_buff_Description"		"Dealing %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%% increased damage and taking %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% increased damage"
 
 		"DOTA_Tooltip_ability_item_green_rune"					"Green Buff"
 		"DOTA_Tooltip_ability_item_green_rune_Description"		"Increases movement speed and status resistance"
 
 		"DOTA_Tooltip_modifier_green_rune_buff"					"Green Buff"
-		"DOTA_Tooltip_modifier_green_rune_buff_Description"		"Moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster and gaining %d%MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%% status resistance"
+		"DOTA_Tooltip_modifier_green_rune_buff_Description"		"Moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster and gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance"
 
 
 

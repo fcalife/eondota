@@ -26,7 +26,7 @@ function GameManager:GetGamePhase()
 end
 
 function GameManager:InitializeHero(hero)
-	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {duration = 15})
+	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
 	hero:HeroLevelUp(false)
 	hero:HeroLevelUp(false)
 

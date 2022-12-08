@@ -15,9 +15,9 @@ function modifier_hero_base_state:OnCreated(keys)
 end
 
 function modifier_hero_base_state:DeclareFunctions()
-	return { MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE }
+	return { MODIFIER_PROPERTY_MANA_REGEN_CONSTANT }
 end
 
-function modifier_hero_base_state:GetModifierTotalPercentageManaRegen()
-	return 0.5
+function modifier_hero_base_state:GetModifierConstantManaRegen()
+	return 0.005 * self:GetParent():GetMaxMana()
 end

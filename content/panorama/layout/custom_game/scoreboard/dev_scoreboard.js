@@ -1,6 +1,16 @@
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
+CustomNetTables.SubscribeNetTableListener("charge", UpdateCharge);
+
+function UpdateCharge(table_name, key, data) {
+	if (key == "radiant") {
+		$("#Radiant_Charge_Label").text = "Blue charge: " + data.charge.toFixed(0) + "%";
+	} else if (key == "dire") {
+		$("#Dire_Charge_Label").text = "Red charge: " + data.charge.toFixed(0) + "%";
+	}
+}
+
 function NewMessage(data) {
 	let container = $("#Message_Container");
 

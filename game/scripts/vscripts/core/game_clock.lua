@@ -6,6 +6,8 @@ function GameClock:Start()
 	self.next_rune_spawn = self.game_start_time
 	self.next_creep_spawn = self.game_start_time
 
+	if CHARGE_TOWERS_ENABLED then self.next_essence_spawn = self.game_start_time + CHARGE_TOWER_ORB_SPAWN_INTERVAL end
+
 	GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
 
 	NeutralCamps:StartSpawning()
@@ -36,6 +38,12 @@ function GameClock:Tick()
 		LaneCreeps:SpawnWave()
 
 		self.next_creep_spawn = self.next_creep_spawn + LANE_CREEP_RESPAWN_DELAY
+	end
+
+	if CHARGE_TOWERS_ENABLED and current_time >= self.next_essence_spawn then
+		RuneSpawners:SpawnEssence()
+
+		self.next_essence_spawn = self.next_essence_spawn + CHARGE_TOWER_ORB_SPAWN_INTERVAL
 	end
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then

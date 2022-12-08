@@ -111,6 +111,10 @@ function LaneCreeps:SpawnWave()
 	end
 end
 
+function LaneCreeps:SpawnNeutralForTeam(team, unit_name)
+	LaneCreep(team, (team == DOTA_TEAM_GOODGUYS) and self.good_path or self.bad_path, self.spawn_points[team].siege[1], unit_name)
+end
+
 
 
 if LaneCreep == nil then LaneCreep = class({}) end

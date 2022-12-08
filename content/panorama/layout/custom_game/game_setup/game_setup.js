@@ -1,4 +1,4 @@
-TryGetHost();
+// TryGetHost();
 
 $('#reverse_ctf').SetSelected(false);
 $('#enable_towers').SetSelected(true);

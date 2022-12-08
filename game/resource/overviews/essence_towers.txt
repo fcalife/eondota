@@ -1,0 +1,8 @@
+essence_towers
+{
+	material materials/overviews/essence_towers.vmat
+	pos_x -6400
+	pos_y 6400
+	scale 12.500
+}
+

@@ -35,11 +35,19 @@
 		"npc_dota_neutral_black_drake"		"Krakenling"
 		"npc_dota_neutral_black_dragon"		"The Kraken"
 		"npc_eon_cart"						"Push Cart"
+		"npc_charge_spider"					"Essence Spider"
+		"npc_win_dragon"					"Doom Dragon"
 
 		// Units
+		"npc_dota_neutral_kobold_taskmaster_lane"	"Tamed Taskmaster"
+		"npc_dota_neutral_kobold_lane"				"Tamed Kobold"	
+		"npc_dota_neutral_enraged_wildkin_lane"		"Tamed Wildwing"
 
 
 		// Items
+		"DOTA_Tooltip_ability_item_charge_pickup"				"Eon Essence"
+		"DOTA_Tooltip_ability_item_charge_pickup_Description"	"Charges up your towers"
+
 		"DOTA_Tooltip_ability_item_flag"						"Flag"
 		"DOTA_Tooltip_ability_item_flag_Description"			"Get it to your base!"
 

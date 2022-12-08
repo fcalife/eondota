@@ -5,15 +5,39 @@ function NeutralCamps:StartSpawning()
 		[1] = {
 			leader = "npc_dota_neutral_kobold_taskmaster",
 			minion = "npc_dota_neutral_kobold",
+			min_minions = 3,
+			max_minions = 3,
+			minimap_dummy = "npc_camp_dummy_1",
+			scale = 20,
+		},
+		[2] = {
+			leader = "npc_dota_neutral_enraged_wildkin",
+			minion = "npc_dota_neutral_wildkin",
 			min_minions = 0,
 			max_minions = 0,
-			minimap_dummy = "npc_camp_dummy_1",
+			minimap_dummy = "npc_camp_dummy_2",
 			scale = 40,
-		}
+		},
+		[3] = {
+			leader = "npc_charge_spider",
+			minion = "npc_dota_neutral_kobold",
+			min_minions = 0,
+			max_minions = 0,
+			minimap_dummy = "npc_camp_dummy_3",
+			scale = 0,
+		},
+		[4] = {
+			leader = "npc_win_dragon",
+			minion = "npc_dota_neutral_kobold",
+			min_minions = 0,
+			max_minions = 0,
+			minimap_dummy = "npc_camp_dummy_4",
+			scale = 0,
+		},
 	}
 
 	Timers:CreateTimer(NEUTRAL_CREEP_FIRST_SPAWN_TIME, function()
-		for level = 1, 1 do
+		for level = 1, 4 do
 			for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_"..level)) do
 				NeutralCamp(camp_location:GetAbsOrigin(), self.camp_data[level])
 			end
@@ -43,6 +67,9 @@ function NeutralCamp:constructor(location, data)
 	self.max_minions = data.max_minions or self.max_minions
 	self.respawn_time = data.respawn_time or self.respawn_time
 	self.creeps = {}
+
+	self.is_spider = self.leader == "npc_charge_spider"
+	self.is_dragon = self.leader == "npc_win_dragon"
 
 	self.dummy = CreateUnitByName(self.minimap_dummy, self.location, true, nil, nil, DOTA_TEAM_NEUTRALS)
 	self.dummy:AddNewModifier(self.dummy, nil, "modifier_dummy_state", {})
@@ -97,5 +124,13 @@ function NeutralCamp:OnNeutralCreepDied(killer, killed_unit)
 		Timers:CreateTimer(self.respawn_time, function()
 			self:Spawn()
 		end)
+	end
+
+	if self.is_dragon then
+		GameRules:SetGameWinner(team)
+	elseif self.is_spider then
+		ScoreManager:OnTeamKillSpider(team)
+	else
+		LaneCreeps:SpawnNeutralForTeam(team, killed_unit:GetUnitName().."_lane")
 	end
 end

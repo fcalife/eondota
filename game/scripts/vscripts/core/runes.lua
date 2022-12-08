@@ -18,11 +18,33 @@ function RuneSpawners:Init()
 	for _, spawn_point in pairs(Entities:FindAllByName("green_rune_spawn")) do
 		table.insert(self.rune_spawners, RuneSpawner(spawn_point:GetAbsOrigin(), RUNE_TYPE_GREEN))
 	end
+
+	if CHARGE_TOWERS_ENABLED then
+		self.essence_spawners = {}
+
+		for _, spawn_point in pairs(Entities:FindAllByName("essence_spawn")) do
+			table.insert(self.essence_spawners, EssenceSpawner(spawn_point:GetAbsOrigin()))
+		end
+	end
 end
 
 function RuneSpawners:OnInitializeRound()
 	for _, spawner in pairs(self.rune_spawners) do
 		spawner:Spawn()
+	end
+end
+
+function RuneSpawners:SpawnEssence()
+	local spawner_list = table.shuffle(self.essence_spawners)
+	local need_spawner = true
+
+	while #spawner_list > 0 and need_spawner do
+		local spawner = table.remove(spawner_list)
+
+		if spawner and (not spawner:IsFull()) then
+			spawner:Spawn()
+			need_spawner = false
+		end
 	end
 end
 
@@ -43,4 +65,32 @@ function RuneSpawner:Spawn()
 
 	self.rune = CreateItem(RUNE_NAME[self.rune_type], nil, nil)
 	self.rune_container = CreateItemOnPositionForLaunch(self.location, self.rune)
+end
+
+
+
+if EssenceSpawner == nil then EssenceSpawner = class({
+	location = Vector(0, 0, 0)
+}) end
+
+function EssenceSpawner:constructor(location)
+	self.location = location or self.location
+
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, self.location, 240, 9999, false)
+	AddFOWViewer(DOTA_TEAM_BADGUYS, self.location, 240, 9999, false)
+end
+
+function EssenceSpawner:Spawn()
+	if self:IsFull() then return end
+
+	self.essence = CreateItem("item_charge_pickup", nil, nil)
+	self.essence_container = CreateItemOnPositionForLaunch(self.location, self.essence)
+
+	self.essence_container:EmitSound("Drop.EonStone")
+end
+
+function EssenceSpawner:IsFull()
+	if self.essence and (not self.essence:IsNull()) and self.essence_container and (not self.essence_container:IsNull()) then return true end
+
+	return false
 end

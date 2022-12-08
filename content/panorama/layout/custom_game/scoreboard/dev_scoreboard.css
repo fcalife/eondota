@@ -1,3 +1,26 @@
+#Radiant_Charge {
+	align:  center top;
+	margin-right: 320px;
+	margin-top:  65px;
+	width: 240px;
+}
+
+#Dire_Charge {
+	align:  center top;
+	margin-left: 320px;
+	margin-top:  65px;
+	width: 240px;
+}
+
+.Charge_Label {
+	text-align:  center center;
+	font-size:  28;
+	font-weight:  bold;
+	color:  white;
+	text-overflow: shrink;
+	text-shadow: 1px 1px 3px 2.0 black;
+}
+
 #Message_Container {
 	align:  center top;
 	margin-top:  160px;

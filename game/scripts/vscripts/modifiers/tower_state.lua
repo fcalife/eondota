@@ -75,6 +75,37 @@ end
 
 
 
+modifier_living_tower_state = class({})
+
+function modifier_living_tower_state:IsHidden() return true end
+function modifier_living_tower_state:IsDebuff() return false end
+function modifier_living_tower_state:IsPurgable() return false end
+
+function modifier_living_tower_state:DeclareFunctions()
+	if IsServer() then
+		return {
+			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+			MODIFIER_EVENT_ON_DEATH
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+		}
+	end
+end
+
+function modifier_living_tower_state:GetModifierProvidesFOWVision()
+	return 1
+end
+
+function modifier_living_tower_state:OnDeath(keys)
+	if keys.unit and keys.unit == self:GetParent() then
+		GoldRewards:GiveGoldToPlayersInTeam(ENEMY_TEAM[keys.unit:GetTeam()], TOWER_KILL_GOLD, 0)
+	end
+end
+
+
+
 modifier_respawning_tower_state = class({})
 
 function modifier_respawning_tower_state:IsHidden() return false end

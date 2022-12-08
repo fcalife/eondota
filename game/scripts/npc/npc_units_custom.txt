@@ -1363,7 +1363,7 @@
 		"SoundSet"					"Hero_LegionCommander"
 
 		"ArmorPhysical"				"15"
-		"MagicalResistance"			"0"
+		"MagicalResistance"			"50"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"290"
@@ -1388,7 +1388,7 @@
 		"MovementSpeed"				"100"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"4000"
+		"StatusHealth"				"6000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -1422,7 +1422,7 @@
 		"SoundSet"					"Hero_DoomBringer"
 
 		"ArmorPhysical"				"15"
-		"MagicalResistance"			"0"
+		"MagicalResistance"			"50"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"290"
@@ -1447,7 +1447,7 @@
 		"MovementSpeed"				"100"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"4000"
+		"StatusHealth"				"6000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -1482,7 +1482,7 @@
 		"SoundSet"					"Tower.Water"
 
 		"ArmorPhysical"				"10"
-		"MagicalResistance"			"0"
+		"MagicalResistance"			"50"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"175"
@@ -1507,7 +1507,7 @@
 		"MovementSpeed"				"100"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"2000"
+		"StatusHealth"				"2250"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -1540,7 +1540,7 @@
 		"SoundSet"					"Tower.Fire"
 
 		"ArmorPhysical"				"10"
-		"MagicalResistance"			"0"
+		"MagicalResistance"			"50"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"175"
@@ -1565,7 +1565,7 @@
 		"MovementSpeed"				"100"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"2000"
+		"StatusHealth"				"2250"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

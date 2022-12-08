@@ -13,3 +13,11 @@ function modifier_hero_base_state:OnCreated(keys)
 
 	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 15}) end
 end
+
+function modifier_hero_base_state:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE }
+end
+
+function modifier_hero_base_state:GetModifierTotalPercentageManaRegen()
+	return 0.5
+end

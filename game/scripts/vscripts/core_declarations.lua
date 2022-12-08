@@ -53,6 +53,8 @@ LinkLuaModifier("modifier_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MO
 LinkLuaModifier("modifier_living_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_living_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
+
 
 -- GAME STATE CONSTANTS
 

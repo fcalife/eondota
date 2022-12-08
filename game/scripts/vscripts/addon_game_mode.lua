@@ -86,6 +86,9 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)
 	game_mode_entity:SetFixedRespawnTime(15)
+	game_mode_entity:SetFountainConstantManaRegen(0)
+	game_mode_entity:SetFountainPercentageHealthRegen(0)
+	game_mode_entity:SetFountainPercentageManaRegen(0)
 
 	-- Team configuration
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 5)

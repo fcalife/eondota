@@ -1,8 +1,8 @@
 _G.GoldRewards = GoldRewards or {}
 
 GOLD_TICK_INTERVAL = 1
-GOLD_PER_TICK = 5
-EXP_PER_TICK = 4
+GOLD_PER_TICK = 8
+EXP_PER_TICK = 5
 
 GoldRewards.ticks_until_gold = GOLD_TICK_INTERVAL
 

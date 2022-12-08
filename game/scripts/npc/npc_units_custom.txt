@@ -348,7 +348,7 @@
 		"MinimapIconSize"			"550"
 		"ModelScale"				"1.7"
 
-		"ArmorPhysical"				"30"
+		"ArmorPhysical"				"15"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
@@ -374,7 +374,7 @@
 		"MovementSpeed"				"0"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"8000"
+		"StatusHealth"				"4000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -387,12 +387,12 @@
 	{
 		"ModelScale"				"1.3"
 
-		"StatusHealth"				"4000"
-		"ArmorPhysical"				"12"
+		"StatusHealth"				"2000"
+		"ArmorPhysical"				"10"
 
 		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"74"
-		"AttackDamageMax"			"76"
+		"AttackDamageMin"			"175"
+		"AttackDamageMax"			"180"
 
 		"ProjectileSpeed"			"1500"
 	}
@@ -401,12 +401,12 @@
 	{
 		"ModelScale"				"1.3"
 
-		"StatusHealth"				"4000"
-		"ArmorPhysical"				"12"
+		"StatusHealth"				"2000"
+		"ArmorPhysical"				"10"
 
 		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"74"
-		"AttackDamageMax"			"76"
+		"AttackDamageMin"			"175"
+		"AttackDamageMax"			"180"
 
 		"ProjectileSpeed"			"1500"
 	}
@@ -414,7 +414,7 @@
 	"npc_dota_goodguys_tower1_top"
 	{
 		"Model"						"models/items/world/towers/radiant_tower_2021/radiant_tower_2021.vmdl"
-		
+
 		"StatusHealth"				"4000"
 		"ArmorPhysical"				"12"
 
@@ -428,7 +428,7 @@
 	"npc_dota_badguys_tower1_top"
 	{
 		"Model"						"models/items/world/towers/dire_tower_2021/dire_tower_2021.vmdl"
-		
+
 		"StatusHealth"				"4000"
 		"ArmorPhysical"				"12"
 
@@ -609,8 +609,8 @@
 	"npc_dota_creep_goodguys_ranged"
 	{
 		"BountyXP"					"120"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyGoldMin"				"70"
+		"BountyGoldMax"				"75"
 
 		"StatusHealth"				"425"
 	}
@@ -627,10 +627,28 @@
 	"npc_dota_creep_badguys_ranged"
 	{
 		"BountyXP"					"120"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyGoldMin"				"70"
+		"BountyGoldMax"				"75"
 
 		"StatusHealth"				"425"
+	}
+
+	"npc_dota_goodguys_siege"
+	{
+		"BountyXP"					"150"
+		"BountyGoldMin"				"90"
+		"BountyGoldMax"				"95"
+
+		"StatusHealth"				"1200"
+	}
+
+	"npc_dota_badguys_siege"
+	{
+		"BountyXP"					"150"
+		"BountyGoldMin"				"90"
+		"BountyGoldMax"				"95"
+
+		"StatusHealth"				"1200"
 	}
 
 	"npc_eon_speed_beast"
@@ -1333,5 +1351,228 @@
 		"StatusManaRegen"			"0.0"
 		"VisionDaytimeRange"		"1"
 		"VisionNighttimeRange"		"1"
+	}
+
+	"npc_eon_living_nexus_good"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/legion_commander/legion_commander.vmdl"
+		"MinimapIcon"				"minimap_ping_baseattacked"
+		"MinimapIconSize"			"550"
+		"ModelScale"				"2.45"
+		"SoundSet"					"Hero_LegionCommander"
+
+		"ArmorPhysical"				"15"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"290"
+		"AttackDamageMax"			"310"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.3"
+		"AttackAnimationPoint"		"0.46"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"375"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
+
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"	{	"ItemDef"	"13984"	}
+				"Wearable2"	{	"ItemDef"	"13985"	}
+				"Wearable3"	{	"ItemDef"	"13986"	}
+				"Wearable4"	{	"ItemDef"	"13987"	}
+				"Wearable5"	{	"ItemDef"	"13988"	}
+				"Wearable6"	{	"ItemDef"	"13989"	}
+			}
+		}
+	}
+
+	"npc_eon_living_nexus_bad"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/doom/doom.vmdl"
+		"MinimapIcon"				"minimap_ping_baseattacked"
+		"MinimapIconSize"			"550"
+		"ModelScale"				"1.95"
+		"SoundSet"					"Hero_DoomBringer"
+
+		"ArmorPhysical"				"15"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"290"
+		"AttackDamageMax"			"310"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.3"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"375"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
+
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"	{	"ItemDef"	"6632"	}
+				"Wearable2"	{	"ItemDef"	"6821"	}
+				"Wearable3"	{	"ItemDef"	"6822"	}
+				"Wearable4"	{	"ItemDef"	"6885"	}
+				"Wearable5"	{	"ItemDef"	"6887"	}
+				"Wearable6"	{	"ItemDef"	"6888"	}
+				"Wearable7"	{	"ItemDef"	"6947"	}
+			}
+		}
+	}
+
+	"npc_eon_living_tower_good"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/omniknight/omniknight.vmdl"
+		"MinimapIcon"				"minimap_tower45"
+		"MinimapIconSize"			"320"
+		"ModelScale"				"1.75"
+		"SoundSet"					"Tower.Water"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"175"
+		"AttackDamageMax"			"180"
+		"BaseAttackSpeed"			"90"
+		"AttackRate"				"0.9"
+		"AttackAnimationPoint"		"0.433"
+		"AttackAcquisitionRange"	"700"
+		"AttackRange"				"700"
+		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"	
+		"ProjectileSpeed"			"1500"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
+
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"	{	"ItemDef"	"12629"	}
+				"Wearable2"	{	"ItemDef"	"12630"	}
+				"Wearable3"	{	"ItemDef"	"12631"	}
+				"Wearable4"	{	"ItemDef"	"12632"	}
+				"Wearable5"	{	"ItemDef"	"12633"	}
+			}
+		}
+	}
+
+	"npc_eon_living_tower_bad"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/omniknight_golem/omniknight_golem.vmdl"
+		"MinimapIcon"				"minimap_tower45"
+		"MinimapIconSize"			"320"
+		"ModelScale"				"1.75"
+		"SoundSet"					"Tower.Fire"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"175"
+		"AttackDamageMax"			"180"
+		"BaseAttackSpeed"			"90"
+		"AttackRate"				"0.9"
+		"AttackAnimationPoint"		"0.433"
+		"AttackAcquisitionRange"	"700"
+		"AttackRange"				"700"
+		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"	
+		"ProjectileSpeed"			"1500"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
 	}
 }

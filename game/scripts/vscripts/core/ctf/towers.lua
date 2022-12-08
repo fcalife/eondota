@@ -4,11 +4,19 @@ function Towers:Init()
 	self.towers = {}
 
 	for _, spawn_point in pairs(Entities:FindAllByName("good_tower_lane")) do
-		LaneTower(spawn_point:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
+		if LIVING_BUILDINGS_ENABLED then
+			LivingTower(spawn_point:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
+		else
+			LaneTower(spawn_point:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
+		end
 	end
 
 	for _, spawn_point in pairs(Entities:FindAllByName("bad_tower_lane")) do
-		LaneTower(spawn_point:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
+		if LIVING_BUILDINGS_ENABLED then
+			LivingTower(spawn_point:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
+		else
+			LaneTower(spawn_point:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
+		end
 	end
 end
 
@@ -30,4 +38,29 @@ function LaneTower:constructor(location, team)
 	self.unit:AddNewModifier(self.unit, nil, "modifier_tower_state", {})
 
 	if self.team == DOTA_TEAM_BADGUYS then self.unit:SetRenderColor(65, 78, 63) end
+end
+
+
+
+if LivingTower == nil then LivingTower = class({}) end
+
+function LivingTower:constructor(location, team)
+	self.location = location
+	self.team = team
+
+	self.unit = CreateUnitByName(team == DOTA_TEAM_GOODGUYS and "npc_eon_living_tower_good" or "npc_eon_living_tower_bad", self.location, false, nil, nil, self.team)
+
+	self.unit:AddNewModifier(self.unit, nil, "modifier_tower_state", {})
+	self.unit:AddNewModifier(self.unit, nil, "modifier_rooted", {duration = LIVING_NEXUS_AWAKENING_TIME})
+
+	Timers:CreateTimer(0.5, function()
+		local unit_id = self.unit:entindex()
+
+		ExecuteOrderFromTable({
+			unitIndex = unit_id,
+			OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+			Position = Vector(0, 0, 128),
+			Queue = true
+		})
+	end)
 end

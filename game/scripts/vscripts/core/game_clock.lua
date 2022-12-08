@@ -10,6 +10,8 @@ function GameClock:Start()
 
 	NeutralCamps:StartSpawning()
 
+	if TOWERS_ENABLED then Towers:Init() end
+
 	NexusManager:SpawnNexus()
 
 	for _, hero in pairs(HeroList:GetAllHeroes()) do hero:RemoveModifierByName("modifier_stunned") end

@@ -98,6 +98,8 @@ function GameEvents:OnEntityKilled(keys)
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 
+	if killed_unit.camp then killed_unit.camp:OnNeutralCreepDied(attacker, killed_unit) end
+
 	--RoundManager:OnUnitKilled()
 end
 

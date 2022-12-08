@@ -31,6 +31,11 @@
 				<ToggleButton class="OptionToggleButton" id="disable_fog" onactivate="UpdateOptions()"/>
 				<Label class="OptionLabel" text="Remove Fog of War"/>
 			</Panel>
+
+			<Panel class="OptionContainer" id="living_buildings_container">
+				<ToggleButton class="OptionToggleButton" id="living_buildings" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Enable Living Buildings"/>
+			</Panel>
 		</Panel>
 	</Panel>
 </root>

@@ -15,8 +15,6 @@ function GameManager:Init()
 	ScoreManager:Init()
 	BrushManager:Init()
 	LaneCreeps:Init()
-
-	if TOWERS_ENABLED then Towers:Init() end
 end
 
 function GameManager:SetGamePhase(phase)
@@ -62,4 +60,5 @@ function GameManager:OnHostSelectedOption(event)
 	TOWERS_ENABLED = (event.enable_towers == 1)
 	LANE_CREEPS_ENABLED = (event.enable_creeps == 1)
 	FOG_OF_WAR_DISABLED = (event.disable_fog == 1)
+	LIVING_BUILDINGS_ENABLED = (event.living_buildings == 1)
 end

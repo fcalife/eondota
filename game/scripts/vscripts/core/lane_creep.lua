@@ -6,6 +6,7 @@ LANE_CREEP_MELEE_COUNT = 5
 LANE_CREEP_RANGED_COUNT = 2
 LANE_CREEP_MELEE_OFFSET = -450
 LANE_CREEP_RANGED_OFFSET = -700
+LANE_CREEP_SIEGE_OFFSET = -975
 LANE_CREEP_MELEE_SPAWN_DISTANCE = 550
 LANE_CREEP_RANGED_SPAWN_DISTANCE = 225
 
@@ -37,6 +38,7 @@ function LaneCreeps:Init()
 	self.spawn_points[DOTA_TEAM_GOODGUYS] = {}
 	self.spawn_points[DOTA_TEAM_GOODGUYS].melee = {}
 	self.spawn_points[DOTA_TEAM_GOODGUYS].ranged = {}
+	self.spawn_points[DOTA_TEAM_GOODGUYS].siege = {}
 
 	if LANE_CREEP_RANGED_COUNT > 1 then
 		for i = 1, LANE_CREEP_RANGED_COUNT do
@@ -54,9 +56,13 @@ function LaneCreeps:Init()
 		self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[1] = good_nexus + good_direction * LANE_CREEP_MELEE_OFFSET
 	end
 
+	self.spawn_points[DOTA_TEAM_GOODGUYS].siege[1] = good_nexus + good_direction * LANE_CREEP_SIEGE_OFFSET
+
+
 	self.spawn_points[DOTA_TEAM_BADGUYS] = {}
 	self.spawn_points[DOTA_TEAM_BADGUYS].melee = {}
 	self.spawn_points[DOTA_TEAM_BADGUYS].ranged = {}
+	self.spawn_points[DOTA_TEAM_BADGUYS].siege = {}
 
 	if LANE_CREEP_RANGED_COUNT > 1 then
 		for i = 1, LANE_CREEP_RANGED_COUNT do
@@ -74,14 +80,18 @@ function LaneCreeps:Init()
 		self.spawn_points[DOTA_TEAM_BADGUYS].ranged[1] = bad_nexus + bad_direction * LANE_CREEP_MELEE_OFFSET
 	end
 
+	self.spawn_points[DOTA_TEAM_BADGUYS].siege[1] = bad_nexus + bad_direction * LANE_CREEP_SIEGE_OFFSET
+
 	self.creep_names = {}
 	self.creep_names[DOTA_TEAM_GOODGUYS] = {}
 	self.creep_names[DOTA_TEAM_GOODGUYS].melee = "npc_dota_creep_goodguys_melee"
 	self.creep_names[DOTA_TEAM_GOODGUYS].ranged = "npc_dota_creep_goodguys_ranged"
+	self.creep_names[DOTA_TEAM_GOODGUYS].siege = "npc_dota_goodguys_siege"
 
 	self.creep_names[DOTA_TEAM_BADGUYS] = {}
 	self.creep_names[DOTA_TEAM_BADGUYS].melee = "npc_dota_creep_badguys_melee"
 	self.creep_names[DOTA_TEAM_BADGUYS].ranged = "npc_dota_creep_badguys_ranged"
+	self.creep_names[DOTA_TEAM_BADGUYS].siege = "npc_dota_badguys_siege"
 end
 
 function LaneCreeps:SpawnWave()
@@ -93,6 +103,10 @@ function LaneCreeps:SpawnWave()
 		for _, spawn_point in pairs(spawn_points.ranged) do
 			if team == DOTA_TEAM_GOODGUYS then LaneCreep(team, self.good_path, spawn_point, self.creep_names[team].ranged) end
 			if team == DOTA_TEAM_BADGUYS then LaneCreep(team, self.bad_path, spawn_point, self.creep_names[team].ranged) end
+		end
+		for _, spawn_point in pairs(spawn_points.siege) do
+			if team == DOTA_TEAM_GOODGUYS then LaneCreep(team, self.good_path, spawn_point, self.creep_names[team].siege) end
+			if team == DOTA_TEAM_BADGUYS then LaneCreep(team, self.bad_path, spawn_point, self.creep_names[team].siege) end
 		end
 	end
 end

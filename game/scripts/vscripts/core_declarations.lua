@@ -12,12 +12,10 @@ LinkLuaModifier("modifier_portal_cooldown", "modifiers/portal_buffs", LUA_MODIFI
 
 LinkLuaModifier("modifier_treasure_goblin_state", "modifiers/treasure_goblin_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lane_creep_state", "modifiers/lane_creep_state", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jungle_tower_shield", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_respawning_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tower_damage_up", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_treasure_state", "modifiers/treasure_state", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_knight_state", "modifiers/knight_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_samurai_state", "modifiers/knight_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_knight_nexus_debuff", "modifiers/knight_state", LUA_MODIFIER_MOTION_NONE)
@@ -51,6 +49,11 @@ LinkLuaModifier("modifier_ignore_wall", "modifiers/wall_blocker", LUA_MODIFIER_M
 LinkLuaModifier("modifier_brush_transparency", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_brush_invisibility", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
 
+LinkLuaModifier("modifier_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_living_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
+
+LinkLuaModifier("modifier_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
+
 -- GAME STATE CONSTANTS
 
 GAME_STATE_INIT 	   			= 0
@@ -72,7 +75,8 @@ PLAYER_STATE_ABANDONED	 		= 4
 REVERSE_CTF = false
 TOWERS_ENABLED = true
 LANE_CREEPS_ENABLED = true
-FOG_OF_WAR_DISABLED = true
+FOG_OF_WAR_DISABLED = false
+LIVING_BUILDINGS_ENABLED = false
 
 ROUNDS_TO_WIN = 3
 MIN_ROUND_FOR_ULTIMATES = 3
@@ -87,3 +91,5 @@ ROUND_WIN_GOLD = 1000
 
 NEUTRAL_CREEP_FIRST_SPAWN_TIME = 0
 NEUTRAL_CREEP_RESPAWN_TIME = 90
+
+LIVING_NEXUS_AWAKENING_TIME = 600

@@ -13,7 +13,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "ctf"
+	DefaultMap = "aram"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false

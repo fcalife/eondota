@@ -1363,7 +1363,7 @@
 		"SoundSet"					"Hero_LegionCommander"
 
 		"ArmorPhysical"				"15"
-		"MagicalResistance"			"50"
+		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"290"
@@ -1388,7 +1388,7 @@
 		"MovementSpeed"				"100"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"6000"
+		"StatusHealth"				"25000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -1422,7 +1422,7 @@
 		"SoundSet"					"Hero_DoomBringer"
 
 		"ArmorPhysical"				"15"
-		"MagicalResistance"			"50"
+		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"290"
@@ -1447,7 +1447,7 @@
 		"MovementSpeed"				"100"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"6000"
+		"StatusHealth"				"25000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

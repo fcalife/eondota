@@ -6,7 +6,7 @@ CustomNetTables.SubscribeNetTableListener("charge", UpdateCharge);
 function UpdateCharge(table_name, key, data) {
 	if (key == "radiant") {
 		$("#Radiant_Charge_Label").text = "Blue charge: " + data.charge.toFixed(0) + "%";
-		$("#Radiant_Progress").value = data.charge.toFixed(0);
+		$("#Radiant_Progress").value = parseInt(data.charge);
 	} else if (key == "dire") {
 		$("#Dire_Charge_Label").text = "Red charge: " + data.charge.toFixed(0) + "%";
 		$("#Dire_Progress").value = parseInt(data.charge);

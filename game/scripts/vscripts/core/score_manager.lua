@@ -10,8 +10,8 @@ function ScoreManager:Init()
 	self.score[DOTA_TEAM_BADGUYS] = 0
 
 	self.tower_charge = {}
-	self.tower_charge[DOTA_TEAM_GOODGUYS] = 0
-	self.tower_charge[DOTA_TEAM_BADGUYS] = 0
+	self.tower_charge[DOTA_TEAM_GOODGUYS] = CHARGE_TOWER_BASE_CHARGE
+	self.tower_charge[DOTA_TEAM_BADGUYS] = CHARGE_TOWER_BASE_CHARGE
 
 	self.tower_charge_target = {}
 	self.tower_charge_target[DOTA_TEAM_GOODGUYS] = CHARGE_TOWER_BASE_CHARGE
@@ -65,15 +65,15 @@ function ScoreManager:UpdateChargeScoreboard()
 	CustomNetTables:SetTableValue("charge", "dire", {charge = 100 * self.tower_charge[DOTA_TEAM_BADGUYS] / self.tower_charge_target[DOTA_TEAM_BADGUYS]})
 end
 
-function ScoreManager:OnGainCharge(team)
-	self.tower_charge[team] = self.tower_charge[team] + 1
+function ScoreManager:OnPickupCharge(team)
+	self.tower_charge[ENEMY_TEAM[team]] = self.tower_charge[ENEMY_TEAM[team]] - 1
 	self:UpdateChargeScoreboard()
 
-	if self.tower_charge[team] >= self.tower_charge_target[team] then
-		self.tower_charge[team] = 0
-		self.tower_charge_target[team] = self.tower_charge_target[team] + CHARGE_TOWER_CHARGE_INCREMENT
+	if self.tower_charge[ENEMY_TEAM[team]] <= 0 then
+		self.tower_charge_target[ENEMY_TEAM[team]] = self.tower_charge_target[ENEMY_TEAM[team]] + CHARGE_TOWER_CHARGE_INCREMENT
+		self.tower_charge[ENEMY_TEAM[team]] = self.tower_charge_target[ENEMY_TEAM[team]]
 
-		self:ActivateChargeTowers(team)
+		self:DeactivateChargeTowers(ENEMY_TEAM[team])
 
 		Timers:CreateTimer(8, function()
 			self:UpdateChargeScoreboard()
@@ -83,18 +83,18 @@ function ScoreManager:OnGainCharge(team)
 	end
 end
 
-function ScoreManager:ActivateChargeTowers(team)
+function ScoreManager:DeactivateChargeTowers(team)
 	for _, tower in pairs(Towers:GetTeamTowers(team)) do
-		tower:Activate()
+		tower:Deactivate()
 	end
 
-	GlobalMessages:NotifyTeamActivatedCharge(team)
+	GlobalMessages:NotifyTeamDeactivatedCharge(team)
 end
 
 function ScoreManager:OnTeamKillSpider(team)
-	self.tower_charge[ENEMY_TEAM[team]] = math.max(0, self.tower_charge[ENEMY_TEAM[team]] - math.max(1, math.floor(0.5 * self.tower_charge[ENEMY_TEAM[team]])))
-
-	self:UpdateChargeScoreboard()
+	for _, tower in pairs(Towers:GetTeamTowers(team)) do
+		tower.unit:RemoveModifierByName("modifier_deactivated_charge_tower")
+	end
 
 	GlobalMessages:NotifyTeamKilledSpider(team)
 end

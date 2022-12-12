@@ -56,6 +56,14 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/music/terrorblade_arcana/stingers/respawn.vsnd"
 	}
+	stone.shortwarning = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/ui/stingers/stinger_short.vsnd"
+	}
 	stone.countdown = 
 	{
 		type = "dota_src1_2d"
@@ -71,6 +79,30 @@
 		pitch = 1.000000
 		limiter_on = 1.000000
 		vsnd_files = "sounds/ui/outpost_capture_notify.vsnd"
+	}
+	stone.three = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.200000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_03.vsnd"
+	}
+	stone.two = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.200000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_02.vsnd"
+	}
+	stone.one = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.200000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/vo/announcer/ann_custom_countdown_01.vsnd"
 	}
 	cart.warning = 
 	{

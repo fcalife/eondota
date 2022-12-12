@@ -6,7 +6,7 @@ function GameClock:Start()
 	self.next_rune_spawn = self.game_start_time
 	self.next_creep_spawn = self.game_start_time
 
-	if CHARGE_TOWERS_ENABLED then self.next_essence_spawn = self.game_start_time + CHARGE_TOWER_ORB_SPAWN_INTERVAL end
+	if CHARGE_TOWERS_ENABLED then self.next_essence_spawn = self.game_start_time + (CHARGE_TOWER_ORB_SPAWN_INTERVAL - CHARGE_TOWER_PRESPAWN_WARNING) end
 
 	GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
 

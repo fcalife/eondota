@@ -9,11 +9,15 @@
 
 	<Panel style="width:100%; height:100%;" hittest="false">
 		<Panel id="Radiant_Charge" hittest="false" >
-			<Label class="Charge_Label" id="Radiant_Charge_Label" text="Blue charge: 0%" />
+			<ProgressBar id="Radiant_Progress" min="0" max="100" value="100">
+				<Label class="Charge_Label" id="Radiant_Charge_Label" text="Blue charge: 100%" />
+			</ProgressBar>
 		</Panel>
 
 		<Panel id="Dire_Charge" hittest="false" >
-			<Label class="Charge_Label" id="Dire_Charge_Label" text="Red charge: 0%" />
+			<ProgressBar id="Dire_Progress" min="0" max="100" value="100">
+				<Label class="Charge_Label" id="Dire_Charge_Label" text="Red charge: 100%" />
+			</ProgressBar>
 		</Panel>
 
 		<Panel id="Message_Container" hittest="false" />

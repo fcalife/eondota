@@ -42,7 +42,7 @@ function RuneSpawners:SpawnEssence()
 		local spawner = table.remove(spawner_list)
 
 		if spawner and (not spawner:IsFull()) then
-			spawner:Spawn()
+			spawner:SpawnWarning()
 			need_spawner = false
 		end
 	end
@@ -85,12 +85,46 @@ function EssenceSpawner:Spawn()
 
 	self.essence = CreateItem("item_charge_pickup", nil, nil)
 	self.essence_container = CreateItemOnPositionForLaunch(self.location, self.essence)
-
-	self.essence_container:EmitSound("Drop.EonStone")
 end
 
 function EssenceSpawner:IsFull()
 	if self.essence and (not self.essence:IsNull()) and self.essence_container and (not self.essence_container:IsNull()) then return true end
 
 	return false
+end
+
+function EssenceSpawner:SpawnWarning()
+	EmitGlobalSound("stone.shortwarning")
+
+	GlobalMessages:Send("An Eon Sphere is spawning in "..CHARGE_TOWER_PRESPAWN_WARNING.." seconds!")
+
+	local minimap_dummy = CreateUnitByName("npc_stone_dummy", self.location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	minimap_dummy:AddNewModifier(minimap_dummy, nil, "modifier_dummy_state", {})
+	minimap_dummy:AddNewModifier(minimap_dummy, nil, "modifier_not_on_minimap", {})
+
+	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+		MinimapEvent(team, minimap_dummy, self.location.x, self.location.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, CHARGE_TOWER_PRESPAWN_WARNING)
+	end
+
+	local warning_pfx = ParticleManager:CreateParticle("particles/econ/events/fall_2021/teleport_end_fall_2021_lvl2.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(warning_pfx, 0, self.location)
+	ParticleManager:SetParticleControl(warning_pfx, 1, self.location)
+
+	EmitGlobalSound("stone.countdown")
+
+	Timers:CreateTimer(CHARGE_TOWER_PRESPAWN_WARNING - 3, function() GlobalMessages:Send("3...") EmitGlobalSound("stone.three") end)
+	Timers:CreateTimer(CHARGE_TOWER_PRESPAWN_WARNING - 2, function() GlobalMessages:Send("2...") EmitGlobalSound("stone.two") end)
+	Timers:CreateTimer(CHARGE_TOWER_PRESPAWN_WARNING - 1, function() GlobalMessages:Send("1...") EmitGlobalSound("stone.one") end)
+
+	Timers:CreateTimer(CHARGE_TOWER_PRESPAWN_WARNING, function()
+		ParticleManager:DestroyParticle(warning_pfx, false)
+		ParticleManager:ReleaseParticleIndex(warning_pfx)
+
+		StopGlobalSound("stone.countdown")
+		EmitGlobalSound("stone.spawn")
+
+		minimap_dummy:Destroy()
+
+		self:Spawn()
+	end)
 end

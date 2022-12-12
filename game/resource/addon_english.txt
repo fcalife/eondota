@@ -233,6 +233,9 @@
 		"DOTA_Tooltip_modifier_stealth_prevention"						"Too sneaky"
 		"DOTA_Tooltip_modifier_stealth_prevention_Description"			"Cannot benefit from Portal stealth for a while"
 
+		"DOTA_Tooltip_modifier_deactivated_charge_tower"				"Depowered"
+		"DOTA_Tooltip_modifier_deactivated_charge_tower_Description"	"This tower is disarmed and cannot attack for some time"
+
 		// Extra
 		"error_not_lane_tower"			"Can only be used on enemy Lane towers"
 		"error_not_carrying_ball"		"Can only be used on Eon Stone carriers"

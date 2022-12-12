@@ -53,6 +53,7 @@ LinkLuaModifier("modifier_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MO
 LinkLuaModifier("modifier_living_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_deactivated_charge_tower", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 
 -- GAME STATE CONSTANTS
 
@@ -95,8 +96,9 @@ NEUTRAL_CREEP_RESPAWN_TIME = (IsInToolsMode() and 3) or 60
 
 LIVING_NEXUS_AWAKENING_TIME = 600
 
-CHARGE_TOWER_ACTIVATION_TIME = 120
+CHARGE_TOWER_ACTIVATION_TIME = 90
 CHARGE_TOWER_BASE_CHARGE = 2
 CHARGE_TOWER_CHARGE_INCREMENT = 1
 
-CHARGE_TOWER_ORB_SPAWN_INTERVAL = (IsInToolsMode() and 10) or 60
+CHARGE_TOWER_ORB_SPAWN_INTERVAL = (IsInToolsMode() and 15) or 30
+CHARGE_TOWER_PRESPAWN_WARNING = 10

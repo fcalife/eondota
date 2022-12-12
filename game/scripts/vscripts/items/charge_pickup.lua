@@ -6,7 +6,7 @@ function item_charge_pickup:OnSpellStart(keys)
 
 	caster:EmitSound("Drop.EonStone")
 
-	ScoreManager:OnGainCharge(team)
+	ScoreManager:OnPickupCharge(team)
 
 	self:Destroy()
 end

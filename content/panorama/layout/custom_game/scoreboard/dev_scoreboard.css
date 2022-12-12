@@ -2,17 +2,44 @@
 	align:  center top;
 	margin-right: 320px;
 	margin-top:  65px;
-	width: 240px;
+	width: 250px;
+	flow-children: none;
 }
 
 #Dire_Charge {
 	align:  center top;
 	margin-left: 320px;
 	margin-top:  65px;
-	width: 240px;
+	width: 250px;
+	flow-children: none;
+}
+
+#Radiant_Progress {
+	border-radius: 8px;
+}
+
+#Radiant_Progress .ProgressBarLeft {
+	background-color: blue;
+}
+
+#Radiant_Progress .ProgressBarRight {
+	background-color: black;
+}
+
+#Dire_Progress {
+	border-radius: 8px;
+}
+
+#Dire_Progress .ProgressBarLeft {
+	background-color: red;
+}
+
+#Dire_Progress .ProgressBarRight {
+	background-color: black;
 }
 
 .Charge_Label {
+	padding: 6px;
 	text-align:  center center;
 	font-size:  28;
 	font-weight:  bold;

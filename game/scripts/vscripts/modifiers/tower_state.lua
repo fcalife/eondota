@@ -203,3 +203,33 @@ function modifier_jungle_tower_shield:OnAttacked(keys)
 		end
 	end
 end
+
+
+
+modifier_deactivated_charge_tower = class({})
+
+function modifier_deactivated_charge_tower:IsHidden() return false end
+function modifier_deactivated_charge_tower:IsDebuff() return true end
+function modifier_deactivated_charge_tower:IsPurgable() return false end
+
+function modifier_deactivated_charge_tower:GetTexture()
+	return "backdoor_protection"
+end
+
+function modifier_deactivated_charge_tower:OnDestroy()
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	parent:AddNewModifier(parent, nil, "modifier_fountain_glyph", {})
+end
+
+function modifier_deactivated_charge_tower:CheckState()
+	return {
+		[MODIFIER_STATE_DISARMED] = true,
+		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_ATTACK_IMMUNE] = true,
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true
+	}
+end

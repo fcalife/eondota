@@ -83,22 +83,12 @@ function ChargeTower:constructor(location, team)
 	self.unit:RemoveModifierByName("modifier_invulnerable")
 
 	self.unit:AddNewModifier(self.unit, nil, "modifier_tower_state", {})
-	self.unit:AddNewModifier(self.unit, nil, "modifier_disarmed", {})
-	self.unit:AddNewModifier(self.unit, nil, "modifier_invulnerable", {})
+	self.unit:AddNewModifier(self.unit, nil, "modifier_fountain_glyph", {})
 
 	if self.team == DOTA_TEAM_BADGUYS then self.unit:SetRenderColor(65, 78, 63) end
 end
 
-function ChargeTower:Activate()
-	self.unit:RemoveModifierByName("modifier_invulnerable")
-	self.unit:RemoveModifierByName("modifier_disarmed")
-	self.unit:AddNewModifier(self.unit, nil, "modifier_fountain_glyph", {duration = CHARGE_TOWER_ACTIVATION_TIME})
-	self.unit:AddNewModifier(self.unit, nil, "modifier_invulnerable", {})
-
-	Timers:CreateTimer(CHARGE_TOWER_ACTIVATION_TIME, function()
-		self.unit:RemoveModifierByName("modifier_fountain_glyph")
-		self.unit:RemoveModifierByName("modifier_invulnerable")
-		self.unit:AddNewModifier(self.unit, nil, "modifier_disarmed", {})
-		self.unit:AddNewModifier(self.unit, nil, "modifier_invulnerable", {})
-	end)
+function ChargeTower:Deactivate()
+	self.unit:RemoveModifierByName("modifier_fountain_glyph")
+	self.unit:AddNewModifier(self.unit, nil, "modifier_deactivated_charge_tower", {duration = CHARGE_TOWER_ACTIVATION_TIME})
 end

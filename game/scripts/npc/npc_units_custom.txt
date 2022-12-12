@@ -636,9 +636,9 @@
 		"BountyGoldMin"				"25"
 		"BountyGoldMax"				"30"
 
-		"MovementSpeed"				"400"
+		"MovementSpeed"				"360"
 
-		"StatusHealth"				"350"
+		"StatusHealth"				"300"
 		"StatusHealthRegen"			"0.5"
 	}	
 
@@ -647,73 +647,73 @@
 		"AttackDamageMin"			"45"
 		"AttackDamageMax"			"55"
 
-		"BountyXP"					"175"
-		"BountyGoldMin"				"175"
-		"BountyGoldMax"				"200"
+		"BountyXP"					"150"
+		"BountyGoldMin"				"150"
+		"BountyGoldMax"				"170"
 
-		"MovementSpeed"				"380"
+		"MovementSpeed"				"375"
 
-		"StatusHealth"				"1250"
+		"StatusHealth"				"800"
 		"StatusHealthRegen"			"0.5"
 	}
 
 	"npc_dota_neutral_giant_wolf"
 	{
-		"AttackDamageMin"			"22"
-		"AttackDamageMax"			"24"
+		"AttackDamageMin"			"38"
+		"AttackDamageMax"			"42"
 
-		"BountyXP"					"70"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"125"
+		"BountyGoldMin"				"60"
+		"BountyGoldMax"				"70"
 
-		"MovementSpeed"				"500"
+		"MovementSpeed"				"390"
 
-		"StatusHealth"				"400"
+		"StatusHealth"				"600"
 		"StatusHealthRegen"			"0.5"
 	}
 
 	"npc_dota_neutral_alpha_wolf"
 	{
-		"AttackDamageMin"			"29"
-		"AttackDamageMax"			"31"
+		"AttackDamageMin"			"64"
+		"AttackDamageMax"			"70"
 
-		"BountyXP"					"110"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"225"
+		"BountyGoldMin"				"230"
+		"BountyGoldMax"				"250"
 
-		"MovementSpeed"				"510"
+		"MovementSpeed"				"410"
 
-		"StatusHealth"				"600"
+		"StatusHealth"				"1150"
 		"StatusHealthRegen"			"0.5"
 	}		
 
 	"npc_dota_neutral_wildkin"
 	{										
-		"AttackDamageMin"			"24"
-		"AttackDamageMax"			"26"
+		"AttackDamageMin"			"75"
+		"AttackDamageMax"			"80"
 
-		"BountyXP"					"80"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"275"
+		"BountyGoldMin"				"190"
+		"BountyGoldMax"				"210"
 
 		"MovementSpeed"				"480"
 
-		"StatusHealth"				"600"
+		"StatusHealth"				"1200"
 		"StatusHealthRegen"			"0.5"
 	}		
 
 	"npc_dota_neutral_enraged_wildkin"
 	{
-		"AttackDamageMin"			"85"
-		"AttackDamageMax"			"95"
+		"AttackDamageMin"			"95"
+		"AttackDamageMax"			"105"
 
-		"BountyXP"					"475"
-		"BountyGoldMin"				"275"
-		"BountyGoldMax"				"300"
+		"BountyXP"					"325"
+		"BountyGoldMin"				"290"
+		"BountyGoldMax"				"310"
 
 		"MovementSpeed"				"410"
 
-		"StatusHealth"				"1375"
+		"StatusHealth"				"1800"
 		"StatusHealthRegen"			"0.5"
 	}
 
@@ -1544,11 +1544,11 @@
 	"npc_eon_living_nexus_good"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/heroes/legion_commander/legion_commander.vmdl"
-		"MinimapIcon"				"minimap_ping_baseattacked"
+		"Model"						"models/heroes/windrunner/windrunner.vmdl"
+		"MinimapIcon"				"minimap_sword"
 		"MinimapIconSize"			"550"
-		"ModelScale"				"2.45"
-		"SoundSet"					"Hero_LegionCommander"
+		"ModelScale"				"1.95"
+		"SoundSet"					"Hero_Windrunner"
 
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"0"
@@ -1590,12 +1590,11 @@
 		{
 			"AttachWearables"
 			{
-				"Wearable1"	{	"ItemDef"	"13984"	}
-				"Wearable2"	{	"ItemDef"	"13985"	}
-				"Wearable3"	{	"ItemDef"	"13986"	}
-				"Wearable4"	{	"ItemDef"	"13987"	}
-				"Wearable5"	{	"ItemDef"	"13988"	}
-				"Wearable6"	{	"ItemDef"	"13989"	}
+				"Wearable1"	{	"ItemDef"	"4473"	}	// markswoman's cap
+				"Wearable2"	{	"ItemDef"	"4601"	}	// sparrowhawk cape
+				"Wearable3"	{	"ItemDef"	"7926"	}	// TI6 shoulders
+				"Wearable4"	{	"ItemDef"	"7925"	}	// TI6 quiver
+				"Wearable5"	{	"ItemDef"	"4598"	}	// sparrowhawk bow
 			}
 		}
 	}
@@ -1863,20 +1862,20 @@
 		"Model"						"models/creeps/neutral_creeps/n_creep_kobold/kobold_a/n_creep_kobold_a.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_lane"
 		"SoundSet"					"n_creep_Melee"
-		"Level"						"2"
+		"Level"						"6"
 		"ModelScale" 				"1"
 
 		"Ability1"					"kobold_taskmaster_speed_aura"
-		"ArmorPhysical"				"2"			// Physical protection.
+		"ArmorPhysical"				"4"			// Physical protection.
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"70"		// Damage range min.
-		"AttackDamageMax"			"80"		// Damage range max.	
+		"AttackDamageMin"			"60"		// Damage range min.
+		"AttackDamageMax"			"60"		// Damage range max.	
 		"AttackRate"				"2"		// Speed of attack.
-		"BaseAttackSpeed"			"200"
+		"BaseAttackSpeed"			"150"
 		"AttackAnimationPoint"		"0.38"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"110"		// Range within a target can be attacked.
+		"AttackRange"				"200"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			"0"			// Speed of projectile.		   
 
@@ -1888,10 +1887,10 @@
 		"BountyGoldMax"				"0"		// Gold earned max.
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"330"		// Speed.
+		"MovementSpeed"				"325"		// Speed.
 		"MovementTurnRate"			"0.9"		// Turning rate.
 
-		"StatusHealth"				"1875"		// Base health.
+		"StatusHealth"				"1000"		// Base health.
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"1.0"		// Mana regeneration rate.		 
@@ -1900,25 +1899,26 @@
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 	}
 
-	"npc_dota_neutral_kobold_lane"
+	"npc_dota_neutral_alpha_wolf_lane"
 	{
-		"Model"						"models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_c.vmdl"	// Model.
+		"Model"						"models/creeps/neutral_creeps/n_creep_worg_large/n_creep_worg_large.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_lane"
 		"SoundSet"					"n_creep_Melee"
-		"Level"						"1"
+		"Level"						"8"
 		"ModelScale" 					".9"
 
-		"Ability1"					"kobold_tunneler_prospecting"
-		"ArmorPhysical"				"0"			// Physical protection.
+		"Ability1"					"alpha_wolf_critical_strike"
+		"Ability2"					"alpha_wolf_command_aura"
+		"ArmorPhysical"				"8"			// Physical protection.
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"30"		// Damage range min.
-		"AttackDamageMax"			"36"		// Damage range max.	
+		"AttackDamageMin"			"80"		// Damage range min.
+		"AttackDamageMax"			"80"		// Damage range max.	
 		"AttackRate"				"2"		// Speed of attack.
-		"BaseAttackSpeed"			"200"
-		"AttackAnimationPoint"		"0.38"		// Normalized time in animation cycle to attack.
+		"BaseAttackSpeed"			"150"
+		"AttackAnimationPoint"		"0.33"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"100"		// Range within a target can be attacked.
+		"AttackRange"				"200"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			"0"			// Speed of projectile.		   
 
@@ -1930,10 +1930,10 @@
 		"BountyGoldMax"				"0"			// Gold earned max.
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"290"		// Speed.
+		"MovementSpeed"				"325"		// Speed.
 		"MovementTurnRate"			"0.9"		// Turning rate.
 
-		"StatusHealth"				"475"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"1.0"		// Mana regeneration rate.		 
@@ -1947,22 +1947,22 @@
 		"Model"						"models/creeps/neutral_creeps/n_creep_vulture_a/n_creep_vulture_a.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_lane"
 		"SoundSet"					"n_creep_Melee"
-		"Level"						"5"
+		"Level"						"10"
 		"ModelScale" 				"1.1"
 
 		"Ability1"					"enraged_wildkin_hurricane"			// Ability 1
 		"Ability2"					"enraged_wildkin_toughness_aura"			// Ability 2
 
-		"ArmorPhysical"				"4"			// Physical protection.
+		"ArmorPhysical"				"12"			// Physical protection.
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"130"		// Damage range min.
-		"AttackDamageMax"			"140"		// Damage range max.	
+		"AttackDamageMin"			"100"		// Damage range min.
+		"AttackDamageMax"			"100"		// Damage range max.	
 		"AttackRate"				"2"		// Speed of attack.
 		"BaseAttackSpeed"			"150"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"128"		// Range within a target can be attacked.
+		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			"0"			// Speed of projectile.		   
 
@@ -1973,10 +1973,10 @@
 		"BountyGoldMax"				"0"		// Gold earned max.
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"320"		// Speed.
+		"MovementSpeed"				"325"		// Speed.
 		"MovementTurnRate"			"0.9"		// Turning rate.
 
-		"StatusHealth"				"2100"		// Base health.
+		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
 		"StatusMana"				"400"		// Base mana.
 		"StatusManaRegen"			"1"			// Mana regeneration rate.		 

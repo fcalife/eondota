@@ -41,7 +41,7 @@ function GlobalMessages:NotifyTeamDeliveredEssence(team)
 end
 
 function GlobalMessages:NotifyTeamBribedFireGuardian(team)
-	local message = "The Fire Guardian is bombarding "..((team == DOTA_TEAM_GOODGUYS) and "RED" or "BLUE").."'s Nexus!"
+	local message = "Jungle creeps are attacking "..((team == DOTA_TEAM_GOODGUYS) and "RED" or "BLUE").."'s Nexus!"
 
 	self:SendAnimated(message)
 

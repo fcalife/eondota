@@ -5,13 +5,13 @@ CustomNetTables.SubscribeNetTableListener("charge", UpdateCharge);
 
 function UpdateCharge(table_name, key, data) {
 	if (key == "radiant") {
-		$("#Radiant_Charge_Label").text = "Blue essence: " + data.current.toFixed(0) + " / " + data.target.toFixed(0);
+		$("#Radiant_Charge_Label").text = "Blue coins: " + data.current.toFixed(0);
 		$("#Radiant_Progress").value = parseInt(data.current);
-		$("#Radiant_Progress").max = parseInt(data.target);
+		$("#Radiant_Progress").max = parseInt(data.max);
 	} else if (key == "dire") {
-		$("#Dire_Charge_Label").text = "Red essence: " + data.current.toFixed(0) + " / " + data.target.toFixed(0);
+		$("#Dire_Charge_Label").text = "Red coins: " + data.current.toFixed(0);
 		$("#Dire_Progress").value = parseInt(data.current);
-		$("#Dire_Progress").max = parseInt(data.target);
+		$("#Dire_Progress").max = parseInt(data.max);
 	}
 }
 

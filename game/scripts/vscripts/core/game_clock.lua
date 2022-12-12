@@ -4,9 +4,15 @@ function GameClock:Start()
 	self.game_start_time = GameRules:GetGameTime()
 
 	self.next_rune_spawn = self.game_start_time
-	self.next_creep_spawn = self.game_start_time
-	self.creep_upgrade_time = self.game_start_time + FIRE_SPIRIT_UPGRADE_TIME
-	self.creep_upgrade_announced = false
+	self.next_coin_spawn = self.game_start_time + RandomInt(COIN_MIN_DELAY, COIN_MAX_DELAY)
+	self.next_archer_evaluation = self.game_start_time + COIN_EVALUATION_TIME
+	self.archer_warning_60 = true
+	self.archer_warning_30 = true
+	self.archer_warning_10 = true
+	self.archer_warning_3 = true
+	self.archer_warning_2 = true
+	self.archer_warning_1 = true
+	self.archer_evaluating = true
 
 	GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
 
@@ -35,24 +41,52 @@ function GameClock:Tick()
 		self.next_rune_spawn = self.next_rune_spawn + RUNE_RESPAWN_DELAY
 	end
 
-	if current_time >= self.next_creep_spawn then
-		NeutralCamps:SpawnFireCamp()
+	if current_time >= self.next_coin_spawn then
+		ArcherCoins:Spawn()
 
-		self.next_creep_spawn = self.next_creep_spawn + FIRE_SPIRIT_SPAWN_DELAY
+		self.next_coin_spawn = self.next_coin_spawn + RandomInt(COIN_MIN_DELAY, COIN_MAX_DELAY)
 	end
 
-	if CHARGE_TOWERS_ENABLED and current_time >= self.next_essence_spawn then
-		RuneSpawners:SpawnEssence()
+	if self.archer_warning_60 and current_time >= (self.next_archer_evaluation - 60) then
+		self.archer_warning_60 = false
 
-		self.next_essence_spawn = self.next_essence_spawn + CHARGE_TOWER_ORB_SPAWN_INTERVAL
+		GlobalMessages:Send("The Archer will decide the round winner in 60 seconds!")
 	end
 
-	if (not self.creep_upgrade_announced) and current_time >= self.creep_upgrade_time then
-		GlobalMessages:Send("The Fire Spirits have been upgraded!")
+	if self.archer_warning_30 and current_time >= (self.next_archer_evaluation - 30) then
+		self.archer_warning_30 = false
 
-		EmitGlobalSound("stone.warning")
+		GlobalMessages:Send("The Archer will decide the round winner in 30 seconds!")
+	end
 
-		self.creep_upgrade_announced = true
+	if self.archer_warning_10 and current_time >= (self.next_archer_evaluation - 10) then
+		self.archer_warning_10 = false
+
+		GlobalMessages:Send("The Archer will decide the round winner in 10 seconds!")
+	end
+
+	if self.archer_warning_3 and current_time >= (self.next_archer_evaluation - 3) then
+		self.archer_warning_3 = false
+
+		GlobalMessages:Send("3...")
+	end
+
+	if self.archer_warning_2 and current_time >= (self.next_archer_evaluation - 2) then
+		self.archer_warning_2 = false
+
+		GlobalMessages:Send("2...")
+	end
+
+	if self.archer_warning_1 and current_time >= (self.next_archer_evaluation - 1) then
+		self.archer_warning_1 = false
+
+		GlobalMessages:Send("1...")
+	end
+
+	if self.archer_evaluating and current_time >= self.next_archer_evaluation then
+		self.archer_evaluating = false
+
+		ScoreManager:EvaluateWinner()
 	end
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then

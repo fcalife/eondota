@@ -25,6 +25,7 @@ precache.particles = {
     "particles/speed_lane.vpcf",
     "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf",
     "particles/econ/items/doom/doom_2021_immortal_weapon/doom_2021_immortal_weapon_infernalblade_debuff_flames.vpcf",
+    "particles/econ/events/ti5/teleport_start_lvl2_ti5.vpcf",
 }
 
 precache.particle_folders = {

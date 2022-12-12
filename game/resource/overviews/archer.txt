@@ -1,0 +1,8 @@
+archer
+{
+	material materials/overviews/archer.vmat
+	pos_x -6400
+	pos_y 6400
+	scale 12.500
+}
+

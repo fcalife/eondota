@@ -15,7 +15,7 @@
 		"npc_patrol_golem_bad"				"Patrol Golem"
 		"npc_control_shrine"				"Shrine"
 		"npc_eon_nexus"						"Nexus"
-		"npc_eon_living_nexus_good"			"Living Nexus"
+		"npc_eon_living_nexus_good"			"The Archer"
 		"npc_eon_living_nexus_bad"			"Fire Guardian"
 		"npc_eon_living_tower_bad"			"Fire Guardian"
 		"npc_eon_living_tower_good"			"Living Tower"
@@ -40,14 +40,14 @@
 		"npc_fire_golem_lane"				"Fire Golem"
 
 		// Units
-		"npc_dota_neutral_kobold_taskmaster_lane"	"Tamed Taskmaster"
-		"npc_dota_neutral_kobold_lane"				"Tamed Kobold"	
+		"npc_dota_neutral_kobold_taskmaster_lane"	"Tamed Kobold"
+		"npc_dota_neutral_alpha_wolf_lane"			"Tamed Wolf"	
 		"npc_dota_neutral_enraged_wildkin_lane"		"Tamed Wildwing"
 
 
 		// Items
-		"DOTA_Tooltip_ability_item_fire_essence"				"Fire Essence"
-		"DOTA_Tooltip_ability_item_fire_essence_Description"	"The Fire Guardian loves it"
+		"DOTA_Tooltip_ability_item_fire_essence"				"Gold Coin"
+		"DOTA_Tooltip_ability_item_fire_essence_Description"	"Used to pay the Archer"
 
 		"DOTA_Tooltip_ability_item_charge_pickup"				"Eon Essence"
 		"DOTA_Tooltip_ability_item_charge_pickup_Description"	"Charges up your towers"
@@ -243,7 +243,7 @@
 		// Extra
 		"error_not_lane_tower"			"Can only be used on enemy Lane towers"
 		"error_not_carrying_ball"		"Can only be used on Eon Stone carriers"
-		"error_can_only_target_fire_guardian"		"Can only be given to the Fire Guardian"
-		"error_fire_guardian_busy"		"The Fire Guardian is busy! Wait until he's done."
+		"error_can_only_target_fire_guardian"		"Can only be given to the Archer"
+		"error_fire_guardian_busy"		"The Archer is busy! Wait until she's done."
 	}
 }

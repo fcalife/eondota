@@ -111,9 +111,10 @@ function LaneCreeps:SpawnWave()
 	end
 end
 
-function LaneCreeps:SpawnNeutralForTeam(team, unit_name)
-	local creep = LaneCreep(team, (team == DOTA_TEAM_GOODGUYS) and self.good_path or self.bad_path, self.spawn_points[team].siege[1], unit_name)
+function LaneCreeps:SpawnNeutralForTeam(team, unit_name, offset)
+	local creep = LaneCreep(team, (team == DOTA_TEAM_GOODGUYS) and self.good_path or self.bad_path, self.spawn_points[team].siege[1] + RandomVector(offset), unit_name)
 	creep.unit:AddNewModifier(creep.unit, nil, "modifier_nexus_attacker", {})
+	creep.unit:AddNewModifier(creep.unit, nil, "modifier_kill", {duration = 45})
 end
 
 

@@ -35,9 +35,7 @@ function item_fire_essence:OnSpellStart()
 
 	ScoreManager:AddEssence(self:GetCaster():GetTeam(), essence_count)
 
-	Firelord.unit:EmitSound("Hero_DoomBringer.Devour")
-
-	Firelord.unit:AddNewModifier(self:GetCaster(), self, "modifier_firelord_fire_visual", {duration = 3.5})
+	SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, Firelord.unit, essence_count, nil)
 
 	self:Destroy()
 end
@@ -49,7 +47,7 @@ function item_fire_essence:DropOnLocation(location)
 		for i = 1, math.max(1, self:GetCurrentCharges()) do
 			local essence_drop = CreateItem("item_fire_essence", nil, nil)
 			local drop = CreateItemOnPositionForLaunch(self:GetCaster():GetAbsOrigin(), essence_drop)
-			drop:SetModelScale(1.8)
+			drop:SetModelScale(1.2)
 			essence_drop:LaunchLoot(false, RandomInt(175, 300), 0.4, self:GetCaster():GetAbsOrigin() + RandomVector(120))
 		end
 

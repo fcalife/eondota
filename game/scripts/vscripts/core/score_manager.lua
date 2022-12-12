@@ -9,34 +9,58 @@ function ScoreManager:Init()
 	self.score[DOTA_TEAM_GOODGUYS] = 0
 	self.score[DOTA_TEAM_BADGUYS] = 0
 
-	self.essence = {}
-	self.essence[DOTA_TEAM_GOODGUYS] = 0
-	self.essence[DOTA_TEAM_BADGUYS] = 0
-
-	self.essence_target = {}
-	self.essence_target[DOTA_TEAM_GOODGUYS] = FIRE_ESSENCE_BASE
-	self.essence_target[DOTA_TEAM_BADGUYS] = FIRE_ESSENCE_BASE
-
 	self:UpdateEssenceScoreboard()
 end
 
 function ScoreManager:UpdateEssenceScoreboard()
-	CustomNetTables:SetTableValue("charge", "radiant", {current = self.essence[DOTA_TEAM_GOODGUYS], target = self.essence_target[DOTA_TEAM_GOODGUYS]})
-	CustomNetTables:SetTableValue("charge", "dire", {current = self.essence[DOTA_TEAM_BADGUYS], target = self.essence_target[DOTA_TEAM_BADGUYS]})
+	local max = math.max(1, self.score[DOTA_TEAM_GOODGUYS], self.score[DOTA_TEAM_BADGUYS])
+
+	CustomNetTables:SetTableValue("charge", "radiant", {current = self.score[DOTA_TEAM_GOODGUYS], max = max})
+	CustomNetTables:SetTableValue("charge", "dire", {current = self.score[DOTA_TEAM_BADGUYS], max = max})
 end
 
 function ScoreManager:AddEssence(team, amount)
-	self.essence[team] = math.min(self.essence[team] + amount, self.essence_target[team])
+	self.score[team] = self.score[team] + amount
+
 	self:UpdateEssenceScoreboard()
+end
 
-	if self.essence[team] >= self.essence_target[team] then
-		self.essence_target[team] = self.essence_target[team] + FIRE_ESSENCE_INCREMENT
-		self.essence[team] = 0
+function ScoreManager:EvaluateWinner()
+	if self.score[DOTA_TEAM_GOODGUYS] > self.score[DOTA_TEAM_BADGUYS] then
+		Firelord:SummonNeutralsFor(DOTA_TEAM_GOODGUYS)
 
-		Firelord:Bombard(ENEMY_TEAM[team])
+		self.score[DOTA_TEAM_GOODGUYS] = 0
+		self.score[DOTA_TEAM_BADGUYS] = 0
 
-		GlobalMessages:NotifyTeamBribedFireGuardian(team)
+		self:UpdateEssenceScoreboard()
+
+		GameClock.next_archer_evaluation = GameRules:GetGameTime() + COIN_EVALUATION_TIME
+		GameClock.archer_warning_60 = true
+		GameClock.archer_warning_30 = true
+		GameClock.archer_warning_10 = true
+		GameClock.archer_warning_3 = true
+		GameClock.archer_warning_2 = true
+		GameClock.archer_warning_1 = true
+		GameClock.archer_evaluating = true
+
+	elseif self.score[DOTA_TEAM_GOODGUYS] < self.score[DOTA_TEAM_BADGUYS] then
+		Firelord:SummonNeutralsFor(DOTA_TEAM_BADGUYS)
+
+		self.score[DOTA_TEAM_GOODGUYS] = 0
+		self.score[DOTA_TEAM_BADGUYS] = 0
+
+		self:UpdateEssenceScoreboard()
+
+		GameClock.next_archer_evaluation = GameRules:GetGameTime() + COIN_EVALUATION_TIME
+		GameClock.archer_warning_60 = true
+		GameClock.archer_warning_30 = true
+		GameClock.archer_warning_10 = true
+		GameClock.archer_warning_3 = true
+		GameClock.archer_warning_2 = true
+		GameClock.archer_warning_1 = true
+		GameClock.archer_evaluating = true
+
 	else
-		GlobalMessages:NotifyTeamDeliveredEssence(team)
+		Timers:CreateTimer(1.0, function() ScoreManager:EvaluateWinner() end)
 	end
 end

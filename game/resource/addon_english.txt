@@ -40,6 +40,9 @@
 
 
 		// Items
+		"DOTA_Tooltip_ability_item_sphere"						"Eon Sphere"
+		"DOTA_Tooltip_ability_item_sphere_Description"			"Worth its (metaphorical) weight in gold!"
+
 		"DOTA_Tooltip_ability_item_flag"						"Flag"
 		"DOTA_Tooltip_ability_item_flag_Description"			"Get it to your base!"
 

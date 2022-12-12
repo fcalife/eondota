@@ -11,12 +11,8 @@ RUNE_NAME[RUNE_TYPE_GREEN] = "item_green_rune"
 function RuneSpawners:Init()
 	self.rune_spawners = {}
 
-	for _, spawn_point in pairs(Entities:FindAllByName("red_rune_spawn")) do
+	for _, spawn_point in pairs(Entities:FindAllByName("sphere_spawn")) do
 		table.insert(self.rune_spawners, RuneSpawner(spawn_point:GetAbsOrigin(), RUNE_TYPE_RED))
-	end
-
-	for _, spawn_point in pairs(Entities:FindAllByName("green_rune_spawn")) do
-		table.insert(self.rune_spawners, RuneSpawner(spawn_point:GetAbsOrigin(), RUNE_TYPE_GREEN))
 	end
 end
 
@@ -41,6 +37,6 @@ end
 function RuneSpawner:Spawn()
 	if self.rune and (not self.rune:IsNull()) and self.rune_container and (not self.rune_container:IsNull()) then return end
 
-	self.rune = CreateItem(RUNE_NAME[self.rune_type], nil, nil)
+	self.rune = CreateItem("item_sphere", nil, nil)
 	self.rune_container = CreateItemOnPositionForLaunch(self.location, self.rune)
 end

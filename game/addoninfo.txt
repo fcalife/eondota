@@ -3,8 +3,7 @@
 	TeamCount = 2
 	maps = 
 	[
-		"aram",
-		"aram_wings",
+		"aram_sphere",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false
@@ -13,7 +12,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "aram"
+	DefaultMap = "aram_sphere"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false

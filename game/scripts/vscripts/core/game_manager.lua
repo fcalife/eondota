@@ -27,12 +27,16 @@ end
 
 function GameManager:InitializeHero(hero)
 	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
-	hero:HeroLevelUp(false)
-	hero:HeroLevelUp(false)
+
+	for i = 1, 6 do
+		hero:HeroLevelUp(false)
+	end
 
 	for i = 0, 10 do
 		if hero:GetAbilityByIndex(i) then
 			if hero:GetAbilityByIndex(i):GetAbilityType() == ABILITY_TYPE_BASIC then
+				hero:GetAbilityByIndex(i):SetLevel(2)
+			elseif hero:GetAbilityByIndex(i):GetAbilityType() == ABILITY_TYPE_ULTIMATE then
 				hero:GetAbilityByIndex(i):SetLevel(1)
 			end
 		end
@@ -47,6 +51,8 @@ function GameManager:InitializeHero(hero)
 		hero:AddItemByName("item_dev_blink")
 		--hero:AddItemByName("item_dev_dagon")
 	end
+
+	hero:AddItemByName("item_ultimate_scepter_2")
 end
 
 function GameManager:EndGameWithWinner(team)

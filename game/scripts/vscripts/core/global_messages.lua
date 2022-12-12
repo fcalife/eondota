@@ -24,16 +24,24 @@ function GlobalMessages:NotifyTeamDeliveredFlag(team)
 	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.flag" or "dire.flag")
 end
 
-function GlobalMessages:NotifyTeamGotCharge(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "RED" or "BLUE").."'s towers just lost some energy!"
+function GlobalMessages:NotifyTeamKilledGolem(team)
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has recruited a Fire Golem!"
 
 	self:Send(message)
 
 	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.flag" or "dire.flag")
 end
 
-function GlobalMessages:NotifyTeamDeactivatedCharge(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").."'s towers are now disabled for 90 seconds!"
+function GlobalMessages:NotifyTeamDeliveredEssence(team)
+	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." delivered fire essence to the Fire Guardian!"
+
+	self:SendAnimated(message)
+
+	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.flag" or "dire.flag")
+end
+
+function GlobalMessages:NotifyTeamBribedFireGuardian(team)
+	local message = "The Fire Guardian is bombarding "..((team == DOTA_TEAM_GOODGUYS) and "RED" or "BLUE").."'s Nexus!"
 
 	self:SendAnimated(message)
 

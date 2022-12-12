@@ -11,7 +11,14 @@ function modifier_neutral_size:OnCreated(keys)
 end
 
 function modifier_neutral_size:DeclareFunctions()
-	return { MODIFIER_PROPERTY_MODEL_SCALE }
+	return {
+		MODIFIER_PROPERTY_MODEL_SCALE,
+		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
+	}
+end
+
+function modifier_neutral_size:GetModifierProvidesFOWVision()
+	return 1
 end
 
 function modifier_neutral_size:GetModifierModelScale()

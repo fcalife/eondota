@@ -16,8 +16,8 @@
 		"npc_control_shrine"				"Shrine"
 		"npc_eon_nexus"						"Nexus"
 		"npc_eon_living_nexus_good"			"Living Nexus"
-		"npc_eon_living_nexus_bad"			"Living Nexus"
-		"npc_eon_living_tower_bad"			"Living Tower"
+		"npc_eon_living_nexus_bad"			"Fire Guardian"
+		"npc_eon_living_tower_bad"			"Fire Guardian"
 		"npc_eon_living_tower_good"			"Living Tower"
 		"npc_eon_roshan"					"Roshan"
 		"npc_eon_knight"					"Ethereal Knight"
@@ -35,8 +35,9 @@
 		"npc_dota_neutral_black_drake"		"Krakenling"
 		"npc_dota_neutral_black_dragon"		"The Kraken"
 		"npc_eon_cart"						"Push Cart"
-		"npc_charge_spider"					"Essence Spider"
-		"npc_win_dragon"					"Doom Dragon"
+		"npc_fire_spirit"					"Fire Spirit"
+		"npc_fire_golem"					"Fire Golem"
+		"npc_fire_golem_lane"				"Fire Golem"
 
 		// Units
 		"npc_dota_neutral_kobold_taskmaster_lane"	"Tamed Taskmaster"
@@ -45,6 +46,9 @@
 
 
 		// Items
+		"DOTA_Tooltip_ability_item_fire_essence"				"Fire Essence"
+		"DOTA_Tooltip_ability_item_fire_essence_Description"	"The Fire Guardian loves it"
+
 		"DOTA_Tooltip_ability_item_charge_pickup"				"Eon Essence"
 		"DOTA_Tooltip_ability_item_charge_pickup_Description"	"Charges up your towers"
 
@@ -239,5 +243,7 @@
 		// Extra
 		"error_not_lane_tower"			"Can only be used on enemy Lane towers"
 		"error_not_carrying_ball"		"Can only be used on Eon Stone carriers"
+		"error_can_only_target_fire_guardian"		"Can only be given to the Fire Guardian"
+		"error_fire_guardian_busy"		"The Fire Guardian is busy! Wait until he's done."
 	}
 }

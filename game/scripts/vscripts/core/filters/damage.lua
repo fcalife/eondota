@@ -10,5 +10,7 @@ function Filters:DamageFilter(keys)
 	if (not attacker) or attacker:IsNull() then return false end
 	if (not victim) or victim:IsNull() then return false end
 
+	if victim:HasModifier("modifier_nexus_state") and (not attacker:HasModifier("modifier_nexus_attacker")) then keys.damage = 0 end
+
 	return true
 end

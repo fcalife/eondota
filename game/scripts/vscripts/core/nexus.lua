@@ -1,6 +1,8 @@
 _G.NexusManager = NexusManager or {}
 
 function NexusManager:SpawnNexus()
+	self.nexuses = {}
+
 	local good_location = Entities:FindByName(nil, "radiant_nexus"):GetAbsOrigin()
 	local bad_location = Entities:FindByName(nil, "dire_nexus"):GetAbsOrigin()
 
@@ -8,11 +10,14 @@ function NexusManager:SpawnNexus()
 		LivingNexus(DOTA_TEAM_GOODGUYS, good_location)
 		LivingNexus(DOTA_TEAM_BADGUYS, bad_location)
 	else
-		Nexus(DOTA_TEAM_GOODGUYS, good_location)
-		Nexus(DOTA_TEAM_BADGUYS, bad_location)
+		self.nexuses[DOTA_TEAM_GOODGUYS] = Nexus(DOTA_TEAM_GOODGUYS, good_location)
+		self.nexuses[DOTA_TEAM_BADGUYS] = Nexus(DOTA_TEAM_BADGUYS, bad_location)
 	end
 end
 
+function NexusManager:GetNexusUnit(team)
+	return self.nexuses[team].unit
+end
 
 
 if Nexus == nil then Nexus = class({}) end

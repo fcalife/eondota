@@ -66,3 +66,18 @@ function GoldRewards:GiveGoldFromPickup(unit, gold)
 		end
 	end
 end
+
+function GoldRewards:LevelupPlayersInTeam(team)
+	for id = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+		if PlayerResource:IsValidPlayer(id) and PlayerResource:GetTeam(id) == team then
+			local hero = PlayerResource:GetSelectedHeroEntity(id)
+			local hero_level = hero:GetLevel()
+
+			if hero_level < 30 then
+				local exp = 0.5 * (GetXPNeededToReachNextLevel(hero_level + 1) - GetXPNeededToReachNextLevel(hero_level))
+
+				hero:AddExperience(exp, DOTA_ModifyXP_CreepKill, false, true)
+			end
+		end
+	end
+end

@@ -480,6 +480,153 @@
 		"ProjectileSpeed"			"1500"
 	}
 
+	"npc_fire_spirit"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/items/invoker/forge_spirit/grievous_ingots/grievous_ingots.vmdl"
+		"SoundSet"					"Creep_Good_Range"
+		"ModelScale"				"1.25"
+		"Level"						"10"
+		"IsAncient"					"1"
+
+		"MinimapIcon"				"minimap_creepcamp"
+		"MinimapIconSize"			"350"
+
+		"ArmorPhysical"				"8"
+		"MagicalResistance"			"25"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"65"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.35"
+		"AttackAnimationPoint"		"0.2"
+		"AttackAcquisitionRange"	"650"
+		"AttackRange"				"650"
+		"ProjectileModel"			"particles/units/heroes/hero_invoker/invoker_forged_spirit_projectile.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"375"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"1500"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		"ConsideredHero"			"1"
+	}
+
+	"npc_fire_golem"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/items/warlock/golem/ti_8_warlock_darkness_apostate_golem/ti_8_warlock_darkness_apostate_golem.vmdl"
+		"SoundSet"					"Hero_WarlockGolem"
+		"ModelScale"				"1.5"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"MinimapIcon"				"minimap_creepcamp_big"
+		"MinimapIconSize"			"350"
+
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.1"
+		"AttackAnimationPoint"		"0.2"
+		"AttackAcquisitionRange"	"250"
+		"AttackRange"				"250"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"4500"
+		"StatusHealthRegen"			"20"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		"ConsideredHero"			"1"
+	}
+
+	"npc_fire_golem_lane"
+	{
+		"BaseClass"					"npc_dota_creep_lane"
+		"Model"						"models/items/warlock/golem/ti_8_warlock_darkness_apostate_golem/ti_8_warlock_darkness_apostate_golem.vmdl"
+		"SoundSet"					"Hero_WarlockGolem"
+		"ModelScale"				"1.5"
+		"Level"						"30"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.1"
+		"AttackAnimationPoint"		"0.2"
+		"AttackAcquisitionRange"	"250"
+		"AttackRange"				"250"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"RingRadius"				"160"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"150"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"6000"
+		"StatusHealthRegen"			"20"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		"ConsideredHero"			"1"
+	}
+
 	"npc_dota_neutral_kobold"
 	{
 		"AttackDamageMin"			"20"
@@ -572,13 +719,13 @@
 
 	"npc_dota_neutral_prowler_shaman"
 	{
-		"Model"						"models/items/warlock/golem/tevent_2_gatekeeper_golem/tevent_2_gatekeeper_golem.vmdl"
+		"Model"						"models/items/invoker/forge_spirit/grievous_ingots/grievous_ingots.vmdl"
 
-		"AttackAnimationPoint"		"0.26"
-		"AttackRange"				"200"
+		"AttackAnimationPoint"		"0.2"
+		"AttackRange"				"625"
 
-		"AttackDamageMin"			"25"
-		"AttackDamageMax"			"30"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"0"
 
 		"BountyXP"					"600"
 		"BountyGoldMin"				"0"
@@ -1457,22 +1604,24 @@
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/doom/doom.vmdl"
-		"MinimapIcon"				"minimap_ping_baseattacked"
+		"MinimapIcon"				"minimap_sword"
 		"MinimapIconSize"			"550"
-		"ModelScale"				"1.95"
+		"ModelScale"				"1.45"
 		"SoundSet"					"Hero_DoomBringer"
 
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"0"
 
+		"Ability1"					"snapfire_mortimer_kisses"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"310"
+		"AttackDamageMin"			"666"
+		"AttackDamageMax"			"666"
 		"BaseAttackSpeed"			"100"
-		"AttackRate"				"1.3"
+		"AttackRate"				"0.66"
 		"AttackAnimationPoint"		"0.5"
 		"AttackAcquisitionRange"	"1000"
-		"AttackRange"				"375"
+		"AttackRange"				"666"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
@@ -1485,11 +1634,11 @@
 		"HealthBarOffset"			"400"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"100"
+		"MovementSpeed"				"166"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"4000"
-		"StatusHealthRegen"			"0"
+		"StatusHealth"				"6666"
+		"StatusHealthRegen"			"6.6"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 

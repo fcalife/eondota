@@ -24,6 +24,7 @@ precache.particles = {
     "particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf",
     "particles/speed_lane.vpcf",
     "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf",
+    "particles/econ/items/doom/doom_2021_immortal_weapon/doom_2021_immortal_weapon_infernalblade_debuff_flames.vpcf",
 }
 
 precache.particle_folders = {
@@ -45,9 +46,9 @@ precache.model_folders = {
 precache.sounds = {
     "soundevents/dab_soundevents.vsndevts",
     "soundevents/dab_client_soundevents.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_dawnbreaker.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts",
 }
 
 precache.units = {

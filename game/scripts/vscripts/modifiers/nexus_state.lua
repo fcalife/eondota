@@ -7,8 +7,7 @@ function modifier_nexus_state:IsPurgable() return false end
 function modifier_nexus_state:CheckState()
 	return {
 		[MODIFIER_STATE_ROOTED] = true,
-		[MODIFIER_STATE_DISARMED] = true,
-		[MODIFIER_STATE_MAGIC_IMMUNE] = true
+		[MODIFIER_STATE_DISARMED] = true
 	}
 end
 
@@ -77,3 +76,11 @@ function modifier_living_nexus_state:OnDeath(keys)
 		GameManager:EndGameWithWinner(ENEMY_TEAM[keys.unit:GetTeam()])
 	end
 end
+
+
+
+modifier_nexus_attacker = class({})
+
+function modifier_nexus_attacker:IsHidden() return true end
+function modifier_nexus_attacker:IsDebuff() return false end
+function modifier_nexus_attacker:IsPurgable() return false end

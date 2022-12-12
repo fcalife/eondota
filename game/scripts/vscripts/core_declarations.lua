@@ -51,9 +51,16 @@ LinkLuaModifier("modifier_brush_invisibility", "modifiers/brush", LUA_MODIFIER_M
 
 LinkLuaModifier("modifier_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_living_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nexus_attacker", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_deactivated_charge_tower", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
+
+LinkLuaModifier("modifier_firelord_state", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_firelord_busy", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_firelord_fire_visual", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
+
+
 
 -- GAME STATE CONSTANTS
 
@@ -74,11 +81,11 @@ PLAYER_STATE_ABANDONED	 		= 4
 
 -- GAME DESIGN CONSTANTS
 REVERSE_CTF = false
-TOWERS_ENABLED = true
-LANE_CREEPS_ENABLED = true
+TOWERS_ENABLED = false
+LANE_CREEPS_ENABLED = false
 FOG_OF_WAR_DISABLED = false
 LIVING_BUILDINGS_ENABLED = false
-CHARGE_TOWERS_ENABLED = true
+CHARGE_TOWERS_ENABLED = false
 
 ROUNDS_TO_WIN = 3
 MIN_ROUND_FOR_ULTIMATES = 3
@@ -97,8 +104,14 @@ NEUTRAL_CREEP_RESPAWN_TIME = (IsInToolsMode() and 3) or 60
 LIVING_NEXUS_AWAKENING_TIME = 600
 
 CHARGE_TOWER_ACTIVATION_TIME = 90
-CHARGE_TOWER_BASE_CHARGE = 2
-CHARGE_TOWER_CHARGE_INCREMENT = 1
 
 CHARGE_TOWER_ORB_SPAWN_INTERVAL = (IsInToolsMode() and 15) or 30
-CHARGE_TOWER_PRESPAWN_WARNING = 10
+
+FIRE_ESSENCE_BASE = 4
+FIRE_ESSENCE_INCREMENT = 1
+
+FIRE_SPIRIT_PRESPAWN_WARNING = 10
+FIRE_SPIRIT_SPAWN_DELAY = 24
+FIRE_SPIRIT_UPGRADE_TIME = 290
+FIRE_SPIRIT_GOLD_BOUNTY = 500
+FIRE_SPIRIT_UPGRADED_GOLD = 1000

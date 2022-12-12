@@ -40,12 +40,12 @@ function GameManager:InitializeHero(hero)
 
 	hero:SetAbilityPoints(0)
 
-	hero:AddNewModifier(hero, nil, "modifier_stunned", {})
-
 	if IsInToolsMode() then
 		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
 		hero:AddItemByName("item_dev_blink")
-		--hero:AddItemByName("item_dev_dagon")
+		hero:AddItemByName("item_dev_dagon")
+	else
+		hero:AddNewModifier(hero, nil, "modifier_stunned", {})
 	end
 end
 

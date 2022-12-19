@@ -49,7 +49,7 @@ precache.sounds = {
     "soundevents/dab_client_soundevents.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts",
 }
 
 precache.units = {

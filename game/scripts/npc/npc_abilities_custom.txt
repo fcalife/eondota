@@ -371,4 +371,100 @@
 			"speed"					"1000"
 		}
 	}
+
+	"ability_building_regen"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/rts_buildings"
+
+		"AbilityTextureName"		"alchemist_acid_spray"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"regen"					"1.0"
+		}
+	}
+
+	"ability_building_gold"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/rts_buildings"
+
+		"AbilityTextureName"		"alchemist_goblins_greed"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+	}
+
+	"ability_building_damage"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/rts_buildings"
+
+		"AbilityTextureName"		"rattletrap_power_cogs"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"15"
+		}
+	}
+
+	"ability_building_defense"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/rts_buildings"
+
+		"AbilityTextureName"		"magnataur_shockwave"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"delay"					"1.5"
+			"range"					"1300"
+		}
+	}
 }

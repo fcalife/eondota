@@ -7,35 +7,27 @@ function item_fire_essence:GetIntrinsicModifierName()
 end
 
 function item_fire_essence:CastFilterResultTarget(target)
-	if target:HasModifier("modifier_firelord_state") then
-		if target:HasModifier("modifier_firelord_busy") then
-			return UF_FAIL_CUSTOM
-		else
-			return UF_SUCCESS
-		end
+	if target:HasModifier("modifier_nexus_state") and target:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
+		return UF_SUCCESS
 	end
 
 	return UF_FAIL_CUSTOM
 end
 
 function item_fire_essence:GetCustomCastErrorTarget(target)
-	if target:HasModifier("modifier_firelord_state") then
-		if target:HasModifier("modifier_firelord_busy") then
-			return "#error_fire_guardian_busy"
-		else
-			return UF_SUCCESS
-		end
+	if target:HasModifier("modifier_nexus_state") and target:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
+		return UF_SUCCESS
 	end
 
-	return "#error_can_only_target_fire_guardian"
+	return "#error_can_only_target_nexus"
 end
 
 function item_fire_essence:OnSpellStart()
 	local essence_count = self:GetCurrentCharges()
 
-	ScoreManager:AddEssence(self:GetCaster():GetTeam(), essence_count)
+	ScoreManager:AddEssence(self:GetCaster(), essence_count)
 
-	SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, Firelord.unit, essence_count, nil)
+	SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, NexusManager:GetNexusUnit(self:GetCaster():GetTeam()), essence_count, nil)
 
 	self:Destroy()
 end
@@ -91,3 +83,7 @@ function modifier_item_fire_essence:OnDeath(keys)
 
 	if essence then essence:DropOnLocation(keys.unit:GetAbsOrigin()) end
 end
+
+item_blue_essence = class({})
+
+item_red_essence = class({})

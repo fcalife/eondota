@@ -3,7 +3,7 @@
 	TeamCount = 2
 	maps = 
 	[
-		"archer",
+		"jungle_rts",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false
@@ -12,7 +12,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "archer"
+	DefaultMap = "jungle_rts"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false

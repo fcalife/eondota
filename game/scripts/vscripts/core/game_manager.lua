@@ -15,6 +15,8 @@ function GameManager:Init()
 	ScoreManager:Init()
 	BrushManager:Init()
 	LaneCreeps:Init()
+	ArcherCoins:Init()
+	Buildables:Init()
 end
 
 function GameManager:SetGamePhase(phase)

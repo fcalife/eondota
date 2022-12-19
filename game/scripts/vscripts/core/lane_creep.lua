@@ -2,85 +2,122 @@ _G.LaneCreeps = LaneCreeps or {}
 
 LANE_CREEP_FIRST_SPAWN = 0
 LANE_CREEP_RESPAWN_DELAY = 30
-LANE_CREEP_MELEE_COUNT = 5
-LANE_CREEP_RANGED_COUNT = 2
-LANE_CREEP_MELEE_OFFSET = -450
-LANE_CREEP_RANGED_OFFSET = -700
-LANE_CREEP_SIEGE_OFFSET = -975
-LANE_CREEP_MELEE_SPAWN_DISTANCE = 550
-LANE_CREEP_RANGED_SPAWN_DISTANCE = 225
+LANE_CREEP_MELEE_COUNT = 3
+LANE_CREEP_RANGED_COUNT = 1
+LANE_CREEP_RANGED_OFFSET = -250
+LANE_CREEP_SIEGE_OFFSET = -500
+LANE_CREEP_MELEE_SPAWN_DISTANCE = 350
+LANE_CREEP_RANGED_SPAWN_DISTANCE = 250
 
 function LaneCreeps:Init()
 	local good_nexus = Entities:FindByName(nil, "radiant_nexus"):GetAbsOrigin()
 	local bad_nexus = Entities:FindByName(nil, "dire_nexus"):GetAbsOrigin()
-	local lane_center = Vector(0, 0, 128)
 
-	local good_direction = (lane_center - good_nexus):Normalized()
-	local bad_direction = (lane_center - bad_nexus):Normalized()
+	local bottom_waypoints = {}
+	table.insert(bottom_waypoints, Entities:FindByName(nil, "radiant_creep_waypoint_a1"):GetAbsOrigin())
+	table.insert(bottom_waypoints, Entities:FindByName(nil, "creep_waypoint_a2"):GetAbsOrigin())
+	table.insert(bottom_waypoints, Entities:FindByName(nil, "dire_creep_waypoint_a1"):GetAbsOrigin())
 
-	local good_normal = RotatePosition(Vector(0, 0, 0), QAngle(0, 90, 0), Vector(0, 0, 0) + 100 * good_direction):Normalized()
-	local bad_normal = RotatePosition(Vector(0, 0, 0), QAngle(0, 90, 0), Vector(0, 0, 0) + 100 * bad_direction):Normalized()
+	local top_waypoints = {}
+	table.insert(top_waypoints, Entities:FindByName(nil, "radiant_creep_waypoint_b1"):GetAbsOrigin())
+	table.insert(top_waypoints, Entities:FindByName(nil, "creep_waypoint_b2"):GetAbsOrigin())
+	table.insert(top_waypoints, Entities:FindByName(nil, "dire_creep_waypoint_b1"):GetAbsOrigin())
 
-	self.good_path = {}
+	self.bottom_path = {}
+	self.bottom_path[DOTA_TEAM_GOODGUYS] = {}
+	self.bottom_path[DOTA_TEAM_BADGUYS] = {}
 
-	table.insert(self.good_path, good_nexus)
-	table.insert(self.good_path, lane_center)
-	table.insert(self.good_path, bad_nexus)
+	table.insert(self.bottom_path[DOTA_TEAM_GOODGUYS], bottom_waypoints[1])
+	table.insert(self.bottom_path[DOTA_TEAM_GOODGUYS], bottom_waypoints[2])
+	table.insert(self.bottom_path[DOTA_TEAM_GOODGUYS], bottom_waypoints[3])
+	table.insert(self.bottom_path[DOTA_TEAM_GOODGUYS], bad_nexus)
 
-	self.bad_path = {}
+	table.insert(self.bottom_path[DOTA_TEAM_BADGUYS], bottom_waypoints[3])
+	table.insert(self.bottom_path[DOTA_TEAM_BADGUYS], bottom_waypoints[2])
+	table.insert(self.bottom_path[DOTA_TEAM_BADGUYS], bottom_waypoints[1])
+	table.insert(self.bottom_path[DOTA_TEAM_BADGUYS], good_nexus)
 
-	table.insert(self.bad_path, bad_nexus)
-	table.insert(self.bad_path, lane_center)
-	table.insert(self.bad_path, good_nexus)
+	self.top_path = {}
+	self.top_path[DOTA_TEAM_GOODGUYS] = {}
+	self.top_path[DOTA_TEAM_BADGUYS] = {}
 
-	self.spawn_points = {}
+	table.insert(self.top_path[DOTA_TEAM_GOODGUYS], top_waypoints[1])
+	table.insert(self.top_path[DOTA_TEAM_GOODGUYS], top_waypoints[2])
+	table.insert(self.top_path[DOTA_TEAM_GOODGUYS], top_waypoints[3])
+	table.insert(self.top_path[DOTA_TEAM_GOODGUYS], bad_nexus)
 
-	self.spawn_points[DOTA_TEAM_GOODGUYS] = {}
-	self.spawn_points[DOTA_TEAM_GOODGUYS].melee = {}
-	self.spawn_points[DOTA_TEAM_GOODGUYS].ranged = {}
-	self.spawn_points[DOTA_TEAM_GOODGUYS].siege = {}
+	table.insert(self.top_path[DOTA_TEAM_BADGUYS], top_waypoints[3])
+	table.insert(self.top_path[DOTA_TEAM_BADGUYS], top_waypoints[2])
+	table.insert(self.top_path[DOTA_TEAM_BADGUYS], top_waypoints[1])
+	table.insert(self.top_path[DOTA_TEAM_BADGUYS], good_nexus)
 
-	if LANE_CREEP_RANGED_COUNT > 1 then
-		for i = 1, LANE_CREEP_RANGED_COUNT do
-			self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[i] = good_nexus + good_direction * LANE_CREEP_RANGED_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_RANGED_COUNT - 1)) * good_normal * LANE_CREEP_RANGED_SPAWN_DISTANCE
-		end
-	else
-		self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[1] = good_nexus + good_direction * LANE_CREEP_RANGED_OFFSET
+
+
+	local bottom_spawn = Entities:FindByName(nil, "radiant_creep_spawn_a"):GetAbsOrigin()
+	local top_spawn = Entities:FindByName(nil, "radiant_creep_spawn_b"):GetAbsOrigin()
+	local bottom_end = Entities:FindByName(nil, "dire_creep_spawn_a"):GetAbsOrigin()
+	local top_end = Entities:FindByName(nil, "dire_creep_spawn_b"):GetAbsOrigin()
+
+	local bottom_direction = (bottom_spawn - good_nexus):Normalized()
+	local top_direction = (top_spawn - good_nexus):Normalized()
+
+	local spawn_normal = Vector(1, 1, 0):Normalized()
+
+	self.bottom_spawns = {}
+
+	self.bottom_spawns[DOTA_TEAM_GOODGUYS] = {}
+	self.bottom_spawns[DOTA_TEAM_GOODGUYS].melee = {}
+	self.bottom_spawns[DOTA_TEAM_GOODGUYS].ranged = {}
+	self.bottom_spawns[DOTA_TEAM_GOODGUYS].siege = {}
+
+	self.top_spawns = {}
+
+	self.top_spawns[DOTA_TEAM_GOODGUYS] = {}
+	self.top_spawns[DOTA_TEAM_GOODGUYS].melee = {}
+	self.top_spawns[DOTA_TEAM_GOODGUYS].ranged = {}
+	self.top_spawns[DOTA_TEAM_GOODGUYS].siege = {}
+
+	for i = 1, LANE_CREEP_MELEE_COUNT do
+		self.bottom_spawns[DOTA_TEAM_GOODGUYS].melee[i] = bottom_spawn + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * spawn_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
 	end
 
-	if LANE_CREEP_MELEE_COUNT > 1 then
-		for i = 1, LANE_CREEP_MELEE_COUNT do
-			self.spawn_points[DOTA_TEAM_GOODGUYS].melee[i] = good_nexus + good_direction * LANE_CREEP_MELEE_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * good_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
-		end
-	else
-		self.spawn_points[DOTA_TEAM_GOODGUYS].ranged[1] = good_nexus + good_direction * LANE_CREEP_MELEE_OFFSET
+	self.bottom_spawns[DOTA_TEAM_GOODGUYS].ranged[1] = bottom_spawn + bottom_direction * LANE_CREEP_RANGED_OFFSET
+	self.bottom_spawns[DOTA_TEAM_GOODGUYS].siege[1] = bottom_spawn + bottom_direction * LANE_CREEP_SIEGE_OFFSET
+
+	for i = 1, LANE_CREEP_MELEE_COUNT do
+		self.top_spawns[DOTA_TEAM_GOODGUYS].melee[i] = top_spawn + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * spawn_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
 	end
 
-	self.spawn_points[DOTA_TEAM_GOODGUYS].siege[1] = good_nexus + good_direction * LANE_CREEP_SIEGE_OFFSET
+	self.top_spawns[DOTA_TEAM_GOODGUYS].ranged[1] = top_spawn + top_direction * LANE_CREEP_RANGED_OFFSET
+	self.top_spawns[DOTA_TEAM_GOODGUYS].siege[1] = top_spawn + top_direction * LANE_CREEP_SIEGE_OFFSET
 
 
-	self.spawn_points[DOTA_TEAM_BADGUYS] = {}
-	self.spawn_points[DOTA_TEAM_BADGUYS].melee = {}
-	self.spawn_points[DOTA_TEAM_BADGUYS].ranged = {}
-	self.spawn_points[DOTA_TEAM_BADGUYS].siege = {}
 
-	if LANE_CREEP_RANGED_COUNT > 1 then
-		for i = 1, LANE_CREEP_RANGED_COUNT do
-			self.spawn_points[DOTA_TEAM_BADGUYS].ranged[i] = bad_nexus + bad_direction * LANE_CREEP_RANGED_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_RANGED_COUNT - 1)) * bad_normal * LANE_CREEP_RANGED_SPAWN_DISTANCE
-		end
-	else
-		self.spawn_points[DOTA_TEAM_BADGUYS].ranged[1] = bad_nexus + bad_direction * LANE_CREEP_RANGED_OFFSET
+	self.bottom_spawns[DOTA_TEAM_BADGUYS] = {}
+	self.bottom_spawns[DOTA_TEAM_BADGUYS].melee = {}
+	self.bottom_spawns[DOTA_TEAM_BADGUYS].ranged = {}
+	self.bottom_spawns[DOTA_TEAM_BADGUYS].siege = {}
+
+	self.top_spawns[DOTA_TEAM_BADGUYS] = {}
+	self.top_spawns[DOTA_TEAM_BADGUYS].melee = {}
+	self.top_spawns[DOTA_TEAM_BADGUYS].ranged = {}
+	self.top_spawns[DOTA_TEAM_BADGUYS].siege = {}
+
+	for i = 1, LANE_CREEP_MELEE_COUNT do
+		self.bottom_spawns[DOTA_TEAM_BADGUYS].melee[i] = bottom_end + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * spawn_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
 	end
 
-	if LANE_CREEP_MELEE_COUNT > 1 then
-		for i = 1, LANE_CREEP_MELEE_COUNT do
-			self.spawn_points[DOTA_TEAM_BADGUYS].melee[i] = bad_nexus + bad_direction * LANE_CREEP_MELEE_OFFSET + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * bad_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
-		end
-	else
-		self.spawn_points[DOTA_TEAM_BADGUYS].ranged[1] = bad_nexus + bad_direction * LANE_CREEP_MELEE_OFFSET
+	self.bottom_spawns[DOTA_TEAM_BADGUYS].ranged[1] = bottom_end + bottom_direction * LANE_CREEP_RANGED_OFFSET
+	self.bottom_spawns[DOTA_TEAM_BADGUYS].siege[1] = bottom_end + bottom_direction * LANE_CREEP_SIEGE_OFFSET
+
+	for i = 1, LANE_CREEP_MELEE_COUNT do
+		self.top_spawns[DOTA_TEAM_BADGUYS].melee[i] = top_end + (-0.5 + (i - 1) / (LANE_CREEP_MELEE_COUNT - 1)) * spawn_normal * LANE_CREEP_MELEE_SPAWN_DISTANCE
 	end
 
-	self.spawn_points[DOTA_TEAM_BADGUYS].siege[1] = bad_nexus + bad_direction * LANE_CREEP_SIEGE_OFFSET
+	self.top_spawns[DOTA_TEAM_BADGUYS].ranged[1] = top_end + top_direction * LANE_CREEP_RANGED_OFFSET
+	self.top_spawns[DOTA_TEAM_BADGUYS].siege[1] = top_end + top_direction * LANE_CREEP_SIEGE_OFFSET
+
+
 
 	self.creep_names = {}
 	self.creep_names[DOTA_TEAM_GOODGUYS] = {}
@@ -94,19 +131,32 @@ function LaneCreeps:Init()
 	self.creep_names[DOTA_TEAM_BADGUYS].siege = "npc_dota_badguys_siege"
 end
 
-function LaneCreeps:SpawnWave()
-	for team, spawn_points in pairs(self.spawn_points) do
+function LaneCreeps:SpawnWave(spawn_siege)
+	for team, spawn_points in pairs(self.bottom_spawns) do
 		for _, spawn_point in pairs(spawn_points.melee) do
-			if team == DOTA_TEAM_GOODGUYS then LaneCreep(team, self.good_path, spawn_point, self.creep_names[team].melee) end
-			if team == DOTA_TEAM_BADGUYS then LaneCreep(team, self.bad_path, spawn_point, self.creep_names[team].melee) end
+			LaneCreep(team, self.bottom_path[team], spawn_point, self.creep_names[team].melee)
 		end
 		for _, spawn_point in pairs(spawn_points.ranged) do
-			if team == DOTA_TEAM_GOODGUYS then LaneCreep(team, self.good_path, spawn_point, self.creep_names[team].ranged) end
-			if team == DOTA_TEAM_BADGUYS then LaneCreep(team, self.bad_path, spawn_point, self.creep_names[team].ranged) end
+			LaneCreep(team, self.bottom_path[team], spawn_point, self.creep_names[team].ranged)
 		end
-		for _, spawn_point in pairs(spawn_points.siege) do
-			if team == DOTA_TEAM_GOODGUYS then LaneCreep(team, self.good_path, spawn_point, self.creep_names[team].siege) end
-			if team == DOTA_TEAM_BADGUYS then LaneCreep(team, self.bad_path, spawn_point, self.creep_names[team].siege) end
+		if spawn_siege then
+			for _, spawn_point in pairs(spawn_points.siege) do
+				LaneCreep(team, self.bottom_path[team], spawn_point, self.creep_names[team].siege)
+			end
+		end
+	end
+
+	for team, spawn_points in pairs(self.top_spawns) do
+		for _, spawn_point in pairs(spawn_points.melee) do
+			LaneCreep(team, self.top_path[team], spawn_point, self.creep_names[team].melee)
+		end
+		for _, spawn_point in pairs(spawn_points.ranged) do
+			LaneCreep(team, self.top_path[team], spawn_point, self.creep_names[team].ranged)
+		end
+		if spawn_siege then
+			for _, spawn_point in pairs(spawn_points.siege) do
+				LaneCreep(team, self.top_path[team], spawn_point, self.creep_names[team].siege)
+			end
 		end
 	end
 end

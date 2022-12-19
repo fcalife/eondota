@@ -1,7 +1,7 @@
 _G.GoldRewards = GoldRewards or {}
 
 GOLD_TICK_INTERVAL = 1
-GOLD_PER_TICK = 10
+GOLD_PER_TICK = 8
 EXP_PER_TICK = 6
 
 GoldRewards.ticks_until_gold = GOLD_TICK_INTERVAL
@@ -21,7 +21,14 @@ function GoldRewards:GiveGoldToAllPlayers(gold, exp)
 		if PlayerResource:IsValidPlayer(id) then
 			local hero = PlayerResource:GetSelectedHeroEntity(id)
 
-			hero:ModifyGold(gold, false, DOTA_ModifyGold_BountyRune)
+			local extra_gold = hero:FindAllModifiersByName("modifier_building_gold_effect")
+
+			if extra_gold and #extra_gold > 0 then
+				hero:ModifyGold((1 + #extra_gold) * gold, false, DOTA_ModifyGold_BountyRune)
+			else
+				hero:ModifyGold(gold, false, DOTA_ModifyGold_BountyRune)
+			end
+
 			hero:AddExperience(exp, DOTA_ModifyXP_Outpost, false, true)
 		end
 	end

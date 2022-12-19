@@ -9,34 +9,34 @@
 
 	<Panel style="width:100%; height:100%;" hittest="false">
 		<Panel id="Container" hittest="true" >
-			<Label id="Header" text="PICK YOUR HERO'S ROLE" />
+			<Label id="Header" text="SELECT A STRUCTURE TO BUILD" />
+			<Label id="Subheader" text="All effects fully stack with each other" />
 
 			<Panel id="ChoiceReel">
 				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Charger" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_charger" onmouseover="DOTAShowAbilityTooltip(ability_ball_charger)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('charger')" />
+					<Label class="ChoiceHeader" text="Soup Cauldron" />
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_building_regen" onmouseover="DOTAShowAbilityTooltip(ability_building_regen)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectBuilding('regen')" />
 				</Panel>
 				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Runner" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_runner" onmouseover="DOTAShowAbilityTooltip(ability_ball_runner)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('runner')" />
+					<Label class="ChoiceHeader" text="Rain of Gold" />
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_building_gold" onmouseover="DOTAShowAbilityTooltip(ability_building_gold)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectBuilding('gold')" />
 				</Panel>
 				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Interceptor" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_blocker" onmouseover="DOTAShowAbilityTooltip(ability_ball_blocker)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('blocker')" />
+					<Label class="ChoiceHeader" text="Overcharger" />
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_building_damage" onmouseover="DOTAShowAbilityTooltip(ability_building_damage)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectBuilding('damage')" />
 				</Panel>
 				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Quarterback" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_thrower" onmouseover="DOTAShowAbilityTooltip(ability_ball_thrower)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('thrower')" />
+					<Label class="ChoiceHeader" text="Azure Dragon" />
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_building_defense" onmouseover="DOTAShowAbilityTooltip(ability_building_defense)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectBuilding('defense')" />
 				</Panel>
-				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Forcer" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_forcer" onmouseover="DOTAShowAbilityTooltip(ability_ball_forcer)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('forcer')" />
-				</Panel>
+			</Panel>
+
+			<Panel id="CancelButton" onactivate="CloseBuildingMenu()">
+				<Label id="CancelButtonLabel" text="CANCEL" />
 			</Panel>
 		</Panel>
 	</Panel>

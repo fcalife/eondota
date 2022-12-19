@@ -6,23 +6,40 @@ ENEMY_TEAM[DOTA_TEAM_BADGUYS] = DOTA_TEAM_GOODGUYS
 
 function ScoreManager:Init()
 	self.score = {}
-	self.score[DOTA_TEAM_GOODGUYS] = 0
-	self.score[DOTA_TEAM_BADGUYS] = 0
 
 	self:UpdateEssenceScoreboard()
 end
 
 function ScoreManager:UpdateEssenceScoreboard()
-	local max = math.max(1, self.score[DOTA_TEAM_GOODGUYS], self.score[DOTA_TEAM_BADGUYS])
-
-	CustomNetTables:SetTableValue("charge", "radiant", {current = self.score[DOTA_TEAM_GOODGUYS], max = max})
-	CustomNetTables:SetTableValue("charge", "dire", {current = self.score[DOTA_TEAM_BADGUYS], max = max})
+	for player_id, score in pairs(self.score) do
+		CustomNetTables:SetTableValue("coins", "player"..player_id, {coins = score})
+	end
 end
 
-function ScoreManager:AddEssence(team, amount)
-	self.score[team] = self.score[team] + amount
+function ScoreManager:AddEssence(hero, amount)
+	local player_id = hero:GetPlayerID()
+
+	if player_id and PlayerResource:IsValidPlayerID(player_id) then
+		self.score[player_id] = (self.score[player_id] or 0) + amount
+	end
 
 	self:UpdateEssenceScoreboard()
+end
+
+function ScoreManager:TrySpendEssence(player_id, amount)
+	if self.score[player_id] and self.score[player_id] >= amount then
+		self.score[player_id] = self.score[player_id] - amount
+
+		self:UpdateEssenceScoreboard()
+
+		return true
+	else
+		local player = PlayerResource:GetPlayer(player_id)
+
+		if player then CustomGameEventManager:Send_ServerToPlayer(player, "display_custom_error", {message = "Not enough coins!"}) end
+
+		return false
+	end
 end
 
 function ScoreManager:EvaluateWinner()

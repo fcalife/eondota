@@ -1107,4 +1107,68 @@
 		"AllowedInBackpack"				"0"
 		"IsTempestDoubleClonable"		"0"
 	}
+
+	"item_blue_essence"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/fire_essence.lua"
+		"AbilityTextureName"			"item_gold_coin"
+		"Model"							"models/ui/treasure/aghanim_2021_treasure/aghanim_2021_treasure.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.1"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemIsNeutralDrop"				"1"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_red_essence"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/fire_essence.lua"
+		"AbilityTextureName"			"item_gold_coin"
+		"Model"							"models/ui/treasure/bp_2022_treasure_square_alt/bp_2022_treasure_square_alt.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.1"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemIsNeutralDrop"				"1"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
 }

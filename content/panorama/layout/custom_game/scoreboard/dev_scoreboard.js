@@ -1,17 +1,11 @@
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
-CustomNetTables.SubscribeNetTableListener("charge", UpdateCharge);
+CustomNetTables.SubscribeNetTableListener("coins", UpdateCoins);
 
-function UpdateCharge(table_name, key, data) {
-	if (key == "radiant") {
-		$("#Radiant_Charge_Label").text = "Blue coins: " + data.current.toFixed(0);
-		$("#Radiant_Progress").value = parseInt(data.current);
-		$("#Radiant_Progress").max = parseInt(data.max);
-	} else if (key == "dire") {
-		$("#Dire_Charge_Label").text = "Red coins: " + data.current.toFixed(0);
-		$("#Dire_Progress").value = parseInt(data.current);
-		$("#Dire_Progress").max = parseInt(data.max);
+function UpdateCoins(table_name, key, data) {
+	if (key == "player" + Game.GetLocalPlayerID()) {
+		$("#Radiant_Charge_Label").text = "Your coins: " + data.coins.toFixed(0);
 	}
 }
 

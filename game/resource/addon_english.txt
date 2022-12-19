@@ -38,6 +38,7 @@
 		"npc_fire_spirit"					"Fire Spirit"
 		"npc_fire_golem"					"Fire Golem"
 		"npc_fire_golem_lane"				"Fire Golem"
+		"rts_building_placeholder"			"Lookout Tower"
 
 		// Units
 		"npc_dota_neutral_kobold_taskmaster_lane"	"Tamed Kobold"
@@ -47,7 +48,13 @@
 
 		// Items
 		"DOTA_Tooltip_ability_item_fire_essence"				"Gold Coin"
-		"DOTA_Tooltip_ability_item_fire_essence_Description"	"Used to pay the Archer"
+		"DOTA_Tooltip_ability_item_fire_essence_Description"	"Deposit on your Nexus to pay for buildings!"
+
+		"DOTA_Tooltip_ability_item_blue_essence"				"Blue Chest"
+		"DOTA_Tooltip_ability_item_blue_essence_Description"	"Full of gold coins! Only for the <font color='#4444CC'>BLUE team.</font>"
+
+		"DOTA_Tooltip_ability_item_red_essence"					"Red Chest"
+		"DOTA_Tooltip_ability_item_red_essence_Description"		"Full of gold coins! Only for the <font color='#CC4444'>RED team.</font>"
 
 		"DOTA_Tooltip_ability_item_charge_pickup"				"Eon Essence"
 		"DOTA_Tooltip_ability_item_charge_pickup_Description"	"Charges up your towers"
@@ -155,7 +162,19 @@
 
 
 
-  		"DOTA_Tooltip_ability_ability_ball_charger"					"All-out Charge"
+		"DOTA_Tooltip_ability_ability_building_regen"				"Soup Cauldron"
+		"DOTA_Tooltip_ability_ability_building_regen_Description"	"Distributes tasty, healthy soup to all allied units, causing them to regenerate %regen%%% of their maximum health and mana per second. Global effect."
+
+		"DOTA_Tooltip_ability_ability_building_gold"				"Rain of Gold"
+		"DOTA_Tooltip_ability_ability_building_gold_Description"	"Grants all allied heroes an extra 480 passive gold per minute. Global effect. Does not stack with itself."
+
+		"DOTA_Tooltip_ability_ability_building_damage"				"Overcharger"
+		"DOTA_Tooltip_ability_ability_building_damage_Description"	"Overcharges all allied units with raw energy, causing them to deal %damage%%% increased damage from all sources. Global effect."
+
+		"DOTA_Tooltip_ability_ability_building_defense"				"Azure Dragon"
+		"DOTA_Tooltip_ability_ability_building_defense_Description"	"Continuously launches shockwaves at enemies which stray too close. %delay% second interval between shockwaves, %range% range."
+
+		"DOTA_Tooltip_ability_ability_ball_charger"					"All-out Charge"
 		"DOTA_Tooltip_ability_ability_ball_charger_Description"		"You brace for an all-or-nothing sprint. Your movement speed is reduced by %ms_penalty%%%, but then quickly accelerates to a %max_ms_bonus%%% bonus over the next %acceleration_duration% seconds. Upon reaching maximum speed, you gain %status_resist%%% status resistance, knock back enemies on your path, and keep running for up to %max_speed_duration% more seconds.\n<font color='#FF8080'>Can only be used while carrying the Eon Stone.</font>"
 
 		"DOTA_Tooltip_modifier_ball_charger"						"All-out Charge"
@@ -245,5 +264,6 @@
 		"error_not_carrying_ball"		"Can only be used on Eon Stone carriers"
 		"error_can_only_target_fire_guardian"		"Can only be given to the Archer"
 		"error_fire_guardian_busy"		"The Archer is busy! Wait until she's done."
+		"error_can_only_target_nexus"	"Can only be deposited on your Nexus!"
 	}
 }

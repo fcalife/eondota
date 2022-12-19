@@ -6,8 +6,18 @@
 // 	GameUI.SetCameraYaw(-270);
 // }
 
-function SelectRole(role) {
-	GameEvents.SendCustomGameEventToServer("player_role_selected", {role: role});
+GameEvents.Subscribe("open_building_menu", OpenBuildingMenu);
 
+function OpenBuildingMenu() {
+	$("#Container").visible = true;
+}
+
+function CloseBuildingMenu() {
 	$("#Container").visible = false;
+}
+
+function SelectBuilding(building) {
+	GameEvents.SendCustomGameEventToServer("building_selected", {building: building});
+
+	CloseBuildingMenu();
 }

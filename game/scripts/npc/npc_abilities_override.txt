@@ -309,4 +309,71 @@
 			"burn_linger_duration"	"1.0"
 		}
 	}
+
+	"magnataur_shockwave"
+	{
+		"AbilityCastRange"				"1300"
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityCooldown"				"0.0"
+		"AbilityDuration"				"2.0"
+
+		"AbilityManaCost"				"0"
+
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"shock_speed"				"600"
+			"shock_width"				"200"
+			"shock_damage"				
+			{
+				"value"					"250"				
+			}
+			"pull_duration"				"0.2"
+			"movement_slow"				"75"
+			"slow_duration"				"0.8"
+			"pull_distance"				"100"
+			"basic_slow_duration"		
+			{
+				"value"					"0.8"
+				"special_bonus_unique_magnus_6"	"+0.5"
+			}
+			"scepter_width"		
+			{
+				"value" 				"250"
+				"RequiresScepter"		"1"
+			}
+			"scepter_range"		
+			{
+				"value"					"1400"
+				"RequiresScepter"		"1"
+			}
+			"scepter_duration"	
+			{
+				"value" 				"5"
+				"RequiresScepter"		"1"
+			}
+			"scepter_erupt_time"		
+			{
+				"value" 				"1.5"
+				"RequiresScepter"		"1"
+			}
+			"scepter_erupt_damage_pct"
+			{
+				"value" 				"75"
+				"RequiresScepter"		"1"	
+			}
+			"scepter_slow_pct"		
+			{
+				"value" 				"75"
+				"RequiresScepter"		"1"
+			}
+			"scepter_armor_pct"		
+			{
+				"value" 				"75"
+				"RequiresScepter"		"1"
+			}
+		}
+	}
 }

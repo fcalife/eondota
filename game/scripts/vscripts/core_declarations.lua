@@ -60,6 +60,9 @@ LinkLuaModifier("modifier_firelord_state", "modifiers/firelord_state", LUA_MODIF
 LinkLuaModifier("modifier_firelord_busy", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_firelord_fire_visual", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
 
+LinkLuaModifier("modifier_building_state", "modifiers/building_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_neutral_building_state", "modifiers/building_state", LUA_MODIFIER_MOTION_NONE)
+
 
 
 -- GAME STATE CONSTANTS
@@ -81,11 +84,13 @@ PLAYER_STATE_ABANDONED	 		= 4
 
 -- GAME DESIGN CONSTANTS
 REVERSE_CTF = false
-TOWERS_ENABLED = false
-LANE_CREEPS_ENABLED = false
+TOWERS_ENABLED = true
+LANE_CREEPS_ENABLED = true
 FOG_OF_WAR_DISABLED = false
 LIVING_BUILDINGS_ENABLED = false
 CHARGE_TOWERS_ENABLED = false
+
+TIME_BETWEEN_LANE_CREEP_WAVES = 30
 
 ROUNDS_TO_WIN = 3
 MIN_ROUND_FOR_ULTIMATES = 3
@@ -116,7 +121,9 @@ FIRE_SPIRIT_UPGRADE_TIME = 290
 FIRE_SPIRIT_GOLD_BOUNTY = 500
 FIRE_SPIRIT_UPGRADED_GOLD = 1000
 
-COIN_MIN_DELAY = 15
-COIN_MAX_DELAY = 35
-COIN_WARNING_TIME = 8
+COIN_MIN_DELAY = 10
+COIN_MAX_DELAY = 20
+COIN_WARNING_TIME = 5
 COIN_EVALUATION_TIME = 105
+
+WAVES_PER_CATAPULT = 3

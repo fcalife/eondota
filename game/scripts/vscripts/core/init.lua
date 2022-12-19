@@ -21,6 +21,7 @@ require('core/neutral_camps')
 require('core/nexus')
 require('core/firelands')
 require('core/archer_coins')
+require('core/buildables')
 
 require("core/filters/init")
 require("core/ctf/init")

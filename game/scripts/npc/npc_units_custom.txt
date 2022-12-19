@@ -387,7 +387,7 @@
 		"MinimapIconSize"			"550"
 		"ModelScale"				"1.7"
 
-		"ArmorPhysical"				"15"
+		"ArmorPhysical"				"18"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
@@ -413,7 +413,7 @@
 		"MovementSpeed"				"0"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"4000"
+		"StatusHealth"				"5000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -428,12 +428,12 @@
 	{
 		"ModelScale"				"1.3"
 
-		"StatusHealth"				"2000"
-		"ArmorPhysical"				"10"
+		// "StatusHealth"				"2000"
+		// "ArmorPhysical"				"10"
 
-		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"175"
-		"AttackDamageMax"			"180"
+		// "BaseAttackSpeed"			"90"
+		// "AttackDamageMin"			"175"
+		// "AttackDamageMax"			"180"
 
 		"ProjectileSpeed"			"1500"
 	}
@@ -442,12 +442,12 @@
 	{
 		"ModelScale"				"1.3"
 
-		"StatusHealth"				"2000"
-		"ArmorPhysical"				"10"
+		// "StatusHealth"				"2000"
+		// "ArmorPhysical"				"10"
 
-		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"175"
-		"AttackDamageMax"			"180"
+		// "BaseAttackSpeed"			"90"
+		// "AttackDamageMin"			"175"
+		// "AttackDamageMax"			"180"
 
 		"ProjectileSpeed"			"1500"
 	}
@@ -790,8 +790,6 @@
 		"BountyXP"					"80"
 		"BountyGoldMin"				"45"
 		"BountyGoldMax"				"50"
-
-		"StatusHealth"				"750"
 	}
 
 	"npc_dota_creep_goodguys_ranged"
@@ -799,8 +797,6 @@
 		"BountyXP"					"120"
 		"BountyGoldMin"				"70"
 		"BountyGoldMax"				"75"
-
-		"StatusHealth"				"425"
 	}
 
 	"npc_dota_creep_badguys_melee"
@@ -808,8 +804,6 @@
 		"BountyXP"					"80"
 		"BountyGoldMin"				"45"
 		"BountyGoldMax"				"50"
-
-		"StatusHealth"				"750"
 	}
 
 	"npc_dota_creep_badguys_ranged"
@@ -817,8 +811,6 @@
 		"BountyXP"					"120"
 		"BountyGoldMin"				"70"
 		"BountyGoldMax"				"75"
-
-		"StatusHealth"				"425"
 	}
 
 	"npc_dota_goodguys_siege"
@@ -826,8 +818,6 @@
 		"BountyXP"					"150"
 		"BountyGoldMin"				"90"
 		"BountyGoldMax"				"95"
-
-		"StatusHealth"				"800"
 	}
 
 	"npc_dota_badguys_siege"
@@ -835,8 +825,6 @@
 		"BountyXP"					"150"
 		"BountyGoldMin"				"90"
 		"BountyGoldMax"				"95"
-
-		"StatusHealth"				"800"
 	}
 
 	"npc_eon_speed_beast"
@@ -1983,5 +1971,239 @@
 
 		"VisionDaytimeRange"		"800"		// Range of vision during day light.
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+	}
+
+	"rts_building_placeholder"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/props_structures/radiant_statue001.vmdl"
+		"MinimapIcon"				"minimap_tower45"
+		"MinimapIconSize"			"450"
+		"ModelScale"				"0.8"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_TOWER"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"1800"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
+	}
+
+	"rts_building_regen"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/juggernaut/ward/sinister_shadow_healing_cauldron/sinister_shadow_healing_cauldron.vmdl"
+		"MinimapIcon"				"minimap_tower45"
+		"MinimapIconSize"			"450"
+		"ModelScale"				"1.85"
+
+		"Ability1"					"ability_building_regen"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_TOWER"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"1800"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
+	}
+
+	"rts_building_gold"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/props_gameplay/gold_bag.vmdl"
+		"MinimapIcon"				"minimap_tower45"
+		"MinimapIconSize"			"450"
+		"ModelScale"				"3.5"
+
+		"Ability1"					"ability_building_gold"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_TOWER"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"1800"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
+	}
+
+	"rts_building_damage"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/rattletrap/clock_soul_of_steam_cogs/clock_soul_of_steam_cogs.vmdl"
+		"MinimapIcon"				"minimap_tower45"
+		"MinimapIconSize"			"450"
+		"ModelScale"				"2.55"
+
+		"Ability1"					"ability_building_damage"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_TOWER"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"1800"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
+	}
+
+	"rts_building_defense"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/juggernaut/ward/susano_os_descendant_healing_ward/susano_os_descendant_healing_ward.vmdl"
+		"MinimapIcon"				"minimap_tower45"
+		"MinimapIconSize"			"450"
+		"ModelScale"				"2.0"
+
+		"Ability1"					"ability_building_defense"
+		"Ability2"					"magnataur_shockwave"
+
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_TOWER"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"1800"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"ConsideredHero"			"1"
 	}
 }

@@ -30,7 +30,7 @@ end
 
 function modifier_building_state:OnDeath(keys)
 	if keys.unit and keys.unit == self:GetParent() then
-		if keys.unit.building_slot then keys.unit.building_slot:OnBuildingDestroyed() end
+		--if keys.unit.building_slot then keys.unit.building_slot:OnBuildingDestroyed() end
 	end
 end
 

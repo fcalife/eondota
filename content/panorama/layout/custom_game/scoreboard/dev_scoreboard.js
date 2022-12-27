@@ -4,8 +4,12 @@ GameEvents.Subscribe("display_custom_error", ShowCustomError);
 CustomNetTables.SubscribeNetTableListener("coins", UpdateCoins);
 
 function UpdateCoins(table_name, key, data) {
-	if (key == "player" + Game.GetLocalPlayerID()) {
-		$("#Radiant_Charge_Label").text = "Your coins: " + data.coins.toFixed(0);
+	if (key == "radiant") {
+		$("#Radiant_Charge_Label").text = "Blue coins: " + data.coins.toFixed(0);
+	}
+
+	if (key == "dire") {
+		$("#Dire_Charge_Label").text = "Red coins: " + data.coins.toFixed(0);
 	}
 }
 

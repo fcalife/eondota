@@ -7,7 +7,7 @@ function item_fire_essence:GetIntrinsicModifierName()
 end
 
 function item_fire_essence:CastFilterResultTarget(target)
-	if target:HasModifier("modifier_nexus_state") and target:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
+	if target:HasModifier("modifier_firelord_state") then
 		return UF_SUCCESS
 	end
 
@@ -15,11 +15,11 @@ function item_fire_essence:CastFilterResultTarget(target)
 end
 
 function item_fire_essence:GetCustomCastErrorTarget(target)
-	if target:HasModifier("modifier_nexus_state") and target:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
+	if target:HasModifier("modifier_firelord_state") then
 		return UF_SUCCESS
 	end
 
-	return "#error_can_only_target_nexus"
+	return "#error_can_only_target_fire_guardian"
 end
 
 function item_fire_essence:OnSpellStart()

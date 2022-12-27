@@ -2020,7 +2020,7 @@
 
 	"rts_building_regen"
 	{
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_building"
 		"Model"						"models/items/juggernaut/ward/sinister_shadow_healing_cauldron/sinister_shadow_healing_cauldron.vmdl"
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"450"
@@ -2067,7 +2067,7 @@
 
 	"rts_building_gold"
 	{
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_building"
 		"Model"						"models/props_gameplay/gold_bag.vmdl"
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"450"
@@ -2114,7 +2114,7 @@
 
 	"rts_building_damage"
 	{
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_building"
 		"Model"						"models/items/rattletrap/clock_soul_of_steam_cogs/clock_soul_of_steam_cogs.vmdl"
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"450"
@@ -2161,7 +2161,7 @@
 
 	"rts_building_defense"
 	{
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_building"
 		"Model"						"models/items/juggernaut/ward/susano_os_descendant_healing_ward/susano_os_descendant_healing_ward.vmdl"
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"450"

@@ -62,7 +62,7 @@ function ArcherCoin:constructor(location, team)
 	self.dummy = CreateUnitByName("npc_camp_dummy_4", self.location, true, nil, nil, DOTA_TEAM_NEUTRALS)
 	self.dummy:AddNewModifier(self.dummy, nil, "modifier_dummy_state", {})
 
-	self:SpawnWarning()
+	self:Spawn()
 end
 
 function ArcherCoin:OnUnitsInRange(units)
@@ -99,34 +99,4 @@ function ArcherCoin:Spawn()
 	end, {
 		tick_when_empty = false,
 	})
-end
-
-function ArcherCoin:SpawnWarning()
-	EmitGlobalSound("stone.shortwarning")
-
-	local minimap_dummy = CreateUnitByName("npc_stone_dummy", self.location, false, nil, nil, DOTA_TEAM_NEUTRALS)
-	minimap_dummy:AddNewModifier(minimap_dummy, nil, "modifier_dummy_state", {})
-	minimap_dummy:AddNewModifier(minimap_dummy, nil, "modifier_not_on_minimap", {})
-
-	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-		MinimapEvent(team, minimap_dummy, self.location.x, self.location.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, COIN_WARNING_TIME)
-	end
-
-	local warning_pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_start_lvl2_ti5.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	ParticleManager:SetParticleControl(warning_pfx, 0, self.location)
-	ParticleManager:SetParticleControl(warning_pfx, 1, self.location)
-
-	EmitGlobalSound("stone.countdown")
-
-	Timers:CreateTimer(COIN_WARNING_TIME, function()
-		ParticleManager:DestroyParticle(warning_pfx, false)
-		ParticleManager:ReleaseParticleIndex(warning_pfx)
-
-		StopGlobalSound("stone.countdown")
-		EmitGlobalSound("stone.spawn")
-
-		minimap_dummy:Destroy()
-
-		self:Spawn()
-	end)
 end

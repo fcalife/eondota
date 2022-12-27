@@ -21,15 +21,17 @@ function GoldRewards:GiveGoldToAllPlayers(gold, exp)
 		if PlayerResource:IsValidPlayer(id) then
 			local hero = PlayerResource:GetSelectedHeroEntity(id)
 
-			local extra_gold = hero:FindAllModifiersByName("modifier_building_gold_effect")
+			if hero then
+				local extra_gold = hero:FindAllModifiersByName("modifier_building_gold_effect")
 
-			if extra_gold and #extra_gold > 0 then
-				hero:ModifyGold((1 + #extra_gold) * gold, false, DOTA_ModifyGold_BountyRune)
-			else
-				hero:ModifyGold(gold, false, DOTA_ModifyGold_BountyRune)
+				if extra_gold and #extra_gold > 0 then
+					hero:ModifyGold((1 + #extra_gold) * gold, false, DOTA_ModifyGold_BountyRune)
+				else
+					hero:ModifyGold(gold, false, DOTA_ModifyGold_BountyRune)
+				end
+
+				hero:AddExperience(exp, DOTA_ModifyXP_Outpost, false, true)
 			end
-
-			hero:AddExperience(exp, DOTA_ModifyXP_Outpost, false, true)
 		end
 	end
 end

@@ -6,21 +6,99 @@ end)
 
 function Buildables:Init()
 	self.building_slots = {}
-	self.current_slot = {}
 
-	for _, building_slot in pairs(Entities:FindAllByName("building_spot")) do
-		table.insert(self.building_slots, BuildingSlot(building_slot:GetAbsOrigin()))
-	end
+	self.building_slots[1] = {}
+	self.building_slots[2] = {}
+	self.building_slots[3] = {}
+
+	table.insert(self.building_slots[1], BuildingSlot(Vector(-3008, 1472, 32)))
+	table.insert(self.building_slots[1], BuildingSlot(Vector(1472, -3008, 32)))
+
+	table.insert(self.building_slots[2], BuildingSlot(Vector(2240, -2240, 32)))
+	table.insert(self.building_slots[2], BuildingSlot(Vector(-2240, 2240, 32)))
+
+	table.insert(self.building_slots[3], BuildingSlot(Vector(-1472, 3008, 32)))
+	table.insert(self.building_slots[3], BuildingSlot(Vector(3008, -1472, 32)))
 end
 
 function Buildables:GetBuildingSlots()
 	return self.building_slots or nil
 end
 
-function Buildables:OnPlayerRequestedBuild(event)
-	if event.building and event.PlayerID and self.current_slot[event.PlayerID] then
-		self.current_slot[event.PlayerID]:OnPlayerRequestedBuild(event.building, event.PlayerID)
+function Buildables:BuildForTeam(team)
+	local count = 2
+
+	if team == DOTA_TEAM_GOODGUYS then
+		if count > 0 and self.building_slots[1][1]:IsAvailable() then
+			self.building_slots[1][1]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[1][2]:IsAvailable() then
+			self.building_slots[1][2]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[2][1]:IsAvailable() then
+			self.building_slots[2][1]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[2][2]:IsAvailable() then
+			self.building_slots[2][2]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[3][1]:IsAvailable() then
+			self.building_slots[3][1]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[3][2]:IsAvailable() then
+			self.building_slots[3][2]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+	elseif team == DOTA_TEAM_BADGUYS then
+		if count > 0 and self.building_slots[3][1]:IsAvailable() then
+			self.building_slots[3][1]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[3][2]:IsAvailable() then
+			self.building_slots[3][2]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[2][1]:IsAvailable() then
+			self.building_slots[2][1]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[2][2]:IsAvailable() then
+			self.building_slots[2][2]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[1][1]:IsAvailable() then
+			self.building_slots[1][1]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
+
+		if count > 0 and self.building_slots[1][2]:IsAvailable() then
+			self.building_slots[1][2]:SpawnRandomBuilding(team)
+			count = count - 1
+		end
 	end
+
+	if count > 0 then
+		for i = 1, count do
+			self:UpgradeRandomTowerForTeam(team)
+		end
+	end
+end
+
+function Buildables:UpgradeRandomTowerForTeam(team)
+	local slots = table.
 end
 
 
@@ -30,24 +108,34 @@ if BuildingSlot == nil then BuildingSlot = class({}) end
 function BuildingSlot:constructor(location)
 	self.location = location
 	self.team = DOTA_TEAM_NEUTRALS
+end
 
-	self:SpawnBuilding(self.team, "rts_building_placeholder")
+function BuildingSlot:IsAvailable()
+	if self.unit and (not self.unit:IsNull()) and self.unit:IsAlive() then return false end
+
+	return true
+end
+
+function BuildingSlot:SpawnRandomBuilding(team)
+	local names = {}
+
+	table.insert(names, "rts_building_regen")
+	table.insert(names, "rts_building_gold")
+	table.insert(names, "rts_building_damage")
+	table.insert(names, "rts_building_defense")
+
+	self:SpawnBuilding(team, names[RandomInt(1, 4)])
 end
 
 function BuildingSlot:SpawnBuilding(team, building_name)
 	self.team = team or self.team
 	self.building_name = building_name or self.building_name
 
-	if self.unit and (not self.unit:IsNull()) and self.unit:IsAlive() then self.unit:Destroy() end
-
 	self.unit = CreateUnitByName(self.building_name, self.location, false, nil, nil, self.team)
 	self.unit.building_slot = self
 
-	if self.team == DOTA_TEAM_NEUTRALS then
-		self.unit:AddNewModifier(self.unit, nil, "modifier_neutral_building_state", {})
-	else
-		self.unit:AddNewModifier(self.unit, nil, "modifier_building_state", {})
-	end
+	self.unit:RemoveModifierByName("modifier_invulnerable")
+	self.unit:AddNewModifier(self.unit, nil, "modifier_building_state", {})
 
 	if self.team == DOTA_TEAM_GOODGUYS then
 		self.unit:SetRenderColor(150, 150, 255)
@@ -55,26 +143,5 @@ function BuildingSlot:SpawnBuilding(team, building_name)
 		self.unit:SetRenderColor(255, 150, 150)
 	else
 		self.unit:SetRenderColor(110, 110, 110)
-	end
-end
-
-function BuildingSlot:OnBuildingDestroyed()
-	self:SpawnBuilding(DOTA_TEAM_NEUTRALS, "rts_building_placeholder")
-end
-
-function BuildingSlot:ShowBuildingMenu(unit)
-	local player_id = unit:GetPlayerID()
-	local player = PlayerResource:GetPlayer(player_id)
-
-	Buildables.current_slot[player_id] = self
-
-	if player then CustomGameEventManager:Send_ServerToPlayer(player, "open_building_menu", {}) end
-end
-
-function BuildingSlot:OnPlayerRequestedBuild(building_name, player_id)
-	if self.unit and (not self.unit:IsNull()) and self.unit:IsAlive() and self.unit:GetTeam() ~= DOTA_TEAM_NEUTRALS then return end
-
-	if ScoreManager:TrySpendEssence(player_id, 2) then
-		self:SpawnBuilding(PlayerResource:GetTeam(player_id), "rts_building_"..building_name)
 	end
 end

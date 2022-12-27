@@ -4,22 +4,21 @@ function modifier_lane_creep_state:IsHidden() return true end
 function modifier_lane_creep_state:IsDebuff() return false end
 function modifier_lane_creep_state:IsPurgable() return false end
 
--- function modifier_lane_creep_state:DeclareFunctions()
--- 	if IsServer() then
--- 		return {
--- 			MODIFIER_EVENT_ON_DEATH
--- 		}
--- 	end
--- end
+function modifier_lane_creep_state:DeclareFunctions()
+	if IsServer() then
+		return {
+			MODIFIER_EVENT_ON_DEATH
+		}
+	end
+end
 
--- function modifier_lane_creep_state:OnDeath(keys)
--- 	if keys.unit and keys.unit == self:GetParent() then
--- 		if keys.unit.respawning_tower then
--- 			keys.unit.respawning_tower:Respawn()
--- 			keys.unit:Destroy()
--- 		end
--- 	end
--- end
+function modifier_lane_creep_state:OnDeath(keys)
+	if keys.unit and keys.unit == self:GetParent() then
+		if keys.unit.lane and keys.attacker:IsHero() then
+			ArcherCoin(keys.unit:GetAbsOrigin(), ENEMY_TEAM[keys.unit:GetTeam()])
+		end
+	end
+end
 
 
 

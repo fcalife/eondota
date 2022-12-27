@@ -316,7 +316,7 @@
 		"AbilityCastPoint"				"0.0"
 
 		"AbilityCooldown"				"0.0"
-		"AbilityDuration"				"2.0"
+		"AbilityDuration"				"2.5"
 
 		"AbilityManaCost"				"0"
 
@@ -324,19 +324,19 @@
 
 		"AbilityValues"
 		{
-			"shock_speed"				"600"
+			"shock_speed"				"475"
 			"shock_width"				"200"
 			"shock_damage"				
 			{
-				"value"					"250"				
+				"value"					"225"				
 			}
 			"pull_duration"				"0.2"
 			"movement_slow"				"75"
-			"slow_duration"				"0.8"
+			"slow_duration"				"0.4"
 			"pull_distance"				"100"
 			"basic_slow_duration"		
 			{
-				"value"					"0.8"
+				"value"					"0.4"
 				"special_bonus_unique_magnus_6"	"+0.5"
 			}
 			"scepter_width"		

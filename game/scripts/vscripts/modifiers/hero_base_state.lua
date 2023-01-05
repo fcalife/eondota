@@ -12,4 +12,28 @@ function modifier_hero_base_state:OnCreated(keys)
 	local parent = self:GetParent()
 
 	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 15}) end
+
+	self:StartIntervalThink(0.03)
+end
+
+function modifier_hero_base_state:OnIntervalThink()
+	local parent = self:GetParent()
+	local position = parent:GetAbsOrigin()
+	local team = parent:GetTeam()
+
+	if position.x > 0 and team == DOTA_TEAM_GOODGUYS then
+		FindClearSpaceForUnit(parent, Vector(-100, position.y, position.z), true)
+	elseif position.x < 0 and team == DOTA_TEAM_BADGUYS then
+		FindClearSpaceForUnit(parent, Vector(100, position.y, position.z), true)
+	end
+end
+
+function modifier_hero_base_state:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE
+	}
+end
+
+function modifier_hero_base_state:GetModifierIgnoreCastAngle()
+	return 1
 end

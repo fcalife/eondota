@@ -9,7 +9,6 @@
 -- require('core/portals')
 -- require('core/push_cart')
 -- require('core/ball_abilities')
--- require('core/wall')
 
 
 require('core/events')
@@ -20,6 +19,7 @@ require('core/score_manager')
 require('core/gold_rewards')
 require('core/global_messages')
 require('core/runes')
+require('core/wall')
 
 require("core/filters/init")
 require("core/ctf/init")

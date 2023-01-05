@@ -8,11 +8,11 @@ end
 
 function Flags:SpawnObjectives()
 	for _, spawn_point in pairs(Entities:FindAllByName("radiant_flag_delivery")) do
-		FlagObjective(spawn_point:GetAbsOrigin(), (REVERSE_CTF and DOTA_TEAM_BADGUYS) or DOTA_TEAM_GOODGUYS)
+		FlagObjective(spawn_point:GetAbsOrigin(), DOTA_TEAM_GOODGUYS)
 	end
 
 	for _, spawn_point in pairs(Entities:FindAllByName("dire_flag_delivery")) do
-		FlagObjective(spawn_point:GetAbsOrigin(), (REVERSE_CTF and DOTA_TEAM_GOODGUYS) or DOTA_TEAM_BADGUYS)
+		FlagObjective(spawn_point:GetAbsOrigin(), DOTA_TEAM_BADGUYS)
 	end
 end
 

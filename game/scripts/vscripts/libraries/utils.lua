@@ -40,10 +40,13 @@ function RoundFloat(x)
 	end
 end
 
-function CenterPlayerCameraOnHero(hero)
+function CenterPlayerCameraOnHero(hero, release)
 	local player = hero:GetPlayerOwner()
 	if player then
 		PlayerResource:SetCameraTarget(player:GetPlayerID(), hero)
-		Timers:CreateTimer(0.01, function() PlayerResource:SetCameraTarget(player:GetPlayerID(), nil) end)
+
+		if release then
+			Timers:CreateTimer(0.01, function() PlayerResource:SetCameraTarget(player:GetPlayerID(), nil) end)
+		end
 	end
 end

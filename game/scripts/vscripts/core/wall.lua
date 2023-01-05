@@ -1,63 +1,86 @@
 _G.Walls = Walls or {}
 
-function Walls:Init()
+WALL_DIRECTION_UP = 1
+WALL_DIRECTION_DOWN = 2
+
+function Walls:OnRoundStart()
 	self.walls = {}
 
-	self.walls[DOTA_TEAM_GOODGUYS] = Wall(DOTA_TEAM_GOODGUYS)
-	self.walls[DOTA_TEAM_BADGUYS] = Wall(DOTA_TEAM_BADGUYS)
+	table.insert(self.walls, Wall(1200, WALL_ACTIVATION_DELAY + 10, WALL_SLIDE_TIME, WALL_MIN_HEIGHT))
+	table.insert(self.walls, Wall(-1200, WALL_ACTIVATION_DELAY + 10, WALL_SLIDE_TIME, -WALL_MIN_HEIGHT))
 end
 
+function Walls:OnRoundEnd()
+	for _, wall in pairs(self.walls) do
+		wall:Demolish()
+	end
+end
 
 
 if Wall == nil then Wall = class({}) end
 
-function Wall:constructor(team)
-	local wall_ends = Entities:FindAllByName(team == DOTA_TEAM_GOODGUYS and "radiant_wall_end" or "dire_wall_end")
+function Wall:constructor(initial_height, activation_time, slide_time, final_height)
+	self.initial_height = initial_height
+	self.activation_time = activation_time
+	self.slide_time = slide_time
+	self.final_height = final_height
 
-	self.start_position = wall_ends[1]:GetAbsOrigin()
-	self.end_position = wall_ends[2]:GetAbsOrigin()
+	self.current_height = initial_height
+	self.direction = (initial_height > 0 and WALL_DIRECTION_UP) or WALL_DIRECTION_DOWN
+	self.start_time = GameRules:GetGameTime()
+	self.elapsed_time = 0
 
-	self.direction = (self.end_position - self.start_position):Normalized()
-	self.length = (self.end_position - self.start_position):Length2D()
+	self:UpdateParticlePosition()
 
-	self.blocker_radius = 100
-	self.blocker_distance = 0.5 * self.blocker_radius
+	self.timer = Timers:CreateTimer(0.03, function()
+		self.elapsed_time = GameRules:GetGameTime() - self.start_time
 
-	self.blockers = {}
+		if self.elapsed_time > self.activation_time and self.elapsed_time < (self.activation_time + self.slide_time) then
+			self:UpdateHeight()
+		end
 
-	local current_length = 0
-	while current_length < self.length do
-		table.insert(self.blockers, CreateModifierThinker(nil, nil, "modifier_wall_blocker", {}, self.start_position + current_length * self.direction, team, true))
+		self:Tick()
 
-		current_length = current_length + self.blocker_distance
+		return 0.03
+	end)
+end
+
+function Wall:UpdateParticlePosition()
+	local pfx_start = Vector(-1300, self.current_height, 128)
+	local pfx_end = Vector(1300, self.current_height, 128)
+
+	if self.wall_pfx then
+		ParticleManager:DestroyParticle(self.wall_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.wall_pfx)
 	end
 
 	self.wall_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	ParticleManager:SetParticleControl(self.wall_pfx, 0, self.start_position)
-	ParticleManager:SetParticleControl(self.wall_pfx, 1, self.end_position)
+	ParticleManager:SetParticleControl(self.wall_pfx, 0, pfx_start)
+	ParticleManager:SetParticleControl(self.wall_pfx, 1, pfx_end)
 	ParticleManager:SetParticleControl(self.wall_pfx, 2, Vector(0, 1, 0))
 	ParticleManager:SetParticleControl(self.wall_pfx, 60, Vector(255, 90, 40))
 	ParticleManager:SetParticleControl(self.wall_pfx, 61, Vector(1, 0, 0))
-
-	self.trigger = MapTrigger(self.start_position * 0.5 * self.length * self.direction, TRIGGER_TYPE_RECTANGLE, {
-		start_pos = self.start_position,
-		end_pos = self.end_position,
-		height = 50,
-	}, {
-		trigger_team = ENEMY_TEAM[team],
-		team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-		unit_filter = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		flag_filter = DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
-	}, function(units)
-		self:OnUnitsInWallRange(units)
-	end, {
-		tick_when_empty = false,
-	})
 end
 
-function Wall:OnUnitsInWallRange(units)
-	for _, unit in pairs(units) do
-		unit:AddNewModifier(unit, nil, "modifier_ignore_wall", {duration = 0.1})
+function Wall:UpdateHeight()
+	local interpolation = math.min(1, math.max(0, self.elapsed_time - self.activation_time) / self.slide_time)
+
+	self.current_height = self.initial_height + interpolation * (self.final_height - self.initial_height)
+
+	self:UpdateParticlePosition()
+end
+
+function Wall:Tick()
+	local all_heroes = HeroList:GetAllHeroes()
+
+	for _, hero in pairs(all_heroes) do
+		local position = hero:GetAbsOrigin()
+
+		if position.y > self.current_height and self.direction == WALL_DIRECTION_UP then
+			FindClearSpaceForUnit(hero, Vector(position.x, self.current_height - 1, position.z), true)
+		elseif position.y < self.current_height and self.direction == WALL_DIRECTION_DOWN then
+			FindClearSpaceForUnit(hero, Vector(position.x, self.current_height + 1, position.z), true)
+		end
 	end
 end
 
@@ -67,9 +90,5 @@ function Wall:Demolish()
 		ParticleManager:ReleaseParticleIndex(self.wall_pfx)
 	end
 
-	for _, blocker in pairs(self.blockers) do
-		blocker:Destroy()
-	end
-
-	self.trigger:Stop()
+	Timers:RemoveTimer(self.timer)
 end

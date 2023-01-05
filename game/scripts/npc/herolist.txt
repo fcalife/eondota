@@ -5,9 +5,9 @@
 
 "CustomHeroList"
 {
-	"npc_dota_hero_abaddon" "1"
-	"npc_dota_hero_viper" 		"1"
-	"npc_dota_hero_dazzle"  	"1"
+	"npc_dota_hero_abaddon" "0"
+	"npc_dota_hero_viper" 		"0"
+	"npc_dota_hero_dazzle"  	"0"
 
 	"npc_dota_hero_crystal_maiden" "0"
 	"npc_dota_hero_drow_ranger" "0"
@@ -37,7 +37,7 @@
 	"npc_dota_hero_weaver" "0"
 	"npc_dota_hero_zuus" "0"
 	"npc_dota_hero_queenofpain" "0"
-	"npc_dota_hero_invoker" "0"
+	"npc_dota_hero_invoker" "1"
 	"npc_dota_hero_phantom_assassin" "0"
 	"npc_dota_hero_templar_assassin" "0"
 	"npc_dota_hero_dawnbreaker" "0"

@@ -9,13 +9,13 @@ end)
 function GameManager:Init()
 	self:SetGamePhase(GAME_STATE_INIT)
 
-	Flags:Init()
-	RuneSpawners:Init()
+	--Flags:Init()
+	--RuneSpawners:Init()
 	RoundManager:Init()
 	ScoreManager:Init()
-	BrushManager:Init()
+	--BrushManager:Init()
 
-	if TOWERS_ENABLED then Towers:Init() end
+	-- if TOWERS_ENABLED then Towers:Init() end
 	--if LANE_CREEPS_ENABLED then LaneCreeps:Init() end
 end
 
@@ -54,8 +54,6 @@ function GameManager:EndGameWithWinner(team)
 end
 
 function GameManager:OnHostSelectedOption(event)
-	REVERSE_CTF = (event.reverse_ctf == 1)
-	TOWERS_ENABLED = (event.enable_towers == 1)
-	LANE_CREEPS_ENABLED = (event.enable_creeps == 1)
 	FOG_OF_WAR_DISABLED = (event.disable_fog == 1)
+	ENABLE_ULTIMATES = (event.enable_ultimates == 1)
 end

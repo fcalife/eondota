@@ -61,7 +61,7 @@ function GameMode:InitGameMode()
 	GameRules:LockCustomGameSetupTeamAssignment(false)
 	GameRules:EnableCustomGameSetupAutoLaunch(false)
 	GameRules:SetPreGameTime(15)
-	GameRules:SetStartingGold(1500)
+	GameRules:SetStartingGold(0)
 	GameRules:SetUseUniversalShopMode(true)
 	GameRules:SetHeroMinimapIconScale(1)
 	GameRules:SetTreeRegrowTime(10)
@@ -85,10 +85,11 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetFreeCourierModeEnabled(false)
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)
+	game_mode_entity:SetCustomGameForceHero("npc_dota_hero_invoker")
 
 	-- Team configuration
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 5)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 5)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 12)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 12)
 
 	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_6 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)

@@ -20,7 +20,7 @@ function RoundManager:InitializeRound()
 		hero:SetHealth(hero:GetMaxHealth())
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 10})
 
-		CenterPlayerCameraOnHero(hero)
+		CenterPlayerCameraOnHero(hero, false)
 
 		for i = 0, 10 do
 			local ability = hero:GetAbilityByIndex(i)
@@ -35,8 +35,9 @@ function RoundManager:InitializeRound()
 		end
 	end
 
-	RuneSpawners:OnInitializeRound()
-	Flags:OnInitializeRound()
+	--RuneSpawners:OnInitializeRound()
+	--Flags:OnInitializeRound()
+	Walls:OnRoundStart()
 
 	GlobalMessages:Send("Round "..self.current_round.." will start in 10 seconds!")
 
@@ -96,10 +97,9 @@ function RoundManager:OnUnitKilled()
 end
 
 function RoundManager:SetRoundWinner(team)
-	ScoreManager:OnTeamWinRound(team)
+	Walls:OnRoundEnd()
 
-	local remaining_flags = math.max(0, 3 - self.flags[DOTA_TEAM_GOODGUYS] - self.flags[DOTA_TEAM_BADGUYS])
-	if remaining_flags > 0 then GoldRewards:GiveGoldToPlayersInTeam(team, remaining_flags * FLAG_DELIVERY_GOLD, 0) end
+	ScoreManager:OnTeamWinRound(team)
 
 	local all_heroes = HeroList:GetAllHeroes()
 

@@ -45,13 +45,9 @@ precache.model_folders = {
 precache.sounds = {
     "soundevents/dab_soundevents.vsndevts",
     "soundevents/dab_client_soundevents.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_mars.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts",
 }
 
 precache.units = {

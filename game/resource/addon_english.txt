@@ -224,5 +224,27 @@
 		// Extra
 		"error_not_lane_tower"			"Can only be used on enemy Lane towers"
 		"error_not_carrying_ball"		"Can only be used on Eon Stone carriers"
+
+
+		"DOTA_Tooltip_ability_magnataur_shockwave"								"Shockwave"
+		"DOTA_Tooltip_ability_magnataur_shockwave_Description"					"Creates a slow-moving wave of energy which kills any enemies it touches"
+		"DOTA_Tooltip_ability_magnataur_shockwave_scepter_description"			""
+		"DOTA_Tooltip_ability_magnataur_shockwave_Lore"							""
+		"DOTA_Tooltip_ability_magnataur_shockwave_shock_damage"					""
+		"DOTA_Tooltip_ability_magnataur_shockwave_movement_slow"				""
+		"DOTA_Tooltip_ability_magnataur_shockwave_basic_slow_duration"			""
+
+		"DOTA_Tooltip_ability_void_spirit_astral_step"						"Astral Step"
+		"DOTA_Tooltip_ability_void_spirit_astral_step_Description"			"Teleports a short distance away, avoiding any projectiles on the path."
+		"DOTA_Tooltip_ability_void_spirit_astral_step_shard_Description"	""
+
+		"DOTA_Tooltip_ability_void_spirit_astral_step_Note0"				""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_Lore"					""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_bonus_damage"			""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_max_charges"			""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_charge_restore_time"	""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_max_travel_distance"	""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_pop_damage"			""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_movement_slow_pct"	""
 	}
 }

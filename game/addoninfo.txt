@@ -3,9 +3,7 @@
 	TeamCount = 2
 	maps = 
 	[
-		"ctf",
-		"aram",
-		"aram_wings",
+		"dodgeball",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false
@@ -14,7 +12,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "ctf"
+	DefaultMap = "dodgeball"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false
@@ -22,6 +20,6 @@
 	ForceDefaultGuide = false
 	MinimalPrecache = true
 	MinPlayers = 1
-	MaxPlayers = 10
+	MaxPlayers = 24
 	PenaltiesEnabled = false
 }

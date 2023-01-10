@@ -10,7 +10,7 @@
 		"AttackDamageMin"		"1"
 		"AttackDamageMax"		"1"
 
-		"AttackRange"			"200"
+		"AttackRange"			"0"
 
 		"AttributeBaseStrength"			"0"
 		"AttributeStrengthGain"			"0"
@@ -29,12 +29,12 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"magnataur_shockwave"
+		"Ability1"		"ability_dodgeball_throw"
 		"Ability2"		"void_spirit_astral_step"
 		"Ability3"		"generic_hidden"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
-		"Ability6"		"generic_hidden"
+		"Ability6"		"ability_dodgeball_big_throw"
 		"Ability7"		"generic_hidden"
 		"Ability8"		"generic_hidden"
 		"Ability9"		"generic_hidden"

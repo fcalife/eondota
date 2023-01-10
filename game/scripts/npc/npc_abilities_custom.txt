@@ -371,4 +371,69 @@
 			"speed"					"1000"
 		}
 	}
+
+	"ability_dodgeball_throw"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"vengefulspirit_magic_missile"
+
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"4"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"70"
+			}
+		}
+	}
+
+	"ability_dodgeball_big_throw"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"primal_beast_rock_throw"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"25"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"165"
+			}
+		}
+	}
 }

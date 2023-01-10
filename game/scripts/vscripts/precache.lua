@@ -45,7 +45,7 @@ precache.model_folders = {
 precache.sounds = {
     "soundevents/dab_soundevents.vsndevts",
     "soundevents/dab_client_soundevents.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts",
 }

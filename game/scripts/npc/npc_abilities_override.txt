@@ -85,7 +85,7 @@
 		"AbilityCastPoint"				"0.0"
 
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"2"
+		"AbilityCharges"				"1"
 
 		"AbilityManaCost"				"0"
 
@@ -94,11 +94,11 @@
 				"radius"				"0"
 				"AbilityChargeRestoreTime"	
 				{
-					"value"			"4"
+					"value"			"8"
 					"special_bonus_unique_void_spirit_1"	"-4"
 				}
 				"min_travel_distance"	"100"
-				"max_travel_distance"	"400"
+				"max_travel_distance"	"500"
 				"pop_damage_delay"		
 				{
 					"value"	"0"

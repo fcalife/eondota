@@ -33,6 +33,9 @@ function RoundManager:InitializeRound()
 				end
 			end
 		end
+
+		local ultimate = hero:FindAbilityByName("ability_dodgeball_big_throw")
+		if ultimate then ultimate:StartCooldown(35) end
 	end
 
 	--RuneSpawners:OnInitializeRound()
@@ -52,6 +55,8 @@ function RoundManager:InitializeRound()
 			return 1
 		else
 			GlobalMessages:SendAnimated("Round "..self.current_round.." is starting!")
+
+			GameManager:SetGamePhase(GAME_STATE_BATTLE)
 		end
 	end)
 end
@@ -77,6 +82,8 @@ function RoundManager:CheckForRoundEnd()
 end
 
 function RoundManager:OnUnitKilled()
+	if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
+
 	local all_heroes = HeroList:GetAllHeroes()
 
 	local radiant_dead = true
@@ -100,6 +107,8 @@ function RoundManager:SetRoundWinner(team)
 	Walls:OnRoundEnd()
 
 	ScoreManager:OnTeamWinRound(team)
+
+	GameManager:SetGamePhase(GAME_STATE_INIT)
 
 	local all_heroes = HeroList:GetAllHeroes()
 

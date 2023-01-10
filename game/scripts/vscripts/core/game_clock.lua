@@ -3,21 +3,27 @@ _G.GameClock = GameClock or {}
 function GameClock:Start()
 	self.game_start_time = GameRules:GetGameTime()
 
-	self.next_rune_spawn = self.game_start_time
-	self.next_creep_spawn = self.game_start_time
-	self.creep_upgrade_time = self.game_start_time + FIRE_SPIRIT_UPGRADE_TIME
-	self.creep_upgrade_announced = false
+	--self.next_rune_spawn = self.game_start_time
+	--self.next_creep_spawn = self.game_start_time
+	--self.creep_upgrade_time = self.game_start_time + FIRE_SPIRIT_UPGRADE_TIME
+	--self.creep_upgrade_announced = false
 
-	GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
+	--GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
 
+	RespawnManager:RespawnAllHeroes()
+
+	print("a")
 	NeutralCamps:StartSpawning()
+	print("b")
 
-	if TOWERS_ENABLED then Towers:Init() end
+	--if TOWERS_ENABLED then Towers:Init() end
 
-	NexusManager:SpawnNexus()
-	Firelord:Init()
+	--NexusManager:SpawnNexus()
+	--Firelord:Init()
 
-	for _, hero in pairs(HeroList:GetAllHeroes()) do hero:RemoveModifierByName("modifier_stunned") end
+	Timers:CreateTimer(5, function()
+		for _, hero in pairs(HeroList:GetAllHeroes()) do hero:RemoveModifierByName("modifier_stunned") end
+	end)
 
 	GameManager:SetGamePhase(GAME_STATE_BATTLE)
 
@@ -27,33 +33,33 @@ end
 function GameClock:Tick()
 	local current_time = GameRules:GetGameTime()
 
-	GoldRewards:Tick()
+	--GoldRewards:Tick()
 
-	if current_time >= self.next_rune_spawn then
-		RuneSpawners:OnInitializeRound()
+	-- if current_time >= self.next_rune_spawn then
+	-- 	RuneSpawners:OnInitializeRound()
 
-		self.next_rune_spawn = self.next_rune_spawn + RUNE_RESPAWN_DELAY
-	end
+	-- 	self.next_rune_spawn = self.next_rune_spawn + RUNE_RESPAWN_DELAY
+	-- end
 
-	if current_time >= self.next_creep_spawn then
-		NeutralCamps:SpawnFireCamp()
+	-- if current_time >= self.next_creep_spawn then
+	-- 	NeutralCamps:SpawnFireCamp()
 
-		self.next_creep_spawn = self.next_creep_spawn + FIRE_SPIRIT_SPAWN_DELAY
-	end
+	-- 	self.next_creep_spawn = self.next_creep_spawn + FIRE_SPIRIT_SPAWN_DELAY
+	-- end
 
-	if CHARGE_TOWERS_ENABLED and current_time >= self.next_essence_spawn then
-		RuneSpawners:SpawnEssence()
+	-- if CHARGE_TOWERS_ENABLED and current_time >= self.next_essence_spawn then
+	-- 	RuneSpawners:SpawnEssence()
 
-		self.next_essence_spawn = self.next_essence_spawn + CHARGE_TOWER_ORB_SPAWN_INTERVAL
-	end
+	-- 	self.next_essence_spawn = self.next_essence_spawn + CHARGE_TOWER_ORB_SPAWN_INTERVAL
+	-- end
 
-	if (not self.creep_upgrade_announced) and current_time >= self.creep_upgrade_time then
-		GlobalMessages:Send("The Fire Spirits have been upgraded!")
+	-- if (not self.creep_upgrade_announced) and current_time >= self.creep_upgrade_time then
+	-- 	GlobalMessages:Send("The Fire Spirits have been upgraded!")
 
-		EmitGlobalSound("stone.warning")
+	-- 	EmitGlobalSound("stone.warning")
 
-		self.creep_upgrade_announced = true
-	end
+	-- 	self.creep_upgrade_announced = true
+	-- end
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then
 		Timers:CreateTimer(1, function()

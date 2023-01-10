@@ -20,6 +20,7 @@ require('core/lane_creep')
 require('core/neutral_camps')
 require('core/nexus')
 require('core/firelands')
+require('core/respawn_manager')
 
 require("core/filters/init")
 require("core/ctf/init")

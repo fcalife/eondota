@@ -9,12 +9,13 @@ end)
 function GameManager:Init()
 	self:SetGamePhase(GAME_STATE_INIT)
 
-	Flags:Init()
-	RuneSpawners:Init()
+	--Flags:Init()
+	--RuneSpawners:Init()
 	--RoundManager:Init()
 	ScoreManager:Init()
-	BrushManager:Init()
-	LaneCreeps:Init()
+	RespawnManager:Init()
+	--BrushManager:Init()
+	--LaneCreeps:Init()
 end
 
 function GameManager:SetGamePhase(phase)
@@ -26,7 +27,7 @@ function GameManager:GetGamePhase()
 end
 
 function GameManager:InitializeHero(hero)
-	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {duration = 15})
+	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {duration = 20})
 	hero:HeroLevelUp(false)
 	hero:HeroLevelUp(false)
 

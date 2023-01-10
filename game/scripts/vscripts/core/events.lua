@@ -99,6 +99,11 @@ function GameEvents:OnEntityKilled(keys)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 
 	if killed_unit.camp then killed_unit.camp:OnNeutralCreepDied(attacker, killed_unit) end
+	if killed_unit.boss then killed_unit.boss:OnNeutralCreepDied(attacker, killed_unit) end
+
+	if killed_unit:IsRealHero() then
+		RespawnManager:UpdateRespawnForTeam(killed_unit:GetTeam())
+	end
 
 	--RoundManager:OnUnitKilled()
 end

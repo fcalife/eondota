@@ -3,18 +3,6 @@ GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
 CustomNetTables.SubscribeNetTableListener("charge", UpdateCharge);
 
-function UpdateCharge(table_name, key, data) {
-	if (key == "radiant") {
-		$("#Radiant_Charge_Label").text = "Blue essence: " + data.current.toFixed(0) + " / " + data.target.toFixed(0);
-		$("#Radiant_Progress").value = parseInt(data.current);
-		$("#Radiant_Progress").max = parseInt(data.target);
-	} else if (key == "dire") {
-		$("#Dire_Charge_Label").text = "Red essence: " + data.current.toFixed(0) + " / " + data.target.toFixed(0);
-		$("#Dire_Progress").value = parseInt(data.current);
-		$("#Dire_Progress").max = parseInt(data.target);
-	}
-}
-
 function NewMessage(data) {
 	let container = $("#Message_Container");
 

@@ -11,5 +11,5 @@ function modifier_hero_base_state:OnCreated(keys)
 
 	local parent = self:GetParent()
 
-	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 15}) end
+	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 20}) end
 end

@@ -61,10 +61,10 @@ function GameMode:InitGameMode()
 	GameRules:LockCustomGameSetupTeamAssignment(false)
 	GameRules:EnableCustomGameSetupAutoLaunch(false)
 	GameRules:SetPreGameTime(15)
-	GameRules:SetStartingGold(1000)
+	GameRules:SetStartingGold(0)
 	GameRules:SetUseUniversalShopMode(true)
 	GameRules:SetHeroMinimapIconScale(1)
-	GameRules:SetTreeRegrowTime(10)
+	GameRules:SetTreeRegrowTime(30)
 	GameRules:SetFirstBloodActive(false)
 	GameRules:SetHideKillMessageHeaders(false)
 	GameRules:SetTimeOfDay(0.5)
@@ -80,23 +80,28 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetLoseGoldOnDeath(false)
 	game_mode_entity:SetKillingSpreeAnnouncerDisabled(false)
 	game_mode_entity:SetMaximumAttackSpeed(1000)
-	game_mode_entity:SetDaynightCycleDisabled(true)
+	game_mode_entity:SetDaynightCycleDisabled(false)
 	game_mode_entity:SetCameraDistanceOverride(1250)
 	game_mode_entity:SetFreeCourierModeEnabled(false)
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)
 	game_mode_entity:SetFixedRespawnTime(15)
+	game_mode_entity:SetUnseenFogOfWarEnabled(true)
 
 	-- Team configuration
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 5)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 5)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 3)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 3)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 3)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_2, 3)
 
-	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_6 do
+	for team = DOTA_TEAM_CUSTOM_3, DOTA_TEAM_CUSTOM_6 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
 	end
 
 	SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, 64, 64, 208)
 	SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, 208, 64, 64)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_1, 64, 208, 64)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_2, 208, 64, 208)
 
 	-- Initialize modules
 	GameManager:Init()

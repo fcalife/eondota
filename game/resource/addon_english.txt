@@ -41,6 +41,14 @@
 		"npc_fire_golem"					"Fire Golem"
 		"npc_fire_golem_lane"				"Fire Golem"
 
+		"boss_spawn_temple"					"The Temple Guardian"
+		"boss_spawn_bear"					"The Bear"
+		"boss_spawn_dragon"					"The Dragon"
+		"boss_spawn_lava_golem"				"The Lava Golem"
+		"boss_spawn_treant"					"The Treant"
+		"boss_spawn_scorpion"				"The Djinn"
+		"boss_spawn_revenant"				"The Revenant"
+
 		// Units
 		"npc_dota_neutral_kobold_taskmaster_lane"	"Tamed Taskmaster"
 		"npc_dota_neutral_kobold_lane"				"Tamed Kobold"	
@@ -241,6 +249,9 @@
 
 		"DOTA_Tooltip_modifier_deactivated_charge_tower"				"Depowered"
 		"DOTA_Tooltip_modifier_deactivated_charge_tower_Description"	"This tower is disarmed and cannot attack for some time"
+
+		"DOTA_Tooltip_modifier_fountain_outpost_buff"					"Healing Outpost"
+		"DOTA_Tooltip_modifier_fountain_outpost_buff_Description"		"Regenerating %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% of max health and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana per second"
 
 		// Extra
 		"error_not_lane_tower"			"Can only be used on enemy Lane towers"

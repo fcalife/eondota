@@ -121,8 +121,8 @@
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/development/invisiblebox.vmdl"
 
-		"MinimapIcon"				"minimap_creepcamp"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_ward_obs"
+		"MinimapIconSize"			"450"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
@@ -136,8 +136,8 @@
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/development/invisiblebox.vmdl"
 
-		"MinimapIcon"				"minimap_creepcamp_mid"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_circle"
+		"MinimapIconSize"			"450"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
@@ -151,8 +151,8 @@
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/development/invisiblebox.vmdl"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_shield"
+		"MinimapIconSize"			"600"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
@@ -625,164 +625,6 @@
 		"VisionNighttimeRange"		"1200"
 
 		"ConsideredHero"			"1"
-	}
-
-	"npc_dota_neutral_kobold"
-	{
-		"AttackDamageMin"			"25"
-		"AttackDamageMax"			"35"	
-
-		"BountyXP"					"100"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"400"
-
-		"StatusHealth"				"250"
-		"StatusHealthRegen"			"0.5"
-	}	
-
-	"npc_dota_neutral_kobold_taskmaster"
-	{										
-		"AttackDamageMin"			"40"
-		"AttackDamageMax"			"50"	
-
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"400"
-
-		"StatusHealth"				"700"
-		"StatusHealthRegen"			"0.5"
-	}
-
-	"npc_dota_neutral_giant_wolf"
-	{
-		"AttackDamageMin"			"22"
-		"AttackDamageMax"			"24"
-
-		"BountyXP"					"70"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"500"
-
-		"StatusHealth"				"400"
-		"StatusHealthRegen"			"0.5"
-	}
-
-	"npc_dota_neutral_alpha_wolf"
-	{
-		"AttackDamageMin"			"80"
-		"AttackDamageMax"			"90"
-
-		"BountyXP"					"500"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"420"
-
-		"StatusHealth"				"1750"
-		"StatusHealthRegen"			"0.5"
-	}		
-
-	"npc_dota_neutral_wildkin"
-	{										
-		"AttackDamageMin"			"24"
-		"AttackDamageMax"			"26"
-
-		"BountyXP"					"80"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"440"
-
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"0.5"
-	}		
-
-	"npc_dota_neutral_enraged_wildkin"
-	{
-		"AttackDamageMin"			"170"
-		"AttackDamageMax"			"180"
-
-		"BountyXP"					"1200"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"440"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0.5"
-	}
-
-	"npc_dota_neutral_prowler_shaman"
-	{
-		"Model"						"models/items/invoker/forge_spirit/grievous_ingots/grievous_ingots.vmdl"
-
-		"AttackAnimationPoint"		"0.2"
-		"AttackRange"				"625"
-
-		"AttackDamageMin"			"55"
-		"AttackDamageMax"			"0"
-
-		"BountyXP"					"600"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"525"
-
-		"StatusHealth"				"2500"
-		"StatusHealthRegen"			"0.5"
-
-		"Ability1"					""
-		"Ability2"					""
-		"Ability3"					""
-	}
-
-	"npc_dota_neutral_black_drake"	
-	{
-		"Model"						"models/items/undying/flesh_golem/ti8_undying_miner_flesh_golem/ti8_undying_miner_flesh_golem.vmdl"
-
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackAnimationPoint"		"0.3"
-		"AttackRange"				"250"
-
-		"AttackDamageMin"			"130"
-		"AttackDamageMax"			"140"
-
-		"BountyXP"					"250"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"520"
-
-		"StatusHealth"				"2000"
-		"StatusHealthRegen"			"0.5"
-	}	
-
-	"npc_dota_neutral_black_dragon"	
-	{
-		"Model"						"models/items/undying/flesh_golem/davy_jones_set_davy_jones_set_kraken/davy_jones_set_davy_jones_set_kraken.vmdl"
-
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackAnimationPoint"		"0.3"
-		"AttackRange"				"250"
-
-		"AttackDamageMin"			"180"
-		"AttackDamageMax"			"200"
-
-		"BountyXP"					"750"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		"MovementSpeed"				"550"
-
-		"StatusHealth"				"7000"
-		"StatusHealthRegen"			"0.5"
-
-		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
 	}
 
 	"npc_dota_creep_goodguys_melee"
@@ -1985,6 +1827,258 @@
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 	}
 
+	"npc_dota_neutral_kobold"
+	{
+		"BaseClass"					"npc_dota_creature"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"12"
+		"AttackDamageMax"			"15"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"80"
+		"BountyGoldMin"				"20"
+		"BountyGoldMax"				"20"
+
+		"MovementSpeed"				"375"
+
+		"StatusHealth"				"175"
+		"StatusHealthRegen"			"0.5"
+
+		"HPGain"					"30"
+		"DamageGain"				"5"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"0"
+		"MoveSpeedGain"				"0"
+		"BountyGain"				"4"
+		"XPGain"					"10"
+	}	
+
+	"npc_dota_neutral_kobold_taskmaster"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"IsAncient"					"1"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"200"
+		"BountyGoldMin"				"75"
+		"BountyGoldMax"				"75"
+
+		"MovementSpeed"				"425"
+
+		"StatusHealth"				"625"
+		"StatusHealthRegen"			"2.0"
+
+		"HPGain"					"100"
+		"DamageGain"				"7"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"3"
+		"MoveSpeedGain"				"5"
+		"BountyGain"				"10"
+		"XPGain"					"30"
+	}
+
+	"npc_dota_neutral_giant_wolf"
+	{
+		"BaseClass"					"npc_dota_creature"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"175"
+		"BountyGoldMin"				"45"
+		"BountyGoldMax"				"45"
+
+		"MovementSpeed"				"400"
+
+		"StatusHealth"				"375"
+		"StatusHealthRegen"			"1.0"
+
+		"HPGain"					"45"
+		"DamageGain"				"7"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"0"
+		"MoveSpeedGain"				"0"
+		"BountyGain"				"7"
+		"XPGain"					"25"
+	}
+
+	"npc_dota_neutral_alpha_wolf"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"IsAncient"					"1"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"95"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"550"
+		"BountyGoldMin"				"180"
+		"BountyGoldMax"				"180"
+
+		"MovementSpeed"				"450"
+
+		"StatusHealth"				"1500"
+		"StatusHealthRegen"			"3.0"
+
+		"HPGain"					"200"
+		"DamageGain"				"10"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"3"
+		"MoveSpeedGain"				"5"
+		"BountyGain"				"15"
+		"XPGain"					"50"
+	}		
+
+	"npc_dota_neutral_wildkin"
+	{
+		"BaseClass"					"npc_dota_creature"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"75"
+		"AttackDamageMax"			"80"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"325"
+		"BountyGoldMin"				"80"
+		"BountyGoldMax"				"80"
+
+		"MovementSpeed"				"425"
+
+		"StatusHealth"				"800"
+		"StatusHealthRegen"			"2.0"
+
+		"HPGain"					"75"
+		"DamageGain"				"9"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"0"
+		"MoveSpeedGain"				"0"
+		"BountyGain"				"10"
+		"XPGain"					"40"
+	}
+
+	"npc_dota_neutral_enraged_wildkin"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"IsAncient"					"1"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"1200"
+		"BountyGoldMin"				"325"
+		"BountyGoldMax"				"325"
+
+		"MovementSpeed"				"475"
+
+		"StatusHealth"				"3500"
+		"StatusHealthRegen"			"5.0"
+
+		"HPGain"					"400"
+		"DamageGain"				"15"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"3"
+		"MoveSpeedGain"				"5"
+		"BountyGain"				"30"
+		"XPGain"					"100"
+	}
+
+	"npc_dota_neutral_prowler_acolyte"
+	{
+		"BaseClass"					"npc_dota_creature"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"125"
+		"AttackDamageMax"			"130"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"475"
+		"BountyGoldMin"				"125"
+		"BountyGoldMax"				"125"
+
+		"MovementSpeed"				"450"
+
+		"StatusHealth"				"1750"
+		"StatusHealthRegen"			"4.0"
+
+		"HPGain"					"125"
+		"DamageGain"				"12"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"0"
+		"MoveSpeedGain"				"0"
+		"BountyGain"				"12"
+		"XPGain"					"55"
+	}
+
+	"npc_dota_neutral_prowler_shaman"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"IsAncient"					"1"
+
+		"MagicalResistance"			"40"
+
+		"AttackDamageMin"			"330"
+		"AttackDamageMax"			"350"
+
+		"AttackRate"				"2.5"
+		"BaseAttackSpeed"			"200"
+
+		"BountyXP"					"2000"
+		"BountyGoldMin"				"525"
+		"BountyGoldMax"				"525"
+
+		"MovementSpeed"				"500"
+
+		"StatusHealth"				"7500"
+		"StatusHealthRegen"			"10.0"
+
+		"HPGain"					"500"
+		"DamageGain"				"25"
+		"ArmorGain"					"1"
+		"MagicResistGain"			"3"
+		"MoveSpeedGain"				"5"
+		"BountyGain"				"45"
+		"XPGain"					"200"
+	}
+
+	"npc_dota_neutral_black_drake"	
+	{
+	}	
+
+	"npc_dota_neutral_black_dragon"	
+	{
+	}
+
 	"boss_spawn_temple"
 	{
 		"BaseClass"					"npc_dota_creep_neutral"
@@ -1994,26 +2088,27 @@
 		"Level"						"30"
 		"IsAncient"					"1"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"400"
 
 		"ArmorPhysical"				"12"
 		"MagicalResistance"			"25"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"300"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"425"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.1"
+		"AttackRate"				"3.0"
+		"BaseAttackSpeed"			"300"
 		"AttackAnimationPoint"		"0.2"
-		"AttackAcquisitionRange"	"250"
+		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"250"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"3000"
+		"BountyGoldMin"				"750"
+		"BountyGoldMax"				"750"
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"RingRadius"				"160"
@@ -2023,8 +2118,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"8000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"25"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2044,26 +2139,27 @@
 		"Level"						"30"
 		"IsAncient"					"1"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"400"
 
 		"ArmorPhysical"				"12"
 		"MagicalResistance"			"25"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"300"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"425"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.1"
+		"AttackRate"				"3.0"
+		"BaseAttackSpeed"			"300"
 		"AttackAnimationPoint"		"0.2"
-		"AttackAcquisitionRange"	"250"
+		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"250"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"3000"
+		"BountyGoldMin"				"750"
+		"BountyGoldMax"				"750"
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"RingRadius"				"160"
@@ -2073,8 +2169,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"8000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"25"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2094,26 +2190,27 @@
 		"Level"						"30"
 		"IsAncient"					"1"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"400"
 
 		"ArmorPhysical"				"12"
 		"MagicalResistance"			"25"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"300"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"425"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.1"
+		"AttackRate"				"3.0"
+		"BaseAttackSpeed"			"300"
 		"AttackAnimationPoint"		"0.2"
-		"AttackAcquisitionRange"	"250"
+		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"250"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"3000"
+		"BountyGoldMin"				"750"
+		"BountyGoldMax"				"750"
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"RingRadius"				"160"
@@ -2123,8 +2220,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"8000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"25"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2144,26 +2241,27 @@
 		"Level"						"30"
 		"IsAncient"					"1"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"400"
 
 		"ArmorPhysical"				"12"
 		"MagicalResistance"			"25"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"300"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"425"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.1"
+		"AttackRate"				"3.0"
+		"BaseAttackSpeed"			"300"
 		"AttackAnimationPoint"		"0.2"
-		"AttackAcquisitionRange"	"250"
+		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"250"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"3000"
+		"BountyGoldMin"				"750"
+		"BountyGoldMax"				"750"
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"RingRadius"				"160"
@@ -2173,8 +2271,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"8000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"25"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2194,26 +2292,27 @@
 		"Level"						"30"
 		"IsAncient"					"1"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"400"
 
 		"ArmorPhysical"				"12"
 		"MagicalResistance"			"25"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"300"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"425"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.1"
+		"AttackRate"				"3.0"
+		"BaseAttackSpeed"			"300"
 		"AttackAnimationPoint"		"0.2"
-		"AttackAcquisitionRange"	"250"
+		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"250"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"3000"
+		"BountyGoldMin"				"750"
+		"BountyGoldMax"				"750"
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"RingRadius"				"160"
@@ -2223,8 +2322,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"8000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"25"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2244,26 +2343,27 @@
 		"Level"						"30"
 		"IsAncient"					"1"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"400"
 
 		"ArmorPhysical"				"12"
 		"MagicalResistance"			"25"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"300"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"425"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.1"
+		"AttackRate"				"3.0"
+		"BaseAttackSpeed"			"300"
 		"AttackAnimationPoint"		"0.2"
-		"AttackAcquisitionRange"	"250"
+		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"250"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"3000"
+		"BountyGoldMin"				"750"
+		"BountyGoldMax"				"750"
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"RingRadius"				"160"
@@ -2273,8 +2373,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"8000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"25"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2290,30 +2390,31 @@
 		"BaseClass"					"npc_dota_creep_neutral"
 		"Model"						"models/creeps/ice_biome/undeadtusk/undead_tuskskeleton_armor01.vmdl"
 		"SoundSet"					"Hero_WarlockGolem"
-		"ModelScale"				"1.8"
+		"ModelScale"				"2.1"
 		"Level"						"30"
 		"IsAncient"					"1"
 
-		"MinimapIcon"				"minimap_creepcamp_big"
-		"MinimapIconSize"			"350"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"400"
 
 		"ArmorPhysical"				"12"
 		"MagicalResistance"			"25"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"290"
-		"AttackDamageMax"			"300"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"425"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.1"
+		"AttackRate"				"3.0"
+		"BaseAttackSpeed"			"300"
 		"AttackAnimationPoint"		"0.2"
-		"AttackAcquisitionRange"	"250"
+		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"250"
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
+		"BountyXP"					"3000"
+		"BountyGoldMin"				"750"
+		"BountyGoldMax"				"750"
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"RingRadius"				"160"
@@ -2323,8 +2424,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"8000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"25"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 

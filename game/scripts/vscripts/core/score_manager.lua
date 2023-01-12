@@ -24,5 +24,5 @@ function ScoreManager:Score(team)
 
 	if self.score[team] >= 3 then GameRules:SetGameWinner(team) end
 
-	EmitGlobalSound("dire.round")
+	EmitGlobalSound("radiant.round")
 end

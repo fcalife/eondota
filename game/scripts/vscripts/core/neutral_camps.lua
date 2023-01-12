@@ -1,30 +1,6 @@
 _G.NeutralCamps = NeutralCamps or {}
 
 function NeutralCamps:StartSpawning()
-	self.camp_data = {
-		[1] = {
-			leader = "npc_dota_neutral_kobold_taskmaster",
-			min_minions = 0,
-			max_minions = 0,
-			minimap_dummy = "npc_camp_dummy_1",
-			scale = 0,
-		},
-		[2] = {
-			leader = "npc_dota_neutral_alpha_wolf",
-			min_minions = 0,
-			max_minions = 0,
-			minimap_dummy = "npc_camp_dummy_2",
-			scale = 0,
-		},
-		[3] = {
-			leader = "npc_dota_neutral_enraged_wildkin",
-			min_minions = 0,
-			max_minions = 0,
-			minimap_dummy = "npc_camp_dummy_3",
-			scale = 0,
-		},
-	}
-
 	self.bosses = {}
 	self.bosses["temple"] = {
 		leader = "boss_spawn_temple",
@@ -76,14 +52,11 @@ function NeutralCamps:StartSpawning()
 		scale = 50,
 	}
 
-	print("c")
-	for level = 1, 3 do
-		print("d")
-		for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_"..level)) do
-			print("e")
-			NeutralCamp(camp_location:GetAbsOrigin(), self.camp_data[level])
-		end
-	end
+	-- for level = 1, 3 do
+	-- 	for _, camp_location in pairs(Entities:FindAllByName("neutral_spawn_"..level)) do
+	-- 		NeutralCamp(camp_location:GetAbsOrigin(), self.camp_data[level])
+	-- 	end
+	-- end
 
 	BossCamp(Entities:FindByName(nil, "boss_spawn_temple"):GetAbsOrigin(), "temple")
 	BossCamp(Entities:FindByName(nil, "boss_spawn_bear"):GetAbsOrigin(), "bear")
@@ -114,7 +87,7 @@ function NeutralCamp:Spawn()
 
 	local creep_name = self.leader
 
-	local creep = CreateUnitByName(creep_name, self.location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	local creep = CreateUnitByName(creep_name, self.location, true, nil, nil, DOTA_TEAM_CUSTOM_3)
 	--creep:AddNewModifier(creep, nil, "modifier_neutral_size", {scale = self.scale})
 	--creep:SetForwardVector((Vector(0, 0, 128) - self.location):Normalized())
 	creep.camp = self
@@ -157,7 +130,7 @@ function BossCamp:Spawn()
 
 	local creep_name = self.leader
 
-	local creep = CreateUnitByName(creep_name, self.location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	local creep = CreateUnitByName(creep_name, self.location, true, nil, nil, DOTA_TEAM_CUSTOM_3)
 	creep:AddNewModifier(creep, nil, "modifier_neutral_size", {scale = self.scale})
 	creep.boss = self
 
@@ -168,6 +141,5 @@ function BossCamp:OnNeutralCreepDied(killer, killed_unit)
 	local team = killer:GetTeam()
 	local camp_clear = true
 
-	print("gg")
 	ScoreManager:Score(team)
 end

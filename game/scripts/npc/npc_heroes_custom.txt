@@ -1,8 +1,123 @@
 "DOTAHeroes"
 {
+	"npc_dota_hero_abaddon"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_viper"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_dazzle"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
 	"npc_dota_hero_crystal_maiden"
 	{
-		"VisionDaytimeRange"		"1000"
-		"VisionNighttimeRange"		"800"
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_drow_ranger"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_lina"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_huskar"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_jakiro"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_lich"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_luna"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_gyrocopter"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_pudge"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_bristleback"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_juggernaut"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_death_prophet"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_life_stealer"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_medusa"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_leshrac"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_mirana"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_pugna"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_dawnbreaker"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_mars"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_dragon_knight"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+	"npc_dota_hero_vengefulspirit"
+	{
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
 	}
 }

@@ -1,6 +1,6 @@
 modifier_speed_bonus = class({})
 
-function modifier_speed_bonus:IsHidden() return false end
+function modifier_speed_bonus:IsHidden() return true end
 function modifier_speed_bonus:IsDebuff() return false end
 function modifier_speed_bonus:IsPurgable() return false end
 
@@ -19,15 +19,20 @@ end
 function modifier_speed_bonus:OnCreated()
 	if IsClient() then return end
 
-	self:GetParent():EmitSound("Speed.Boost")
+	--self:GetParent():EmitSound("Speed.Boost")
 end
 
 function modifier_speed_bonus:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_LIMIT
 	}
 end
 
+function modifier_speed_bonus:GetModifierMoveSpeed_Limit()
+	return 800
+end
+
 function modifier_speed_bonus:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetRemainingTime() * 20
+	return 75 * self:GetRemainingTime()
 end

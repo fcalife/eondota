@@ -59,3 +59,23 @@ function GlobalMessages:NotifyTeamKilledSpider(team)
 
 	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.round" or "dire.round")
 end
+
+function GlobalMessages:NotifyBossUnderAttack(unit)
+	local unit_name = unit:GetUnitName()
+
+	local localized_name = {
+		boss_spawn_temple = "The Temple Guardian",
+		boss_spawn_bear = "The Bear",
+		boss_spawn_dragon = "The Dragon",
+		boss_spawn_lava_golem = "The Lava Golem",
+		boss_spawn_treant = "The Treant",
+		boss_spawn_scorpion = "The Djinn",
+		boss_spawn_revenant = "The Revenant"
+	}
+
+	local message = localized_name[unit_name].." is under attack!"
+
+	self:Send(message)
+
+	EmitGlobalSound("dire.round")
+end

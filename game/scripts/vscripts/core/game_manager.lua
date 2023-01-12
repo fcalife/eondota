@@ -14,6 +14,8 @@ function GameManager:Init()
 	--RoundManager:Init()
 	ScoreManager:Init()
 	RespawnManager:Init()
+	Shrines:Init()
+	EnemyManager:Init()
 	--BrushManager:Init()
 	--LaneCreeps:Init()
 end

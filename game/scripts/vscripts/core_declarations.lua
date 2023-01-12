@@ -6,6 +6,7 @@ LinkLuaModifier("modifier_dummy_state", "modifiers/modifier_dummy", LUA_MODIFIER
 LinkLuaModifier("modifier_not_on_minimap", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_speed_bonus", "modifiers/modifier_speed_bonus", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_neutral_size", "modifiers/modifier_neutral_size", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_alert_cooldown", "modifiers/modifier_neutral_size", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_score_taunt", "modifiers/score_taunt", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_portal_teleporting", "modifiers/portal_buffs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_portal_cooldown", "modifiers/portal_buffs", LUA_MODIFIER_MOTION_NONE)
@@ -59,6 +60,9 @@ LinkLuaModifier("modifier_deactivated_charge_tower", "modifiers/tower_state", LU
 LinkLuaModifier("modifier_firelord_state", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_firelord_busy", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_firelord_fire_visual", "modifiers/firelord_state", LUA_MODIFIER_MOTION_NONE)
+
+LinkLuaModifier("modifier_fountain_outpost_thinker", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_fountain_outpost_buff", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
 
 
 

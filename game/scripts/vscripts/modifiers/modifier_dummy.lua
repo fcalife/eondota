@@ -22,14 +22,6 @@ function modifier_dummy_state:CheckState()
 	}
 end
 
-function modifier_dummy_state:DeclareFunctions()
-	return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION }
-end
-
-function modifier_dummy_state:GetModifierProvidesFOWVision()
-	return 1
-end
-
 
 
 modifier_not_on_minimap = class({})

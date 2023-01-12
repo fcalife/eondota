@@ -52,7 +52,7 @@ end
 function GameMode:InitGameMode()
 
 	-- Initial gamemode setup
-	GameRules:SetSameHeroSelectionEnabled(true)
+	GameRules:SetSameHeroSelectionEnabled(false)
 	GameRules:SetHeroRespawnEnabled(true)
 	GameRules:SetHeroSelectionTime(60)
 	GameRules:SetStrategyTime(0)

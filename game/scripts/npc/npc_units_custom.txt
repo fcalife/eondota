@@ -1831,7 +1831,7 @@
 	{
 		"BaseClass"					"npc_dota_creature"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"12"
 		"AttackDamageMax"			"15"
@@ -1840,15 +1840,15 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"80"
-		"BountyGoldMin"				"20"
-		"BountyGoldMax"				"20"
+		"BountyGoldMin"				"35"
+		"BountyGoldMax"				"35"
 
 		"MovementSpeed"				"375"
 
 		"StatusHealth"				"175"
 		"StatusHealthRegen"			"0.5"
 
-		"HPGain"					"30"
+		"HPGain"					"25"
 		"DamageGain"				"5"
 		"ArmorGain"					"1"
 		"MagicResistGain"			"0"
@@ -1862,7 +1862,7 @@
 		"BaseClass"					"npc_dota_creature"
 		"IsAncient"					"1"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"40"
@@ -1871,15 +1871,15 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"200"
-		"BountyGoldMin"				"75"
-		"BountyGoldMax"				"75"
+		"BountyGoldMin"				"120"
+		"BountyGoldMax"				"120"
 
 		"MovementSpeed"				"425"
 
 		"StatusHealth"				"625"
 		"StatusHealthRegen"			"2.0"
 
-		"HPGain"					"100"
+		"HPGain"					"75"
 		"DamageGain"				"7"
 		"ArmorGain"					"1"
 		"MagicResistGain"			"3"
@@ -1892,7 +1892,7 @@
 	{
 		"BaseClass"					"npc_dota_creature"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"40"
@@ -1901,15 +1901,15 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"175"
-		"BountyGoldMin"				"45"
-		"BountyGoldMax"				"45"
+		"BountyGoldMin"				"70"
+		"BountyGoldMax"				"70"
 
 		"MovementSpeed"				"400"
 
-		"StatusHealth"				"375"
+		"StatusHealth"				"360"
 		"StatusHealthRegen"			"1.0"
 
-		"HPGain"					"45"
+		"HPGain"					"30"
 		"DamageGain"				"7"
 		"ArmorGain"					"1"
 		"MagicResistGain"			"0"
@@ -1923,7 +1923,7 @@
 		"BaseClass"					"npc_dota_creature"
 		"IsAncient"					"1"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"85"
 		"AttackDamageMax"			"95"
@@ -1932,15 +1932,15 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"550"
-		"BountyGoldMin"				"180"
-		"BountyGoldMax"				"180"
+		"BountyGoldMin"				"300"
+		"BountyGoldMax"				"300"
 
 		"MovementSpeed"				"450"
 
-		"StatusHealth"				"1500"
+		"StatusHealth"				"1250"
 		"StatusHealthRegen"			"3.0"
 
-		"HPGain"					"200"
+		"HPGain"					"125"
 		"DamageGain"				"10"
 		"ArmorGain"					"1"
 		"MagicResistGain"			"3"
@@ -1953,7 +1953,7 @@
 	{
 		"BaseClass"					"npc_dota_creature"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"75"
 		"AttackDamageMax"			"80"
@@ -1962,15 +1962,15 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"325"
-		"BountyGoldMin"				"80"
-		"BountyGoldMax"				"80"
+		"BountyGoldMin"				"130"
+		"BountyGoldMax"				"130"
 
 		"MovementSpeed"				"425"
 
-		"StatusHealth"				"800"
+		"StatusHealth"				"600"
 		"StatusHealthRegen"			"2.0"
 
-		"HPGain"					"75"
+		"HPGain"					"60"
 		"DamageGain"				"9"
 		"ArmorGain"					"1"
 		"MagicResistGain"			"0"
@@ -1984,7 +1984,7 @@
 		"BaseClass"					"npc_dota_creature"
 		"IsAncient"					"1"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"190"
 		"AttackDamageMax"			"210"
@@ -1993,15 +1993,15 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"1200"
-		"BountyGoldMin"				"325"
-		"BountyGoldMax"				"325"
+		"BountyGoldMin"				"500"
+		"BountyGoldMax"				"500"
 
 		"MovementSpeed"				"475"
 
-		"StatusHealth"				"3500"
+		"StatusHealth"				"2750"
 		"StatusHealthRegen"			"5.0"
 
-		"HPGain"					"400"
+		"HPGain"					"275"
 		"DamageGain"				"15"
 		"ArmorGain"					"1"
 		"MagicResistGain"			"3"
@@ -2014,7 +2014,7 @@
 	{
 		"BaseClass"					"npc_dota_creature"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"125"
 		"AttackDamageMax"			"130"
@@ -2023,15 +2023,15 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"475"
-		"BountyGoldMin"				"125"
-		"BountyGoldMax"				"125"
+		"BountyGoldMin"				"200"
+		"BountyGoldMax"				"200"
 
 		"MovementSpeed"				"450"
 
-		"StatusHealth"				"1750"
+		"StatusHealth"				"1500"
 		"StatusHealthRegen"			"4.0"
 
-		"HPGain"					"125"
+		"HPGain"					"100"
 		"DamageGain"				"12"
 		"ArmorGain"					"1"
 		"MagicResistGain"			"0"
@@ -2045,7 +2045,7 @@
 		"BaseClass"					"npc_dota_creature"
 		"IsAncient"					"1"
 
-		"MagicalResistance"			"40"
+		"MagicalResistance"			"30"
 
 		"AttackDamageMin"			"330"
 		"AttackDamageMax"			"350"
@@ -2054,12 +2054,12 @@
 		"BaseAttackSpeed"			"200"
 
 		"BountyXP"					"2000"
-		"BountyGoldMin"				"525"
-		"BountyGoldMax"				"525"
+		"BountyGoldMin"				"800"
+		"BountyGoldMax"				"800"
 
 		"MovementSpeed"				"500"
 
-		"StatusHealth"				"7500"
+		"StatusHealth"				"5500"
 		"StatusHealthRegen"			"10.0"
 
 		"HPGain"					"500"

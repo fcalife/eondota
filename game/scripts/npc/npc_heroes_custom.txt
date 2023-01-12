@@ -21,7 +21,7 @@
 
 		"BountyXP"		"0"
 
-		"MovementSpeed"		"350"
+		"MovementSpeed"		"420"
 		"MovementTurnRate"	"1.0"
 
 		"StatusHealth"			"1"

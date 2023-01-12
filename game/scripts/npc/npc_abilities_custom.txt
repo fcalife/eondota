@@ -395,7 +395,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"1100"
+				"speed"				"1225"
 			}
 			"02"
 			{
@@ -427,7 +427,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"1100"
+				"speed"				"1225"
 			}
 			"02"
 			{

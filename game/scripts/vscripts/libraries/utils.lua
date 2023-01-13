@@ -50,3 +50,14 @@ function CenterPlayerCameraOnHero(hero, release)
 		end
 	end
 end
+
+function LockPlayerCameraOnTarget(hero, target, release)
+	local player = hero:GetPlayerOwner()
+	if player then
+		PlayerResource:SetCameraTarget(player:GetPlayerID(), target)
+
+		if release then
+			Timers:CreateTimer(0.01, function() PlayerResource:SetCameraTarget(player:GetPlayerID(), nil) end)
+		end
+	end
+end

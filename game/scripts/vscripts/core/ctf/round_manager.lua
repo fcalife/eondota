@@ -6,6 +6,13 @@ function RoundManager:Init()
 	self.flags = {}
 	self.flags[DOTA_TEAM_GOODGUYS] = 0
 	self.flags[DOTA_TEAM_BADGUYS] = 0
+
+	self.camera_dummies = {}
+	self.camera_dummies[DOTA_TEAM_GOODGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(-275, 0, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	self.camera_dummies[DOTA_TEAM_BADGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(275, 0, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
+
+	self.camera_dummies[DOTA_TEAM_GOODGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_GOODGUYS], nil, "modifier_dummy_state", {})
+	self.camera_dummies[DOTA_TEAM_BADGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_BADGUYS], nil, "modifier_dummy_state", {})
 end
 
 function RoundManager:InitializeRound()
@@ -20,7 +27,7 @@ function RoundManager:InitializeRound()
 		hero:SetHealth(hero:GetMaxHealth())
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 10})
 
-		CenterPlayerCameraOnHero(hero, false)
+		LockPlayerCameraOnTarget(hero, self.camera_dummies[hero:GetTeam()], false)
 
 		for i = 0, 10 do
 			local ability = hero:GetAbilityByIndex(i)

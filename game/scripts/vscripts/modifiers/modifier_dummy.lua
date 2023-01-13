@@ -18,16 +18,9 @@ function modifier_dummy_state:CheckState()
 		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 		[MODIFIER_STATE_OUT_OF_GAME] = true,
-		[MODIFIER_STATE_UNTARGETABLE] = true
+		[MODIFIER_STATE_UNTARGETABLE] = true,
+		[MODIFIER_STATE_NOT_ON_MINIMAP] = true
 	}
-end
-
-function modifier_dummy_state:DeclareFunctions()
-	return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION }
-end
-
-function modifier_dummy_state:GetModifierProvidesFOWVision()
-	return 1
 end
 
 

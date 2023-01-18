@@ -30,8 +30,8 @@
 		"StatusHealthRegen"		"0.0"
 
 		"Ability1"		"ability_dodgeball_throw"
-		"Ability2"		"void_spirit_astral_step"
-		"Ability3"		"generic_hidden"
+		"Ability2"		"ability_dodgeball_throwback"
+		"Ability3"		"void_spirit_astral_step"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"ability_dodgeball_big_throw"

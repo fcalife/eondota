@@ -379,7 +379,6 @@
 
 		"AbilityTextureName"		"vengefulspirit_magic_missile"
 
-		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
 
 		"AbilityCastPoint"			"0.0"
@@ -405,6 +404,33 @@
 		}
 	}
 
+	"ability_dodgeball_throwback"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"alchemist_unstable_concoction_throw"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"1"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.6"
+			}
+		}
+	}
+
 	"ability_dodgeball_big_throw"
 	{
 		"BaseClass"					"ability_lua"
@@ -412,6 +438,7 @@
 
 		"AbilityTextureName"		"primal_beast_rock_throw"
 
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
 
 		"AbilityCastPoint"			"0.0"

@@ -1,5 +1,16 @@
 _G.GlobalMessages = GlobalMessages or {}
 
+LOCALIZED_BOSS_NAMES = {
+	boss_spawn_temple = "the Temple Guardian",
+	boss_spawn_bear = "the Bear",
+	boss_spawn_dragon = "the Dragon",
+	boss_spawn_lava_golem = "the Lava Golem",
+	boss_spawn_treant = "the Treant",
+	boss_spawn_scorpion = "the Djinn",
+	boss_spawn_revenant = "the Revenant",
+	boss_spawn_spider = "the Spider"
+}
+
 function GlobalMessages:Send(message)
 	CustomGameEventManager:Send_ServerToAllClients("new_message", {text = message})
 end
@@ -63,17 +74,7 @@ end
 function GlobalMessages:NotifyBossUnderAttack(unit)
 	local unit_name = unit:GetUnitName()
 
-	local localized_name = {
-		boss_spawn_temple = "The Temple Guardian",
-		boss_spawn_bear = "The Bear",
-		boss_spawn_dragon = "The Dragon",
-		boss_spawn_lava_golem = "The Lava Golem",
-		boss_spawn_treant = "The Treant",
-		boss_spawn_scorpion = "The Djinn",
-		boss_spawn_revenant = "The Revenant"
-	}
-
-	local message = localized_name[unit_name].." is under attack!"
+	local message = "A team has engaged "..LOCALIZED_BOSS_NAMES[unit_name].." in combat!"
 
 	self:Send(message)
 

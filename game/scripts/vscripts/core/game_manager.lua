@@ -14,7 +14,6 @@ function GameManager:Init()
 	--RoundManager:Init()
 	ScoreManager:Init()
 	RespawnManager:Init()
-	Shrines:Init()
 	EnemyManager:Init()
 	--BrushManager:Init()
 	--LaneCreeps:Init()
@@ -41,7 +40,14 @@ function GameManager:InitializeHero(hero)
 		end
 	end
 
+	hero:AddItemByName("item_bonfire")
+
+	for i = 1, 59 do
+		hero:AddItemByName("item_tpscroll")
+	end
+
 	hero:SetAbilityPoints(0)
+	hero:AddNewModifier(hero, nil, "modifier_hero_boosted_mana_regen", {})
 
 	if IsInToolsMode() then
 		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)

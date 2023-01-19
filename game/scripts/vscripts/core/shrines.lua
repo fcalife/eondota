@@ -5,9 +5,7 @@ SHRINE_CAPTURE_TIME = 7
 
 SHRINE_CAPTURE_ZONE_RADIUS = 350
 
-SHRINE_STATE_NEUTRAL = 1
-SHRINE_STATE_DISPUTED = 2
-SHRINE_STATE_CAPTURED = 3
+
 
 SHRINE_TYPE_FOUNTAIN = 1
 SHRINE_TYPE_RESPAWN = 2
@@ -75,6 +73,8 @@ function Shrine:constructor(location, type)
 	elseif self.type == SHRINE_TYPE_VISION then
 		self.minimap_dummy = CreateUnitByName("npc_camp_dummy_1", self.location, true, nil, nil, DOTA_TEAM_CUSTOM_3)
 	end
+
+	GridNav:DestroyTreesAroundPoint(self.location, 250, true)
 
 	self.minimap_dummy:AddNewModifier(self.minimap_dummy, nil, "modifier_dummy_state", {})
 	self.minimap_dummy:AddNewModifier(self.minimap_dummy, nil, "modifier_not_on_minimap", {})

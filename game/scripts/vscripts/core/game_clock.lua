@@ -3,16 +3,11 @@ _G.GameClock = GameClock or {}
 function GameClock:Start()
 	self.game_start_time = GameRules:GetGameTime()
 
-	self.next_enemy_spawn_for_team = {}
-	self.next_enemy_spawn_for_team[DOTA_TEAM_GOODGUYS] = self.game_start_time + 3
-	self.next_enemy_spawn_for_team[DOTA_TEAM_BADGUYS] = self.game_start_time + 5
-	self.next_enemy_spawn_for_team[DOTA_TEAM_CUSTOM_1] = self.game_start_time + 7
-	self.next_enemy_spawn_for_team[DOTA_TEAM_CUSTOM_2] = self.game_start_time + 9
-
 	--GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
 
 	RespawnManager:RespawnAllHeroes()
 	NeutralCamps:StartSpawning()
+	RespawnManager:DestroyUnusedOutposts()
 
 	--if TOWERS_ENABLED then Towers:Init() end
 
@@ -31,20 +26,8 @@ end
 function GameClock:Tick()
 	local current_time = GameRules:GetGameTime()
 
-	if current_time >= self.next_enemy_spawn_for_team[DOTA_TEAM_GOODGUYS] then
-		self.next_enemy_spawn_for_team[DOTA_TEAM_GOODGUYS] = current_time + EnemyManager:SpawnEnemyForTeam(DOTA_TEAM_GOODGUYS)
-	end
-
-	if current_time >= self.next_enemy_spawn_for_team[DOTA_TEAM_BADGUYS] then
-		self.next_enemy_spawn_for_team[DOTA_TEAM_BADGUYS] = current_time + EnemyManager:SpawnEnemyForTeam(DOTA_TEAM_BADGUYS)
-	end
-
-	if current_time >= self.next_enemy_spawn_for_team[DOTA_TEAM_CUSTOM_1] then
-		self.next_enemy_spawn_for_team[DOTA_TEAM_CUSTOM_1] = current_time + EnemyManager:SpawnEnemyForTeam(DOTA_TEAM_CUSTOM_1)
-	end
-
-	if current_time >= self.next_enemy_spawn_for_team[DOTA_TEAM_CUSTOM_2] then
-		self.next_enemy_spawn_for_team[DOTA_TEAM_CUSTOM_2] = current_time + EnemyManager:SpawnEnemyForTeam(DOTA_TEAM_CUSTOM_2)
+	for _, hero in pairs(HeroList:GetAllHeroes()) do
+		if hero:IsAlive() then EnemyManager:ActivateSpawnersAround(hero) end
 	end
 
 	--GoldRewards:Tick()

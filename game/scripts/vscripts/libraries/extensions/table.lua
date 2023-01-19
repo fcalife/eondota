@@ -20,7 +20,7 @@ function table.shuffled(t)
 	t = table.clone(t)
 	for i = #t, 1, -1 do
 		-- TODO: RandomInt
-		local j = math.random(i)
+		local j = RandomInt(1, i)
 		t[i], t[j] = t[j], t[i]
 	end
 

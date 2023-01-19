@@ -1,7 +1,7 @@
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
-CustomNetTables.SubscribeNetTableListener("charge", UpdateCharge);
+CustomNetTables.SubscribeNetTableListener("charge", UpdateScore);
 
 function NewMessage(data) {
 	let container = $("#Message_Container");
@@ -24,4 +24,16 @@ function ShowCustomError(data) {
 		reason: 80,
 		message: data.message,
 	});
+}
+
+function UpdateScore(table_name, key, data) {
+	if (key == "BLUE") {
+		$("#Blue_Score").text = parseInt(data.score);
+	} else if (key == "RED") {
+		$("#Red_Score").text = parseInt(data.score);
+	} else if (key == "GREEN") {
+		$("#Green_Score").text = parseInt(data.score);
+	} else if (key == "PINK") {
+		$("#Pink_Score").text = parseInt(data.score);
+	}
 }

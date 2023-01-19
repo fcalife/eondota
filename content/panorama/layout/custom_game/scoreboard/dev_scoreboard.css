@@ -1,45 +1,36 @@
-#Radiant_Charge {
+#Scoreboard {
 	align:  center top;
-	margin-right: 320px;
 	margin-top:  65px;
-	width: 250px;
-	flow-children: none;
+	flow-children:  right;
 }
 
-#Dire_Charge {
-	align:  center top;
-	margin-left: 320px;
-	margin-top:  65px;
-	width: 250px;
-	flow-children: none;
+.ScoreContainers {
+	padding: 4px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+	border: 2px solid #111111FF;
 }
 
-#Radiant_Progress {
-	border-radius: 8px;
+#Blue_Container {
+	background-color: #4040b0;
 }
 
-#Radiant_Progress .ProgressBarLeft {
-	background-color: blue;
+#Red_Container {
+	background-color: #b04040;
 }
 
-#Radiant_Progress .ProgressBarRight {
-	background-color: black;
+#Green_Container {
+	background-color: #40b040;
 }
 
-#Dire_Progress {
-	border-radius: 8px;
+#Pink_Container {
+	background-color: #b040b0;
 }
 
-#Dire_Progress .ProgressBarLeft {
-	background-color: red;
-}
-
-#Dire_Progress .ProgressBarRight {
-	background-color: black;
-}
-
-.Charge_Label {
-	padding: 6px;
+.ScoreLabel {
+	margin-left: 12px;
+	margin-right: 12px;
 	text-align:  center center;
 	font-size:  28;
 	font-weight:  bold;

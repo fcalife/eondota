@@ -1,5 +1,6 @@
 -- Link global modifiers
 LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_hero_boosted_mana_regen", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_golem_base_state", "modifiers/golem_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_golem_disabled_counter", "modifiers/golem_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dummy_state", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE)
@@ -63,6 +64,15 @@ LinkLuaModifier("modifier_firelord_fire_visual", "modifiers/firelord_state", LUA
 
 LinkLuaModifier("modifier_fountain_outpost_thinker", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fountain_outpost_buff", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_not_on_minimap_for_enemies", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_outpost_state", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_outpost_defense", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_outpost_guardian_thinker", "modifiers/outposts", LUA_MODIFIER_MOTION_NONE)
+
+LinkLuaModifier("modifier_boss_state_thinker", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_state_roaming_thinker", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_leash_regen", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_toughness", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
 
 
 
@@ -119,3 +129,11 @@ FIRE_SPIRIT_SPAWN_DELAY = 24
 FIRE_SPIRIT_UPGRADE_TIME = 290
 FIRE_SPIRIT_GOLD_BOUNTY = 500
 FIRE_SPIRIT_UPGRADED_GOLD = 1000
+
+BIOME_LIST = {
+	"forest",
+	"plains",
+	"ice",
+	"desert",
+	"jungle"
+}

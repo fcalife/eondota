@@ -49,6 +49,42 @@
 		"boss_spawn_treant"					"The Treant"
 		"boss_spawn_scorpion"				"The Djinn"
 		"boss_spawn_revenant"				"The Revenant"
+		"boss_spawn_spider"					"The Spider"
+
+		"enemy_forest_1_leader"				"Kobold Taskmaster"
+		"enemy_forest_1_minion"				"Kobold"
+		"enemy_forest_2_leader"				"Dark Troll Priest"
+		"enemy_forest_2_minion"				"Dark Troll"
+		"enemy_forest_3_leader"				"Tomato"
+		"enemy_forest_3_minion"				"Potato"
+
+		"enemy_plains_1_leader"				"Alpha Wolf"
+		"enemy_plains_1_minion"				"Wolf"
+		"enemy_plains_2_leader"				"Centaur Khan"
+		"enemy_plains_2_minion"				"Centaur"
+		"enemy_plains_3_leader"				"Prowler Shaman"
+		"enemy_plains_3_minion"				"Prowler"
+
+		"enemy_ice_1_leader"				"Fell Spirit"
+		"enemy_ice_1_minion"				"Ghost"
+		"enemy_ice_2_leader"				"Frostbitten Shaman"
+		"enemy_ice_2_minion"				"Frostbitten"
+		"enemy_ice_3_leader"				"Shambling Draug"
+		"enemy_ice_3_minion"				"Direwolf"
+
+		"enemy_desert_1_leader"				"Molten Gargoyle"
+		"enemy_desert_1_minion"				"Fire Spider"
+		"enemy_desert_2_leader"				"Ancient Lizard"
+		"enemy_desert_2_minion"				"Fire Spirit"
+		"enemy_desert_3_leader"				""
+		"enemy_desert_3_minion"				""
+
+		"enemy_jungle_1_leader"				"Crocodilian Shaman"
+		"enemy_jungle_1_minion"				"Crocodilian Warrior"
+		"enemy_jungle_2_leader"				""
+		"enemy_jungle_2_minion"				""
+		"enemy_jungle_3_leader"				""
+		"enemy_jungle_3_minion"				""
 
 		// Units
 		"npc_dota_neutral_kobold_taskmaster_lane"	"Tamed Taskmaster"
@@ -80,6 +116,12 @@
 
 		"DOTA_Tooltip_modifier_green_rune_buff"					"Green Buff"
 		"DOTA_Tooltip_modifier_green_rune_buff_Description"		"Moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster and gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance"
+
+		"DOTA_Tooltip_ability_item_bonfire"						"Bonfire"
+		"DOTA_Tooltip_ability_item_bonfire_Description"			"<h1>Active: Camp</h1>Provides %health_regen%%% health and %mana_regen%%% mana regeneration in a %radius% around yourself. Requires channeling, and can be mantained for up to %max_duration% seconds.\n\nAllied heroes cannot benefit from the healing for %healing_prevention_duration% seconds after taking damage. If the caster takes damage, the effect ends.\n\nThe Campfire's effect can be seen by all players (including enemies) in %vision_radius% range."
+
+		"DOTA_Tooltip_modifier_bonfire_buff"					"Bonfire Warmth"
+		"DOTA_Tooltip_modifier_bonfire_buff_Description"		"Feeling warm and cozy. Restoring %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana per second."
 
 
 

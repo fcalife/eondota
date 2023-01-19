@@ -4,6 +4,14 @@
 
 	"item_aghanims_shard"	{ "ItemInitialStockTime"	"135" }
 
+	"item_tpscroll"
+	{
+		"AbilityCooldown"				"45"
+
+		"AbilityManaCost"				"0"
+		"ItemCost"						"0"
+	}
+
 	"item_recipe_black_king_bar"
 	{
 		"ItemCost"						"750"

@@ -7,9 +7,13 @@ function modifier_fountain_outpost_thinker:IsPurgable() return false end
 function modifier_fountain_outpost_thinker:IsAura() return true end
 function modifier_fountain_outpost_thinker:GetModifierAura() return "modifier_fountain_outpost_buff" end
 function modifier_fountain_outpost_thinker:GetAuraRadius() return 350 end
+function modifier_fountain_outpost_thinker:GetAuraDuration() return 0.1 end
 function modifier_fountain_outpost_thinker:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_FRIENDLY end
 function modifier_fountain_outpost_thinker:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
 function modifier_fountain_outpost_thinker:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_INVULNERABLE end
+function modifier_fountain_outpost_thinker:GetAuraEntityReject(unit)
+	return unit:HasModifier("modifier_bonfire_healing_prevention")
+end
 
 
 
@@ -22,18 +26,36 @@ function modifier_fountain_outpost_buff:IsPurgable() return false end
 function modifier_fountain_outpost_buff:GetTexture() return "rune_regen" end
 
 function modifier_fountain_outpost_buff:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
-		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
-	}
+	if IsServer() then
+		return {
+			MODIFIER_EVENT_ON_TAKEDAMAGE,
+			MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+			MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+			MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
+		}
+	end
 end
 
-function modifier_fountain_outpost_buff:GetModifierHealthRegenPercentage()
-	return 5
+function modifier_fountain_outpost_buff:GetModifierConstantHealthRegen()
+	return 0.05 * self:GetParent():GetMaxHealth()
 end
 
 function modifier_fountain_outpost_buff:GetModifierConstantManaRegen()
-	return 0.07 * self:GetParent():GetMaxMana()
+	return 0.06 * self:GetParent():GetMaxMana()
+end
+
+function modifier_fountain_outpost_buff:OnTakeDamage(keys)
+	if keys.unit == self:GetParent() then
+		if keys.unit == self:GetCaster() then
+			keys.unit:InterruptChannel()
+		end
+
+		keys.unit:AddNewModifier(keys.unit, self:GetAbility(), "modifier_bonfire_healing_prevention", {duration = 3})
+	end
 end
 
 

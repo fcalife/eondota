@@ -6,7 +6,7 @@ PATHFINDING_DISTANCE_LIMIT = 2000
 MIN_ENCOUNTER_DELAY = 15
 MAX_ENCOUNTER_DELAY = 25
 
-SPAWNER_COOLDOWN = 60
+SPAWNER_COOLDOWN = 120
 
 MAX_ENCOUNTER_TIER = 3
 
@@ -92,7 +92,7 @@ end
 function Spawner:Spawn(unit, target)
 	local creep = CreateUnitByName(unit, self.location + RandomVector(200), true, nil, nil, DOTA_TEAM_CUSTOM_3)
 	creep:AddNewModifier(creep, nil, "modifier_speed_bonus", {duration = 2.0})
-	creep:AddNewModifier(creep, nil, "modifier_kill", {duration = SPAWNER_COOLDOWN})
+	creep:AddNewModifier(creep, nil, "modifier_kill", {duration = 60})
 
 	creep.spawner = self
 

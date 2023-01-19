@@ -31,10 +31,11 @@ function GoldRewards:GiveGoldToPlayersInTeam(team, gold, exp)
 	for id = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
 		if PlayerResource:IsValidPlayer(id) and PlayerResource:GetTeam(id) == team then
 			local hero = PlayerResource:GetSelectedHeroEntity(id)
-
-			SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, hero, gold, nil)
 			hero:ModifyGold(gold, false, DOTA_ModifyGold_GameTick)
 			hero:AddExperience(exp, DOTA_ModifyXP_Outpost, false, true)
+
+			local player = hero:GetPlayerOwner()
+			if player then SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, gold, player) end
 		end
 	end
 end

@@ -67,6 +67,94 @@
 	animation-iteration-count: infinite;
 }
 
+#Bossmap {
+	align:  left top;
+	margin-top:  120px;
+	margin-left: 15px;
+	flow-children:  none;
+	background-color: #111111D0;
+	border: 3px solid #111111FF;
+}
+
+.BossmapImages {
+	width: 240px;
+	height: 240px;
+	saturation: 0.0;
+	brightness: 0.3;
+}
+
+#bear_Background {
+	background-image: url("file://{resources}/images/custom_game/bear.png");
+}
+
+#dragon_Background {
+	background-image: url("file://{resources}/images/custom_game/dragon.png");
+}
+
+#lava_golem_Background {
+	background-image: url("file://{resources}/images/custom_game/lava_golem.png");
+}
+
+#revenant_Background {
+	background-image: url("file://{resources}/images/custom_game/revenant.png");
+}
+
+#scorpion_Background {
+	background-image: url("file://{resources}/images/custom_game/scorpion.png");
+}
+
+#spider_Background {
+	background-image: url("file://{resources}/images/custom_game/spider.png");
+}
+
+#temple_Background {
+	background-image: url("file://{resources}/images/custom_game/temple.png");
+}
+
+#treant_Background {
+	background-image: url("file://{resources}/images/custom_game/treant.png");
+}
+
+#bear_Portrait {
+	background-image: url("file://{resources}/images/custom_game/bear_portrait.png");
+	visibility: collapse;
+}
+
+#dragon_Portrait {
+	background-image: url("file://{resources}/images/custom_game/dragon_portrait.png");
+	visibility: collapse;
+}
+
+#lava_golem_Portrait {
+	background-image: url("file://{resources}/images/custom_game/lava_golem_portrait.png");
+	visibility: collapse;
+}
+
+#revenant_Portrait {
+	background-image: url("file://{resources}/images/custom_game/revenant_portrait.png");
+	visibility: collapse;
+}
+
+#scorpion_Portrait {
+	background-image: url("file://{resources}/images/custom_game/scorpion_portrait.png");
+	visibility: collapse;
+}
+
+#spider_Portrait {
+	background-image: url("file://{resources}/images/custom_game/spider_portrait.png");
+	visibility: collapse;
+}
+
+#temple_Portrait {
+	background-image: url("file://{resources}/images/custom_game/temple_portrait.png");
+	visibility: collapse;
+}
+
+#treant_Portrait {
+	background-image: url("file://{resources}/images/custom_game/treant_portrait.png");
+	visibility: collapse;
+}
+
 @keyframes 'Emphasis' {
 	0% { transform: scale3d(1.0, 1.0, 1.0); }
 	17% { transform: scale3d(1.1, 1.1, 1.0); }

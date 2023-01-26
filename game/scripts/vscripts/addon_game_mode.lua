@@ -92,9 +92,9 @@ function GameMode:InitGameMode()
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 3)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 3)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 3)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_2, 3)
+	--GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_2, 3)
 
-	for team = DOTA_TEAM_CUSTOM_3, DOTA_TEAM_CUSTOM_6 do
+	for team = DOTA_TEAM_CUSTOM_2, DOTA_TEAM_CUSTOM_6 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
 	end
 

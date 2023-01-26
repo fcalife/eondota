@@ -71,6 +71,16 @@ function GlobalMessages:NotifyTeamKilledSpider(team)
 	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.round" or "dire.round")
 end
 
+function GlobalMessages:NotifyBossSpawned(boss)
+	local boss_name = LOCALIZED_BOSS_NAMES["boss_spawn_"..boss]
+
+	local message = boss_name.." has spawned!"
+
+	self:Send(message)
+
+	EmitGlobalSound("dire.round")
+end
+
 function GlobalMessages:NotifyBossUnderAttack(unit)
 	local unit_name = unit:GetUnitName()
 

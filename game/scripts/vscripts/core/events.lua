@@ -98,7 +98,6 @@ function GameEvents:OnEntityKilled(keys)
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 
-	if killed_unit.camp then killed_unit.camp:OnNeutralCreepDied(attacker, killed_unit) end
 	if killed_unit.boss then killed_unit.boss:OnNeutralCreepDied(attacker, killed_unit) end
 	if killed_unit.spawner then killed_unit.spawner:OnCreepDied(attacker) end
 	if killed_unit.outpost then killed_unit.outpost:OnCreepDied() end

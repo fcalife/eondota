@@ -154,12 +154,25 @@ function modifier_outpost_defense:OnIntervalThink()
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
-		FIND_ANY_ORDER,
+		FIND_CLOSEST,
 		false
 	)
 
-	for _, enemy in pairs(enemies) do
-		if enemy:GetTeam() ~= DOTA_TEAM_CUSTOM_3 then
+	if #enemies > 0 and enemies[1] then
+		local enemy = enemies[1]
+		local i = 1
+
+		while enemy and enemy:GetTeam() == DOTA_TEAM_CUSTOM_3 do
+			i = i + 1
+
+			if enemies[i] then
+				enemy = enemies[i]
+			else
+				enemy = false
+			end
+		end
+			
+		if enemy then
 			attack_projectile.Target = enemy
 			ProjectileManager:CreateTrackingProjectile(attack_projectile)
 		end

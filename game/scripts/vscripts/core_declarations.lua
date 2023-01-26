@@ -71,7 +71,6 @@ LinkLuaModifier("modifier_outpost_guardian_thinker", "modifiers/outposts", LUA_M
 
 LinkLuaModifier("modifier_boss_state_thinker", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_state_roaming_thinker", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_leash_regen", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_toughness", "modifiers/boss_state", LUA_MODIFIER_MOTION_NONE)
 
 

@@ -75,7 +75,7 @@
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"
 	}
-	"npc_dota_hero_life_stealer"
+	"npc_dota_hero_tiny"
 	{
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"

@@ -2,6 +2,7 @@ GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
 CustomNetTables.SubscribeNetTableListener("charge", UpdateScore);
+CustomNetTables.SubscribeNetTableListener("bosses", UpdateBossMap);
 
 function NewMessage(data) {
 	let container = $("#Message_Container");
@@ -33,7 +34,13 @@ function UpdateScore(table_name, key, data) {
 		$("#Red_Score").text = parseInt(data.score);
 	} else if (key == "GREEN") {
 		$("#Green_Score").text = parseInt(data.score);
-	} else if (key == "PINK") {
-		$("#Pink_Score").text = parseInt(data.score);
 	}
+}
+
+function UpdateBossMap(table_name, key, data) {
+	$("#" + key + "_Portrait").visible = true;
+	$("#" + key + "_Portrait").style.saturation = (data.alive ? "1.0" : "0.0");
+	$("#" + key + "_Portrait").style.brightness = (data.alive ? "1.0" : "0.4");
+	$("#" + key + "_Background").style.saturation = (data.alive ? "1.0" : "0.0");
+	$("#" + key + "_Background").style.brightness = (data.alive ? "1.0" : "0.4");
 }

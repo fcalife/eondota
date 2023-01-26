@@ -51,7 +51,7 @@ function RespawnManager:Init()
 	table.insert(self.all_outposts, SpawnOutpost(DOTA_TEAM_GOODGUYS, table.remove(shuffled_respawns)))
 	table.insert(self.all_outposts, SpawnOutpost(DOTA_TEAM_BADGUYS, table.remove(shuffled_respawns)))
 	table.insert(self.all_outposts, SpawnOutpost(DOTA_TEAM_CUSTOM_1, table.remove(shuffled_respawns)))
-	table.insert(self.all_outposts, SpawnOutpost(DOTA_TEAM_CUSTOM_2, table.remove(shuffled_respawns)))
+	--table.insert(self.all_outposts, SpawnOutpost(DOTA_TEAM_CUSTOM_2, table.remove(shuffled_respawns)))
 
 	for _, spawn_point in pairs(Entities:FindAllByName("neutral_outpost")) do
 		table.insert(self.all_outposts, NeutralOutpost(spawn_point:GetAbsOrigin()))
@@ -60,7 +60,7 @@ function RespawnManager:Init()
 	self:UpdateRespawnForTeam(DOTA_TEAM_GOODGUYS)
 	self:UpdateRespawnForTeam(DOTA_TEAM_BADGUYS)
 	self:UpdateRespawnForTeam(DOTA_TEAM_CUSTOM_1)
-	self:UpdateRespawnForTeam(DOTA_TEAM_CUSTOM_2)
+	--self:UpdateRespawnForTeam(DOTA_TEAM_CUSTOM_2)
 end
 
 function RespawnManager:FindTeamRespawnPosition(team)
@@ -99,7 +99,7 @@ function RespawnManager:RespawnAllHeroes()
 	self:UpdateRespawnForTeam(DOTA_TEAM_GOODGUYS)
 	self:UpdateRespawnForTeam(DOTA_TEAM_BADGUYS)
 	self:UpdateRespawnForTeam(DOTA_TEAM_CUSTOM_1)
-	self:UpdateRespawnForTeam(DOTA_TEAM_CUSTOM_2)
+	--self:UpdateRespawnForTeam(DOTA_TEAM_CUSTOM_2)
 
 	local all_heroes = HeroList:GetAllHeroes()
 

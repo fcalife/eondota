@@ -11,15 +11,15 @@ SPAWNER_COOLDOWN = 120
 MAX_ENCOUNTER_TIER = 3
 
 EXP_BOUNTIES = {
-	[1] = 80,
-	[2] = 160,
-	[3] = 300
+	[1] = 60,
+	[2] = 110,
+	[3] = 200
 }
 
 GOLD_BOUNTIES = {
-	[1] = 55,
-	[2] = 95,
-	[3] = 175
+	[1] = 40,
+	[2] = 70,
+	[3] = 120
 }
 
 function EnemyManager:Init()
@@ -35,6 +35,12 @@ function EnemyManager:Init()
 		end
 	end
 
+	-- self.team_spawn_enabled = {}
+	-- self.team_spawn_enabled[DOTA_TEAM_GOODGUYS] = true
+	-- self.team_spawn_enabled[DOTA_TEAM_BADGUYS] = true
+	-- self.team_spawn_enabled[DOTA_TEAM_CUSTOM_1] = true
+	-- self.team_spawn_enabled[DOTA_TEAM_CUSTOM_2] = true
+
 	-- print("spawner list and distance to world center:")
 	-- for _, spawner in pairs(self.creep_spawners) do
 	-- 	spawner:Describe()
@@ -43,6 +49,7 @@ end
 
 function EnemyManager:ActivateSpawnersAround(unit)
 	local location = unit:GetAbsOrigin()
+	local team = unit:GetTeam()
 
 	for _, spawner in pairs(self.creep_spawners) do
 		if spawner:IsReady() and spawner:IsInRangeOf(location) then

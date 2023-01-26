@@ -2,11 +2,13 @@ _G.GameClock = GameClock or {}
 
 function GameClock:Start()
 	self.game_start_time = GameRules:GetGameTime()
+	self.boss_spawn_start_time = self.game_start_time + BOSS_SPAWN_INTERVAL
+	self.boss_spawns_started = false
 
 	--GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
 
 	RespawnManager:RespawnAllHeroes()
-	NeutralCamps:StartSpawning()
+	Bosses:Init()
 	RespawnManager:DestroyUnusedOutposts()
 
 	--if TOWERS_ENABLED then Towers:Init() end
@@ -15,7 +17,10 @@ function GameClock:Start()
 	--Firelord:Init()
 
 	Timers:CreateTimer(5, function()
-		for _, hero in pairs(HeroList:GetAllHeroes()) do hero:RemoveModifierByName("modifier_stunned") end
+		for _, hero in pairs(HeroList:GetAllHeroes()) do
+			hero:RemoveModifierByName("modifier_stunned")
+			CenterPlayerCameraOnHero(hero)
+		end
 	end)
 
 	GameManager:SetGamePhase(GAME_STATE_BATTLE)
@@ -30,18 +35,18 @@ function GameClock:Tick()
 		if hero:IsAlive() then EnemyManager:ActivateSpawnersAround(hero) end
 	end
 
+	if (not self.boss_spawns_started) and current_time >= self.boss_spawn_start_time then
+		self.boss_spawns_started = true
+
+		Bosses:StartNextRound()
+	end
+
 	--GoldRewards:Tick()
 
 	-- if current_time >= self.next_rune_spawn then
 	-- 	RuneSpawners:OnInitializeRound()
 
 	-- 	self.next_rune_spawn = self.next_rune_spawn + RUNE_RESPAWN_DELAY
-	-- end
-
-	-- if current_time >= self.next_creep_spawn then
-	-- 	NeutralCamps:SpawnFireCamp()
-
-	-- 	self.next_creep_spawn = self.next_creep_spawn + FIRE_SPIRIT_SPAWN_DELAY
 	-- end
 
 	-- if CHARGE_TOWERS_ENABLED and current_time >= self.next_essence_spawn then

@@ -18,11 +18,28 @@
 			<Panel id="Green_Container" class="ScoreContainers">
 				<Label id="Green_Score" class="ScoreLabel" text="0" />
 			</Panel>
-			<Panel id="Pink_Container" class="ScoreContainers">
-				<Label id="Pink_Score" class="ScoreLabel" text="0" />
-			</Panel>
 		</Panel>
 
 		<Panel id="Message_Container" hittest="false" />
+
+		<Panel id="Bossmap" hittest="false" >
+			<Panel id="bear_Background" class="BossmapImages" />
+			<Panel id="dragon_Background" class="BossmapImages" />
+			<Panel id="lava_golem_Background" class="BossmapImages" />
+			<Panel id="revenant_Background" class="BossmapImages" />
+			<Panel id="scorpion_Background" class="BossmapImages" />
+			<Panel id="spider_Background" class="BossmapImages" />
+			<Panel id="temple_Background" class="BossmapImages" />
+			<Panel id="treant_Background" class="BossmapImages" />
+
+			<Panel id="bear_Portrait" class="BossmapImages" />
+			<Panel id="dragon_Portrait" class="BossmapImages" />
+			<Panel id="lava_golem_Portrait" class="BossmapImages" />
+			<Panel id="revenant_Portrait" class="BossmapImages" />
+			<Panel id="scorpion_Portrait" class="BossmapImages" />
+			<Panel id="spider_Portrait" class="BossmapImages" />
+			<Panel id="temple_Portrait" class="BossmapImages" />
+			<Panel id="treant_Portrait" class="BossmapImages" />
+		</Panel>
 	</Panel>
 </root>

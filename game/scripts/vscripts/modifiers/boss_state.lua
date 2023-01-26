@@ -19,9 +19,8 @@ function modifier_boss_state_thinker:OnIntervalThink()
 	
 	local location = parent:GetAbsOrigin()
 
-	if (location - self.origin):Length2D() > 2000 then
+	if (location - self.origin):Length2D() > 1800 then
 		parent:Heal(99999, nil)
-		parent:AddNewModifier(parent, nil, "modifier_boss_leash_regen", {duration = 1.0})
 
 		ExecuteOrderFromTable({
 			UnitIndex = parent:entindex(),
@@ -41,24 +40,6 @@ end
 
 
 
-modifier_boss_leash_regen = class({})
-
-function modifier_boss_leash_regen:IsHidden() return true end
-function modifier_boss_leash_regen:IsDebuff() return false end
-function modifier_boss_leash_regen:IsPurgable() return false end
-
-function modifier_boss_leash_regen:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
-	}
-end
-
-function modifier_boss_leash_regen:GetModifierConstantHealthRegen()
-	return 50000
-end
-
-
-
 modifier_boss_toughness = class({})
 
 function modifier_boss_toughness:IsHidden() return true end
@@ -73,11 +54,11 @@ function modifier_boss_toughness:DeclareFunctions()
 end
 
 function modifier_boss_toughness:GetModifierStatusResistance()
-	return 60
+	return 65
 end
 
 function modifier_boss_toughness:GetMinHealth()
-	return self:GetParent():GetHealth() - 125
+	return self:GetParent():GetHealth() - 100
 end
 
 

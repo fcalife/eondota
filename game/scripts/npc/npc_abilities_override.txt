@@ -271,50 +271,370 @@
 	"item_pogo_stick"				"REMOVE"
 	"item_paintball"				"REMOVE"
 
-	"snapfire_mortimer_kisses"
+	"windrunner_powershot"
 	{
-		"AbilityCastRange"				"10000"
+		"AbilityCastRange"				"1800"
 
-		"AbilityCooldown"				"0"
-		"AbilityDuration"				"4.0"
-
-		"AbilityManaCost"				"0"
-
-		"MaxLevel"						"1"
+		"AbilityCooldown"				"11 10 9 8"
+		"AbilityChannelTime"			"1.0"
 
 		"AbilityValues"
 		{
-			"projectile_count"
+			"powershot_damage"			
 			{
-				"value"		"10"
-			}
-			"projectile_speed"		"1300"
-			"projectile_width"		"130"
-			"impact_radius"			"275"
-			"damage_per_impact"
-			{
-				"value"		"100"
-			}
-			"duration_tooltip"		"4.0"
-			"projectile_vision"		"500"
-			"turn_rate"				"75"
-			"burn_interval"			"0.5"
-			"burn_damage"					
-			{
-				"value"					"0"
+				"value"					"100 150 200 250"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"move_slow_pct"
+
+			"damage_reduction"		
 			{
-				"value"			"50"
+				"value"				"0"
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
 			}
-			"burn_ground_duration"	"3.0"
-			"dist_change_speed"		"75"
-			"min_range"				"600"
-			"min_lob_travel_time"	"0.8"
-			"max_lob_travel_time"	"3.5"
-			"delay_after_last_projectile"	"0.5"
-			"burn_linger_duration"	"1.0"
+
+			"arrow_width"			"140"
+			"arrow_range"			"1800"
+			"arrow_speed"			"3000"
+			"tree_width"			"75"
+			"vision_radius"			"400"
+			"vision_duration"		"3.5"
+		}
+	}
+
+	"drow_ranger_multishot"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"arrow_damage_pct"			"100 125 150 175"
+				"LinkedSpecialBonus"		"special_bonus_unique_drow_ranger_1"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"arrow_width"				"100"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"arrow_speed"				"1200"
+			}
+		}
+	}
+
+	"special_bonus_unique_drow_ranger_1"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"35"
+				"ad_linked_abilities"		"drow_ranger_multishot"
+			}
+		}
+	}
+
+	"drow_ranger_marksmanship"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"chance"				"50"
+			"bonus_damage"			"20 40 60 80"
+			"agility_multiplier"	"0"
+			"agility_range"			"0"
+
+			"split_count"
+			{
+				"value"										"0"
+				"special_bonus_scepter"						"+2"
+			}
+
+			"split_range"									"450"
+			"split_damage_reduction"						"50"
+			"disable_range"									"350"
+		}
+	}
+
+	"windrunner_focusfire"
+	{
+		"AbilityCastRange"				"825"
+
+		"AbilityCooldown"				"60"
+		"AbilityDuration"				"20"
+
+		"AbilityValues"
+		{
+			"focusfire_fire_on_the_move"	"1"
+
+			"bonus_attack_speed"			"100 150 200"
+
+			"focusfire_damage_reduction"	
+			{
+				"value"						"-40"
+				"LinkedSpecialBonus"		"special_bonus_unique_windranger_8"
+			}
+		}
+	}
+
+	"special_bonus_unique_windranger_8"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"20"
+				"ad_linked_abilities"		"windrunner_focusfire"
+			}
+		}
+	}
+
+	"omniknight_purification"
+	{
+		"AbilityCastRange"				"700"
+
+		"AbilityCooldown"				"20 18 16 14"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"100 150 200 250"
+				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_1"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_4"
+			}
+		}
+	}
+
+	"special_bonus_unique_omniknight_1"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"75"
+				"ad_linked_abilities"		"omniknight_purification"
+			}
+		}
+	}
+
+	"dazzle_shallow_grave"
+	{
+		"AbilityCastRange"				"700"
+	}
+
+	"special_bonus_unique_dazzle_5"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"150"
+				"ad_linked_abilities"		"dazzle_shallow_grave"
+			}
+		}
+	}
+
+	"dazzle_shadow_wave"
+	{
+		"AbilityCastRange"				"700"
+
+		"AbilityCooldown"				"15 12 9 6"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bounce_radius"		"600"
+			}
+			"02"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"damage_radius"		"225"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"max_targets"		"3 4 5 6"
+			}
+			"04"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"tooltip_max_targets_inc_dazzle"		"4 5 6 7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"50 70 90 110"
+				"LinkedSpecialBonus"	"special_bonus_unique_dazzle_2"
+			}
+		}
+	}
+
+	"special_bonus_unique_dazzle_2"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"40"
+				"ad_linked_abilities"		"dazzle_shadow_wave"
+			}
+		}
+	}
+
+	"omniknight_guardian_angel"
+	{
+		"AbilityCooldown"				"90"
+
+		"AbilityValues"
+		{
+				"duration"				"4 5 6"
+				"radius"				"1200"
+				"duration_scepter"
+				{
+					"value"				"6 7 8"
+					"RequiresScepter"	"1"
+				}
+				"scepter_status_resist"
+				{
+					"value"				"50"
+					"RequiresScepter"	"1"
+				}
+		}
+	}
+
+	"axe_berserkers_call"
+	{
+		"AbilityCooldown"				"20 18 16 14"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"							"375"
+				"special_bonus_unique_axe_2"	"+125"
+			}
+			"bonus_armor"	
+			{
+				"value"							"10"
+				"special_bonus_unique_axe_7"	"+10"
+			}
+			"duration"				"3.0"
+			"scepter_cooldown_reduction"
+			{
+				"special_bonus_scepter" "+3.0"
+			}
+			"applies_battle_hunger"
+			{
+				"special_bonus_scepter" "+1"
+			}
+		}
+	}
+
+	"axe_counter_helix"
+	{
+		"AbilityCooldown"				"0.5"
+
+		"AbilityValues"
+		{
+			"radius"					"350"
+
+			"damage"
+			{
+				"value"					"40 60 80 100"
+				"special_bonus_unique_axe_4" "+25"
+			}
+
+			"trigger_chance"			
+			{
+				"value" 				"20"
+				"special_bonus_shard"	"+10"
+
+			}
+			
+			"cooldown"					"0.5"
+
+			"shard_debuff_duration"
+			{
+				"special_bonus_shard"		"+6.0"
+			}
+			"shard_damage_reduction"
+			{
+				"special_bonus_shard"		"+10"
+			}
+			"shard_max_stacks"
+			{
+				"special_bonus_shard"		"+6"	
+			}
+		}
+	}
+
+	"abaddon_aphotic_shield"
+	{
+		"AbilityCooldown"				"18 15 12 9"
+
+		"AbilityValues"
+		{
+			"duration"				"20"
+			"radius"				"700"
+			"damage_absorb"
+			{
+				"value"			"100 140 180 220"
+				"special_bonus_unique_abaddon"		"+100"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+			}
+		}
+	}
+
+	"abaddon_borrowed_time"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"				
+			{
+				"value"								"45 40 35"
+				"special_bonus_unique_abaddon_5"	"-10"
+			}
+			"hp_threshold"							"400"
+			"duration"								"4 5 6"
+			"duration_scepter"
+			{
+				"value"								"6 7 8"
+				"RequiresScepter"					"1"
+			}
+			"ally_threshold_scepter"
+			{
+				"value"								"525"
+				"RequiresScepter"					"1"
+			}
+			"redirect_range_scepter"
+			{
+				"value"								"1200"
+				"RequiresScepter"					"1"
+			}
 		}
 	}
 }

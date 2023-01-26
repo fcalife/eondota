@@ -2,25 +2,148 @@
 {
 	"npc_dota_hero_abaddon"
 	{
+		"Ability1"		"axe_berserkers_call"
+		"Ability2"		"abaddon_aphotic_shield"
+		"Ability3"		"axe_counter_helix"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"abaddon_borrowed_time"
+		"Ability10"		"special_bonus_unique_axe_7"
+		"Ability11"		"special_bonus_armor_3"
+		"Ability12"		"special_bonus_unique_axe_4"
+		"Ability13"		"special_bonus_magic_resistance_20"
+		"Ability14"		"special_bonus_unique_abaddon"
+		"Ability15"		"special_bonus_unique_abaddon_5"
+		"Ability16"		"special_bonus_unique_axe_2"
+		"Ability17"		"special_bonus_status_resistance_25"
+
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+		"AttackDamageMin"		"0"
+		"AttackDamageMax"		"0"
+		"AttackRate"			"1.5"
+		"AttackRange"			"175"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"25"
+		"AttributeStrengthGain"		"5"
+		"AttributeBaseIntelligence"	"30"
+		"AttributeIntelligenceGain"	"5"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		"MovementSpeed"			"300"
+		"MovementTurnRate"		"1.0"
+
+		"StatusHealth"			"100"
+		"StatusHealthRegen"		"1.0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"
 	}
+
+	"npc_dota_hero_dazzle"
+	{
+		"Ability1"		"omniknight_purification"
+		"Ability2"		"dazzle_shallow_grave"
+		"Ability3"		"dazzle_shadow_wave"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"omniknight_guardian_angel"
+		"Ability10"		"special_bonus_unique_dazzle_5"
+		"Ability11"		"special_bonus_spell_amplify_10"
+		"Ability12"		"special_bonus_unique_dazzle_2"
+		"Ability13"		"special_bonus_cast_range_150"
+		"Ability14"		"special_bonus_unique_omniknight_1"
+		"Ability15"		"special_bonus_gold_income_300"
+		"Ability16"		"special_bonus_unique_omniknight_7"
+		"Ability17"		"special_bonus_cooldown_reduction_40"
+
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+		"AttackDamageMin"		"0"
+		"AttackDamageMax"		"0"
+		"AttackRate"			"1.5"
+		"AttackRange"			"475"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"19"
+		"AttributeStrengthGain"		"3"
+		"AttributeBaseIntelligence"	"30"
+		"AttributeIntelligenceGain"	"5"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		"MovementSpeed"			"300"
+		"MovementTurnRate"		"1.0"
+
+		"StatusHealth"			"100"
+		"StatusHealthRegen"		"1.0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+
+	"npc_dota_hero_drow_ranger"
+	{
+		"Ability1"		"windrunner_powershot"
+		"Ability2"		"drow_ranger_multishot"
+		"Ability3"		"drow_ranger_marksmanship"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"windrunner_focusfire"
+		"Ability10"		"special_bonus_unique_drow_ranger_1"
+		"Ability11"		"special_bonus_movement_speed_35"
+		"Ability12"		"special_bonus_unique_drow_ranger_6"
+		"Ability13"		"special_bonus_attack_damage_50"
+		"Ability14"		"special_bonus_unique_windranger_8"
+		"Ability15"		"special_bonus_attack_range_200"
+		"Ability16"		"special_bonus_unique_drow_ranger_8"
+		"Ability17"		"special_bonus_attack_speed_100"
+
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+		"AttackDamageMin"		"0"
+		"AttackDamageMax"		"0"
+		"AttackRate"			"1.1"
+		"AttackRange"			"625"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"19"
+		"AttributeStrengthGain"		"3"
+		"AttributeBaseIntelligence"	"45"
+		"AttributeIntelligenceGain"	"7.5"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		"MovementSpeed"			"300"
+		"MovementTurnRate"		"1.0"
+
+		"StatusHealth"			"100"
+		"StatusHealthRegen"		"1.0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+
 	"npc_dota_hero_viper"
 	{
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"
 	}
-	"npc_dota_hero_dazzle"
-	{
-		"VisionDaytimeRange"	"1000"
-		"VisionNighttimeRange"	"800"
-	}
 	"npc_dota_hero_crystal_maiden"
-	{
-		"VisionDaytimeRange"	"1000"
-		"VisionNighttimeRange"	"800"
-	}
-	"npc_dota_hero_drow_ranger"
 	{
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"

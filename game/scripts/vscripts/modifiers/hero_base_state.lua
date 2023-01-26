@@ -26,18 +26,18 @@ function modifier_hero_boosted_mana_regen:GetAttributes() return MODIFIER_ATTRIB
 
 function modifier_hero_boosted_mana_regen:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+		MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
 	}
 end
 
-function modifier_hero_boosted_mana_regen:GetModifierConstantManaRegen()
-	return 0.01 * self:GetParent():GetMaxMana()
+function modifier_hero_boosted_mana_regen:GetModifierPercentageCasttime()
+	return 100
 end
 
-function modifier_hero_boosted_mana_regen:GetModifierIncomingDamage_Percentage()
-	return -25
+function modifier_hero_boosted_mana_regen:GetModifierPercentageManacost()
+	return 100
 end
 
 function modifier_hero_boosted_mana_regen:GetModifierMoveSpeedBonus_Constant()

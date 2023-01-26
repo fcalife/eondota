@@ -101,12 +101,8 @@ function modifier_bonfire_buff:GetModifierConstantManaRegen()
 end
 
 function modifier_bonfire_buff:OnTakeDamage(keys)
-	if keys.unit == self:GetParent() then
-		if keys.unit == self:GetCaster() then
-			keys.unit:InterruptChannel()
-		end
-
-		keys.unit:AddNewModifier(keys.unit, self:GetAbility(), "modifier_bonfire_healing_prevention", {duration = 3})
+	if keys.unit == self:GetCaster() then
+		keys.unit:InterruptChannel()
 	end
 end
 

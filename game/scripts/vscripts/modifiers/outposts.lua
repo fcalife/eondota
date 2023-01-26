@@ -26,18 +26,10 @@ function modifier_fountain_outpost_buff:IsPurgable() return false end
 function modifier_fountain_outpost_buff:GetTexture() return "rune_regen" end
 
 function modifier_fountain_outpost_buff:DeclareFunctions()
-	if IsServer() then
-		return {
-			MODIFIER_EVENT_ON_TAKEDAMAGE,
-			MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-			MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
-		}
-	else
-		return {
-			MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-			MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
-		}
-	end
+	return {
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
+	}
 end
 
 function modifier_fountain_outpost_buff:GetModifierConstantHealthRegen()
@@ -46,16 +38,6 @@ end
 
 function modifier_fountain_outpost_buff:GetModifierConstantManaRegen()
 	return 0.06 * self:GetParent():GetMaxMana()
-end
-
-function modifier_fountain_outpost_buff:OnTakeDamage(keys)
-	if keys.unit == self:GetParent() then
-		if keys.unit == self:GetCaster() then
-			keys.unit:InterruptChannel()
-		end
-
-		keys.unit:AddNewModifier(keys.unit, self:GetAbility(), "modifier_bonfire_healing_prevention", {duration = 3})
-	end
 end
 
 

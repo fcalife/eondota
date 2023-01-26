@@ -25,11 +25,20 @@ function modifier_hero_boosted_mana_regen:RemoveOnDeath() return false end
 function modifier_hero_boosted_mana_regen:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_hero_boosted_mana_regen:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
-		MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
-	}
+	if IsServer() then
+		return {
+			MODIFIER_EVENT_ON_TAKEDAMAGE,
+			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+			MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+		}
+	end
 end
 
 function modifier_hero_boosted_mana_regen:GetModifierPercentageCasttime()
@@ -42,4 +51,12 @@ end
 
 function modifier_hero_boosted_mana_regen:GetModifierMoveSpeedBonus_Constant()
 	return 5 * (self:GetParent():GetLevel() - 3)
+end
+
+function modifier_hero_boosted_mana_regen:OnTakeDamage(keys)
+	local parent = self:GetParent()
+
+	if keys.attacker == parent or keys.unit == parent then
+		parent:AddNewModifier(parent, nil, "modifier_bonfire_healing_prevention", {duration = 3})
+	end
 end

@@ -11,6 +11,11 @@ function GameClock:Start()
 	Bosses:Init()
 	RespawnManager:DestroyUnusedOutposts()
 
+	if ITEM_SHOP_ENABLED then
+		local global_shop = SpawnDOTAShopTriggerRadiusApproximate(Vector(0,0,0), 50000)
+		global_shop:SetShopType(DOTA_SHOP_HOME)
+	end
+
 	--if TOWERS_ENABLED then Towers:Init() end
 
 	--NexusManager:SpawnNexus()

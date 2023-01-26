@@ -103,9 +103,6 @@ function GameMode:InitGameMode()
 	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_1, 64, 208, 64)
 	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_2, 208, 64, 208)
 
-	--local global_shop = SpawnDOTAShopTriggerRadiusApproximate(Vector(0,0,0), 50000)
-	--global_shop:SetShopType(DOTA_SHOP_HOME)
-
 	-- Initialize modules
 	GameManager:Init()
 	Filters:Init()

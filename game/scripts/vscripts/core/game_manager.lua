@@ -65,9 +65,5 @@ function GameManager:EndGameWithWinner(team)
 end
 
 function GameManager:OnHostSelectedOption(event)
-	REVERSE_CTF = (event.reverse_ctf == 1)
-	TOWERS_ENABLED = (event.enable_towers == 1)
-	LANE_CREEPS_ENABLED = (event.enable_creeps == 1)
-	FOG_OF_WAR_DISABLED = (event.disable_fog == 1)
-	LIVING_BUILDINGS_ENABLED = (event.living_buildings == 1)
+	ITEM_SHOP_ENABLED = (event.item_shop == 1)
 end

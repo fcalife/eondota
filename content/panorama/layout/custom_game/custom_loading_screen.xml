@@ -4,38 +4,18 @@
 		<include src="file://{resources}/layout/custom_game/game_setup/game_setup.css" />
 	</styles>
 
-	<!-- <scripts>
+	<scripts>
 		<include src="file://{resources}/layout/custom_game/game_setup/game_setup.js" />
-	</scripts> -->
+	</scripts>
 
 	<Panel style="width:100%; height:100%;" hittest="false">
-		<!-- <Panel id="Container" hittest="true" >
+		<Panel id="Container" hittest="true" >
 			<Label id="Header" text="GAME OPTIONS" />
 
-			<Panel class="OptionContainer" id="reverse_ctf_container">
-				<ToggleButton class="OptionToggleButton" id="reverse_ctf" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Reverse CTF"/>
+			<Panel class="OptionContainer" id="item_shop_container">
+				<ToggleButton class="OptionToggleButton" id="item_shop" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Enable Item Shop?"/>
 			</Panel>
-
-			<Panel class="OptionContainer" id="towers_container">
-				<ToggleButton class="OptionToggleButton" id="enable_towers" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Enable Towers"/>
-			</Panel>
-
-			<Panel class="OptionContainer" id="creeps_container">
-				<ToggleButton class="OptionToggleButton" id="enable_creeps" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Enable Creeps"/>
-			</Panel>
-
-			<Panel class="OptionContainer" id="fog_container">
-				<ToggleButton class="OptionToggleButton" id="disable_fog" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Remove Fog of War"/>
-			</Panel>
-
-			<Panel class="OptionContainer" id="living_buildings_container">
-				<ToggleButton class="OptionToggleButton" id="living_buildings" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Enable Living Buildings"/>
-			</Panel>
-		</Panel> -->
+		</Panel>
 	</Panel>
 </root>

@@ -46,9 +46,9 @@ precache.model_folders = {
 precache.sounds = {
     "soundevents/dab_soundevents.vsndevts",
     "soundevents/dab_client_soundevents.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
 }
 
 precache.units = {

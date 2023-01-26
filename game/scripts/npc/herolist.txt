@@ -8,6 +8,9 @@
 	"npc_dota_hero_abaddon"				"1"
 	"npc_dota_hero_dazzle"	 			"1"
 	"npc_dota_hero_drow_ranger"			"1"
+	"npc_dota_hero_undying"				"1"
+	"npc_dota_hero_juggernaut"			"1"
+	"npc_dota_hero_vengefulspirit"		"1"
 
 	"npc_dota_hero_viper"				"0"
 	"npc_dota_hero_crystal_maiden"		"0"
@@ -19,7 +22,6 @@
 	"npc_dota_hero_gyrocopter"			"0"
 	"npc_dota_hero_pudge"				"0"
 	"npc_dota_hero_bristleback"			"0"
-	"npc_dota_hero_juggernaut"			"0"
 	"npc_dota_hero_death_prophet"		"0"
 	"npc_dota_hero_medusa"				"0"
 	"npc_dota_hero_leshrac"				"0"
@@ -28,7 +30,6 @@
 	"npc_dota_hero_dawnbreaker"			"0"
 	"npc_dota_hero_mars"				"0"
 	"npc_dota_hero_dragon_knight"		"0"
-	"npc_dota_hero_vengefulspirit"		"0"
 	"npc_dota_hero_tiny"				"0"
 
 	"npc_dota_hero_slardar" "0"
@@ -102,7 +103,6 @@
 	"npc_dota_hero_rubick" "0"
 	"npc_dota_hero_wisp" "0"
 	"npc_dota_hero_disruptor" "0"
-	"npc_dota_hero_undying" "0"
 	"npc_dota_hero_naga_siren" "0"
 	"npc_dota_hero_nyx_assassin" "0"
 	"npc_dota_hero_keeper_of_the_light" "0"

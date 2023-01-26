@@ -1,8 +1,21 @@
+const FindDotaHudElement = (id) => dotaHud.FindChildTraverse(id);
+const dotaHud = (() => {
+	let panel = $.GetContextPanel();
+	while (panel) {
+		if (panel.id === "DotaHud") return panel;
+		panel = panel.GetParent();
+	}
+})();
+
+const DOTA_SHOP = FindDotaHudElement("shop");
+
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
 CustomNetTables.SubscribeNetTableListener("charge", UpdateScore);
 CustomNetTables.SubscribeNetTableListener("bosses", UpdateBossMap);
+
+$.RegisterEventHandler("PanelStyleChanged", DOTA_SHOP, HideBossmapBehindShop);
 
 function NewMessage(data) {
 	let container = $("#Message_Container");
@@ -43,4 +56,8 @@ function UpdateBossMap(table_name, key, data) {
 	$("#" + key + "_Portrait").style.brightness = (data.alive ? "1.0" : "0.4");
 	$("#" + key + "_Background").style.saturation = (data.alive ? "1.0" : "0.0");
 	$("#" + key + "_Background").style.brightness = (data.alive ? "1.0" : "0.4");
+}
+
+function HideBossmapBehindShop() {
+	$("#Bossmap").SetHasClass("dota_shop_opened", DOTA_SHOP.BHasClass("ShopOpen"));
 }

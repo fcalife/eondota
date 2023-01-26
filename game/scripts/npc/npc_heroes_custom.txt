@@ -138,6 +138,144 @@
 		"VisionNighttimeRange"	"800"
 	}
 
+	"npc_dota_hero_undying"
+	{
+		"Ability1"		"undying_decay"
+		"Ability2"		"pudge_rot"
+		"Ability3"		"huskar_berserkers_blood"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"undying_flesh_golem"
+		"Ability10"		"special_bonus_unique_pudge_4"
+		"Ability11"		"special_bonus_hp_regen_6"
+		"Ability12"		"special_bonus_unique_huskar_6"
+		"Ability13"		"special_bonus_strength_15"
+		"Ability14"		"special_bonus_unique_undying_4"
+		"Ability15"		"special_bonus_magic_resistance_20"
+		"Ability16"		"special_bonus_unique_undying_2"
+		"Ability17"		"special_bonus_strength_25"
+
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+		"AttackDamageMin"		"0"
+		"AttackDamageMax"		"0"
+		"AttackRate"			"1.5"
+		"AttackRange"			"175"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"20"
+		"AttributeStrengthGain"		"4"
+		"AttributeBaseIntelligence"	"36"
+		"AttributeIntelligenceGain"	"6"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		"MovementSpeed"			"300"
+		"MovementTurnRate"		"1.0"
+
+		"StatusHealth"			"100"
+		"StatusHealthRegen"		"1.0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+
+	"npc_dota_hero_juggernaut"
+	{
+		"Ability1"		"juggernaut_blade_fury"
+		"Ability2"		"sven_great_cleave"
+		"Ability3"		"juggernaut_blade_dance"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"sven_gods_strength"
+		"Ability10"		"special_bonus_unique_sven_8"
+		"Ability11"		"special_bonus_hp_150"
+		"Ability12"		"special_bonus_unique_juggernaut"
+		"Ability13"		"special_bonus_attack_speed_50"
+		"Ability14"		"special_bonus_unique_juggernaut_3"
+		"Ability15"		"special_bonus_attack_base_damage_40"
+		"Ability16"		"special_bonus_unique_sven_2"
+		"Ability17"		"special_bonus_movement_speed_75"
+
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+		"AttackDamageMin"		"0"
+		"AttackDamageMax"		"0"
+		"AttackRate"			"1.0"
+		"AttackRange"			"175"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"19"
+		"AttributeStrengthGain"		"3"
+		"AttributeBaseIntelligence"	"45"
+		"AttributeIntelligenceGain"	"7.5"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		"MovementSpeed"			"300"
+		"MovementTurnRate"		"1.0"
+
+		"StatusHealth"			"100"
+		"StatusHealthRegen"		"1.0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+
+	"npc_dota_hero_vengefulspirit"
+	{
+		"Ability1"		"vengefulspirit_magic_missile"
+		"Ability2"		"magnataur_empower"
+		"Ability3"		"vengefulspirit_command_aura"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"ogre_magi_bloodlust"
+		"Ability10"		"special_bonus_unique_magnus_4"
+		"Ability11"		"special_bonus_cast_range_175"
+		"Ability12"		"special_bonus_unique_vengeful_spirit_2"
+		"Ability13"		"special_bonus_corruption_4"
+		"Ability14"		"special_bonus_unique_ogre_magi"
+		"Ability15"		"special_bonus_cooldown_reduction_25"
+		"Ability16"		"special_bonus_unique_magnus_2"
+		"Ability17"		"special_bonus_attack_range_325"
+
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+		"AttackDamageMin"		"0"
+		"AttackDamageMax"		"0"
+		"AttackRate"			"1.5"
+		"AttackRange"			"475"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"19"
+		"AttributeStrengthGain"		"3"
+		"AttributeBaseIntelligence"	"30"
+		"AttributeIntelligenceGain"	"5"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		"MovementSpeed"			"300"
+		"MovementTurnRate"		"1.0"
+
+		"StatusHealth"			"100"
+		"StatusHealthRegen"		"1.0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+
+		"VisionDaytimeRange"	"1000"
+		"VisionNighttimeRange"	"800"
+	}
+
 	"npc_dota_hero_viper"
 	{
 		"VisionDaytimeRange"	"1000"
@@ -149,11 +287,6 @@
 		"VisionNighttimeRange"	"800"
 	}
 	"npc_dota_hero_lina"
-	{
-		"VisionDaytimeRange"	"1000"
-		"VisionNighttimeRange"	"800"
-	}
-	"npc_dota_hero_huskar"
 	{
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"
@@ -178,17 +311,7 @@
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"
 	}
-	"npc_dota_hero_pudge"
-	{
-		"VisionDaytimeRange"	"1000"
-		"VisionNighttimeRange"	"800"
-	}
 	"npc_dota_hero_bristleback"
-	{
-		"VisionDaytimeRange"	"1000"
-		"VisionNighttimeRange"	"800"
-	}
-	"npc_dota_hero_juggernaut"
 	{
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"
@@ -234,11 +357,6 @@
 		"VisionNighttimeRange"	"800"
 	}
 	"npc_dota_hero_dragon_knight"
-	{
-		"VisionDaytimeRange"	"1000"
-		"VisionNighttimeRange"	"800"
-	}
-	"npc_dota_hero_vengefulspirit"
 	{
 		"VisionDaytimeRange"	"1000"
 		"VisionNighttimeRange"	"800"

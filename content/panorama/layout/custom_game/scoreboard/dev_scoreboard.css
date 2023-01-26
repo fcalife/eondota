@@ -83,6 +83,10 @@
 	brightness: 0.3;
 }
 
+.dota_shop_opened {
+	opacity: 0.0;
+}
+
 #bear_Background {
 	background-image: url("file://{resources}/images/custom_game/bear.png");
 }

@@ -1847,12 +1847,7 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
-		"ArmorPhysical"				"12"
-		"MagicalResistance"			"25"
-
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"190"
-		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -1862,15 +1857,23 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"20"
+
+		"AttackDamageMin"			"95"
+		"AttackDamageMax"			"105"
+
+		"StatusHealth"				"3000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
 		"Creature"
 		{
-			"HPGain"					"1000"
-			"DamageGain"				"14"
-			"ArmorGain"					"0"
-			"MagicResistGain"			"0"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"50"
+			"HPGain"				"400"
+			"DamageGain"			"18"
+			"BountyGain"			"10"
+			"XPGain"				"50"
 		}
 
 		"BountyXP"					"1000"
@@ -1885,8 +1888,6 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1925,15 +1926,15 @@
 		"AttackDamageMin"			"95"
 		"AttackDamageMax"			"105"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
 		"Creature"
 		{
-			"HPGain"				"250"
-			"DamageGain"			"10"
+			"HPGain"				"400"
+			"DamageGain"			"18"
 			"BountyGain"			"10"
 			"XPGain"				"50"
 		}
@@ -1985,15 +1986,15 @@
 		"AttackDamageMin"			"95"
 		"AttackDamageMax"			"105"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
 		"Creature"
 		{
-			"HPGain"				"250"
-			"DamageGain"			"10"
+			"HPGain"				"400"
+			"DamageGain"			"18"
 			"BountyGain"			"10"
 			"XPGain"				"50"
 		}
@@ -2045,15 +2046,15 @@
 		"AttackDamageMin"			"95"
 		"AttackDamageMax"			"105"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
 		"Creature"
 		{
-			"HPGain"				"250"
-			"DamageGain"			"10"
+			"HPGain"				"400"
+			"DamageGain"			"18"
 			"BountyGain"			"10"
 			"XPGain"				"50"
 		}
@@ -2105,15 +2106,15 @@
 		"AttackDamageMin"			"95"
 		"AttackDamageMax"			"105"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
 		"Creature"
 		{
-			"HPGain"				"250"
-			"DamageGain"			"10"
+			"HPGain"				"400"
+			"DamageGain"			"18"
 			"BountyGain"			"10"
 			"XPGain"				"50"
 		}
@@ -2165,15 +2166,15 @@
 		"AttackDamageMin"			"95"
 		"AttackDamageMax"			"105"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
 		"Creature"
 		{
-			"HPGain"				"250"
-			"DamageGain"			"10"
+			"HPGain"				"400"
+			"DamageGain"			"18"
 			"BountyGain"			"10"
 			"XPGain"				"50"
 		}
@@ -2225,15 +2226,15 @@
 		"AttackDamageMin"			"95"
 		"AttackDamageMax"			"105"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
 		"Creature"
 		{
-			"HPGain"				"250"
-			"DamageGain"			"10"
+			"HPGain"				"400"
+			"DamageGain"			"18"
 			"BountyGain"			"10"
 			"XPGain"				"50"
 		}
@@ -2285,15 +2286,15 @@
 		"AttackDamageMin"			"95"
 		"AttackDamageMax"			"105"
 
-		"StatusHealth"				"2500"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
 		"Creature"
 		{
-			"HPGain"				"250"
-			"DamageGain"			"10"
+			"HPGain"				"400"
+			"DamageGain"			"18"
 			"BountyGain"			"10"
 			"XPGain"				"50"
 		}

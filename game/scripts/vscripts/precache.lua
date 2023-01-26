@@ -49,6 +49,11 @@ precache.sounds = {
     "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts",
 }
 
 precache.units = {

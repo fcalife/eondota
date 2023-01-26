@@ -1847,7 +1847,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -1857,23 +1862,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -1888,6 +1885,8 @@
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
 
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1910,7 +1909,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -1920,23 +1924,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -1950,6 +1946,11 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
@@ -1970,7 +1971,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -1980,23 +1986,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -2010,6 +2008,11 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
@@ -2030,7 +2033,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -2040,23 +2048,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -2070,6 +2070,11 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
@@ -2090,7 +2095,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -2100,23 +2110,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -2130,6 +2132,11 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
@@ -2150,7 +2157,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -2160,23 +2172,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -2190,6 +2194,11 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
@@ -2210,7 +2219,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -2220,23 +2234,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -2250,6 +2256,11 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
@@ -2270,7 +2281,12 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"400"
 
+		"ArmorPhysical"				"12"
+		"MagicalResistance"			"25"
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"210"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"3.0"
 		"BaseAttackSpeed"			"300"
@@ -2280,23 +2296,15 @@
 		"ProjectileModel"			""
 		"ProjectileSpeed"			"1000"
 
-		"ArmorPhysical"				"10"
-		"MagicalResistance"			"20"
-
-		"AttackDamageMin"			"95"
-		"AttackDamageMax"			"105"
-
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
 		"Creature"
 		{
-			"HPGain"				"400"
-			"DamageGain"			"18"
-			"BountyGain"			"10"
-			"XPGain"				"50"
+			"HPGain"					"1000"
+			"DamageGain"				"14"
+			"ArmorGain"					"0"
+			"MagicResistGain"			"0"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"10"
+			"XPGain"					"50"
 		}
 
 		"BountyXP"					"1000"
@@ -2310,6 +2318,11 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"600"
 		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"VisionDaytimeRange"		"1200"
@@ -2579,14 +2592,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"35"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2597,6 +2607,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"625"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_forest_1_minion"
@@ -2615,14 +2628,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"1"
+		"MagicalResistance"			"25"
 
-		"AttackDamageMin"			"12"
-		"AttackDamageMax"			"16"
-
-		"StatusHealth"				"300"
-		"StatusHealthRegen"			"1.0"
+		"AttackDamageMin"			"13"
+		"AttackDamageMax"			"18"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2633,6 +2643,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"225"
+		"StatusHealthRegen"			"1.0"
 	}
 
 	"enemy_forest_2_leader"
@@ -2654,14 +2667,11 @@
 		"ProjectileModel"			"particles/base_attacks/ranged_badguy.vpcf"
 		"ProjectileSpeed"			"1200"
 
-		"StatusHealth"				"1500"
-		"StatusHealthRegen"			"4.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"85"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"95"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2672,6 +2682,9 @@
 
 		"MovementSpeed"				"475"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1250"
+		"StatusHealthRegen"			"4.0"
 	}
 
 	"enemy_forest_2_minion"
@@ -2690,11 +2703,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"1.0"
-
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"25"
 
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"40"
@@ -2708,6 +2718,9 @@
 
 		"MovementSpeed"				"450"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_forest_3_leader"
@@ -2727,14 +2740,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"200"
 
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"6.0"
+		"ArmorPhysical"				"8"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"125"
-		"AttackDamageMax"			"135"
+		"AttackDamageMin"			"210"
+		"AttackDamageMax"			"220"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2745,6 +2755,9 @@
 
 		"MovementSpeed"				"500"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"2750"
+		"StatusHealthRegen"			"6.0"
 	}
 
 	"enemy_forest_3_minion"
@@ -2763,14 +2776,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"200"
 
-		"StatusHealth"				"1000"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"25"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"80"
+		"AttackDamageMin"			"100"
+		"AttackDamageMax"			"110"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2781,6 +2791,9 @@
 
 		"MovementSpeed"				"450"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1050"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_plains_1_leader"
@@ -2800,14 +2813,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"35"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2818,6 +2828,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"625"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_plains_1_minion"
@@ -2836,14 +2849,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"1"
+		"MagicalResistance"			"25"
 
-		"AttackDamageMin"			"12"
-		"AttackDamageMax"			"16"
-
-		"StatusHealth"				"300"
-		"StatusHealthRegen"			"1.0"
+		"AttackDamageMin"			"13"
+		"AttackDamageMax"			"18"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2854,6 +2864,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"225"
+		"StatusHealthRegen"			"1.0"
 	}
 
 	"enemy_plains_2_leader"
@@ -2873,14 +2886,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"StatusHealth"				"1500"
-		"StatusHealthRegen"			"4.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"85"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"95"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2891,6 +2901,9 @@
 
 		"MovementSpeed"				"475"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1250"
+		"StatusHealthRegen"			"4.0"
 	}
 
 	"enemy_plains_2_minion"
@@ -2909,11 +2922,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"1.0"
-
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"25"
 
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"40"
@@ -2927,6 +2937,9 @@
 
 		"MovementSpeed"				"450"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_plains_3_leader"
@@ -2948,14 +2961,11 @@
 		"ProjectileModel"			"particles/base_attacks/ranged_badguy.vpcf"
 		"ProjectileSpeed"			"1200"
 
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"6.0"
+		"ArmorPhysical"				"8"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"125"
-		"AttackDamageMax"			"135"
+		"AttackDamageMin"			"210"
+		"AttackDamageMax"			"220"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -2966,6 +2976,9 @@
 
 		"MovementSpeed"				"500"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"2750"
+		"StatusHealthRegen"			"6.0"
 	}
 
 	"enemy_plains_3_minion"
@@ -2984,14 +2997,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"200"
 
-		"StatusHealth"				"1000"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"25"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"80"
+		"AttackDamageMin"			"100"
+		"AttackDamageMax"			"110"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3002,6 +3012,9 @@
 
 		"MovementSpeed"				"450"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1050"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_ice_1_leader"
@@ -3023,14 +3036,11 @@
 		"ProjectileModel"			"particles/neutral_fx/ghost_base_attack.vpcf"
 		"ProjectileSpeed"			"900"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"35"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3041,6 +3051,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"625"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_ice_1_minion"
@@ -3061,14 +3074,11 @@
 		"ProjectileModel"			"particles/neutral_fx/ghost_base_attack.vpcf"
 		"ProjectileSpeed"			"900"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"1"
+		"MagicalResistance"			"25"
 
-		"AttackDamageMin"			"12"
-		"AttackDamageMax"			"16"
-
-		"StatusHealth"				"300"
-		"StatusHealthRegen"			"1.0"
+		"AttackDamageMin"			"13"
+		"AttackDamageMax"			"18"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3079,6 +3089,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"225"
+		"StatusHealthRegen"			"1.0"
 	}
 
 	"enemy_ice_2_leader"
@@ -3100,14 +3113,11 @@
 		"ProjectileModel"			"particles/neutral_fx/ghost_base_attack.vpcf"
 		"ProjectileSpeed"			"900"
 
-		"StatusHealth"				"1500"
-		"StatusHealthRegen"			"4.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"85"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"95"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3118,6 +3128,9 @@
 
 		"MovementSpeed"				"475"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1250"
+		"StatusHealthRegen"			"4.0"
 	}
 
 	"enemy_ice_2_minion"
@@ -3136,11 +3149,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"175"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"1.0"
-
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"25"
 
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"40"
@@ -3154,6 +3164,9 @@
 
 		"MovementSpeed"				"450"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_ice_3_leader"
@@ -3173,14 +3186,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"250"
 
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"6.0"
+		"ArmorPhysical"				"8"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"125"
-		"AttackDamageMax"			"135"
+		"AttackDamageMin"			"210"
+		"AttackDamageMax"			"220"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3191,6 +3201,9 @@
 
 		"MovementSpeed"				"500"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"2750"
+		"StatusHealthRegen"			"6.0"
 	}
 
 	"enemy_ice_3_minion"
@@ -3209,14 +3222,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"200"
 
-		"StatusHealth"				"1000"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"25"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"80"
+		"AttackDamageMin"			"100"
+		"AttackDamageMax"			"110"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3227,6 +3237,9 @@
 
 		"MovementSpeed"				"450"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1050"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_desert_1_leader"
@@ -3246,14 +3259,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"150"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"35"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3264,6 +3274,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"625"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_desert_1_minion"
@@ -3284,14 +3297,11 @@
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"1"
+		"MagicalResistance"			"25"
 
-		"AttackDamageMin"			"12"
-		"AttackDamageMax"			"16"
-
-		"StatusHealth"				"300"
-		"StatusHealthRegen"			"1.0"
+		"AttackDamageMin"			"13"
+		"AttackDamageMax"			"18"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3302,6 +3312,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"225"
+		"StatusHealthRegen"			"1.0"
 	}
 
 	"enemy_desert_2_leader"
@@ -3323,14 +3336,11 @@
 		"ProjectileModel"			"particles/neutral_fx/thunderlizard_base_attack.vpcf"
 		"ProjectileSpeed"			"1500"
 
-		"StatusHealth"				"1500"
-		"StatusHealthRegen"			"4.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"85"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"95"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3341,6 +3351,9 @@
 
 		"MovementSpeed"				"475"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1250"
+		"StatusHealthRegen"			"4.0"
 	}
 
 	"enemy_desert_2_minion"
@@ -3359,11 +3372,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"200"
 
-		"StatusHealth"				"600"
-		"StatusHealthRegen"			"1.0"
-
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"25"
 
 		"AttackDamageMin"			"35"
 		"AttackDamageMax"			"40"
@@ -3377,6 +3387,9 @@
 
 		"MovementSpeed"				"450"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"2.0"
 	}
 
 	"enemy_jungle_3_leader"
@@ -3398,14 +3411,11 @@
 		"ProjectileModel"			"particles/base_attacks/ranged_badguy.vpcf"
 		"ProjectileSpeed"			"900"
 
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"6.0"
+		"ArmorPhysical"				"8"
+		"MagicalResistance"			"30"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"125"
-		"AttackDamageMax"			"135"
+		"AttackDamageMin"			"210"
+		"AttackDamageMax"			"220"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3416,6 +3426,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"2750"
+		"StatusHealthRegen"			"6.0"
 	}
 
 	"enemy_jungle_3_minion"
@@ -3434,14 +3447,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackRange"				"200"
 
-		"StatusHealth"				"1000"
-		"StatusHealthRegen"			"2.0"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"25"
 
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"80"
+		"AttackDamageMin"			"100"
+		"AttackDamageMax"			"110"
 
 		"AttackRate"				"2.5"
 		"BaseAttackSpeed"			"200"
@@ -3452,6 +3462,9 @@
 
 		"MovementSpeed"				"425"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+
+		"StatusHealth"				"1050"
+		"StatusHealthRegen"			"1.0"
 	}
 
 	"npc_base_outpost"

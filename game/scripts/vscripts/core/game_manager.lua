@@ -52,6 +52,5 @@ function GameManager:EndGameWithWinner(team)
 end
 
 function GameManager:OnHostSelectedOption(event)
-	FOG_OF_WAR_DISABLED = (event.disable_fog == 1)
-	ENABLE_ULTIMATES = (event.enable_ultimates == 1)
+	CAMERA_LOCK = (event.lock_camera == 1)
 end

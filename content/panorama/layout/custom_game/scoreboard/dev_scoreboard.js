@@ -49,7 +49,7 @@ HideBaseHud("ButtonWell");
 HideBaseHud("level_stats_frame");
 
 if (Players.GetTeam(Game.GetLocalPlayerID()) == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
-	GameUI.SetCameraYaw(-90);
+	GameUI.SetCameraYaw(-45);
 } else {
-	GameUI.SetCameraYaw(90);
+	GameUI.SetCameraYaw(135);
 }

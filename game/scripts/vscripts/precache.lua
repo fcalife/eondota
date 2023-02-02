@@ -27,11 +27,7 @@ precache.particles = {
 }
 
 precache.particle_folders = {
-    "particles/control_zone/",
-    "particles/nightshade/",
-    "particles/catastrophe/",
-    "particles/samurai/",
-    "particles/carts/",
+    "particles/dodgeball/",
 }
 
 precache.models = {

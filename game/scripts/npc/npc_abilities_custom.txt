@@ -415,7 +415,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"1"
+		"AbilityCooldown"			"15"
 
 		"AbilityManaCost"			"0"
 

@@ -1,18 +1,10 @@
 TryGetHost();
 
-$('#reverse_ctf').SetSelected(false);
-$('#enable_towers').SetSelected(false);
-$('#enable_creeps').SetSelected(false);
-$('#disable_fog').SetSelected(true);
-
-$('#creeps_container').visible = false;
+$('#lock_camera').SetSelected(true);
 
 function UpdateOptions() {
  	GameEvents.SendCustomGameEventToServer("host_options_updated", {
- 		reverse_ctf: $('#reverse_ctf').IsSelected(),
- 		enable_towers: $('#enable_towers').IsSelected(),
- 		enable_creeps: $('#enable_creeps').IsSelected(),
- 		disable_fog: $('#disable_fog').IsSelected(),
+ 		lock_camera: $('#lock_camera').IsSelected(),
  	});
 }
 

@@ -61,3 +61,12 @@ function LockPlayerCameraOnTarget(hero, target, release)
 		end
 	end
 end
+
+function UnlockPlayerCamera(hero)
+	if (not hero.GetPlayerOwner) then return end
+
+	local player = hero:GetPlayerOwner()
+	if player then
+		PlayerResource:SetCameraTarget(player:GetPlayerID(), nil)
+	end
+end

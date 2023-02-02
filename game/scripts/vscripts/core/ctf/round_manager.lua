@@ -26,8 +26,9 @@ function RoundManager:InitializeRound()
 		hero:Stop()
 		hero:SetHealth(hero:GetMaxHealth())
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 10})
+		hero:RemoveModifierByName("modifier_fountain_invulnerability")
 
-		LockPlayerCameraOnTarget(hero, self.camera_dummies[hero:GetTeam()], false)
+		if CAMERA_LOCK then LockPlayerCameraOnTarget(hero, hero, false) end
 
 		for i = 0, 10 do
 			local ability = hero:GetAbilityByIndex(i)
@@ -88,8 +89,10 @@ function RoundManager:CheckForRoundEnd()
 	end
 end
 
-function RoundManager:OnUnitKilled()
+function RoundManager:OnUnitKilled(killed_unit)
 	if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
+
+	UnlockPlayerCamera(killed_unit)
 
 	local all_heroes = HeroList:GetAllHeroes()
 

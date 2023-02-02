@@ -394,7 +394,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"1225"
+				"speed"				"1100"
 			}
 			"02"
 			{
@@ -443,7 +443,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"25"
+		"AbilityCooldown"			"30"
 
 		"AbilityManaCost"			"0"
 
@@ -454,7 +454,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"1225"
+				"speed"				"1100"
 			}
 			"02"
 			{

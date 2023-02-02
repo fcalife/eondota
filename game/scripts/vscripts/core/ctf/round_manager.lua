@@ -8,17 +8,14 @@ function RoundManager:Init()
 	self.flags[DOTA_TEAM_BADGUYS] = 0
 
 	self.camera_dummies = {}
-	self.camera_dummies[DOTA_TEAM_GOODGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(-275, 0, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
-	self.camera_dummies[DOTA_TEAM_BADGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(275, 0, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	self.camera_dummies[DOTA_TEAM_GOODGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(0, -725, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	self.camera_dummies[DOTA_TEAM_BADGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(0, -725, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
 
 	self.camera_dummies[DOTA_TEAM_GOODGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_GOODGUYS], nil, "modifier_dummy_state", {})
 	self.camera_dummies[DOTA_TEAM_BADGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_BADGUYS], nil, "modifier_dummy_state", {})
 end
 
 function RoundManager:InitializeRound()
-	self.flags[DOTA_TEAM_GOODGUYS] = 0
-	self.flags[DOTA_TEAM_BADGUYS] = 0
-
 	local all_heroes = HeroList:GetAllHeroes()
 
 	for _, hero in pairs(all_heroes) do
@@ -48,7 +45,7 @@ function RoundManager:InitializeRound()
 
 	--RuneSpawners:OnInitializeRound()
 	--Flags:OnInitializeRound()
-	Walls:OnRoundStart()
+	--Walls:OnRoundStart()
 
 	GlobalMessages:Send("Round "..self.current_round.." will start in 10 seconds!")
 
@@ -90,27 +87,27 @@ function RoundManager:CheckForRoundEnd()
 end
 
 function RoundManager:OnUnitKilled(killed_unit)
-	if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
+	-- if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
 
-	UnlockPlayerCamera(killed_unit)
+	-- UnlockPlayerCamera(killed_unit)
 
-	local all_heroes = HeroList:GetAllHeroes()
+	-- local all_heroes = HeroList:GetAllHeroes()
 
-	local radiant_dead = true
-	local dire_dead = true
+	-- local radiant_dead = true
+	-- local dire_dead = true
 
-	for _, hero in pairs(all_heroes) do
-		if hero:IsRealHero() and hero:IsAlive() then
-			if hero:GetTeam() == DOTA_TEAM_GOODGUYS then radiant_dead = false end
-			if hero:GetTeam() == DOTA_TEAM_BADGUYS then dire_dead = false end
-		end
-	end
+	-- for _, hero in pairs(all_heroes) do
+	-- 	if hero:IsRealHero() and hero:IsAlive() then
+	-- 		if hero:GetTeam() == DOTA_TEAM_GOODGUYS then radiant_dead = false end
+	-- 		if hero:GetTeam() == DOTA_TEAM_BADGUYS then dire_dead = false end
+	-- 	end
+	-- end
 
-	if radiant_dead then
-		self:SetRoundWinner(DOTA_TEAM_BADGUYS)
-	elseif dire_dead then
-		self:SetRoundWinner(DOTA_TEAM_GOODGUYS)
-	end
+	-- if radiant_dead then
+	-- 	self:SetRoundWinner(DOTA_TEAM_BADGUYS)
+	-- elseif dire_dead then
+	-- 	self:SetRoundWinner(DOTA_TEAM_GOODGUYS)
+	-- end
 end
 
 function RoundManager:SetRoundWinner(team)

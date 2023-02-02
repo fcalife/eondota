@@ -31,6 +31,7 @@
 		"npc_dota_neutral_black_drake"		"Krakenling"
 		"npc_dota_neutral_black_dragon"		"The Kraken"
 		"npc_eon_cart"						"Push Cart"
+		"npc_duck"							"DUCK"
 
 		// Units
 

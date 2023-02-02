@@ -7,15 +7,16 @@ function GameClock:Start()
 
 	GameManager:SetGamePhase(GAME_STATE_BATTLE)
 
-	Flags:SpawnObjectives()
+	--Flags:SpawnObjectives()
 
-	RoundManager:InitializeRound()
+	--RoundManager:InitializeRound()
 
 	self:Tick()
 end
 
 function GameClock:Tick()
 	GoldRewards:Tick()
+	Ducks:Tick()
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then
 		Timers:CreateTimer(1, function()

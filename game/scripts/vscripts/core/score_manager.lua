@@ -4,6 +4,8 @@ ENEMY_TEAM = {}
 ENEMY_TEAM[DOTA_TEAM_GOODGUYS] = DOTA_TEAM_BADGUYS
 ENEMY_TEAM[DOTA_TEAM_BADGUYS] = DOTA_TEAM_GOODGUYS
 
+POINTS_TO_WIN = 500
+
 function ScoreManager:Init()
 	self.score = {}
 	self.score[DOTA_TEAM_GOODGUYS] = 0
@@ -19,12 +21,19 @@ function ScoreManager:UpdateScores()
 	game_mode_entity:SetCustomDireScore(self.score[DOTA_TEAM_BADGUYS])
 end
 
+function ScoreManager:Score(team, points)
+	self.score[team] = math.min(self.score[team] + points, POINTS_TO_WIN)
+
+	self:UpdateScores()
+
+	self:CheckForPointWin()
+end
+
 function ScoreManager:CheckForPointWin()
-	if self:GetTotalScore(DOTA_TEAM_GOODGUYS) >= ROUNDS_TO_WIN then
-		GameManager:EndGameWithWinner(DOTA_TEAM_GOODGUYS)
-	end
-	if self:GetTotalScore(DOTA_TEAM_BADGUYS) >= ROUNDS_TO_WIN then
-		GameManager:EndGameWithWinner(DOTA_TEAM_BADGUYS)
+	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+		if self:GetTotalScore(team) >= POINTS_TO_WIN then
+			GameManager:EndGameWithWinner(team)
+		end
 	end
 end
 

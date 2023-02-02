@@ -11,7 +11,7 @@ function GameManager:Init()
 
 	--Flags:Init()
 	--RuneSpawners:Init()
-	RoundManager:Init()
+	--RoundManager:Init()
 	ScoreManager:Init()
 	--BrushManager:Init()
 
@@ -19,8 +19,23 @@ function GameManager:Init()
 	--if LANE_CREEPS_ENABLED then LaneCreeps:Init() end
 end
 
+function GameManager:OnMatchStarted()
+	if CAMERA_LOCK then
+		self.camera_dummy = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(0, -300, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
+		self.camera_dummy:AddNewModifier(self.camera_dummy, nil, "modifier_dummy_state", {})
+
+		for _, hero in pairs(HeroList:GetAllHeroes()) do
+			LockPlayerCameraOnTarget(hero, self.camera_dummy, false)
+		end
+	end
+
+	Ducks:StartSpawning()
+end
+
 function GameManager:SetGamePhase(phase)
 	self.game_state = phase
+
+	if phase == GAME_STATE_BATTLE then self:OnMatchStarted() end
 end
 
 function GameManager:GetGamePhase()

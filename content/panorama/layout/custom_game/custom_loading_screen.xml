@@ -14,7 +14,7 @@
 
 			<Panel class="OptionContainer" id="lock_camera_container">
 				<ToggleButton class="OptionToggleButton" id="lock_camera" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Lock Camera to Hero"/>
+				<Label class="OptionLabel" text="Fixed Camera"/>
 			</Panel>
 		</Panel>
 	</Panel>

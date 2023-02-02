@@ -463,4 +463,37 @@
 			}
 		}
 	}
+
+	"ability_dodgeball_save"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"rattletrap_hookshot"
+
+		"AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"30"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"3000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"70"
+			}
+		}
+	}
 }

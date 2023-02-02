@@ -105,20 +105,16 @@ function RoundManager:OnUnitKilled(killed_unit)
 
 	local all_heroes = HeroList:GetAllHeroes()
 
-	local radiant_dead = true
-	local dire_dead = true
+	local alive_heroes = {}
 
 	for _, hero in pairs(all_heroes) do
 		if hero:IsRealHero() and hero:IsAlive() then
-			if hero:GetTeam() == DOTA_TEAM_GOODGUYS then radiant_dead = false end
-			if hero:GetTeam() == DOTA_TEAM_BADGUYS then dire_dead = false end
+			table.insert(alive_heroes, hero)
 		end
 	end
 
-	if radiant_dead then
-		self:SetRoundWinner(DOTA_TEAM_BADGUYS)
-	elseif dire_dead then
-		self:SetRoundWinner(DOTA_TEAM_GOODGUYS)
+	if alive_heroes[1] and #alive_heroes == 1 then
+		self:SetRoundWinner(alive_heroes[1]:GetTeam())
 	end
 end
 

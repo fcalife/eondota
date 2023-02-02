@@ -1,3 +1,68 @@
+#Scoreboard {
+	align:  center top;
+	margin-top:  65px;
+	flow-children:  right;
+}
+
+.ScoreContainers {
+	padding: 4px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+	border: 2px solid #111111FF;
+}
+
+#Blue_Container {
+	background-color: #4040b0;
+}
+
+#Red_Container {
+	background-color: #b04040;
+}
+
+#Green_Container {
+	background-color: #40b040;
+}
+
+#Pink_Container {
+	background-color: #b040b0;
+}
+
+#Yellow_Container {
+	background-color: #e0e060;
+}
+
+#Cyan_Container {
+	background-color: #40b0b0;
+}
+
+#Light_Gray_Container {
+	background-color: #b0b0b0;
+}
+
+#Dark_Gray_Container {
+	background-color: #404040;
+}
+
+#Mauve_Container {
+	background-color: #905050;
+}
+
+#Plaid_Container {
+	background-color: #909050;
+}
+
+.ScoreLabel {
+	margin-left: 12px;
+	margin-right: 12px;
+	text-align:  center center;
+	font-size:  28;
+	font-weight:  bold;
+	color:  white;
+	text-overflow: shrink;
+	text-shadow: 1px 1px 3px 2.0 black;
+}
+
 #Message_Container {
 	align:  center top;
 	margin-top:  160px;

@@ -3,7 +3,7 @@
 	TeamCount = 10
 	maps = 
 	[
-		"dodgeball",
+		"knockback",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false
@@ -12,7 +12,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "dodgeball"
+	DefaultMap = "knockback"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false

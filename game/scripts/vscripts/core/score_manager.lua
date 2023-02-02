@@ -8,15 +8,22 @@ function ScoreManager:Init()
 	self.score = {}
 	self.score[DOTA_TEAM_GOODGUYS] = 0
 	self.score[DOTA_TEAM_BADGUYS] = 0
+	self.score[DOTA_TEAM_CUSTOM_1] = 0
+	self.score[DOTA_TEAM_CUSTOM_2] = 0
+	self.score[DOTA_TEAM_CUSTOM_3] = 0
+	self.score[DOTA_TEAM_CUSTOM_4] = 0
+	self.score[DOTA_TEAM_CUSTOM_5] = 0
+	self.score[DOTA_TEAM_CUSTOM_6] = 0
+	self.score[DOTA_TEAM_CUSTOM_7] = 0
+	self.score[DOTA_TEAM_CUSTOM_8] = 0
+
+	CustomNetTables:SetTableValue("score", "scoreboard", self.score)
 
 	self:UpdateScores()
 end
 
 function ScoreManager:UpdateScores()
-	local game_mode_entity = GameRules:GetGameModeEntity()
-
-	game_mode_entity:SetCustomRadiantScore(self.score[DOTA_TEAM_GOODGUYS])
-	game_mode_entity:SetCustomDireScore(self.score[DOTA_TEAM_BADGUYS])
+	CustomNetTables:SetTableValue("score", "scoreboard", self.score)
 end
 
 function ScoreManager:CheckForPointWin()
@@ -25,6 +32,12 @@ function ScoreManager:CheckForPointWin()
 	end
 	if self:GetTotalScore(DOTA_TEAM_BADGUYS) >= ROUNDS_TO_WIN then
 		GameManager:EndGameWithWinner(DOTA_TEAM_BADGUYS)
+	end
+
+	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_8 do
+		if self:GetTotalScore(team) >= ROUNDS_TO_WIN then
+			GameManager:EndGameWithWinner(team)
+		end
 	end
 end
 

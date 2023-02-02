@@ -1326,4 +1326,45 @@
 		"VisionDaytimeRange"		"1"
 		"VisionNighttimeRange"		"1"
 	}
+
+	"npc_eon_cart"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/props_generic/wagon_wood_02_centaur.vmdl"
+		"ModelScale"				"0.95"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"100"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"100"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"600"
+		"VisionNighttimeRange"		"600"
+	}
 }

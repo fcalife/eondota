@@ -8,12 +8,16 @@ function GlobalMessages:SendAnimated(message)
 	CustomGameEventManager:Send_ServerToAllClients("new_message", {text = message, animate = true})
 end
 
+function GlobalMessages:SendStartingWithTeamName(team, message)
+	CustomGameEventManager:Send_ServerToAllClients("new_message", {text = message, team = team})
+end
+
 function GlobalMessages:NotifyTeamWonRound(team)
-	local message = ((team == DOTA_TEAM_GOODGUYS) and "BLUE" or "RED").." has won the round!"
+	local message = " has won the round!"
 
-	self:SendAnimated(message)
+	self:SendStartingWithTeamName(team, message)
 
-	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.round" or "dire.round")
+	EmitGlobalSound("radiant.round")
 end
 
 function GlobalMessages:NotifyTeamDeliveredFlag(team)

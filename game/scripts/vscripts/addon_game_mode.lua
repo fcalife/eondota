@@ -88,15 +88,23 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetCustomGameForceHero("npc_dota_hero_invoker")
 
 	-- Team configuration
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 12)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 12)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 1)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 1)
 
-	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_6 do
-		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
+	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_8 do
+		GameRules:SetCustomGameTeamMaxPlayers(team, 1)
 	end
 
 	SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, 64, 64, 208)
 	SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, 208, 64, 64)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_1, 64, 208, 64)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_2, 208, 64, 208)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_3, 208, 208, 64)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_4, 64, 208, 208)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_5, 208, 208, 208)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_6, 64, 64, 64)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_7, 140, 80, 140)
+	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_8, 140, 140, 64)
 
 	-- Initialize modules
 	GameManager:Init()

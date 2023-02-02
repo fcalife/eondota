@@ -25,7 +25,7 @@
 		"MovementTurnRate"	"1.0"
 
 		"StatusHealth"			"1"
-		"StatusMana"			"0"
+		"StatusMana"			"3"
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 

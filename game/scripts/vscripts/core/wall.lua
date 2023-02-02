@@ -4,17 +4,99 @@ WALL_DIRECTION_UP = 1
 WALL_DIRECTION_DOWN = 2
 
 function Walls:OnRoundStart()
-	self.walls = {}
-
-	table.insert(self.walls, Wall(1200, WALL_ACTIVATION_DELAY + 10, WALL_SLIDE_TIME, WALL_MIN_HEIGHT))
-	table.insert(self.walls, Wall(-1200, WALL_ACTIVATION_DELAY + 10, WALL_SLIDE_TIME, -WALL_MIN_HEIGHT))
+	self.current_wall = RoundWall(INITIAL_CIRCLE_RADIUS, CIRCLE_DELAY + 10, CIRCLE_SLIDE_TIME, FINAL_CIRCLE_RADIUS)
 end
 
 function Walls:OnRoundEnd()
-	for _, wall in pairs(self.walls) do
-		wall:Demolish()
+	if self.current_wall then self.current_wall:Demolish() end
+end
+
+
+
+if RoundWall == nil then RoundWall = class({}) end
+
+function RoundWall:constructor(initial_radius, activation_time, slide_time, final_radius)
+	self.initial_radius = initial_radius
+	self.activation_time = activation_time
+	self.slide_time = slide_time
+	self.final_radius = final_radius
+
+	self.current_radius = initial_radius
+	self.start_time = GameRules:GetGameTime()
+	self.elapsed_time = 0
+
+	self.timer = Timers:CreateTimer(0.03, function()
+		self.elapsed_time = GameRules:GetGameTime() - self.start_time
+
+		if self.elapsed_time > self.activation_time then
+			if self.elapsed_time < (self.activation_time + self.slide_time) then
+				self:UpdateRadius()
+			end
+
+			self:Tick()
+		end
+
+		return 0.03
+	end)
+end
+
+function RoundWall:UpdateParticle()
+	if self.wall_pfx then
+		ParticleManager:SetParticleControl(self.wall_pfx, 1, Vector(self.current_radius, 0, 0))
+	else
+		self.wall_pfx = ParticleManager:CreateParticle("particles/knockback/flame_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(self.wall_pfx, 0, Vector(0, 0, 50))
+		ParticleManager:SetParticleControl(self.wall_pfx, 1, Vector(self.current_radius, 0, 0))
 	end
 end
+
+function RoundWall:UpdateRadius()
+	local interpolation = math.min(1, math.max(0, self.elapsed_time - self.activation_time) / self.slide_time)
+
+	self.current_radius = self.initial_radius + interpolation * (self.final_radius - self.initial_radius)
+
+	self:UpdateParticle()
+end
+
+function RoundWall:Tick()
+	local all_heroes = HeroList:GetAllHeroes()
+
+	for _, hero in pairs(all_heroes) do
+		local position = hero:GetAbsOrigin()
+		local center_distance = position:Length2D()
+
+		if center_distance > self.current_radius and (not (hero:HasModifier("modifier_knockback") or hero:HasModifier("modifier_thrown_out"))) then
+			local distance = INITIAL_CIRCLE_RADIUS - center_distance + 100
+			local duration = 0.2 + 0.0002 * distance
+
+			local knockback = {
+				center_x = 0,
+				center_y = 0,
+				center_z = 0,
+				knockback_duration = duration,
+				knockback_distance = distance,
+				knockback_height = 50,
+				should_stun = 1,
+				duration = duration
+			}
+
+			hero:RemoveModifierByName("modifier_knockback")
+			hero:AddNewModifier(hero, nil, "modifier_knockback", knockback)
+
+			hero:EmitSound("Hero_VengefulSpirit.MagicMissileImpact")
+		end
+	end
+end
+
+function RoundWall:Demolish()
+	if self.wall_pfx then
+		ParticleManager:DestroyParticle(self.wall_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.wall_pfx)
+	end
+
+	Timers:RemoveTimer(self.timer)
+end
+
 
 
 if Wall == nil then Wall = class({}) end

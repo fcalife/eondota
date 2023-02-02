@@ -35,12 +35,13 @@ function ability_dodgeball_throw:ThrowBall(thrower, target, speed)
 		bProvidesVision		= true,
 		iVisionRadius 		= 350,
 		iVisionTeamNumber 	= thrower:GetTeam(),
+		ExtraData			= {x = direction.x, y = direction.y}
 	}
 
 	ProjectileManager:CreateLinearProjectile(projectile)
 end
 
-function ability_dodgeball_throw:OnProjectileHit(target, location)
+function ability_dodgeball_throw:OnProjectileHit_ExtraData(target, location, data)
 	local caster = self:GetCaster()
 
 	if target then
@@ -49,13 +50,39 @@ function ability_dodgeball_throw:OnProjectileHit(target, location)
 
 			target:EmitSound("Item.LotusOrb.Activate")
 		else
-			ApplyDamage({attacker = self:GetCaster(), victim = target, damage = 1000, damage_type = DAMAGE_TYPE_PURE})
+			self:Knockback(target, data.x, data.y)
+
+			target:ReduceMana(1)
 
 			target:EmitSound("Hero_VengefulSpirit.MagicMissileImpact")
 		end
 
 		return true
 	end
+end
+
+function ability_dodgeball_throw:Knockback(target, x, y)
+	local knockback_direction = Vector(x, y, 0):Normalized()
+	local target_loc = target:GetAbsOrigin()
+	local knockback_origin = target_loc - 100 * knockback_direction
+
+	local caster = self:GetCaster()
+	local distance = 675 - 100 * target:GetMana()
+	local duration = 0.2 + 0.0002 * distance
+
+	local knockback = {
+		center_x = knockback_origin.x,
+		center_y = knockback_origin.y,
+		center_z = knockback_origin.z,
+		knockback_duration = duration,
+		knockback_distance = distance,
+		knockback_height = 50,
+		should_stun = 1,
+		duration = duration
+	}
+
+	target:RemoveModifierByName("modifier_knockback")
+	target:AddNewModifier(caster, nil, "modifier_knockback", knockback)
 end
 
 
@@ -127,12 +154,13 @@ function ability_dodgeball_big_throw:ThrowBall(thrower, target, speed)
 		bProvidesVision		= true,
 		iVisionRadius 		= 350,
 		iVisionTeamNumber 	= thrower:GetTeam(),
+		ExtraData			= {x = direction.x, y = direction.y}
 	}
 
 	ProjectileManager:CreateLinearProjectile(projectile)
 end
 
-function ability_dodgeball_big_throw:OnProjectileHit(target, location)
+function ability_dodgeball_big_throw:OnProjectileHit_ExtraData(target, location, data)
 	local caster = self:GetCaster()
 
 	if target then
@@ -141,11 +169,37 @@ function ability_dodgeball_big_throw:OnProjectileHit(target, location)
 
 			target:EmitSound("Item.LotusOrb.Activate")
 		else
-			ApplyDamage({attacker = self:GetCaster(), victim = target, damage = 1000, damage_type = DAMAGE_TYPE_PURE})
+			self:Knockback(target, data.x, data.y)
+
+			target:ReduceMana(1)
 
 			target:EmitSound("Hero_VengefulSpirit.MagicMissileImpact")
 		end
 
 		return true
 	end
+end
+
+function ability_dodgeball_big_throw:Knockback(target, x, y)
+	local knockback_direction = Vector(x, y, 0):Normalized()
+	local target_loc = target:GetAbsOrigin()
+	local knockback_origin = target_loc - 100 * knockback_direction
+
+	local caster = self:GetCaster()
+	local distance = 800 - 125 * target:GetMana()
+	local duration = 0.2 + 0.0002 * distance
+
+	local knockback = {
+		center_x = knockback_origin.x,
+		center_y = knockback_origin.y,
+		center_z = knockback_origin.z,
+		knockback_duration = duration,
+		knockback_distance = distance,
+		knockback_height = 50,
+		should_stun = 1,
+		duration = duration
+	}
+
+	target:RemoveModifierByName("modifier_knockback")
+	target:AddNewModifier(caster, nil, "modifier_knockback", knockback)
 end

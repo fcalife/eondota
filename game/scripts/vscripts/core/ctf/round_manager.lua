@@ -13,6 +13,12 @@ function RoundManager:Init()
 
 	self.camera_dummies[DOTA_TEAM_GOODGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_GOODGUYS], nil, "modifier_dummy_state", {})
 	self.camera_dummies[DOTA_TEAM_BADGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_BADGUYS], nil, "modifier_dummy_state", {})
+
+	self.respawn_positions = {}
+
+	for i = 1, 10 do
+		table.insert(self.respawn_positions, RotatePosition(Vector(0, 0, 0), QAngle( 0, (i - 1) * 36, 0), Vector(0, 1075, 0)))
+	end
 end
 
 function RoundManager:InitializeRound()
@@ -20,13 +26,16 @@ function RoundManager:InitializeRound()
 	self.flags[DOTA_TEAM_BADGUYS] = 0
 
 	local all_heroes = HeroList:GetAllHeroes()
+	local random_respawns = table.shuffled(self.respawn_positions)
 
 	for _, hero in pairs(all_heroes) do
 		hero:RespawnHero(false, false)
 		hero:Stop()
 		hero:SetHealth(hero:GetMaxHealth())
+		FindClearSpaceForUnit(hero, table.remove(random_respawns), true)
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 10})
 		hero:RemoveModifierByName("modifier_fountain_invulnerability")
+		hero:FadeGesture(ACT_DOTA_FLAIL)
 
 		if CAMERA_LOCK then LockPlayerCameraOnTarget(hero, hero, false) end
 
@@ -43,7 +52,7 @@ function RoundManager:InitializeRound()
 		end
 
 		local ultimate = hero:FindAbilityByName("ability_dodgeball_big_throw")
-		if ultimate then ultimate:StartCooldown(35) end
+		if ultimate then ultimate:StartCooldown(30) end
 	end
 
 	--RuneSpawners:OnInitializeRound()

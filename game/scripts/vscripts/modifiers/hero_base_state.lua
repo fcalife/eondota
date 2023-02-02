@@ -19,12 +19,9 @@ end
 function modifier_hero_base_state:OnIntervalThink()
 	local parent = self:GetParent()
 	local position = parent:GetAbsOrigin()
-	local team = parent:GetTeam()
 
-	if position.x > 0 and team == DOTA_TEAM_GOODGUYS then
-		FindClearSpaceForUnit(parent, Vector(-100, position.y, position.z), true)
-	elseif position.x < 0 and team == DOTA_TEAM_BADGUYS then
-		FindClearSpaceForUnit(parent, Vector(100, position.y, position.z), true)
+	if position.z < 350 and (not parent:HasModifier("modifier_thrown_out")) then
+		KnockbackArena:OnExitRing(parent)
 	end
 end
 
@@ -36,4 +33,33 @@ end
 
 function modifier_hero_base_state:GetModifierIgnoreCastAngle()
 	return 1
+end
+
+
+
+modifier_thrown_out = class({})
+
+function modifier_thrown_out:IsHidden() return true end
+function modifier_thrown_out:IsDebuff() return false end
+function modifier_thrown_out:IsPurgable() return false end
+function modifier_thrown_out:RemoveOnDeath() return false end
+function modifier_thrown_out:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_thrown_out:CheckState()
+	return {
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
+		[MODIFIER_STATE_ROOTED] = true,
+		[MODIFIER_STATE_FLYING] = true,
+	}
+end
+
+function modifier_thrown_out:OnDestroy(keys)
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	KnockbackArena:OnThrowOutStatusEnd(parent)
 end

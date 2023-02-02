@@ -383,7 +383,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"4"
+		"AbilityCooldown"			"3"
 
 		"AbilityManaCost"			"0"
 
@@ -443,7 +443,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"25"
+		"AbilityCooldown"			"20"
 
 		"AbilityManaCost"			"0"
 

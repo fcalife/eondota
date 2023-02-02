@@ -25,6 +25,12 @@ function modifier_hero_base_state:OnIntervalThink()
 	end
 end
 
+function modifier_hero_base_state:CheckState()
+	return {
+		[MODIFIER_STATE_DISARMED] = true,
+	}
+end
+
 function modifier_hero_base_state:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE

@@ -65,7 +65,7 @@ function RoundWall:Tick()
 		local position = hero:GetAbsOrigin()
 		local center_distance = position:Length2D()
 
-		if center_distance > self.current_radius and (not (hero:HasModifier("modifier_knockback") or hero:HasModifier("modifier_thrown_out"))) then
+		if hero:IsAlive() and center_distance > self.current_radius and (not (hero:HasModifier("modifier_knockback") or hero:HasModifier("modifier_thrown_out"))) then
 			local distance = INITIAL_CIRCLE_RADIUS - center_distance + 100
 			local duration = 0.2 + 0.0002 * distance
 
@@ -95,6 +95,55 @@ function RoundWall:Demolish()
 	end
 
 	Timers:RemoveTimer(self.timer)
+end
+
+
+
+if Donut == nil then Donut = class({}) end
+
+function Donut:constructor(radius)
+	self.current_radius = radius
+
+	self.wall_pfx = ParticleManager:CreateParticle("particles/knockback/flame_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(self.wall_pfx, 0, Vector(0, 0, 50))
+	ParticleManager:SetParticleControl(self.wall_pfx, 1, Vector(self.current_radius, 0, 0))
+
+	self.timer = Timers:CreateTimer(0.03, function()
+		self:Tick()
+
+		return 0.03
+	end)
+end
+
+function Donut:Tick()
+	local all_heroes = HeroList:GetAllHeroes()
+
+	for _, hero in pairs(all_heroes) do
+		local position = hero:GetAbsOrigin()
+		local center_distance = position:Length2D()
+
+		if hero:IsAlive() and center_distance < self.current_radius and (not hero:HasModifier("modifier_knockback")) then
+			local distance = 400
+			local duration = 0.2
+
+			local knockback = {
+				center_x = 0,
+				center_y = 0,
+				center_z = 0,
+				knockback_duration = duration,
+				knockback_distance = distance,
+				knockback_height = 50,
+				should_stun = 1,
+				duration = duration
+			}
+
+			hero:RemoveModifierByName("modifier_knockback")
+			hero:AddNewModifier(hero, nil, "modifier_knockback", knockback)
+
+			hero:ReduceMana(1)
+			hero:EmitSound("Hero_VengefulSpirit.MagicMissileImpact")
+		end
+	end
 end
 
 

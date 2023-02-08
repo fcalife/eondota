@@ -40,10 +40,27 @@
 		"npc_dota_neutral_black_dragon"		"The Kraken"
 		"npc_eon_cart"						"Push Cart"
 
-		// Units
+		// Abilities
+		"DOTA_Tooltip_ability_ability_dodgeball_throw"						"Light Throw"
+		"DOTA_Tooltip_ability_ability_dodgeball_throw_Description"			"Deals 1 damage. %max_range% range."
+
+		"DOTA_Tooltip_ability_ability_dodgeball_heavy_throw"				"Heavy Throw"
+		"DOTA_Tooltip_ability_ability_dodgeball_heavy_throw_Description"	"Deals 2 damage. %max_range% range."
+
+		"DOTA_Tooltip_ability_void_spirit_astral_step"						"Sidestep"
+		"DOTA_Tooltip_ability_void_spirit_astral_step_Description"			"Teleport a short distance away."
+
+		"DOTA_Tooltip_ability_ability_dodgeball_smash"						"Smash"
+		"DOTA_Tooltip_ability_ability_dodgeball_smash_Description"			"Deals 2 damage to all nearby enemies."
+
+		"DOTA_Tooltip_ability_ability_dodgeball_mega_throw"					"Spirit Bomb"
+		"DOTA_Tooltip_ability_ability_dodgeball_mega_throw_Description"		"Deals 1 damage. %max_range% range."
 
 
 		// Items
+		"DOTA_Tooltip_ability_item_health_potion"				"Health Potion"
+		"DOTA_Tooltip_ability_item_mario_star"					"Aegis of the Immortal"
+
 		"DOTA_Tooltip_ability_item_flag"						"Flag"
 		"DOTA_Tooltip_ability_item_flag_Description"			"Get it to your base!"
 

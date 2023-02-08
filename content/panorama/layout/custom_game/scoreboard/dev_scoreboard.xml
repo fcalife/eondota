@@ -21,7 +21,7 @@
 			<Panel id="Pink_Container" class="ScoreContainers">
 				<Label id="Pink_Score" class="ScoreLabel" text="0" />
 			</Panel>
-			<Panel id="Yellow_Container" class="ScoreContainers">
+			<!-- <Panel id="Yellow_Container" class="ScoreContainers">
 				<Label id="Yellow_Score" class="ScoreLabel" text="0" />
 			</Panel>
 			<Panel id="Cyan_Container" class="ScoreContainers">
@@ -38,7 +38,7 @@
 			</Panel>
 			<Panel id="Plaid_Container" class="ScoreContainers">
 				<Label id="Plaid_Score" class="ScoreLabel" text="0" />
-			</Panel>
+			</Panel> -->
 		</Panel>
 
 		<Panel id="Message_Container" hittest="false" />

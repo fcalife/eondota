@@ -21,6 +21,7 @@ require('core/global_messages')
 require('core/runes')
 require('core/wall')
 require('core/knockback_arena')
+require('core/powerups')
 
 require("core/filters/init")
 require("core/ctf/init")

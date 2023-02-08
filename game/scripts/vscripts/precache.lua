@@ -24,6 +24,7 @@ precache.particles = {
     "particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf",
     "particles/speed_lane.vpcf",
     "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf",
+    "particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf",
 }
 
 precache.particle_folders = {

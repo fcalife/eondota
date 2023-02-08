@@ -1414,4 +1414,64 @@
 			"01"				"item_aether_lens"
 		}
 	}
+
+	"item_health_potion"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_flask"
+		"Model"							"models/props_gameplay/salve.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_mario_star"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_aegis"
+		"Model"							"models/props_gameplay/aegis.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
 }

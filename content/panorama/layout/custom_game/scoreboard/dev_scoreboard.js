@@ -38,12 +38,12 @@ function UpdateScoreboard(table_name, key, data) {
 		$("#Red_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_BADGUYS]);
 		$("#Green_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_1]);
 		$("#Pink_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_2]);
-		$("#Yellow_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_3]);
-		$("#Cyan_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_4]);
-		$("#Light_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_5]);
-		$("#Dark_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_6]);
-		$("#Mauve_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_7]);
-		$("#Plaid_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_8]);
+		// $("#Yellow_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_3]);
+		// $("#Cyan_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_4]);
+		// $("#Light_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_5]);
+		// $("#Dark_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_6]);
+		// $("#Mauve_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_7]);
+		// $("#Plaid_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_8]);
 	}
 }
 

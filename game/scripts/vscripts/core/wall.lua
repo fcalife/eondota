@@ -11,6 +11,10 @@ function Walls:OnRoundEnd()
 	if self.current_wall then self.current_wall:Demolish() end
 end
 
+function Walls:GetCurrentWallRadius()
+	return (self.current_wall and self.current_wall.current_radius or 0)
+end
+
 
 
 if RoundWall == nil then RoundWall = class({}) end

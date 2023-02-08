@@ -3,32 +3,18 @@ _G.RoundManager = RoundManager or {}
 function RoundManager:Init()
 	self.current_round = 1
 
-	self.flags = {}
-	self.flags[DOTA_TEAM_GOODGUYS] = 0
-	self.flags[DOTA_TEAM_BADGUYS] = 0
-
-	self.camera_dummies = {}
-	self.camera_dummies[DOTA_TEAM_GOODGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(-275, 0, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
-	self.camera_dummies[DOTA_TEAM_BADGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(275, 0, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
-
-	self.camera_dummies[DOTA_TEAM_GOODGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_GOODGUYS], nil, "modifier_dummy_state", {})
-	self.camera_dummies[DOTA_TEAM_BADGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_BADGUYS], nil, "modifier_dummy_state", {})
-
 	self.respawn_positions = {}
 
-	for i = 1, 10 do
-		table.insert(self.respawn_positions, RotatePosition(Vector(0, 0, 0), QAngle( 0, (i - 1) * 36, 0), Vector(0, 1075, 0)))
+	for i = 1, 12 do
+		table.insert(self.respawn_positions, RotatePosition(Vector(0, 0, 0), QAngle( 0, (i - 1) * 30, 0), Vector(0, 1075, 0)))
 	end
 end
 
 function RoundManager:InitializeRound()
-	self.flags[DOTA_TEAM_GOODGUYS] = 0
-	self.flags[DOTA_TEAM_BADGUYS] = 0
+	local live_heroes = ScoreManager:GetAllRemainingHeroes()
+	local random_respawns = self:GetRoundRespawnPositions()
 
-	local all_heroes = HeroList:GetAllHeroes()
-	local random_respawns = table.shuffled(self.respawn_positions)
-
-	for _, hero in pairs(all_heroes) do
+	for _, hero in pairs(live_heroes) do
 		hero:RespawnHero(false, false)
 		hero:Stop()
 		hero:SetHealth(hero:GetMaxHealth())
@@ -37,22 +23,15 @@ function RoundManager:InitializeRound()
 		hero:RemoveModifierByName("modifier_fountain_invulnerability")
 		hero:FadeGesture(ACT_DOTA_FLAIL)
 
-		if CAMERA_LOCK then LockPlayerCameraOnTarget(hero, hero, false) end
+		LockPlayerCameraOnTarget(hero, hero, (not CAMERA_LOCK))
 
 		for i = 0, 10 do
 			local ability = hero:GetAbilityByIndex(i)
 
 			if ability then
 				ability:EndCooldown()
-
-				if self.current_round >= MIN_ROUND_FOR_ULTIMATES and ability:GetAbilityType() == ABILITY_TYPE_ULTIMATE then
-					ability:SetLevel(1)
-				end
 			end
 		end
-
-		local ultimate = hero:FindAbilityByName("ability_dodgeball_big_throw")
-		if ultimate then ultimate:StartCooldown(30) end
 	end
 
 	--RuneSpawners:OnInitializeRound()
@@ -74,28 +53,22 @@ function RoundManager:InitializeRound()
 			GlobalMessages:SendAnimated("Round "..self.current_round.." is starting!")
 
 			GameManager:SetGamePhase(GAME_STATE_BATTLE)
+			PowerupManager:OnRoundStart()
 		end
 	end)
 end
 
-function RoundManager:OnTeamDeliverFlag(team)
-	self.flags[team] = self.flags[team] + 1 
+function RoundManager:GetRoundRespawnPositions()
+	local remaining_players = ScoreManager:GetRemainingPlayerCount()
+	local respawn_distance = 12 / remaining_players
+	local respawn_offset = RandomInt(1, respawn_distance) - 1
+	local round_spawn_positions = {}
 
-	GlobalMessages:NotifyTeamDeliveredFlag(team)
-
-	GoldRewards:GiveGoldToPlayersInTeam(team, FLAG_DELIVERY_GOLD, 0)
-
-	self:CheckForRoundEnd()
-end
-
-function RoundManager:CheckForRoundEnd()
-	if self.flags[DOTA_TEAM_GOODGUYS] + self.flags[DOTA_TEAM_BADGUYS] >= 3 then
-		if self.flags[DOTA_TEAM_GOODGUYS] > self.flags[DOTA_TEAM_BADGUYS] then
-			self:SetRoundWinner(DOTA_TEAM_GOODGUYS)
-		else
-			self:SetRoundWinner(DOTA_TEAM_BADGUYS)
-		end
+	for i = 1, remaining_players do
+		table.insert(round_spawn_positions, self.respawn_positions[1 + respawn_distance * (i - 1) + respawn_offset])
 	end
+
+	return table.shuffled(round_spawn_positions)
 end
 
 function RoundManager:OnUnitKilled(killed_unit)
@@ -104,28 +77,26 @@ function RoundManager:OnUnitKilled(killed_unit)
 	UnlockPlayerCamera(killed_unit)
 
 	local all_heroes = HeroList:GetAllHeroes()
-
-	local radiant_dead = true
-	local dire_dead = true
+	local alive_heroes = {}
 
 	for _, hero in pairs(all_heroes) do
 		if hero:IsRealHero() and hero:IsAlive() then
-			if hero:GetTeam() == DOTA_TEAM_GOODGUYS then radiant_dead = false end
-			if hero:GetTeam() == DOTA_TEAM_BADGUYS then dire_dead = false end
+			table.insert(alive_heroes, hero)
 		end
 	end
 
-	if radiant_dead then
-		self:SetRoundWinner(DOTA_TEAM_BADGUYS)
-	elseif dire_dead then
-		self:SetRoundWinner(DOTA_TEAM_GOODGUYS)
+	ScoreManager:OnTeamLoseRound(killed_unit:GetTeam())
+
+	if alive_heroes[1] and #alive_heroes == 1 then
+		self:SetRoundWinner(alive_heroes[1]:GetTeam())
 	end
 end
 
 function RoundManager:SetRoundWinner(team)
 	Walls:OnRoundEnd()
+	PowerupManager:OnRoundEnd()
 
-	ScoreManager:OnTeamWinRound(team)
+	GlobalMessages:NotifyTeamWonRound(team)
 
 	GameManager:SetGamePhase(GAME_STATE_INIT)
 

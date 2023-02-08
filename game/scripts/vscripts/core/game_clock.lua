@@ -11,8 +11,6 @@ function GameClock:Start()
 
 	RoundManager:InitializeRound()
 
-	Donut(350)
-
 	self:Tick()
 end
 

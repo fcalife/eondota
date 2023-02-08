@@ -59,6 +59,7 @@ function modifier_thrown_out:CheckState()
 		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
 		[MODIFIER_STATE_ROOTED] = true,
 		[MODIFIER_STATE_FLYING] = true,
+		[MODIFIER_STATE_STUNNED] = true,
 	}
 end
 

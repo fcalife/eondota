@@ -88,10 +88,12 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetCustomGameForceHero("npc_dota_hero_invoker")
 
 	-- Team configuration
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 12)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 12)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 1)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 1)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 1)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_2, 1)
 
-	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_8 do
+	for team = DOTA_TEAM_CUSTOM_3, DOTA_TEAM_CUSTOM_8 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
 	end
 

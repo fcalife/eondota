@@ -383,7 +383,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"3"
+		"AbilityCooldown"			"1.0"
 
 		"AbilityManaCost"			"0"
 
@@ -401,49 +401,27 @@
 				"var_type"			"FIELD_INTEGER"
 				"radius"			"70"
 			}
-		}
-	}
-
-	"ability_dodgeball_throwback"
-	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/dodgeball"
-
-		"AbilityTextureName"		"alchemist_unstable_concoction_throw"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
-		"AbilityCastPoint"			"0.0"
-
-		"AbilityCooldown"			"15"
-
-		"AbilityManaCost"			"0"
-
-		"MaxLevel"					"1"
-
-		"AbilitySpecial"
-		{
-			"01"
+			"03"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"0.6"
+				"var_type"			"FIELD_INTEGER"
+				"max_range"			"1000"
 			}
 		}
 	}
 
-	"ability_dodgeball_big_throw"
+	"ability_dodgeball_heavy_throw"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/dodgeball"
 
-		"AbilityTextureName"		"primal_beast_rock_throw"
+		"AbilityTextureName"		"alchemist_unstable_concoction"
 
-		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
 
-		"AbilityCastPoint"			"0.0"
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+		"AbilityCastPoint"			"0.5"
 
-		"AbilityCooldown"			"20"
+		"AbilityCooldown"			"1.0"
 
 		"AbilityManaCost"			"0"
 
@@ -459,7 +437,78 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"165"
+				"radius"			"140"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_range"			"1000"
+			}
+		}
+	}
+
+	"ability_dodgeball_smash"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"brewmaster_thunder_clap"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_TORNADO"
+		"AbilityCastPoint"			"1.0"
+		"AbilityCastRange"			"350"
+
+		"AbilityCooldown"			"5.0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"350"
+			}
+		}
+	}
+
+	"ability_dodgeball_mega_throw"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"keeper_of_the_light_illuminate"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"2.0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"140"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_range"			"3000"
 			}
 		}
 	}

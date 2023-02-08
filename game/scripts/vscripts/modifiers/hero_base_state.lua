@@ -58,6 +58,8 @@ function modifier_duck:OnCreated(keys)
 	local team = parent:GetTeam()
 	local position = parent:GetAbsOrigin()
 
+	if RollPercentage(30) then position.y = DUCK_HEIGHT[RandomInt(1, 4)] end
+
 	if team == DOTA_TEAM_BADGUYS then
 		if position.x > -500 then
 			self.destination = Vector((-1) * EDGE_DUCK, position.y, 0)

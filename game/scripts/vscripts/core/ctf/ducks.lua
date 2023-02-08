@@ -8,10 +8,11 @@ DUCK_HEIGHT[4] = 800
 
 BASE_DUCK_SPEED = 200
 DUCK_SPEED_INC = 2
+MAX_DUCK_SPEED = 750
 
-BASE_DUCK_INTERVAL = 2.5
-DUCK_INTERVAL_FACTOR = 0.97
-MIN_DUCK_INTERVAL = 0.5
+BASE_DUCK_INTERVAL = 1.5
+DUCK_INTERVAL_FACTOR = 0.96
+MIN_DUCK_INTERVAL = 0.24
 
 MIDDLE_DUCK = 50
 EDGE_DUCK = 1400
@@ -32,16 +33,25 @@ end
 
 function Ducks:RandomizeDuck()
 	local tier = RandomInt(1, 2)
+	local big = false
 
 	if RollPercentage(20) then tier = 3 end
 	if RollPercentage(8) then tier = 4 end
 
 	local speed = (BASE_DUCK_SPEED + self.duck_count * DUCK_SPEED_INC) * (RandomFloat(0.8, 1.4) + 0.2 * tier)
-	local points = 1 + tier
+	speed = math.min(speed, MAX_DUCK_SPEED)
+
+	local points = 1 + tier + math.floor(0.01 * (speed - 200))
 	local spawn = (RollPercentage(50) and MIDDLE_DUCK) or EDGE_DUCK
 
+	if RollPercentage(2) then
+		big = true
+		speed = 200
+		points = 40
+	end
+
 	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-		self:SpawnDuck(team, spawn, DUCK_HEIGHT[tier], speed, points)
+		self:SpawnDuck(team, spawn, DUCK_HEIGHT[tier], speed, points, big)
 	end
 
 	self.duck_count = self.duck_count + 1
@@ -49,12 +59,12 @@ function Ducks:RandomizeDuck()
 	self.next_duck = self.next_duck + self.current_interval
 end
 
-function Ducks:SpawnDuck(team, x, y, speed, points)
+function Ducks:SpawnDuck(team, x, y, speed, points, big)
 	local spawn = Vector(x, y, 0)
 
 	if team == DOTA_TEAM_GOODGUYS then spawn = Vector((-1) * x, y, 0) end
 
-	local duck = CreateUnitByName("npc_duck", spawn, true, nil, nil, ENEMY_TEAM[team])
+	local duck = CreateUnitByName((big and "npc_big_duck") or "npc_duck", spawn, true, nil, nil, ENEMY_TEAM[team])
 	duck:AddNewModifier(duck, nil, "modifier_duck", {speed = speed, points = points})
 end
 

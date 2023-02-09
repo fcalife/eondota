@@ -70,3 +70,33 @@ function modifier_thrown_out:OnDestroy(keys)
 
 	KnockbackArena:OnThrowOutStatusEnd(parent)
 end
+
+
+
+modifier_respawn_grace_period = class({})
+
+function modifier_respawn_grace_period:IsHidden() return false end
+function modifier_respawn_grace_period:IsDebuff() return false end
+function modifier_respawn_grace_period:IsPurgable() return false end
+function modifier_respawn_grace_period:RemoveOnDeath() return false end
+function modifier_respawn_grace_period:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_respawn_grace_period:GetStatusEffectName()
+	return "particles/status_fx/status_effect_guardian_angel.vpcf"
+end
+
+function modifier_respawn_grace_period:GetEffectName()
+	return "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf"
+end
+
+function modifier_respawn_grace_period:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_respawn_grace_period:CheckState()
+	return {
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_SILENCED] = true,
+	}
+end

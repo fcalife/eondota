@@ -35,7 +35,7 @@
 		"Ability4"		"ability_dodgeball_smash"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"ability_dodgeball_mega_throw"
-		"Ability7"		"generic_hidden"
+		"Ability7"		"boosted_astral_step"
 		"Ability8"		"generic_hidden"
 		"Ability9"		"generic_hidden"
 		"Ability10"		"generic_hidden"

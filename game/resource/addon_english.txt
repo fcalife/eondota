@@ -45,10 +45,13 @@
 		"DOTA_Tooltip_ability_ability_dodgeball_throw_Description"			"Deals 1 damage. %max_range% range."
 
 		"DOTA_Tooltip_ability_ability_dodgeball_heavy_throw"				"Heavy Throw"
-		"DOTA_Tooltip_ability_ability_dodgeball_heavy_throw_Description"	"Deals 2 damage. %max_range% range."
+		"DOTA_Tooltip_ability_ability_dodgeball_heavy_throw_Description"	"Deals 2 damage. Hits enemies in a narrow %length% range cone."
 
 		"DOTA_Tooltip_ability_void_spirit_astral_step"						"Sidestep"
 		"DOTA_Tooltip_ability_void_spirit_astral_step_Description"			"Teleport a short distance away."
+
+		"DOTA_Tooltip_ability_boosted_astral_step"							"Boosted Sidestep"
+		"DOTA_Tooltip_ability_boosted_astral_step_Description"				"Teleport a short distance away. Shorter cooldown and longer range."
 
 		"DOTA_Tooltip_ability_ability_dodgeball_smash"						"Smash"
 		"DOTA_Tooltip_ability_ability_dodgeball_smash_Description"			"Deals 2 damage to all nearby enemies."
@@ -58,8 +61,23 @@
 
 
 		// Items
-		"DOTA_Tooltip_ability_item_health_potion"				"Health Potion"
+		
+		"DOTA_Tooltip_ability_item_health_potion"				"Healing Salve"
+		"DOTA_Tooltip_ability_item_health_potion_Description"	"Heals up to 4 health"
 		"DOTA_Tooltip_ability_item_mario_star"					"Aegis of the Immortal"
+		"DOTA_Tooltip_ability_item_mario_star_Description"		"Grants temporary invulnerability"
+		"DOTA_Tooltip_ability_item_power_boots"					"Boots of Speed"
+		"DOTA_Tooltip_ability_item_power_boots_Description"		"Grants improved speed and teleporting"
+		"DOTA_Tooltip_ability_item_power_bull"					"Basher"
+		"DOTA_Tooltip_ability_item_power_bull_Description"		"Damage enemies on contact"
+		"DOTA_Tooltip_ability_item_power_shield"				"Stout Shield"
+		"DOTA_Tooltip_ability_item_power_shield_Description"	"Prevents the next incoming hit from dealing damage"
+		"DOTA_Tooltip_ability_item_power_metal"					"Platemail"
+		"DOTA_Tooltip_ability_item_power_metal_Description"		"Get knocked back half as far"
+		"DOTA_Tooltip_ability_item_power_refresh"				"Refresher Shard"
+		"DOTA_Tooltip_ability_item_power_refresh_Description"	"Use 2 spells without cooldown"
+		"DOTA_Tooltip_ability_item_power_invis"					"Invisibility Rune"
+		"DOTA_Tooltip_ability_item_power_invis_Description"		"Become invisible for a few seconds"
 
 		"DOTA_Tooltip_ability_item_flag"						"Flag"
 		"DOTA_Tooltip_ability_item_flag_Description"			"Get it to your base!"

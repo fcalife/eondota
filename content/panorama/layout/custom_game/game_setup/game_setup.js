@@ -1,10 +1,14 @@
 TryGetHost();
 
 $('#lock_camera').SetSelected(true);
+$('#smash_mode').SetSelected(false);
+$('#extra_powerups').SetSelected(false);
 
 function UpdateOptions() {
  	GameEvents.SendCustomGameEventToServer("host_options_updated", {
  		lock_camera: $('#lock_camera').IsSelected(),
+ 		smash_mode: $('#smash_mode').IsSelected(),
+ 		extra_powerups: $('#extra_powerups').IsSelected(),
  	});
 }
 

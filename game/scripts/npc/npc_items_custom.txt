@@ -1474,4 +1474,184 @@
 		"AllowedInBackpack"				"0"
 		"IsTempestDoubleClonable"		"0"
 	}
+
+	"item_power_boots"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_boots"
+		"Model"							"models/props_gameplay/boots_of_speed.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_power_bull"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_basher"
+		"Model"							"models/props_items/basher.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_power_shield"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_stout_shield"
+		"Model"							"models/props_gameplay/stout_shield.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_power_metal"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_platemail"
+		"Model"							"models/props_items/assault_cuirass.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_power_refresh"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_refresher"
+		"Model"							"models/props_gameplay/refresher_shard.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
+
+	"item_power_invis"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/neutral_gold.lua"
+		"AbilityTextureName"			"item_silver_edge"
+		"Model"							"models/props_gameplay/rune_invisibility01.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"ItemCost"						"0"
+
+		"ItemCastOnPickup"				"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+	}
 }

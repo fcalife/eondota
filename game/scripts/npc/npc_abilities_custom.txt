@@ -404,7 +404,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_range"			"1000"
+				"max_range"			"800"
 			}
 		}
 	}
@@ -432,17 +432,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"1225"
+				"angle"				"20"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"140"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_range"			"1000"
+				"length"			"700"
 			}
 		}
 	}
@@ -487,7 +482,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"2.0"
+		"AbilityCooldown"			"5.0"
 
 		"AbilityManaCost"			"0"
 
@@ -542,6 +537,61 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"radius"			"70"
+			}
+		}
+	}
+
+	"boosted_astral_step"
+	{
+		"BaseClass"					"void_spirit_astral_step"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_VoidSpirit.AstralStep.Start"
+
+		"MaxLevel"						"1"
+
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"1"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"radius"				"0"
+			"AbilityChargeRestoreTime"	
+			{
+				"value"				"0.5"
+				"special_bonus_unique_void_spirit_1"	"-4"
+			}
+			"min_travel_distance"	"100"
+			"max_travel_distance"	"700"
+			"pop_damage_delay"		
+			{
+				"value"	"0"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+			}
+			"pop_damage"			
+			{
+				"value"					"0"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"movement_slow_pct"		"0"
+			"ability_chance_pct"
+			{
+				"value"				"0"
+			}
+			"attack_chance_pct"
+			{
+				"value"				"0"
 			}
 		}
 	}

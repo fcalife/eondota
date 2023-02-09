@@ -53,4 +53,6 @@ end
 
 function GameManager:OnHostSelectedOption(event)
 	CAMERA_LOCK = (event.lock_camera == 1)
+	SMASH_BROS_MODE = (event.smash_mode == 1)
+	EXPERIMENTAL_POWERUPS = (event.extra_powerups == 1)
 end

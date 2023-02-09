@@ -59,53 +59,47 @@ ability_dodgeball_heavy_throw = class({})
 function ability_dodgeball_heavy_throw:OnSpellStart()
 	local target = self:GetCursorPosition()
 
-	self:ThrowBall(target)
+	self:FireCone(target)
 end
 
-function ability_dodgeball_heavy_throw:ThrowBall(target)
+function ability_dodgeball_heavy_throw:FireCone(target)
 	local caster = self:GetCaster()
 
-	local speed = self:GetSpecialValueFor("speed")
-	local radius = self:GetSpecialValueFor("radius")
-	local max_range = self:GetSpecialValueFor("max_range")
+	local angle = self:GetSpecialValueFor("angle")
+	local length = self:GetSpecialValueFor("length")
 
-	local direction = (target - caster:GetAbsOrigin()):Normalized()
+	local caster_loc = caster:GetAbsOrigin()
+	local direction = (target - caster_loc):Normalized()
+	local min_dot_product = math.cos(2 * angle * math.pi / 360)
 
-	local projectile = {
-		Ability				= self,
-		EffectName			= "particles/dodgeball/heavy_throw.vpcf",
-		vSpawnOrigin		= caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1")),
-		fDistance			= max_range,
-		fStartRadius		= radius,
-		fEndRadius			= radius,
-		Source				= caster,
-		bHasFrontalCone		= false,
-		bReplaceExisting	= false,
-		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		iUnitTargetType		= DOTA_UNIT_TARGET_HERO,
-		fExpireTime 		= GameRules:GetGameTime() + 5.0,
-		bDeleteOnHit		= true,
-		vVelocity			= Vector(direction.x, direction.y, 0) * speed,
-		bProvidesVision		= true,
-		iVisionRadius 		= 350,
-		iVisionTeamNumber 	= caster:GetTeam(),
-		ExtraData			= {x = direction.x, y = direction.y}
-	}
+	local strike_pfx = ParticleManager:CreateParticle("particles/dodgeball/heavy_strike.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(strike_pfx, 0, caster_loc)
+	ParticleManager:SetParticleControlOrientation(strike_pfx, 0, caster:GetForwardVector(), caster:GetRightVector(), caster:GetUpVector())
+	ParticleManager:ReleaseParticleIndex(strike_pfx)
 
-	ProjectileManager:CreateLinearProjectile(projectile)
+	local enemies = FindUnitsInRadius(
+		caster:GetTeam(),
+		caster_loc,
+		nil,
+		length,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER,
+		false
+	)
+
+	for _, enemy in pairs(enemies) do
+		local enemy_direction = (enemy:GetAbsOrigin() - caster_loc):Normalized()
+		local dot_product = DotProduct(direction, enemy_direction)
+
+		if dot_product >= min_dot_product then
+			KnockbackArena:Knockback(caster, enemy, direction.x, direction.y, 2)
+			enemy:EmitSound("KnockbackArena.HeavyHit")
+		end
+	end
 
 	caster:EmitSound("KnockbackArena.HeavyThrow")
-end
-
-function ability_dodgeball_heavy_throw:OnProjectileHit_ExtraData(target, location, data)
-	if target then
-		KnockbackArena:Knockback(self:GetCaster(), target, data.x, data.y, 2)
-
-		target:EmitSound("KnockbackArena.HeavyHit")
-
-		return true
-	end
 end
 
 

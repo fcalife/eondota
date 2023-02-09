@@ -1,6 +1,7 @@
 -- Link global modifiers
 LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_thrown_out", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_respawn_grace_period", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_golem_base_state", "modifiers/golem_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_golem_disabled_counter", "modifiers/golem_base_state", LUA_MODIFIER_MOTION_NONE)
@@ -95,4 +96,9 @@ CIRCLE_DELAY = 20
 CIRCLE_SLIDE_TIME = 60
 FINAL_CIRCLE_RADIUS = 375
 
-INITIAL_LIVES = 5
+ROUND_PREPARATION_TIME = (IsInToolsMode() and 1) or 10
+INITIAL_LIVES = 3
+SMASH_BROS_LIVES = 5
+SMASH_BROS_GRACE_PERIOD = 4
+SMASH_BROS_MODE = false
+EXPERIMENTAL_POWERUPS = false

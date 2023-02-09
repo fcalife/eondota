@@ -25,6 +25,12 @@ precache.particles = {
     "particles/speed_lane.vpcf",
     "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf",
     "particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf",
+    "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf",
+    "particles/status_fx/status_effect_guardian_angel.vpcf",
+    "particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf",
+    "particles/units/heroes/hero_ogre_magi/ogre_magi_fire_shield.vpcf",
+    "particles/status_fx/status_effect_earth_spirit_petrify.vpcf",
+    "particles/items2_fx/refresher.vpcf",
 }
 
 precache.particle_folders = {

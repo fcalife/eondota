@@ -9,6 +9,22 @@ POWERUP_LIST = {
 }
 
 function PowerupManager:OnRoundStart()
+	if EXPERIMENTAL_POWERUPS then
+		MIN_DROP_TIME = 8
+		MAX_DROP_TIME = 16
+
+		POWERUP_LIST = {
+			"item_health_potion",
+			"item_mario_star",
+			"item_power_boots",
+			"item_power_bull",
+			"item_power_shield",
+			"item_power_metal",
+			"item_power_refresh",
+			"item_power_invis",
+		}
+	end
+
 	self.timer = Timers:CreateTimer(RandomInt(MIN_DROP_TIME, MAX_DROP_TIME), function()
 		self:SpawnPowerUp()
 
@@ -83,7 +99,7 @@ function Powerup:constructor(location)
 		trigger_team = DOTA_TEAM_NEUTRALS,
 		team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		unit_filter = DOTA_UNIT_TARGET_HERO,
-		flag_filter = DOTA_UNIT_TARGET_FLAG_NONE,
+		flag_filter = DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
 		find_order = FIND_CLOSEST,
 	}, function(units)
 		self:Tick(units)
@@ -106,12 +122,34 @@ function Powerup:Activate(target)
 		target:Heal(4, nil)
 
 		target:EmitSound("KnockbackArena.Powerup.Health")
-	end
-
-	if self.item_type == "item_mario_star" then
-		target:AddNewModifier(target, nil, "modifier_powerup_star", {duration = 2})
+	elseif self.item_type == "item_mario_star" then
+		target:AddNewModifier(target, nil, "modifier_powerup_star", {duration = 2.5})
 
 		target:EmitSound("KnockbackArena.Powerup.Star")
+	elseif self.item_type == "item_power_boots" then
+		target:AddNewModifier(target, nil, "modifier_powerup_boots", {duration = 4})
+
+		target:EmitSound("KnockbackArena.Powerup.Boots")
+	elseif self.item_type == "item_power_bull" then
+		target:AddNewModifier(target, nil, "modifier_powerup_bull", {duration = 4})
+
+		target:EmitSound("KnockbackArena.Powerup.Bull")
+	elseif self.item_type == "item_power_shield" then
+		target:AddNewModifier(target, nil, "modifier_powerup_shield", {})
+
+		target:EmitSound("KnockbackArena.Powerup.Shield")
+	elseif self.item_type == "item_power_metal" then
+		target:AddNewModifier(target, nil, "modifier_powerup_metal", {duration = 8})
+
+		target:EmitSound("KnockbackArena.Powerup.Metal")
+	elseif self.item_type == "item_power_refresh" then
+		target:AddNewModifier(target, nil, "modifier_powerup_refresh", {})
+
+		target:EmitSound("KnockbackArena.Powerup.Refresh")
+	elseif self.item_type == "item_power_invis" then
+		target:AddNewModifier(target, nil, "modifier_powerup_invis", {duration = 3})
+
+		target:EmitSound("KnockbackArena.Powerup.Invis")
 	end
 
 	local pickup_pfx = ParticleManager:CreateParticle("particles/dodgeball/powerup_pickup.vpcf", PATTACH_CUSTOMORIGIN, nil)

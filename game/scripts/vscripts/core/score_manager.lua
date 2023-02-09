@@ -15,8 +15,16 @@ function ScoreManager:Init()
 	self.score = {}
 
 	for _, team in pairs(ALL_TEAMS) do
-		self.score[team] = INITIAL_LIVES
+		self.score[team] = 0
 	end
+
+	self:UpdateScores()
+end
+
+function ScoreManager:InitializeLives()
+	local all_heroes = HeroList:GetAllHeroes()
+
+	for _, hero in pairs(all_heroes) do self.score[hero:GetTeam()] = (SMASH_BROS_MODE and SMASH_BROS_LIVES or INITIAL_LIVES) end
 
 	self:UpdateScores()
 end
@@ -43,7 +51,7 @@ function ScoreManager:CheckForWinner()
 	end
 
 	if remaining_teams[1] and #remaining_teams == 1 then
-		GameManager:EndGameWithWinner(team)
+		GameManager:EndGameWithWinner(remaining_teams[1])
 	end
 end
 

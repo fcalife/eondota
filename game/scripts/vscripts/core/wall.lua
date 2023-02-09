@@ -12,7 +12,7 @@ function Walls:OnRoundEnd()
 end
 
 function Walls:GetCurrentWallRadius()
-	return (self.current_wall and self.current_wall.current_radius or 0)
+	return (self.current_wall and self.current_wall.current_radius or ARENA_RADIUS)
 end
 
 

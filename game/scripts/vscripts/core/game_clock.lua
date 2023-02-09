@@ -5,6 +5,8 @@ function GameClock:Start()
 
 	GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
 
+	ScoreManager:InitializeLives()
+
 	GameManager:SetGamePhase(GAME_STATE_BATTLE)
 
 	Flags:SpawnObjectives()

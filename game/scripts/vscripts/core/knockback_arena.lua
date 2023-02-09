@@ -43,6 +43,14 @@ function KnockbackArena:OnThrowOutStatusEnd(unit)
 end
 
 function KnockbackArena:Knockback(attacker, target, x, y, damage)
+	if target:HasModifier("modifier_powerup_shield") then
+		target:RemoveModifierByName("modifier_powerup_shield")
+
+		target:EmitSound("KnockbackArena.Powerup.Shield.Pop")
+
+		return
+	end
+
 	local knockback_direction = Vector(x, y, 0):Normalized()
 	local knockback_origin = target:GetAbsOrigin() - 100 * knockback_direction
 
@@ -51,6 +59,13 @@ function KnockbackArena:Knockback(attacker, target, x, y, damage)
 	local target_health = target:GetHealth()
 
 	local distance = KNOCKBACK_LENGTH[damage][target_health]
+
+	if target:HasModifier("modifier_powerup_metal") then
+		distance = 0.5 * distance
+
+		target:EmitSound("KnockbackArena.Powerup.Metal.Clang")
+	end
+
 	local duration = 0.2 + 0.0002 * distance
 	local height = 30 + 0.04 * distance
 

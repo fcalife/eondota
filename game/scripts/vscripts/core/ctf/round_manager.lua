@@ -15,13 +15,8 @@ function RoundManager:InitializeRound()
 	local random_respawns = self:GetRoundRespawnPositions()
 
 	for _, hero in pairs(live_heroes) do
-		hero:RespawnHero(false, false)
-		hero:Stop()
-		hero:SetHealth(hero:GetMaxHealth())
-		FindClearSpaceForUnit(hero, table.remove(random_respawns), true)
-		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 10})
-		hero:RemoveModifierByName("modifier_fountain_invulnerability")
-		hero:FadeGesture(ACT_DOTA_FLAIL)
+		self:RespawnAndPrepareHero(hero, table.remove(random_respawns))
+		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = ROUND_PREPARATION_TIME})
 
 		LockPlayerCameraOnTarget(hero, hero, (not CAMERA_LOCK))
 
@@ -34,9 +29,7 @@ function RoundManager:InitializeRound()
 		end
 	end
 
-	--RuneSpawners:OnInitializeRound()
-	--Flags:OnInitializeRound()
-	Walls:OnRoundStart()
+	if (not SMASH_BROS_MODE) then Walls:OnRoundStart() end
 
 	GlobalMessages:Send("Round "..self.current_round.." will start in 10 seconds!")
 
@@ -58,6 +51,26 @@ function RoundManager:InitializeRound()
 	end)
 end
 
+function RoundManager:RespawnAndPrepareHero(hero, respawn_point)
+	hero:RespawnHero(false, false)
+	hero:RemoveModifierByName("modifier_fountain_invulnerability")
+	hero:FadeGesture(ACT_DOTA_FLAIL)
+	hero:Stop()
+	hero:SetHealth(hero:GetMaxHealth())
+
+	FindClearSpaceForUnit(hero, respawn_point, true)
+
+	LockPlayerCameraOnTarget(hero, hero, (not CAMERA_LOCK))
+
+	for i = 0, 10 do
+		local ability = hero:GetAbilityByIndex(i)
+
+		if ability then
+			ability:EndCooldown()
+		end
+	end
+end
+
 function RoundManager:GetRoundRespawnPositions()
 	local remaining_players = ScoreManager:GetRemainingPlayerCount()
 	local respawn_distance = 12 / remaining_players
@@ -76,19 +89,31 @@ function RoundManager:OnUnitKilled(killed_unit)
 
 	UnlockPlayerCamera(killed_unit)
 
-	local all_heroes = HeroList:GetAllHeroes()
-	local alive_heroes = {}
+	local killed_team = killed_unit:GetTeam()
 
-	for _, hero in pairs(all_heroes) do
-		if hero:IsRealHero() and hero:IsAlive() then
-			table.insert(alive_heroes, hero)
+	ScoreManager:OnTeamLoseRound(killed_team)
+
+	if SMASH_BROS_MODE then
+		if ScoreManager:GetRemainingLives(killed_team) > 0 then
+			self:RespawnAndPrepareHero(killed_unit, Vector(0, 0, 0))
+
+			killed_unit:AddNewModifier(killed_unit, nil, "modifier_respawn_grace_period", {duration = SMASH_BROS_GRACE_PERIOD})
+		else
+			ScoreManager:CheckForWinner()
 		end
-	end
+	else
+		local all_heroes = HeroList:GetAllHeroes()
+		local alive_heroes = {}
 
-	ScoreManager:OnTeamLoseRound(killed_unit:GetTeam())
+		for _, hero in pairs(all_heroes) do
+			if hero:IsRealHero() and hero:IsAlive() then
+				table.insert(alive_heroes, hero)
+			end
+		end
 
-	if alive_heroes[1] and #alive_heroes == 1 then
-		self:SetRoundWinner(alive_heroes[1]:GetTeam())
+		if alive_heroes[1] and #alive_heroes == 1 then
+			self:SetRoundWinner(alive_heroes[1]:GetTeam())
+		end
 	end
 end
 

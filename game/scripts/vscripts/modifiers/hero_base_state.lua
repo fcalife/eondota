@@ -52,27 +52,19 @@ function modifier_duck:OnCreated(keys)
 	self.speed = keys.speed
 	self:SetStackCount(self.speed - 200)
 
-	self.points = keys.points
-
 	local parent = self:GetParent()
 	local team = parent:GetTeam()
 	local position = parent:GetAbsOrigin()
 
 	if RollPercentage(30) then position.y = DUCK_HEIGHT[RandomInt(1, 4)] end
 
-	if team == DOTA_TEAM_BADGUYS then
-		if position.x > -500 then
-			self.destination = Vector((-1) * EDGE_DUCK, position.y, 0)
-		else
-			self.destination = Vector((-1) * MIDDLE_DUCK, position.y, 0)
-		end
-	else
-		if position.x > 500 then
-			self.destination = Vector(MIDDLE_DUCK, position.y, 0)
-		else
-			self.destination = Vector(EDGE_DUCK, position.y, 0)
-		end
-	end
+	-- if team == DOTA_TEAM_BADGUYS then
+	-- 	self.destination = Vector((-1) * MAP_CENTER, position.y, 0)
+	-- else
+	-- 	self.destination = Vector(MAP_CENTER, position.y, 0)
+	-- end
+
+	self.destination = Vector(0, position.y, 0)
 
 	self:StartIntervalThink(0.2)
 end
@@ -93,6 +85,8 @@ function modifier_duck:OnIntervalThink()
 		local position = parent:GetAbsOrigin()
 
 		if math.abs(position.x - self.destination.x) < 10 then
+			ScoreManager:OnDuckReachTarget(parent)
+
 			parent:AddNoDraw()
 			parent:Kill(nil, parent)
 		end
@@ -110,18 +104,10 @@ function modifier_duck:CheckState()
 end
 
 function modifier_duck:DeclareFunctions()
-	if IsServer() then
-		return {
-			MODIFIER_EVENT_ON_DEATH,
-			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-		}
-	else
-		return {
-			MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-		}
-	end
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+	}
 end
 
 function modifier_duck:GetModifierMoveSpeedBonus_Constant()
@@ -130,10 +116,4 @@ end
 
 function modifier_duck:GetModifierIgnoreMovespeedLimit()
 	return 1
-end
-
-function modifier_duck:OnDeath(keys)
-	if keys.unit == self:GetParent() and keys.unit ~= keys.attacker then
-		Ducks:OnDuckDied(keys.attacker, keys.unit, self.points)
-	end
 end

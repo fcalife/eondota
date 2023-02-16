@@ -20,6 +20,6 @@
 	ForceDefaultGuide = false
 	MinimalPrecache = true
 	MinPlayers = 1
-	MaxPlayers = 10
+	MaxPlayers = 4
 	PenaltiesEnabled = false
 }

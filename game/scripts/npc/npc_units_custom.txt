@@ -1327,12 +1327,12 @@
 		"VisionNighttimeRange"		"1"
 	}
 
-	"npc_duck"
+	"npc_duck_minion"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/heroes/furion/treant.vmdl"
+		"Model"						"models/items/courier/mighty_chicken/mighty_chicken.vmdl"
 		"SoundSet"					"Furion_Treant"
-		"ModelScale"				"0.80"
+		"ModelScale"				"1.0"
 		"Level"						"1"
 
 		"ArmorPhysical"				"0"
@@ -1366,12 +1366,12 @@
 		"VisionNighttimeRange"		"100"
 	}
 
-	"npc_big_duck"
+	"npc_duck_speed"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/items/furion/treant/treant_cis/treant_cis.vmdl"
+		"Model"						"models/items/courier/mighty_chicken/mighty_chicken_flying.vmdl"
 		"SoundSet"					"Furion_Treant"
-		"ModelScale"				"2.5"
+		"ModelScale"				"1.0"
 		"Level"						"1"
 
 		"ArmorPhysical"				"0"
@@ -1393,10 +1393,174 @@
 		"HealthBarOffset"			"170"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"100"
+		"MovementSpeed"				"450"
 		"MovementTurnRate"			"1.0"
 
-		"StatusHealth"				"250"
+		"StatusHealth"				"1"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"IsAncient"					"1"
+
+		"VisionDaytimeRange"		"100"
+		"VisionNighttimeRange"		"100"
+	}
+
+	"npc_duck_tough"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/furion/treant/shroomling_treant/shroomling_treant.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"1.4"
+		"Level"						"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"50"
+		"AttackRange"				"50"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"170"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"275"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"2"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"IsAncient"					"1"
+
+		"VisionDaytimeRange"		"100"
+		"VisionNighttimeRange"		"100"
+	}
+
+	"npc_duck_nested"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/furion/treant/fungal_lord_shroomthing/fungal_lord_shroomthing.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"1.8"
+		"Level"						"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"50"
+		"AttackRange"				"50"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"170"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"200"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"3"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"IsAncient"					"1"
+
+		"VisionDaytimeRange"		"100"
+		"VisionNighttimeRange"		"100"
+	}
+
+	"npc_duck_nestling"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/furion/treant/ravenous_woodfang/ravenous_woodfang.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"1.2"
+		"Level"						"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"50"
+		"AttackRange"				"50"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"170"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"1"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"IsAncient"					"1"
+
+		"VisionDaytimeRange"		"100"
+		"VisionNighttimeRange"		"100"
+	}
+
+	"npc_duck_boss"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/furion/treant/the_ancient_guardian_the_ancient_treants/the_ancient_guardian_the_ancient_treants.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"2.2"
+		"Level"						"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"50"
+		"AttackRange"				"50"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"170"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"8"
 		"StatusHealthRegen"			"0.0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

@@ -41,9 +41,7 @@ function ability_dodgeball_throw:OnProjectileHit(target, location)
 	if caster and target then
 		target:EmitSound("Hero_VengefulSpirit.MagicMissileImpact")
 
-		ApplyDamage({attacker = caster, victim = target, damage = 10, damage_type = DAMAGE_TYPE_PURE})
-
-		self:EndCooldown()
+		ApplyDamage({attacker = caster, victim = target, damage = 1, damage_type = DAMAGE_TYPE_PURE})
 
 		return true
 	end
@@ -103,7 +101,7 @@ function ability_dodgeball_big_throw:OnProjectileHit(target, location)
 	if caster and target then
 		target:EmitSound("Hero_VengefulSpirit.MagicMissileImpact")
 
-		ApplyDamage({attacker = caster, victim = target, damage = 20, damage_type = DAMAGE_TYPE_PURE})
+		ApplyDamage({attacker = caster, victim = target, damage = 2, damage_type = DAMAGE_TYPE_PURE})
 
 		return false
 	end

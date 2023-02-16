@@ -30,11 +30,11 @@
 		"StatusHealthRegen"		"0.0"
 
 		"Ability1"		"ability_dodgeball_throw"
-		"Ability2"		"generic_hidden"
+		"Ability2"		"ability_dodgeball_big_throw"
 		"Ability3"		"generic_hidden"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
-		"Ability6"		"ability_dodgeball_big_throw"
+		"Ability6"		"generic_hidden"
 		"Ability7"		"generic_hidden"
 		"Ability8"		"generic_hidden"
 		"Ability9"		"generic_hidden"

@@ -383,7 +383,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"4"
+		"AbilityCooldown"			"1"
 
 		"AbilityManaCost"			"0"
 
@@ -399,7 +399,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"70"
+				"radius"			"90"
 			}
 		}
 	}
@@ -443,7 +443,7 @@
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"30"
+		"AbilityCooldown"			"10"
 
 		"AbilityManaCost"			"0"
 

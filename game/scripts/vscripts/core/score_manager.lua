@@ -6,12 +6,31 @@ ENEMY_TEAM[DOTA_TEAM_BADGUYS] = DOTA_TEAM_GOODGUYS
 
 POINTS_TO_WIN = 350
 
+DUCK_VALUE = {}
+DUCK_VALUE["npc_duck_minion"] = 1
+DUCK_VALUE["npc_duck_speed"] = 1
+DUCK_VALUE["npc_duck_tough"] = 2
+DUCK_VALUE["npc_duck_nestling"] = 1
+DUCK_VALUE["npc_duck_nested"] = 5
+DUCK_VALUE["npc_duck_boss"] = 5
+
 function ScoreManager:Init()
 	self.score = {}
-	self.score[DOTA_TEAM_GOODGUYS] = 0
-	self.score[DOTA_TEAM_BADGUYS] = 0
+	self.score[DOTA_TEAM_GOODGUYS] = 100
+	self.score[DOTA_TEAM_BADGUYS] = 100
 
 	self:UpdateScores()
+end
+
+function ScoreManager:OnDuckReachTarget(duck)
+	local team = ENEMY_TEAM[duck:GetTeam()]
+	local duck_name = duck:GetUnitName()
+
+	self.score[team] = self.score[team] - DUCK_VALUE[duck_name]
+
+	self:UpdateScores()
+
+	self:CheckForPointWin()
 end
 
 function ScoreManager:UpdateScores()
@@ -31,8 +50,8 @@ end
 
 function ScoreManager:CheckForPointWin()
 	for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-		if self:GetTotalScore(team) >= POINTS_TO_WIN then
-			GameManager:EndGameWithWinner(team)
+		if self:GetTotalScore(team) <= 0 then
+			GameManager:EndGameWithWinner(ENEMY_TEAM[team])
 		end
 	end
 end

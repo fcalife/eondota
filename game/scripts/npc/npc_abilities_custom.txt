@@ -377,13 +377,13 @@
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/dodgeball"
 
-		"AbilityTextureName"		"vengefulspirit_magic_missile"
+		"AbilityTextureName"		"invoker_deafening_blast"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"1"
+		"AbilityCooldown"			"0.7"
 
 		"AbilityManaCost"			"0"
 
@@ -462,5 +462,24 @@
 				"radius"			"165"
 			}
 		}
+	}
+
+	"duck_nested_explode"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"mud_golem_rock_destroy"
+
+		"AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
 	}
 }

@@ -118,7 +118,7 @@ function GameMode:InitGameMode()
 	RegisterGameEventListener('dota_player_killed', function(event) GameEvents:OnPlayerKilled(event) end)
 
 	-- Custom events
-	RegisterCustomEventListener("cursor_checked", function(event) GameEvents:OnCursorPositionReceived(event) end)
+	RegisterCustomEventListener("cursor_position", function(event) GameManager:OnCursorPositionReceived(event) end)
 
 	-- Custom console commands
 	--Convars:RegisterCommand("runes_on", Dynamic_Wrap(GameMode, 'EnableAllRunes'), "Enables all runes", FCVAR_CHEAT)

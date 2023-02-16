@@ -1354,7 +1354,7 @@
 		"HealthBarOffset"			"170"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"200"
+		"MovementSpeed"				"100"
 		"MovementTurnRate"			"1.0"
 
 		"StatusHealth"				"1"
@@ -1393,7 +1393,7 @@
 		"HealthBarOffset"			"170"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"450"
+		"MovementSpeed"				"350"
 		"MovementTurnRate"			"1.0"
 
 		"StatusHealth"				"1"
@@ -1434,7 +1434,7 @@
 		"HealthBarOffset"			"170"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"275"
+		"MovementSpeed"				"135"
 		"MovementTurnRate"			"1.0"
 
 		"StatusHealth"				"2"
@@ -1456,6 +1456,8 @@
 		"ModelScale"				"1.8"
 		"Level"						"1"
 
+		"Ability1"					"duck_nested_explode"
+
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
 
@@ -1475,7 +1477,7 @@
 		"HealthBarOffset"			"170"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"200"
+		"MovementSpeed"				"100"
 		"MovementTurnRate"			"1.0"
 
 		"StatusHealth"				"3"
@@ -1494,7 +1496,7 @@
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/items/furion/treant/ravenous_woodfang/ravenous_woodfang.vmdl"
 		"SoundSet"					"Furion_Treant"
-		"ModelScale"				"1.2"
+		"ModelScale"				"1.05"
 		"Level"						"1"
 
 		"ArmorPhysical"				"0"
@@ -1516,7 +1518,7 @@
 		"HealthBarOffset"			"170"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"500"
+		"MovementSpeed"				"350"
 		"MovementTurnRate"			"1.0"
 
 		"StatusHealth"				"1"
@@ -1557,10 +1559,133 @@
 		"HealthBarOffset"			"170"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"300"
+		"MovementSpeed"				"150"
 		"MovementTurnRate"			"1.0"
 
 		"StatusHealth"				"8"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"IsAncient"					"1"
+
+		"VisionDaytimeRange"		"100"
+		"VisionNighttimeRange"		"100"
+	}
+
+	"npc_powerup_cooldown"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/rattletrap/clockwerk_red_baron_clockwerk_red_baron_cog/clockwerk_red_baron_clockwerk_red_baron_cog.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"2.1"
+		"Level"						"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"50"
+		"AttackRange"				"50"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"170"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"150"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"1"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"IsAncient"					"1"
+
+		"VisionDaytimeRange"		"100"
+		"VisionNighttimeRange"		"100"
+	}
+
+	"npc_powerup_triple"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/rattletrap/the_seeker_of_the_lost_artifact_cogs/the_seeker_of_the_lost_artifact_cogs.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"2.1"
+		"Level"						"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"50"
+		"AttackRange"				"50"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"170"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"150"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"1"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"IsAncient"					"1"
+
+		"VisionDaytimeRange"		"100"
+		"VisionNighttimeRange"		"100"
+	}
+
+	"npc_powerup_double"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/rattletrap/warmachine_cog_dc/warmachine_cog_dc.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"2.1"
+		"Level"						"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"50"
+		"AttackRange"				"50"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"170"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"150"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"1"
 		"StatusHealthRegen"			"0.0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

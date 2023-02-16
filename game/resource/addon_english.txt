@@ -34,6 +34,10 @@
 		"npc_duck"							"DUCK"
 		"npc_big_duck"						"DUUUUUUCK"
 
+		"npc_powerup_cooldown"				"Cooldown Reductor"
+		"npc_powerup_triple"				"Triple Shooter"
+		"npc_powerup_double"				"Double Damager"
+
 		// Units
 
 

@@ -8,8 +8,8 @@ function RoundManager:Init()
 	self.flags[DOTA_TEAM_BADGUYS] = 0
 
 	self.camera_dummies = {}
-	self.camera_dummies[DOTA_TEAM_GOODGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(0, -725, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
-	self.camera_dummies[DOTA_TEAM_BADGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(0, -725, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	self.camera_dummies[DOTA_TEAM_GOODGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(-704, -725, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	self.camera_dummies[DOTA_TEAM_BADGUYS] = CreateUnitByName("npc_flag_dummy", GetGroundPosition(Vector(704, -725, 0), nil), true, nil, nil, DOTA_TEAM_NEUTRALS)
 
 	self.camera_dummies[DOTA_TEAM_GOODGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_GOODGUYS], nil, "modifier_dummy_state", {})
 	self.camera_dummies[DOTA_TEAM_BADGUYS]:AddNewModifier(self.camera_dummies[DOTA_TEAM_BADGUYS], nil, "modifier_dummy_state", {})

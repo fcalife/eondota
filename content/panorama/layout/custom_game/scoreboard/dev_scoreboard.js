@@ -24,6 +24,28 @@ function ShowCustomError(data) {
 	});
 }
 
+function RecordCursorLocation() {
+	var _a;
+	let cursorPosition = GameUI.GetCursorPosition();
+	let screenPosition =
+		(_a = GameUI.GetScreenWorldPosition(cursorPosition)) !== null &&
+		_a !== void 0
+			? _a
+			: [0, 0, 0];
+
+	if (!Game.IsGamePaused()) {
+		GameEvents.SendCustomGameEventToServer("cursor_position", {
+			x: screenPosition[0],
+			y: screenPosition[1],
+			z: screenPosition[2],
+		});
+	}
+
+	$.Schedule(1 / 30, RecordCursorLocation);
+}
+
+RecordCursorLocation();
+
 // Vanilla UI tweaks
 let hud_root = $.GetContextPanel()
 

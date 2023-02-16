@@ -53,6 +53,7 @@ end
 
 function RoundManager:RespawnAndPrepareHero(hero, respawn_point)
 	hero:RespawnHero(false, false)
+	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
 	hero:RemoveModifierByName("modifier_fountain_invulnerability")
 	hero:FadeGesture(ACT_DOTA_FLAIL)
 	hero:Stop()

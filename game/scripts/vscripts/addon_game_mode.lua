@@ -85,7 +85,7 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetFreeCourierModeEnabled(false)
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)
-	game_mode_entity:SetCustomGameForceHero("npc_dota_hero_invoker")
+	--game_mode_entity:SetCustomGameForceHero("npc_dota_hero_invoker")
 
 	-- Team configuration
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 1)

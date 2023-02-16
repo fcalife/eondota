@@ -31,6 +31,9 @@ precache.particles = {
     "particles/units/heroes/hero_ogre_magi/ogre_magi_fire_shield.vpcf",
     "particles/status_fx/status_effect_earth_spirit_petrify.vpcf",
     "particles/items2_fx/refresher.vpcf",
+    "particles/ui_mouseactions/range_finder_cone.vpcf",
+    "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf",
+    "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf",
 }
 
 precache.particle_folders = {
@@ -51,7 +54,8 @@ precache.sounds = {
     "soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_primal_beast.vsndevts",
 }
 
 precache.units = {

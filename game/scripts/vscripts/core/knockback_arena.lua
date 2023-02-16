@@ -38,27 +38,48 @@ function KnockbackArena:OnThrowOutStatusEnd(unit)
 	unit:FadeGesture(ACT_DOTA_FLAIL)
 
 	if (not unit:HasModifier("modifier_reeling_in")) then
+		unit:RemoveModifierByName("modifier_hero_base_state")
 		ApplyDamage({attacker = unit, victim = unit, damage = 1000, damage_type = DAMAGE_TYPE_PURE})
 	end
 end
 
 function KnockbackArena:Knockback(attacker, target, x, y, damage)
+	local modified_damage = damage
+
+	if target:HasModifier("modifier_brawler_reflect") then
+		target:RemoveModifierByName("modifier_brawler_reflect")
+
+		target:EmitSound("Brawler.Reflect.Proc")
+
+		self:Knockback(target, attacker, (-1) * x, (-1) * y, damage)
+
+		return
+	end
+
 	if target:HasModifier("modifier_powerup_shield") then
 		target:RemoveModifierByName("modifier_powerup_shield")
-
 		target:EmitSound("KnockbackArena.Powerup.Shield.Pop")
 
 		return
 	end
 
+	if target:HasModifier("modifier_tank_shield") then
+		modified_damage = modified_damage - 1
+
+		target:RemoveModifierByName("modifier_tank_shield")
+		target:EmitSound("KnockbackArena.Powerup.Shield.Pop")
+	end
+
+	if modified_damage < 1 then return end
+
 	local knockback_direction = Vector(x, y, 0):Normalized()
 	local knockback_origin = target:GetAbsOrigin() - 100 * knockback_direction
 
-	ApplyDamage({attacker = attacker, victim = target, damage = damage, damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL})
+	ApplyDamage({attacker = attacker, victim = target, damage = modified_damage, damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL})
 
 	local target_health = target:GetHealth()
 
-	local distance = KNOCKBACK_LENGTH[damage][target_health]
+	local distance = KNOCKBACK_LENGTH[modified_damage][target_health]
 
 	if target:HasModifier("modifier_powerup_metal") then
 		distance = 0.5 * distance

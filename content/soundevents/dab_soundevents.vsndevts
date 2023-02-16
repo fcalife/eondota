@@ -1553,3 +1553,475 @@
 		}
 	}
 }
+
+"Megabeam.Buildup"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/lina/prelightstrikearray.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"0.8"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Megabeam.Blast"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/lina/lagunablade_immortal.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.2"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Megabeam.Hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/lina/lagunablade_impact_immortal.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Sniper.Run"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/windrunner/windrun.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.15"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Sniper.Powershot.Charge"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/windrunner/windrunner_powershot_pull.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.2"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Sniper.Powershot.Shoot"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/windrunner/windrunner_powershot.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Sniper.Powershot.Hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/windrunner/powershot_damage01.vsnd"
+							"value1"	"sounds/weapons/hero/windrunner/powershot_damage02.vsnd"
+							"value2"	"sounds/weapons/hero/windrunner/powershot_damage03.vsnd"
+							"value3"	"sounds/weapons/hero/windrunner/powershot_damage04.vsnd"
+							"value4"	"sounds/weapons/hero/windrunner/powershot_damage05.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.2"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"0.95"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Brawler.Smash.Charge"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/primal_beast/pulverize_cast.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.9"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Brawler.Smash.Cast"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/primal_beast/pulverize_stun.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.05"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"0.95"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Brawler.Shotgun.Fire"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/primal_beast/ground_pound.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.4"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.0"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Brawler.Shotgun.Hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/primal_beast/rock_impact.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.05"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Brawler.Reflect"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/items/dota_item_blade_mail.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Brawler.Reflect.Proc"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/items/blade_mail_damage.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}

@@ -33,11 +33,16 @@ end
 
 function modifier_hero_base_state:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE
+		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+		MODIFIER_PROPERTY_MIN_HEALTH
 	}
 end
 
 function modifier_hero_base_state:GetModifierIgnoreCastAngle()
+	return 1
+end
+
+function modifier_hero_base_state:GetMinHealth()
 	return 1
 end
 

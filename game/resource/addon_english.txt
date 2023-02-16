@@ -16,6 +16,11 @@
 		"DOTA_Custom7"						"MAUVE"
 		"DOTA_Custom8"						"PLAID"
 
+		"npc_dota_hero_invoker"				"Wizard"
+		"npc_dota_hero_pudge"				"Tank"
+		"npc_dota_hero_windrunner"			"Sniper"
+		"npc_dota_hero_primal_beast"		"Brawler"
+
 		"DOTA_SUBSHOP_CONSUMABLES"			"BRANCHING UPGRADES"
 		"DOTA_SUBSHOP_ATTRIBUTES"			"LINEAR UPGRADES"
 
@@ -41,14 +46,102 @@
 		"npc_eon_cart"						"Push Cart"
 
 		// Abilities
-		"DOTA_Tooltip_ability_ability_dodgeball_throw"						"Light Throw"
-		"DOTA_Tooltip_ability_ability_dodgeball_throw_Description"			"Deals 1 damage. %max_range% range."
+		"DOTA_Tooltip_ability_basic_throw"						"Magic Missile"
+		"DOTA_Tooltip_ability_basic_throw_Description"			"Launches a fast-traveling projectile which damages the first enemy it hits."
+		"DOTA_Tooltip_ability_basic_throw_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_basic_throw_max_range"			"RANGE:"
+		"DOTA_Tooltip_ability_basic_throw_speed"				"SPEED:"
+		"DOTA_Tooltip_ability_basic_throw_radius"				"RADIUS:"
 
-		"DOTA_Tooltip_ability_ability_dodgeball_heavy_throw"				"Heavy Throw"
-		"DOTA_Tooltip_ability_ability_dodgeball_heavy_throw_Description"	"Deals 2 damage. Hits enemies in a narrow %length% range cone."
+		"DOTA_Tooltip_ability_basic_cleave"						"Kinetic Blast"
+		"DOTA_Tooltip_ability_basic_cleave_Description"			"Damages enemies in a narrow cone facing the target direction."
+		"DOTA_Tooltip_ability_basic_cleave_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_basic_cleave_length"				"CONE LENGTH:"
 
-		"DOTA_Tooltip_ability_void_spirit_astral_step"						"Sidestep"
-		"DOTA_Tooltip_ability_void_spirit_astral_step_Description"			"Teleport a short distance away."
+		"DOTA_Tooltip_ability_basic_blink"						"Blink"
+		"DOTA_Tooltip_ability_basic_blink_Description"			"Instantly teleport up to %max_travel_distance% distance away."
+
+		"DOTA_Tooltip_ability_basic_mega_beam"					"Mega Beam"
+		"DOTA_Tooltip_ability_basic_mega_beam_Description"		"After a short charge-up time, damages all enemies in a straight line."
+		"DOTA_Tooltip_ability_basic_mega_beam_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_basic_mega_beam_radius"			"BEAM RADIUS:"
+		"DOTA_Tooltip_ability_basic_mega_beam_length"			"BEAM RANGE:"
+
+
+
+		"DOTA_Tooltip_ability_tank_cleave"						"Cleave"
+		"DOTA_Tooltip_ability_tank_cleave_Description"			"Attacks enemies in a close-range, wide cone facing the target direction."
+		"DOTA_Tooltip_ability_tank_cleave_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_tank_cleave_length"				"CONE LENGTH:"
+
+		"DOTA_Tooltip_ability_tank_smash"						"Smash"
+		"DOTA_Tooltip_ability_tank_smash_Description"			"Attacks all nearby enemies."
+		"DOTA_Tooltip_ability_tank_smash_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_tank_smash_radius"				"RADIUS:"
+
+		"DOTA_Tooltip_ability_tank_shield"						"Meat Shield"
+		"DOTA_Tooltip_ability_tank_shield_Description"			"Blocks some damage from the next attack you are hit by. If the attack's damage is reduced to zero, it causes no knockback."
+		"DOTA_Tooltip_ability_tank_shield_damage_block"			"DAMAGE BLOCK:"
+		"DOTA_Tooltip_ability_tank_shield_duration"				"DURATION:"
+
+		"DOTA_Tooltip_ability_tank_hook"						"Get Over Here!"
+		"DOTA_Tooltip_ability_tank_hook_Description"			"Launches a metal hook in a straight line. If it connects with an enemy, they take damage and are reeled in to your position."
+		"DOTA_Tooltip_ability_tank_hook_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_tank_hook_hook_speed"				"HOOK SPEED:"
+		"DOTA_Tooltip_ability_tank_hook_hook_distance"			"MAX DISTANCE:"
+
+
+
+		"DOTA_Tooltip_ability_sniper_shot"						"Shot"
+		"DOTA_Tooltip_ability_sniper_shot_Description"			"Launches a fast-traveling projectile which damages the first enemy it hits."
+		"DOTA_Tooltip_ability_sniper_shot_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_sniper_shot_max_range"			"RANGE:"
+		"DOTA_Tooltip_ability_sniper_shot_speed"				"SPEED:"
+		"DOTA_Tooltip_ability_sniper_shot_radius"				"RADIUS:"
+
+		"DOTA_Tooltip_ability_sniper_longshot"					"Longshot"
+		"DOTA_Tooltip_ability_sniper_longshot_Description"		"Launches a long-range, fast-traveling projectile which damages the first enemy it hits."
+		"DOTA_Tooltip_ability_sniper_longshot_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_sniper_longshot_max_range"		"RANGE:"
+		"DOTA_Tooltip_ability_sniper_longshot_speed"			"SPEED:"
+		"DOTA_Tooltip_ability_sniper_longshot_radius"			"RADIUS:"
+
+		"DOTA_Tooltip_ability_sniper_run"						"Tactical Sprint"
+		"DOTA_Tooltip_ability_sniper_run_Description"			"Sprint for a short duration, increasing your movement speed"
+		"DOTA_Tooltip_ability_sniper_run_ms_bonus"				"%MOVE SPEED BONUS:"
+		"DOTA_Tooltip_ability_sniper_run_duration"				"DURATION:"
+
+		"DOTA_Tooltip_ability_sniper_powershot"					"Powershot"
+		"DOTA_Tooltip_ability_sniper_powershot_Description"		"After a brief pause to aim, launches a powerful, global range projectile which damages the first enemy it hits."
+		"DOTA_Tooltip_ability_sniper_powershot_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_sniper_powershot_speed"			"SPEED:"
+		"DOTA_Tooltip_ability_sniper_powershot_radius"			"RADIUS:"
+
+
+
+		"DOTA_Tooltip_ability_brawler_shotgun"					"Rock Throw"
+		"DOTA_Tooltip_ability_brawler_shotgun_Description"		"Launches three short-range projectiles which damage the first enemy they hit."
+		"DOTA_Tooltip_ability_brawler_shotgun_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_brawler_shotgun_max_range"		"RANGE:"
+		"DOTA_Tooltip_ability_brawler_shotgun_speed"			"SPEED:"
+		"DOTA_Tooltip_ability_brawler_shotgun_radius"			"RADIUS:"
+
+		"DOTA_Tooltip_ability_brawler_rush"						"Onslaught"
+		"DOTA_Tooltip_ability_brawler_rush_Description"			"After a brief charge-up, rushes to the target location, dealing damage to any enemies on your path."
+		"DOTA_Tooltip_ability_brawler_rush_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_brawler_rush_chargeup_time"		"CHARGE TIME:"
+		"DOTA_Tooltip_ability_brawler_rush_max_distance"		"RUSH DISTANCE:"
+
+		"DOTA_Tooltip_ability_brawler_reflect"					"Bristle"
+		"DOTA_Tooltip_ability_brawler_reflect_Description"		"While active, reflects all damage you take back to the original attacker."
+		"DOTA_Tooltip_ability_brawler_reflect_duration"			"DURATION:"
+
+		"DOTA_Tooltip_ability_brawler_smash"					"Giga Smash"
+		"DOTA_Tooltip_ability_brawler_smash_Description"		"Attacks all nearby enemies."
+		"DOTA_Tooltip_ability_brawler_smash_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_brawler_smash_radius"				"RADIUS:"
+
+
 
 		"DOTA_Tooltip_ability_boosted_astral_step"							"Boosted Sidestep"
 		"DOTA_Tooltip_ability_boosted_astral_step_Description"				"Teleport a short distance away. Shorter cooldown and longer range."

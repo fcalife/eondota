@@ -1,0 +1,115 @@
+"DOTAAbilities"
+{
+	"brawler_shotgun"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/brawler"
+
+		"AbilityTextureName"		"primal_beast_rock_throw"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"4.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"1"
+			"max_range"				"500"
+			"speed"					"1225"
+			"radius"				"70"
+		}
+	}
+
+	"brawler_rush"
+	{
+		"BaseClass"						"primal_beast_onslaught"
+		"MaxLevel"						"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastGestureSlot"		"DEFAULT"
+
+		"AbilityCooldown"				"4.0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"charge_speed"				"1100"
+			"chargeup_time"				"0.5"
+			"knockback_radius"			"175"
+			"max_distance"				"550"
+			"knockback_distance"		"200"
+			"knockback_damage"
+			{
+				"value"					"0"
+				"special_bonus_unique_primal_beast_onslaught_damage"	"+90"
+			}
+			"knockback_duration"		"0.2"
+			"max_charge_time"			"0.5"
+			"turn_rate"					"70"
+			"base_power"				"0.15"
+			"movement_turn_rate"		"50"
+			"stun_duration"				"0.0"
+			"damage"					"2"
+		}
+	}
+
+	"brawler_reflect"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/brawler"
+
+		"AbilityTextureName"		"primal_beast_uproar"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"3.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"duration"				"1.0"
+		}
+	}
+
+	"brawler_smash"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/brawler"
+
+		"AbilityTextureName"		"primal_beast_pulverize"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_5"
+		"AnimationPlaybackRate"  	"0.8"
+
+		"AbilityCastPoint"			"1.0"
+		"AbilityCooldown"			"5.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"2"
+			"radius"				"400"
+		}
+	}
+}

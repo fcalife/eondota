@@ -16,7 +16,7 @@ function PowerupManager:OnRoundStart()
 		POWERUP_LIST = {
 			"item_health_potion",
 			"item_mario_star",
-			"item_power_boots",
+			--"item_power_boots",
 			"item_power_bull",
 			"item_power_shield",
 			"item_power_metal",

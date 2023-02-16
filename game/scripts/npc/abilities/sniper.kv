@@ -1,0 +1,97 @@
+"DOTAAbilities"
+{
+	"sniper_shot"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/sniper"
+
+		"AbilityTextureName"		"vengefulspirit_magic_missile"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"2.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"1"
+			"max_range"				"1000"
+			"speed"					"1225"
+			"radius"				"70"
+		}
+	}
+
+	"sniper_longshot"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/sniper"
+
+		"AbilityTextureName"		"alchemist_unstable_concoction"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"3.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"1"
+			"max_range"				"1500"
+			"speed"					"1225"
+			"radius"				"70"
+		}
+	}
+
+	"sniper_run"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/sniper"
+
+		"AbilityTextureName"		"windrunner_windrun"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"4.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"ms_bonus"				"50"
+			"duration"				"2.0"
+		}
+	}
+
+	"sniper_powershot"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/sniper"
+
+		"AbilityTextureName"		"windrunner_powershot"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityCastPoint"			"0.5"
+		"AbilityCooldown"			"10.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"2"
+			"radius"				"110"
+			"speed"					"2400"
+		}
+	}
+}

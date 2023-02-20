@@ -13,6 +13,7 @@ ALL_TEAMS = {
 
 function ScoreManager:Init()
 	self.score = {}
+	self.fire_wall = false
 
 	for _, team in pairs(ALL_TEAMS) do
 		self.score[team] = 0
@@ -48,6 +49,11 @@ function ScoreManager:CheckForWinner()
 		if self:GetRemainingLives(team) > 0 then
 			table.insert(remaining_teams, team)
 		end
+	end
+
+	if remaining_teams[1] and #remaining_teams == 2 and (not self.fire_wall) then
+		self.fire_wall = true
+		RoundWall(INITIAL_CIRCLE_RADIUS, 0, 30, FINAL_CIRCLE_RADIUS)
 	end
 
 	if remaining_teams[1] and #remaining_teams == 1 then

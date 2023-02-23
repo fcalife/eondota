@@ -32,10 +32,18 @@ function modifier_hero_base_state:CheckState()
 end
 
 function modifier_hero_base_state:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-		MODIFIER_PROPERTY_MIN_HEALTH
-	}
+	if IsServer() then
+		return {
+			MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
+			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+			MODIFIER_PROPERTY_MIN_HEALTH
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+			MODIFIER_PROPERTY_MIN_HEALTH
+		}
+	end
 end
 
 function modifier_hero_base_state:GetModifierIgnoreCastAngle()
@@ -45,6 +53,19 @@ end
 function modifier_hero_base_state:GetMinHealth()
 	return 1
 end
+
+function modifier_hero_base_state:OnAbilityFullyCast(keys)
+	if keys.unit == self:GetParent() then
+		local ability_name = keys.ability:GetAbilityName()
+		print(ability_name)
+		if ability_name == "bomber_rocket" then
+			local target_position = keys.ability:GetCursorPosition()
+
+			print(target_position)
+		end
+	end
+end
+
 
 
 

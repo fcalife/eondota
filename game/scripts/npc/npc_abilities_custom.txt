@@ -2,6 +2,8 @@
 #base abilities/tank.kv
 #base abilities/sniper.kv
 #base abilities/brawler.kv
+#base abilities/bomber.kv
+#base abilities/vampire.kv
 
 "DOTAAbilities"
 {

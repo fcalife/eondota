@@ -18,7 +18,7 @@
 
 		"npc_dota_hero_invoker"				"Wizard"
 		"npc_dota_hero_pudge"				"Tank"
-		"npc_dota_hero_windrunner"			"Sniper"
+		"npc_dota_hero_windrunner"			"Ranger"
 		"npc_dota_hero_primal_beast"		"Brawler"
 
 		"DOTA_SUBSHOP_CONSUMABLES"			"BRANCHING UPGRADES"

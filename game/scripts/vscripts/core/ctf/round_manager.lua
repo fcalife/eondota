@@ -52,6 +52,8 @@ function RoundManager:InitializeRound()
 end
 
 function RoundManager:RespawnAndPrepareHero(hero, respawn_point)
+	if (not hero:IsHero()) then return end
+
 	hero:RespawnHero(false, false)
 	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
 	hero:RemoveModifierByName("modifier_fountain_invulnerability")
@@ -87,6 +89,8 @@ end
 
 function RoundManager:OnUnitKilled(killed_unit)
 	if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
+
+	if (not killed_unit:IsHero()) then return end
 
 	UnlockPlayerCamera(killed_unit)
 

@@ -56,6 +56,7 @@ precache.sounds = {
     "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_primal_beast.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts",
 }
 
 precache.units = {

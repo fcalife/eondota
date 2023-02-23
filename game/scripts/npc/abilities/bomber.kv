@@ -1,0 +1,176 @@
+"DOTAAbilities"
+{
+	"bomber_bomb"
+	{
+		"BaseClass"						"techies_sticky_bomb"
+		"MaxLevel"						"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
+		"AbilityCastRange"				"1100"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"2.0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"duration"				"1.0"
+			"countdown"				"1.0"
+			"radius"				
+			{
+				"value"			"250"
+				"special_bonus_unique_techies_2"	"+125"
+			}
+			"damage"				
+			{
+				"value"	"1"
+			}
+			"slow"					"0"
+			"secondary_slow"		"0"
+			"secondary_slow_duration"		"0"
+			"explosion_radius"		
+			{
+				"value"				"250"
+				"special_bonus_unique_techies_2"	"+125"
+			}
+			"speed"					"500.0"
+			"acceleration"			"2000"
+			"pre_chase_time"		"0.1"
+			"max_chase_time"		"2.0"
+		}
+	}
+
+	"bomber_tazer"
+	{
+		"BaseClass"						"techies_reactive_tazer"
+		"MaxLevel"						"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"8.0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"duration"					"1.5"
+			"disarm_duration"			"1.0"
+			"bonus_ms"					"0"
+			"stun_radius"				"400"
+			"scepter_damage"
+			{
+				"value"					"300"
+				"RequiresScepter"		"1"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+			}
+		}
+	}
+
+	"bomber_suicide"
+	{
+		"BaseClass"						"techies_suicide"
+		"MaxLevel"						"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastRange"				"1100"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"4.0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"2"
+				"LinkedSpecialBonus"		"special_bonus_unique_techies"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"silence_duration"			"0"
+			} 
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hp_cost"					"10"
+			} 
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"0.75"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_bonus_cast_range"	"300"
+				"RequiresShard"				"1"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"shard_stun_duration"		"1.0"
+				"RequiresShard"				"1"
+			}							
+		}
+	}
+
+	"bomber_rocket"
+	{
+		"BaseClass"						"rattletrap_rocket_flare"
+		"MaxLevel"						"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastGestureSlot"		"ABSOLUTE"
+
+		"AbilityCastRange"				"2000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"8.0"
+
+		"AbilityManaCost"				"0"
+		"AbilityDamage"					"1"
+
+		"AbilityValues"
+		{
+			"radius"			"400"
+			"duration"			"1.0"
+			"speed"				"650"
+			"damage"
+			{
+				"value"			"1"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"AbilityCooldown"				
+			{
+				"value"				"8.0"
+				"special_bonus_unique_clockwerk_7" "-2"
+			}
+		}
+	}
+}

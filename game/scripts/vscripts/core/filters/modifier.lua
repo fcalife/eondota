@@ -18,5 +18,13 @@ function Filters:ModifierFilter(keys)
 		return false
 	end
 
+	if modifier_name == "modifier_techies_reactive_tazer_disarmed" then
+		if caster and parent then
+			parent:AddNewModifier(caster, parent:FindAbilityByName("bomber_tazer"), "modifier_stunned", {duration = 0.75})
+		end
+
+		return false
+	end
+
 	return true
 end

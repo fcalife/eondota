@@ -53,7 +53,7 @@ function ScoreManager:CheckForWinner()
 
 	if remaining_teams[1] and #remaining_teams == 2 and (not self.fire_wall) then
 		self.fire_wall = true
-		RoundWall(INITIAL_CIRCLE_RADIUS, 0, 30, FINAL_CIRCLE_RADIUS)
+		--RoundWall(INITIAL_CIRCLE_RADIUS, 0, 30, FINAL_CIRCLE_RADIUS)
 	end
 
 	if remaining_teams[1] and #remaining_teams == 1 then

@@ -16,11 +16,6 @@
 		"DOTA_Custom7"						"MAUVE"
 		"DOTA_Custom8"						"PLAID"
 
-		"npc_dota_hero_invoker"				"Wizard"
-		"npc_dota_hero_pudge"				"Tank"
-		"npc_dota_hero_windrunner"			"Sniper"
-		"npc_dota_hero_primal_beast"		"Brawler"
-
 		"DOTA_SUBSHOP_CONSUMABLES"			"BRANCHING UPGRADES"
 		"DOTA_SUBSHOP_ATTRIBUTES"			"LINEAR UPGRADES"
 
@@ -59,6 +54,55 @@
 		// Abilities
 		"DOTA_Tooltip_modifier_upgrade_center_disabled"						"Disabled"
 		"DOTA_Tooltip_modifier_upgrade_center_disabled_Description"			"This building has been disabled due to excessive damage, and is currently recovering."
+
+		"DOTA_Tooltip_ability_barracks_summon_footman"						"Summon Footman"
+		"DOTA_Tooltip_ability_barracks_summon_footman_Description"			"<h1>Cost: <font color='gold'>100</font> Eon Spheres</h1>Summons a hardy melee unit which takes reduced damage from ranged attacks."
+
+		"DOTA_Tooltip_ability_barracks_summon_archer"						"Summon Archer"
+		"DOTA_Tooltip_ability_barracks_summon_archer_Description"			"<h1>Cost: <font color='gold'>100</font> Eon Spheres</h1>Summons a ranged unit which deals bonus damage to tier 3 units."
+
+		"DOTA_Tooltip_ability_barracks_summon_marauder"						"Summon Marauder"
+		"DOTA_Tooltip_ability_barracks_summon_marauder_Description"			"<h1>Cost: <font color='gold'>200</font> Eon Spheres</h1>Summons a short range ranged unit which deals bonus damage to structures."
+
+		"DOTA_Tooltip_ability_barracks_summon_reaper"						"Summon Reaper"
+		"DOTA_Tooltip_ability_barracks_summon_reaper_Description"			"<h1>Cost: <font color='gold'>250</font> Eon Spheres</h1>Summons a strong melee unit which deals extra damage to gatherers."
+
+		"DOTA_Tooltip_ability_barracks_summon_knight"						"Summon Knight"
+		"DOTA_Tooltip_ability_barracks_summon_knight_Description"			"<h1>Cost: <font color='gold'>500</font> Eon Spheres</h1>Summons a durable melee unit which can temporarily disable the enemy nexus."
+
+		"DOTA_Tooltip_ability_barracks_summon_golem"						"Summon Golem"
+		"DOTA_Tooltip_ability_barracks_summon_golem_Description"			"<h1>Cost: <font color='gold'>500</font> Eon Spheres</h1>Summons a powerful melee unit which deals high damage to all enemy units."
+
+
+
+		"DOTA_Tooltip_ability_refinery_spawn_harvester"						"Spawn Harvester"
+		"DOTA_Tooltip_ability_refinery_spawn_harvester_Description"			"Automatically spawns a new Harvester whenever one of them dies. The process takes <b>30</b> seconds to complete."
+
+
+
+		"DOTA_Tooltip_ability_upgrade_economy_1"							"Upgrade Economy"
+		"DOTA_Tooltip_ability_upgrade_economy_1_Description"				"<h1>Cost: <font color='gold'>300</font> Eon Spheres</h1>Allows you to spawn <b>+2</b> extra harvesters."
+
+		"DOTA_Tooltip_ability_upgrade_creeps_1"								"Upgrade Creeps"
+		"DOTA_Tooltip_ability_upgrade_creeps_1_Description"					"<h1>Cost: <font color='gold'>300</font> Eon Spheres</h1>Grants all your creeps +10%% damage and +10%% health."
+
+		"DOTA_Tooltip_ability_upgrade_nexus_1"								"Upgrade Nexus"
+		"DOTA_Tooltip_ability_upgrade_nexus_1_Description"					"<h1>Cost: <font color='gold'>400</font> Eon Spheres</h1>Reduces the damage your Nexus takes by 10%%."
+
+		"DOTA_Tooltip_ability_upgrade_tech_1"								"Unlock Tier II technologies"
+		"DOTA_Tooltip_ability_upgrade_tech_1_Description"					"<h1>Cost: <font color='gold'>500</font> Eon Spheres</h1>Unlocks new upgrades on the Upgrade Center and new units on the Barracks."
+
+		"DOTA_Tooltip_ability_upgrade_economy_2"							"Upgrade Economy II"
+		"DOTA_Tooltip_ability_upgrade_economy_2_Description"				"<h1>Cost: <font color='gold'>400</font> Eon Spheres</h1>Allows you to spawn <b>+2</b> extra harvesters."
+
+		"DOTA_Tooltip_ability_upgrade_creeps_2"								"Upgrade Creeps II"
+		"DOTA_Tooltip_ability_upgrade_creeps_2_Description"					"<h1>Cost: <font color='gold'>600</font> Eon Spheres</h1>This ability does nothing at the moment."
+
+		"DOTA_Tooltip_ability_upgrade_nexus_2"								"Upgrade Nexus II"
+		"DOTA_Tooltip_ability_upgrade_nexus_2_Description"					"<h1>Cost: <font color='gold'>700</font> Eon Spheres</h1>Allows your Nexus to attack up to two enemies simultaneously with each attack."
+
+		"DOTA_Tooltip_ability_upgrade_tech_2"								"Unlock Tier III technologies"
+		"DOTA_Tooltip_ability_upgrade_tech_2_Description"					"<h1>Cost: <font color='gold'>1000</font> Eon Spheres</h1>Unlocks new upgrades on the Upgrade Center and new units on the Barracks."
 
 		"DOTA_Tooltip_ability_basic_throw"						"Magic Missile"
 		"DOTA_Tooltip_ability_basic_throw_Description"			"Launches a fast-traveling projectile which damages the first enemy it hits."

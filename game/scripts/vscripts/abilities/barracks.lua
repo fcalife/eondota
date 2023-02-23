@@ -1,3 +1,20 @@
+LinkLuaModifier("modifier_barracks_creep_spawn_state", "abilities/barracks", LUA_MODIFIER_MOTION_NONE)
+
+modifier_barracks_creep_spawn_state = class({})
+
+function modifier_barracks_creep_spawn_state:IsHidden() return true end
+function modifier_barracks_creep_spawn_state:IsDebuff() return false end
+function modifier_barracks_creep_spawn_state:IsPurgable() return false end
+
+function modifier_barracks_creep_spawn_state:CheckState()
+	return {
+		[MODIFIER_STATE_UNSELECTABLE] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+	}
+end
+
+
+
 barracks_state = class({})
 
 LinkLuaModifier("modifier_barracks_state", "abilities/barracks", LUA_MODIFIER_MOTION_NONE)
@@ -65,6 +82,7 @@ function barracks_summon_footman:OnSpellStart()
 		if barracks then barracks:SpawnUnit("npc_eon_tier_1_footman") end
 	else
 		caster:EmitSound("Upgrade.Fail")
+		Timers:CreateTimer(0.1, function() self:EndCooldown() end)
 	end
 end
 
@@ -81,6 +99,7 @@ function barracks_summon_archer:OnSpellStart()
 		if barracks then barracks:SpawnUnit("npc_eon_tier_1_archer") end
 	else
 		caster:EmitSound("Upgrade.Fail")
+		Timers:CreateTimer(0.1, function() self:EndCooldown() end)
 	end
 end
 
@@ -97,6 +116,7 @@ function barracks_summon_marauder:OnSpellStart()
 		if barracks then barracks:SpawnUnit("npc_eon_tier_2_marauder") end
 	else
 		caster:EmitSound("Upgrade.Fail")
+		Timers:CreateTimer(0.1, function() self:EndCooldown() end)
 	end
 end
 
@@ -113,6 +133,7 @@ function barracks_summon_reaper:OnSpellStart()
 		if barracks then barracks:SpawnUnit("npc_eon_tier_2_reaper") end
 	else
 		caster:EmitSound("Upgrade.Fail")
+		Timers:CreateTimer(0.1, function() self:EndCooldown() end)
 	end
 end
 
@@ -129,6 +150,7 @@ function barracks_summon_knight:OnSpellStart()
 		if barracks then barracks:SpawnUnit("npc_eon_tier_3_knight") end
 	else
 		caster:EmitSound("Upgrade.Fail")
+		Timers:CreateTimer(0.1, function() self:EndCooldown() end)
 	end
 end
 
@@ -145,5 +167,6 @@ function barracks_summon_golem:OnSpellStart()
 		if barracks then barracks:SpawnUnit("npc_eon_tier_3_golem") end
 	else
 		caster:EmitSound("Upgrade.Fail")
+		Timers:CreateTimer(0.1, function() self:EndCooldown() end)
 	end
 end

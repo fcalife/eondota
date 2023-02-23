@@ -63,6 +63,9 @@ function GameManager:InitializeHero(hero)
 		end
 	end
 
+	hero:HeroLevelUp(false)
+	hero:HeroLevelUp(false)
+
 	hero:SetAbilityPoints(0)
 
 	if IsInToolsMode() then

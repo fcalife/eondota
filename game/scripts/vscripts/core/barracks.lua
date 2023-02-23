@@ -40,18 +40,22 @@ function Barracks:constructor(team, location)
 end
 
 function Barracks:SpawnUnit(unit_name)
-	local unit = CreateUnitByName(unit_name, self.location + RandomVector(200), true, nil, nil, self.team)
-	unit:AddNewModifier(unit, nil, "modifier_kill", {duration = BARRACKS_UNIT_DURATION})
-	unit.is_barracks_unit = true
+	local spawn_location = LaneCreeps.spawn_points[self.team].ranged[1]
+
+	local lane_creep = LaneCreep:constructor(self.team, LaneCreeps.creep_paths[self.team], spawn_location, unit_name)
+	lane_creep:AddNewModifier(lane_creep, nil, "modifier_kill", {duration = BARRACKS_UNIT_DURATION})
+	lane_creep:AddNewModifier(lane_creep, nil, "modifier_barracks_creep_spawn_state", {duration = 0.1})
+	lane_creep:AddNewModifier(lane_creep, nil, "modifier_phased", {duration = 0.1})
+	lane_creep.is_barracks_unit = true
 
 	local player_id = GameManager:GetTeamPlayerID(self.team)
 
 	if player_id then
 		local hero = PlayerResource:GetSelectedHeroEntity(player_id)
 
-		unit:SetOwner(hero)
-		unit:SetControllableByPlayer(player_id, true)
+		lane_creep:SetOwner(hero)
+		lane_creep:SetControllableByPlayer(player_id, true)
 	end
 
-	unit:EmitSound("Barracks.Summon")
+	lane_creep:EmitSound("Barracks.Summon")
 end

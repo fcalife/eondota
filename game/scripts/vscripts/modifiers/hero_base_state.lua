@@ -16,10 +16,15 @@ end
 
 function modifier_hero_base_state:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE
+		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE
 	}
 end
 
 function modifier_hero_base_state:GetModifierIgnoreCastAngle()
 	return 1
+end
+
+function modifier_hero_base_state:GetModifierPercentageRespawnTime()
+	return (0.4 + 0.3 * (self:GetParent():GetLevel()) / 30)
 end

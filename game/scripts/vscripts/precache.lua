@@ -58,6 +58,12 @@ precache.sounds = {
     "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_primal_beast.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_chaos_knight.vsndevts",
 }
 
 precache.units = {

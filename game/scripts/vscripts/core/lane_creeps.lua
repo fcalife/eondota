@@ -113,7 +113,7 @@ function LaneCreep:constructor(team, path, location, unit_name)
 
 	ResolveNPCPositions(self.location, 300)
 
-	Timers:CreateTimer(0.5, function()
+	Timers:CreateTimer(1.0, function()
 		local unit_id = self.unit:entindex()
 
 		for _, destination in ipairs(self.path) do
@@ -125,6 +125,8 @@ function LaneCreep:constructor(team, path, location, unit_name)
 			})
 		end
 	end)
+
+	return self.unit
 end
 
 

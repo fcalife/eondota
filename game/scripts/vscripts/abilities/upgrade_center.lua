@@ -278,7 +278,19 @@ function upgrade_tech_1:OnSpellStart()
 		for _, ability_name in pairs(new_abilities) do
 			local ability = caster:FindAbilityByName(ability_name)
 			if ability then ability:SetHidden(false) end
-		end 
+		end
+
+		local barracks_abilities = {
+			"barracks_summon_marauder",
+			"barracks_summon_reaper"
+		}
+
+		local barracks = BarracksManager:GetBarracks(caster:GetTeam())
+
+		for _, ability_name in pairs(barracks_abilities) do
+			local ability = barracks.unit:FindAbilityByName(ability_name)
+			if ability then ability:SetHidden(false) end
+		end
 
 		caster:EmitSound("Upgrade.Success")
 		self:SetActivated(false)
@@ -369,7 +381,19 @@ function upgrade_tech_2:OnSpellStart()
 		for _, ability_name in pairs(new_abilities) do
 			local ability = caster:FindAbilityByName(ability_name)
 			if ability then ability:SetHidden(false) end
-		end 
+		end
+
+		local barracks_abilities = {
+			"barracks_summon_knight",
+			"barracks_summon_golem"
+		}
+
+		local barracks = BarracksManager:GetBarracks(caster:GetTeam())
+
+		for _, ability_name in pairs(barracks_abilities) do
+			local ability = barracks.unit:FindAbilityByName(ability_name)
+			if ability then ability:SetHidden(false) end
+		end
 
 		caster:EmitSound("Upgrade.Success")
 		self:SetActivated(false)

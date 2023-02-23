@@ -12,26 +12,12 @@ function GameEvents:OnGameStateChange()
 	local new_state = GameRules:State_Get()
 
 	if new_state == DOTA_GAMERULES_STATE_PRE_GAME then
-		GameEvents:OnPreGameStart()
+		GameManager:OnPreGameStart()
 	elseif new_state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		GameEvents:OnGameStart()
+		GameManager:OnGameStart()
 	elseif new_state == DOTA_GAMERULES_STATE_POST_GAME then
-		GameEvents:OnPostGameStart()
+		GameManager:OnPostGameStart()
 	end
-end
-
-function GameEvents:OnPreGameStart()
-	self:DebugPrint("New state: pregame")
-end
-
-function GameEvents:OnGameStart()
-	self:DebugPrint("New state: game start")
-
-	GameClock:Start()
-end
-
-function GameEvents:OnPostGameStart()
-	self:DebugPrint("New state: postgame")
 end
 
 function GameEvents:OnPlayerConnect(keys)
@@ -98,7 +84,7 @@ function GameEvents:OnEntityKilled(keys)
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 
-	RoundManager:OnUnitKilled(killed_unit)
+	GameManager:OnUnitKilled(attacker, killed_unit)
 end
 
 function GameEvents:OnTreeCut(keys)

@@ -1,15 +1,11 @@
 TryGetHost();
 
-$('#lock_camera').SetSelected(true);
-$('#smash_mode').SetSelected(true);
-$('#extra_powerups').SetSelected(true);
+$('#disable_fog').SetSelected(true);
 
 function UpdateOptions() {
- 	GameEvents.SendCustomGameEventToServer("host_options_updated", {
- 		lock_camera: $('#lock_camera').IsSelected(),
- 		smash_mode: $('#smash_mode').IsSelected(),
- 		extra_powerups: $('#extra_powerups').IsSelected(),
- 	});
+	GameEvents.SendCustomGameEventToServer("host_options_updated", {
+		disable_fog: $('#disable_fog').IsSelected(),
+	});
 }
 
 function TryGetHost() {

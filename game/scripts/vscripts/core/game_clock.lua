@@ -3,16 +3,6 @@ _G.GameClock = GameClock or {}
 function GameClock:Start()
 	self.game_start_time = GameRules:GetGameTime()
 
-	GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
-
-	ScoreManager:InitializeLives()
-
-	GameManager:SetGamePhase(GAME_STATE_BATTLE)
-
-	Flags:SpawnObjectives()
-
-	RoundManager:InitializeRound()
-
 	self:Tick()
 end
 

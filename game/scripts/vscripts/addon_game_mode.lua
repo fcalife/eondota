@@ -53,7 +53,7 @@ function GameMode:InitGameMode()
 
 	-- Initial gamemode setup
 	GameRules:SetSameHeroSelectionEnabled(true)
-	GameRules:SetHeroRespawnEnabled(false)
+	GameRules:SetHeroRespawnEnabled(true)
 	GameRules:SetHeroSelectionTime(60)
 	GameRules:SetStrategyTime(0)
 	GameRules:SetShowcaseTime(0)
@@ -90,10 +90,8 @@ function GameMode:InitGameMode()
 	-- Team configuration
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 1)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 1)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 1)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_2, 1)
 
-	for team = DOTA_TEAM_CUSTOM_3, DOTA_TEAM_CUSTOM_8 do
+	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_8 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
 	end
 

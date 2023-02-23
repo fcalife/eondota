@@ -20,7 +20,6 @@ LinkLuaModifier("modifier_jungle_tower_shield", "modifiers/tower_state", LUA_MOD
 LinkLuaModifier("modifier_respawning_tower_state", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tower_damage_up", "modifiers/tower_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_treasure_state", "modifiers/treasure_state", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_knight_state", "modifiers/knight_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_samurai_state", "modifiers/knight_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_knight_nexus_debuff", "modifiers/knight_state", LUA_MODIFIER_MOTION_NONE)
@@ -53,6 +52,10 @@ LinkLuaModifier("modifier_ignore_wall", "modifiers/wall_blocker", LUA_MODIFIER_M
 
 LinkLuaModifier("modifier_brush_transparency", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_brush_invisibility", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
+
+
+LinkLuaModifier("modifier_nexus_state", "modifiers/nexus_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_minerals_state", "modifiers/minerals_state", LUA_MODIFIER_MOTION_NONE)
 
 -- GAME STATE CONSTANTS
 

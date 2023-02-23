@@ -36,8 +36,8 @@ function UpdateScoreboard(table_name, key, data) {
 	if (key == "scoreboard") {
 		$("#Blue_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_GOODGUYS]);
 		$("#Red_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_BADGUYS]);
-		$("#Green_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_1]);
-		$("#Pink_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_2]);
+		// $("#Green_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_1]);
+		// $("#Pink_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_2]);
 		// $("#Yellow_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_3]);
 		// $("#Cyan_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_4]);
 		// $("#Light_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_5]);
@@ -70,14 +70,14 @@ function HideBaseHud(panel_name) {
 	}
 }
 
-HideBaseHud("inventory_neutral_slot_container");
-HideBaseHud("inventory_tpscroll_container");
-HideBaseHud("left_flare");
-HideBaseHud("xp");
-HideBaseHud("StatBranch");
-HideBaseHud("StatBranchHotkey");
-HideBaseHud("ButtonWell");
-HideBaseHud("level_stats_frame");
+// HideBaseHud("inventory_neutral_slot_container");
+// HideBaseHud("inventory_tpscroll_container");
+// HideBaseHud("left_flare");
+// HideBaseHud("xp");
+// HideBaseHud("StatBranch");
+// HideBaseHud("StatBranchHotkey");
+// HideBaseHud("ButtonWell");
+// HideBaseHud("level_stats_frame");
 
 // if (Players.GetTeam(Game.GetLocalPlayerID()) == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
 // 	GameUI.SetCameraYaw(-45);

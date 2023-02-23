@@ -15,13 +15,13 @@
 			<Panel id="Red_Container" class="ScoreContainers">
 				<Label id="Red_Score" class="ScoreLabel" text="0" />
 			</Panel>
-			<Panel id="Green_Container" class="ScoreContainers">
+			<!-- <Panel id="Green_Container" class="ScoreContainers">
 				<Label id="Green_Score" class="ScoreLabel" text="0" />
 			</Panel>
 			<Panel id="Pink_Container" class="ScoreContainers">
 				<Label id="Pink_Score" class="ScoreLabel" text="0" />
 			</Panel>
-			<!-- <Panel id="Yellow_Container" class="ScoreContainers">
+			<Panel id="Yellow_Container" class="ScoreContainers">
 				<Label id="Yellow_Score" class="ScoreLabel" text="0" />
 			</Panel>
 			<Panel id="Cyan_Container" class="ScoreContainers">

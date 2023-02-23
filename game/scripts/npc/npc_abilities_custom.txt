@@ -1,7 +1,6 @@
-#base abilities/basic.kv
-#base abilities/tank.kv
-#base abilities/sniper.kv
-#base abilities/brawler.kv
+#base abilities/refinery.kv
+#base abilities/upgrade_center.kv
+#base abilities/barracks.kv
 
 "DOTAAbilities"
 {

@@ -12,21 +12,10 @@
 		<Panel id="Container" hittest="true" >
 			<Label id="Header" text="GAME OPTIONS" />
 
-			<Panel class="OptionContainer" id="lock_camera_container">
-				<ToggleButton class="OptionToggleButton" id="lock_camera" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Lock Camera to Hero"/>
+			<Panel class="OptionContainer" id="disable_fog_container">
+				<ToggleButton class="OptionToggleButton" id="disable_fog" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Disable Fog of War"/>
 			</Panel>
-
-			<Panel class="OptionContainer" id="smash_mode_container">
-				<ToggleButton class="OptionToggleButton" id="smash_mode" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Smash Bros scoring system"/>
-			</Panel>
-
-			<Panel class="OptionContainer" id="extra_powerups_container">
-				<ToggleButton class="OptionToggleButton" id="extra_powerups" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Enable experimental powerups"/>
-			</Panel>
-
 		</Panel>
 	</Panel>
 </root>

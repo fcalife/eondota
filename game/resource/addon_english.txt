@@ -44,8 +44,22 @@
 		"npc_dota_neutral_black_drake"		"Krakenling"
 		"npc_dota_neutral_black_dragon"		"The Kraken"
 		"npc_eon_cart"						"Push Cart"
+		"npc_eon_upgrade_center"			"Upgrade Center"
+		"npc_eon_barracks"					"Barracks"
+		"npc_eon_refinery"					"Refinery"
+		"npc_eon_harvester"					"Harvester"
+
+		"npc_eon_tier_1_footman"			"Footman"
+		"npc_eon_tier_1_archer"				"Archer"
+		"npc_eon_tier_2_marauder"			"Marauder"
+		"npc_eon_tier_2_reaper"				"Reaper"
+		"npc_eon_tier_3_knight"				"Ethereal Knight"
+		"npc_eon_tier_3_golem"				"Giga Golem"
 
 		// Abilities
+		"DOTA_Tooltip_modifier_upgrade_center_disabled"						"Disabled"
+		"DOTA_Tooltip_modifier_upgrade_center_disabled_Description"			"This building has been disabled due to excessive damage, and is currently recovering."
+
 		"DOTA_Tooltip_ability_basic_throw"						"Magic Missile"
 		"DOTA_Tooltip_ability_basic_throw_Description"			"Launches a fast-traveling projectile which damages the first enemy it hits."
 		"DOTA_Tooltip_ability_basic_throw_damage"				"DAMAGE:"

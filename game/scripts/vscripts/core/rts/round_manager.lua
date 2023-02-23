@@ -85,39 +85,6 @@ function RoundManager:GetRoundRespawnPositions()
 	return table.shuffled(round_spawn_positions)
 end
 
-function RoundManager:OnUnitKilled(killed_unit)
-	if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
-
-	UnlockPlayerCamera(killed_unit)
-
-	local killed_team = killed_unit:GetTeam()
-
-	ScoreManager:OnTeamLoseRound(killed_team)
-
-	if SMASH_BROS_MODE then
-		if ScoreManager:GetRemainingLives(killed_team) > 0 then
-			self:RespawnAndPrepareHero(killed_unit, Vector(0, 0, 0))
-
-			killed_unit:AddNewModifier(killed_unit, nil, "modifier_respawn_grace_period", {duration = SMASH_BROS_GRACE_PERIOD})
-		else
-			ScoreManager:CheckForWinner()
-		end
-	else
-		local all_heroes = HeroList:GetAllHeroes()
-		local alive_heroes = {}
-
-		for _, hero in pairs(all_heroes) do
-			if hero:IsRealHero() and hero:IsAlive() then
-				table.insert(alive_heroes, hero)
-			end
-		end
-
-		if alive_heroes[1] and #alive_heroes == 1 then
-			self:SetRoundWinner(alive_heroes[1]:GetTeam())
-		end
-	end
-end
-
 function RoundManager:SetRoundWinner(team)
 	Walls:OnRoundEnd()
 	PowerupManager:OnRoundEnd()

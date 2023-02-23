@@ -6,17 +6,17 @@
 	<script>
 
 		// Uncomment any of the following lines in order to disable that portion of the default UI
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);			// Courier controls.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);			// Glyph.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PANEL, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_ITEMS, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_AGHANIMS_STATUS, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_KILLCAM, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, false);			// Suggested items shop panel.
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);			// Courier controls.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);			// Glyph.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PANEL, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_ITEMS, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_AGHANIMS_STATUS, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_KILLCAM, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, false);			// Suggested items shop panel.
+		// GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false);			// Suggested items shop panel.
 
 		// These lines set up the panorama colors used by each team (for game select/setup, etc)
 		GameUI.CustomUIConfig().team_colors = {}
@@ -32,15 +32,15 @@
 		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_8 ] = "#909050;";
 
 		SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, 64, 64, 208)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, 208, 64, 64)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_1, 64, 208, 64)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_2, 208, 64, 208)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_3, 208, 208, 64)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_4, 64, 208, 208)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_5, 208, 208, 208)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_6, 64, 64, 64)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_7, 140, 80, 140)
-	SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_8, 140, 140, 64)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, 208, 64, 64)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_1, 64, 208, 64)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_2, 208, 64, 208)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_3, 208, 208, 64)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_4, 64, 208, 208)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_5, 208, 208, 208)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_6, 64, 64, 64)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_7, 140, 80, 140)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_8, 140, 140, 64)
 
 	</script>
 

@@ -34,10 +34,12 @@ precache.particles = {
     "particles/ui_mouseactions/range_finder_cone.vpcf",
     "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf",
     "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf",
+    "particles/units/heroes/hero_axe/axe_attack_blur.vpcf"
 }
 
 precache.particle_folders = {
     "particles/dodgeball/",
+    "particles/rts/",
 }
 
 precache.models = {

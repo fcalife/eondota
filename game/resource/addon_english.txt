@@ -33,6 +33,8 @@
 		"npc_eon_cart"						"Push Cart"
 
 		// Units
+		"DOTA_Tooltip_modifier_lives"							"Lives Remaining"
+		"DOTA_Tooltip_modifier_lives_Description"				"How many lives you have left this round"
 
 
 		// Items

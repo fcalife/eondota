@@ -28,6 +28,9 @@ function RoundManager:InitializeRound()
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 10})
 		hero:RemoveModifierByName("modifier_fountain_invulnerability")
 
+		local lives = hero:AddNewModifier(hero, nil, "modifier_lives", {})
+		if lives then lives:SetStackCount(2) end
+
 		if CAMERA_LOCK then LockPlayerCameraOnTarget(hero, hero, false) end
 
 		for i = 0, 10 do
@@ -91,6 +94,21 @@ end
 
 function RoundManager:OnUnitKilled(killed_unit)
 	if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
+
+	local lives = killed_unit:FindModifierByName("modifier_lives")
+
+	if lives and lives:GetStackCount() > 0 then
+		lives:DecrementStackCount()
+
+		if lives:GetStackCount() < 1 then lives:Destroy() end
+
+		if killed_unit:IsRealHero() then
+			killed_unit:RespawnHero(false, false)
+			killed_unit:AddNewModifier(killed_unit, nil, "modifier_just_respawned", {duration = 3})
+		end
+
+		return nil
+	end
 
 	UnlockPlayerCamera(killed_unit)
 

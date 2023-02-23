@@ -50,6 +50,8 @@ LinkLuaModifier("modifier_ignore_wall", "modifiers/wall_blocker", LUA_MODIFIER_M
 
 LinkLuaModifier("modifier_brush_transparency", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_brush_invisibility", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_lives", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_just_respawned", "modifiers/brush", LUA_MODIFIER_MOTION_NONE)
 
 -- GAME STATE CONSTANTS
 

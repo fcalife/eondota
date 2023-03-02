@@ -260,7 +260,7 @@
 		"Ability20"		"generic_hidden"
 	}
 
-	"npc_dota_hero_shadow_demon"
+	"npc_dota_hero_bloodseeker"
 	{
 		"ArmorPhysical"			"0"
 		"MagicalResistance"		"0"
@@ -290,12 +290,12 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"generic_hidden"
-		"Ability2"		"generic_hidden"
-		"Ability3"		"generic_hidden"
+		"Ability1"		"vampire_shot"
+		"Ability2"		"vampire_rain"
+		"Ability3"		"vampire_mist"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
-		"Ability6"		"generic_hidden"
+		"Ability6"		"vampire_hunger"
 		"Ability7"		"generic_hidden"
 		"Ability8"		"generic_hidden"
 		"Ability9"		"generic_hidden"

@@ -29,31 +29,31 @@ function Filters:DamageFilter(keys)
 		victim:RemoveModifierByName("modifier_tank_shield")
 	end
 
-	if inflictor and inflictor.GetAbilityName then
-		local ability_name = inflictor:GetAbilityName()
+	-- if inflictor and inflictor.GetAbilityName then
+	-- 	local ability_name = inflictor:GetAbilityName()
 
-		if ability_name == "bomber_bomb" then
-			local direction = (victim:GetAbsOrigin() - attacker:GetAbsOrigin()):Normalized()
-			KnockbackArena:Knockback(attacker, victim, direction.x, direction.y, 1)
+	-- 	if ability_name == "bomber_bomb" then
+	-- 		local direction = (victim:GetAbsOrigin() - attacker:GetAbsOrigin()):Normalized()
+	-- 		KnockbackArena:Knockback(attacker, victim, direction.x, direction.y, 1)
 
-			return false
-		elseif ability_name == "bomber_suicide" then
-			if victim == target then
-				keys.damage = 1
-				return true
-			else
-				local direction = (victim:GetAbsOrigin() - attacker:GetAbsOrigin()):Normalized()
-				KnockbackArena:Knockback(attacker, victim, direction.x, direction.y, 2)
+	-- 		return false
+	-- 	elseif ability_name == "bomber_suicide" then
+	-- 		if victim == target then
+	-- 			keys.damage = 1
+	-- 			return true
+	-- 		else
+	-- 			local direction = (victim:GetAbsOrigin() - attacker:GetAbsOrigin()):Normalized()
+	-- 			KnockbackArena:Knockback(attacker, victim, direction.x, direction.y, 2)
 
-				return false
-			end
-		elseif ability_name == "bomber_rocket" then
-			local direction = (victim:GetAbsOrigin() - attacker:GetAbsOrigin()):Normalized()
-			KnockbackArena:Knockback(attacker, victim, direction.x, direction.y, 1)
+	-- 			return false
+	-- 		end
+	-- 	elseif ability_name == "bomber_rocket" then
+	-- 		local direction = (victim:GetAbsOrigin() - attacker:GetAbsOrigin()):Normalized()
+	-- 		KnockbackArena:Knockback(attacker, victim, direction.x, direction.y, 1)
 
-			return false
-		end
-	end
+	-- 		return false
+	-- 	end
+	-- end
 
 	return true
 end

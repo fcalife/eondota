@@ -1,3 +1,87 @@
 "DOTAAbilities"
 {
+	"vampire_shot"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/vampire"
+
+		"AbilityTextureName"		"bloodseeker_rupture"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"1"
+			"max_range"				"750"
+			"speed"					"1225"
+			"radius"				"85"
+		}
+	}
+
+	"vampire_rain"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/vampire"
+
+		"AbilityTextureName"		"bloodseeker_blood_bath"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"10.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"1"
+			"duration"				"5.0"
+			"formation_time"		"1.0"
+			"radius"				"375"
+		}
+	}
+
+	"vampire_mist"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/vampire"
+
+		"AbilityTextureName"		"invoker_ghost_walk"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"8.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"duration"				"2.0"
+		}
+	}
+
+	"vampire_hunger"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/vampire"
+
+		"AbilityTextureName"		"bloodseeker_thirst"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE |  DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"10.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+	}
 }

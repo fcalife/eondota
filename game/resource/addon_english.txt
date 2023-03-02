@@ -16,6 +16,7 @@
 		"DOTA_Custom7"						"MAUVE"
 		"DOTA_Custom8"						"PLAID"
 
+		"npc_dota_hero_bloodseeker"			"Vampire"
 		"npc_dota_hero_invoker"				"Wizard"
 		"npc_dota_hero_pudge"				"Tank"
 		"npc_dota_hero_windrunner"			"Ranger"

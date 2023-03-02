@@ -3,7 +3,7 @@
 	TeamCount = 2
 	maps = 
 	[
-		"rts_mini",
+		"rts",
 	]
 	IsPlayable = 1
 	HeroGuidesSupported = false
@@ -12,7 +12,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "rts_mini"
+	DefaultMap = "rts"
 	DisableIK = false
 	EnablePickRules = false
 	EventGame = false
@@ -20,6 +20,6 @@
 	ForceDefaultGuide = false
 	MinimalPrecache = true
 	MinPlayers = 1
-	MaxPlayers = 4
+	MaxPlayers = 10
 	PenaltiesEnabled = false
 }

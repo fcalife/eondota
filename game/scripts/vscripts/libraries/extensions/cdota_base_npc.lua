@@ -49,3 +49,15 @@ function CDOTA_BaseNPC:GetPositionOffensiveValue()
 	end
 end
 
+function CDOTA_BaseNPC:ExecutePathOrders(path)
+	local unit_id = self:entindex()
+
+	for _, destination in ipairs(path) do
+		ExecuteOrderFromTable({
+			unitIndex = unit_id,
+			OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+			Position = destination,
+			Queue = true
+		})
+	end
+end

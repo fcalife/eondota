@@ -9,33 +9,85 @@
 
 	<Panel style="width:100%; height:100%;" hittest="false">
 		<Panel id="Container" hittest="true" >
-			<Label id="Header" text="PICK YOUR HERO'S ROLE" />
+			<Label id="SphereCount" text="0" />
+			<Panel id="UnitColumn" class="ChoiceColumn">
+				<Panel class="Choice" id="choice_footman" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_footman" onmouseover="DOTAShowAbilityTooltip(barracks_summon_footman)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('footman')" />
+					<Label class="ChoiceCost" id="label_footman" text="100" />
+				</Panel>
+				<Panel class="Choice" id="choice_archer" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_archer" onmouseover="DOTAShowAbilityTooltip(barracks_summon_archer)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('archer')" />
+					<Label class="ChoiceCost" id="label_archer" text="100" />
+				</Panel>
+				<Panel class="Choice" id="choice_marauder" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_marauder" onmouseover="DOTAShowAbilityTooltip(barracks_summon_marauder)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('marauder')" />
+					<Label class="ChoiceCost" id="label_marauder" text="200" />
+				</Panel>
+				<Panel class="Choice" id="choice_reaper" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_reaper" onmouseover="DOTAShowAbilityTooltip(barracks_summon_reaper)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('reaper')" />
+					<Label class="ChoiceCost" id="label_reaper" text="250" />
+				</Panel>
+				<Panel class="Choice" id="choice_knight" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_knight" onmouseover="DOTAShowAbilityTooltip(barracks_summon_knight)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('knight')" />
+					<Label class="ChoiceCost" id="label_knight" text="500" />
+				</Panel>
+				<Panel class="Choice" id="choice_golem" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_golem" onmouseover="DOTAShowAbilityTooltip(barracks_summon_golem)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('golem')" />
+					<Label class="ChoiceCost" id="label_golem" text="500" />
+				</Panel>
+			</Panel>
 
-			<Panel id="ChoiceReel">
-				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Charger" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_charger" onmouseover="DOTAShowAbilityTooltip(ability_ball_charger)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('charger')" />
+			<Panel id="UpgradeColumn" class="ChoiceColumn">
+				<Panel class="Choice" id="choice_economy_1" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_economy_1" onmouseover="DOTAShowAbilityTooltip(upgrade_economy_1)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('economy_1')" />
+					<Label class="ChoiceCost" id="label_economy_1" text="300" />
 				</Panel>
-				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Runner" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_runner" onmouseover="DOTAShowAbilityTooltip(ability_ball_runner)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('runner')" />
+				<Panel class="Choice" id="choice_creeps_1" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_creeps_1" onmouseover="DOTAShowAbilityTooltip(upgrade_creeps_1)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('creeps_1')" />
+					<Label class="ChoiceCost" id="label_creeps_1" text="300" />
 				</Panel>
-				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Interceptor" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_blocker" onmouseover="DOTAShowAbilityTooltip(ability_ball_blocker)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('blocker')" />
+				<Panel class="Choice" id="choice_nexus_1" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_nexus_1" onmouseover="DOTAShowAbilityTooltip(upgrade_nexus_1)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('nexus_1')" />
+					<Label class="ChoiceCost" id="label_nexus_1" text="400" />
 				</Panel>
-				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Quarterback" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_thrower" onmouseover="DOTAShowAbilityTooltip(ability_ball_thrower)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('thrower')" />
+				<Panel class="Choice" id="choice_tech_1" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_tech_1" onmouseover="DOTAShowAbilityTooltip(upgrade_tech_1)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('tech_1')" />
+					<Label class="ChoiceCost" id="label_tech_1" text="500" />
 				</Panel>
-				<Panel class="Choice">
-					<Label class="ChoiceHeader" text="Forcer" />
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="ability_ball_forcer" onmouseover="DOTAShowAbilityTooltip(ability_ball_forcer)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SelectRole('forcer')" />
+				<Panel class="Choice" id="choice_economy_2" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_economy_2" onmouseover="DOTAShowAbilityTooltip(upgrade_economy_2)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('economy_2')" />
+					<Label class="ChoiceCost" id="label_economy_2" text="400" />
+				</Panel>
+				<Panel class="Choice" id="choice_creeps_2" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_creeps_2" onmouseover="DOTAShowAbilityTooltip(upgrade_creeps_2)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('creeps_2')" />
+					<Label class="ChoiceCost" id="label_creeps_2" text="600" />
+				</Panel>
+				<Panel class="Choice" id="choice_nexus_2" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_nexus_2" onmouseover="DOTAShowAbilityTooltip(upgrade_nexus_2)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('nexus_2')" />
+					<Label class="ChoiceCost" id="label_nexus_2" text="700" />
+				</Panel>
+				<Panel class="Choice" id="choice_tech_2" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_tech_2" onmouseover="DOTAShowAbilityTooltip(upgrade_tech_2)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('tech_2')" />
+					<Label class="ChoiceCost" id="label_tech_2" text="1000" />
+				</Panel>
+				<Panel class="Choice" id="choice_creeps_3" >
+					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_creeps_3" onmouseover="DOTAShowAbilityTooltip(upgrade_creeps_3)"
+						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('creeps_3')" />
+					<Label class="ChoiceCost" id="label_creeps_3" text="800" />
 				</Panel>
 			</Panel>
 		</Panel>

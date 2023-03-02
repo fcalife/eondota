@@ -1,7 +1,7 @@
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
-CustomNetTables.SubscribeNetTableListener("score", UpdateScoreboard);
+// CustomNetTables.SubscribeNetTableListener("score", UpdateScoreboard);
 
 let team_names = {}
 
@@ -34,8 +34,8 @@ function NewMessage(data) {
 
 function UpdateScoreboard(table_name, key, data) {
 	if (key == "scoreboard") {
-		$("#Blue_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_GOODGUYS]);
-		$("#Red_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_BADGUYS]);
+		//$("#Blue_Score").text = parseInt(data[Game.GetLocalPlayerID()]);
+		//$("#Red_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_BADGUYS]);
 		// $("#Green_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_1]);
 		// $("#Pink_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_2]);
 		// $("#Yellow_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_3]);

@@ -342,30 +342,32 @@
 
 	"npc_dota_goodguys_tower1_mid"
 	{
-		"ModelScale"				"1.3"
-
-		"StatusHealth"				"4000"
+		"StatusHealth"				"1800"
 		"ArmorPhysical"				"12"
 
-		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"54"
-		"AttackDamageMax"			"56"
+		"BaseAttackSpeed"			"135"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"60"
 
-		"ProjectileSpeed"			"1500"
+		"ProjectileSpeed"			"1250"
+
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
 	}
 
 	"npc_dota_badguys_tower1_mid"
 	{
-		"ModelScale"				"1.3"
-
-		"StatusHealth"				"4000"
+		"StatusHealth"				"1800"
 		"ArmorPhysical"				"12"
 
-		"BaseAttackSpeed"			"90"
-		"AttackDamageMin"			"54"
-		"AttackDamageMax"			"56"
+		"BaseAttackSpeed"			"135"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"60"
 
-		"ProjectileSpeed"			"1500"
+		"ProjectileSpeed"			"1250"
+
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
 	}
 
 	"npc_dota_goodguys_tower1_top"
@@ -1297,6 +1299,13 @@
 		"VisionNighttimeRange"		"600"
 	}
 
+	"dota_fountain"
+	{
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
+	}
+
 	"npc_dota_creep_goodguys_ranged"
 	{
 	}
@@ -1311,6 +1320,161 @@
 
 	"npc_dota_creep_badguys_melee"
 	{
+	}
+
+	"npc_eon_creep_goodguys_magic"
+	{
+		"BaseClass"					"npc_dota_creep_lane"
+		"Model"						"models/creeps/lane_creeps/creep_radiant_ranged/radiant_ranged_mega_crystal.vmdl"
+		"SoundSet"					"Creep_Bad_Range"
+		"ModelScale"				"1.1"
+		"Level"						"3"
+
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"10"
+
+		"Ability1"					"creep_piercing"
+		"Ability2"					"creep_magic"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"28"
+		"AttackDamageMax"			"32"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"650"
+		"AttackRange"				"575"
+		"ProjectileModel"			"particles/base_attacks/ranged_badguy.vpcf"
+		"ProjectileSpeed"			"900"
+
+		"BountyXP"					"81"
+		"BountyGoldMin"				"48"
+		"BountyGoldMax"				"59"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"55"
+		"HealthBarOffset"			"175"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"525"
+		"StatusHealthRegen"			"2.0"
+		"StatusMana"				"800"
+		"StatusManaRegen"			"1.5"
+
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+	}
+
+	"npc_eon_creep_badguys_magic"
+	{
+		"BaseClass"					"npc_dota_creep_lane"
+		"Model"						"models/creeps/lane_creeps/creep_bad_ranged/creep_bad_ranged_mega_crystal.vmdl"
+		"SoundSet"					"Creep_Good_Range"
+		"ModelScale"				"1.1"
+		"Level"						"3"
+
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"10"
+
+		"Ability1"					"creep_piercing"
+		"Ability2"					"creep_magic"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"28"
+		"AttackDamageMax"			"32"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"650"
+		"AttackRange"				"575"
+		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf"
+		"ProjectileSpeed"			"900"
+
+		"BountyXP"					"81"
+		"BountyGoldMin"				"48"
+		"BountyGoldMax"				"59"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"55"
+		"HealthBarOffset"			"175"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"525"
+		"StatusHealthRegen"			"2.0"
+		"StatusMana"				"800"
+		"StatusManaRegen"			"1.5"
+
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+	}
+
+	"npc_eon_creep_sapper"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/techies/techies.vmdl"
+		"SoundSet"					"Hero_Techies"
+		"ModelScale"				"0.88"
+		"Level"						"5"
+
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"0"
+
+		"Ability1"					"creep_piercing"
+		"Ability2"					"creep_sapper"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"37"
+		"AttackDamageMax"			"40"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"700"
+		"AttackRange"				"650"
+		"ProjectileModel"			"particles/units/heroes/hero_techies/techies_base_attack.vpcf"
+		"ProjectileSpeed"			"900"
+
+		"BountyXP"					"95"
+		"BountyGoldMin"				"57"
+		"BountyGoldMax"				"65"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"55"
+		"HealthBarOffset"			"175"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"550"
+		"StatusHealthRegen"			"2.0"
+		"StatusMana"				"800"
+		"StatusManaRegen"			"1.5"
+
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"	{	"ItemDef"	"12841"	}
+				"Wearable2"	{	"ItemDef"	"12842"	}
+				"Wearable3"	{	"ItemDef"	"12843"	}
+				"Wearable4"	{	"ItemDef"	"12844"	}
+				"Wearable5"	{	"ItemDef"	"12845"	}
+				"Wearable6"	{	"ItemDef"	"12846"	}
+				"Wearable7"	{	"ItemDef"	"12847"	}
+			}
+		}
 	}
 
 	"npc_eon_nexus"
@@ -1351,7 +1515,7 @@
 		"MovementSpeed"				"0"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"8000"
+		"StatusHealth"				"15000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -1378,7 +1542,7 @@
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
 		"BaseAttackSpeed"			"100"
-		"AttackRate"				"1.0"
+		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.0"
 		"AttackAcquisitionRange"	"0"
 		"AttackRange"				"0"
@@ -1400,8 +1564,8 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
-		"VisionDaytimeRange"		"0"
-		"VisionNighttimeRange"		"0"
+		"VisionDaytimeRange"		"600"
+		"VisionNighttimeRange"		"600"
 	}
 
 	"npc_eon_upgrade_center"
@@ -1424,6 +1588,7 @@
 		"Ability6"					"upgrade_creeps_2"
 		"Ability7"					"upgrade_nexus_2"
 		"Ability8"					"upgrade_tech_2"
+		"Ability9"					"upgrade_creeps_3"
 		"Ability20"					"upgrade_center_state"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
@@ -1452,8 +1617,8 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
-		"VisionDaytimeRange"		"0"
-		"VisionNighttimeRange"		"0"
+		"VisionDaytimeRange"		"600"
+		"VisionNighttimeRange"		"600"
 	}
 
 	"npc_eon_barracks"
@@ -1502,8 +1667,8 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
-		"VisionDaytimeRange"		"0"
-		"VisionNighttimeRange"		"0"
+		"VisionDaytimeRange"		"600"
+		"VisionNighttimeRange"		"600"
 	}
 
 	"npc_eon_minerals"
@@ -1566,7 +1731,7 @@
 		"AttackDamageMin"			"1"
 		"AttackDamageMax"			"1"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.0"
+		"AttackRate"				"2.0"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"300"
 		"AttackRange"				"125"
@@ -1605,7 +1770,7 @@
 		}
 	}
 
-	"npc_eon_tier_1_footman"
+	"npc_eon_footman"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/dragon_knight/dragon_knight.vmdl"
@@ -1618,6 +1783,7 @@
 		"MagicalResistance"			"0"
 
 		"Ability1"					"creep_irresolute"
+		"Ability2"					"creep_footman"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"58"
@@ -1663,7 +1829,7 @@
 		}
 	}
 
-	"npc_eon_tier_1_archer"
+	"npc_eon_archer"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/windrunner/windrunner.vmdl"
@@ -1676,6 +1842,7 @@
 		"MagicalResistance"			"1"
 
 		"Ability1"					"creep_piercing"
+		"Ability2"					"creep_archer"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"67"
@@ -1722,7 +1889,7 @@
 		}
 	}
 
-	"npc_eon_tier_2_marauder"
+	"npc_eon_marauder"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/luna/luna.vmdl"
@@ -1781,7 +1948,7 @@
 		}
 	}
 
-	"npc_eon_tier_2_reaper"
+	"npc_eon_reaper"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/phantom_assassin/phantom_assassin.vmdl"
@@ -1794,6 +1961,7 @@
 		"MagicalResistance"			"0"
 
 		"Ability1"					"creep_irresolute"
+		"Ability2"					"creep_reaper"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"105"
@@ -1838,7 +2006,7 @@
 		}
 	}
 
-	"npc_eon_tier_3_knight"
+	"npc_eon_knight"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/chaos_knight/chaos_knight.vmdl"
@@ -1851,6 +2019,7 @@
 		"MagicalResistance"			"25"
 
 		"Ability1"					"creep_irresolute"
+		"Ability2"					"creep_knight"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"105"
@@ -1895,7 +2064,7 @@
 		}
 	}
 
-	"npc_eon_tier_3_golem"
+	"npc_eon_golem"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/items/undying/flesh_golem/incurable_pestilence_golem/incurable_pestilence_golem.vmdl"
@@ -1908,6 +2077,7 @@
 		"MagicalResistance"			"0"
 
 		"Ability1"					"creep_irresolute"
+		"Ability2"					"creep_golem"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"140"

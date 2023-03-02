@@ -216,4 +216,20 @@
 		limiter_on = 1.000000
 		vsnd_files = "sounds/ui/coins.vsnd"
 	}
+	upgrade_success = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/weapons/hero/tinker/rearm_anim.vsnd"
+	}
+	upgrade_fail = 
+	{
+		type = "dota_src1_2d"
+		volume = 1.000000
+		pitch = 1.000000
+		limiter_on = 1.000000
+		vsnd_files = "sounds/ui/deny_mana.vsnd"
+	}
 }

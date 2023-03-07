@@ -29,7 +29,7 @@ function RoundManager:InitializeRound()
 		hero:RemoveModifierByName("modifier_fountain_invulnerability")
 
 		local lives = hero:AddNewModifier(hero, nil, "modifier_lives", {})
-		if lives then lives:SetStackCount(2) end
+		if lives then lives:SetStackCount(0) end
 
 		if CAMERA_LOCK then LockPlayerCameraOnTarget(hero, hero, false) end
 

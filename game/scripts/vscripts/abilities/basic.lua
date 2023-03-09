@@ -129,13 +129,13 @@ function basic_cleave:FireOnPosition(target)
 
 		local enemy_direction = (enemy_loc - caster_loc):Normalized()
 		local dot_product = DotProduct(direction, enemy_direction)
+		local enemy_ability = enemy:FindAbilityByName("basic_cleave")
 
-		if dot_product >= min_dot_product then
+		if dot_product >= min_dot_product and enemy_ability and enemy_ability:IsHidden() then
 			enemy:EmitSound("KnockbackArena.HeavyHit")
 			enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = 2.0})
 
-			local enemy_ability = enemy:FindAbilityByName("basic_cleave")
-			if enemy_ability then enemy_ability:SetHidden(false) end
+			enemy_ability:SetHidden(false)
 
 			self:SetHidden(true)
 

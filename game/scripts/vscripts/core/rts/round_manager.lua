@@ -37,6 +37,7 @@ function RoundManager:InitializeRound()
 	local all_heroes = HeroList:GetAllHeroes()
 	local random_ability = self.random_abilities[RandomInt(1, #self.random_abilities)]
 	local starting_points = table.shuffled(self.start_points)
+	local round_hero_count = 0
 
 	for _, hero in pairs(all_heroes) do
 		if self.alive_teams[hero:GetTeam()] then
@@ -59,18 +60,20 @@ function RoundManager:InitializeRound()
 
 			local bonker = hero:FindAbilityByName("basic_cleave")
 			if bonker then bonker:SetHidden(true) end
+
+			round_hero_count = round_hero_count + 1
 		end
 	end
 
-	local found_bonker = false
+	local bonkers_needed = (round_hero_count >= 4 and 2) or 1
 
-	while (not found_bonker) do
+	while bonkers_needed > 0 do
 		local random_hero = all_heroes[RandomInt(1, #all_heroes)]
 		local bonk_ability = random_hero:FindAbilityByName("basic_cleave")
 
-		if self.alive_teams[random_hero:GetTeam()] and bonk_ability then
+		if self.alive_teams[random_hero:GetTeam()] and bonk_ability and bonk_ability:IsHidden() then
 			bonk_ability:SetHidden(false)
-			found_bonker = true
+			bonkers_needed = bonkers_needed - 1
 		end
 	end
 

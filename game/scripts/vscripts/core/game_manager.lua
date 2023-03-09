@@ -43,9 +43,53 @@ function GameManager:InitializeHero(hero)
 	hero:AddNewModifier(hero, nil, "modifier_stunned", {})
 
 	if IsInToolsMode() then
-		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
-		hero:AddItemByName("item_dev_blink")
+		--hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
+		--hero:AddItemByName("item_dev_blink")
 		--hero:AddItemByName("item_dev_dagon")
+	end
+
+	if hero:GetUnitName() == "npc_dota_hero_axe" then
+		hero:AddItemByName("item_phase_boots")
+		hero:AddItemByName("item_blade_mail")
+		if EXTRA_WEAK_HERO_HEALTH then hero:AddNewModifier(hero, nil, "modifier_bonus_hero_health", {}) end
+	elseif hero:GetUnitName() == "npc_dota_hero_primal_beast" then
+		hero:AddItemByName("item_boots")
+		hero:AddItemByName("item_vanguard")
+		if EXTRA_WEAK_HERO_HEALTH then hero:AddNewModifier(hero, nil, "modifier_bonus_hero_health", {}) end
+	elseif hero:GetUnitName() == "npc_dota_hero_phantom_assassin" then
+		hero:AddItemByName("item_phase_boots")
+		hero:AddItemByName("item_desolator")
+		if EXTRA_WEAK_HERO_HEALTH then hero:AddNewModifier(hero, nil, "modifier_bonus_hero_health", {}) end
+	elseif hero:GetUnitName() == "npc_dota_hero_jakiro" then
+		hero:AddItemByName("item_boots")
+		hero:AddItemByName("item_shivas_guard")
+		if EXTRA_WEAK_HERO_HEALTH then hero:AddNewModifier(hero, nil, "modifier_bonus_hero_health", {}) end
+	elseif hero:GetUnitName() == "npc_dota_hero_nevermore" then
+		hero:AddItemByName("item_power_treads")
+		hero:AddItemByName("item_yasha_and_kaya")
+		if EXTRA_WEAK_HERO_HEALTH then hero:AddNewModifier(hero, nil, "modifier_bonus_hero_health", {}) end
+	elseif hero:GetUnitName() == "npc_dota_hero_windrunner" then
+		hero:AddItemByName("item_ultimate_scepter_2")
+		hero:AddItemByName("item_aghanims_shard")
+		hero:AddItemByName("item_monkey_king_bar")
+		hero:AddItemByName("item_black_king_bar")
+		hero:AddItemByName("item_mjollnir")
+		hero:AddItemByName("item_hurricane_pike")
+
+		Timers:CreateTimer(0.1, function()
+			hero:AddItemByName("item_power_treads")
+			hero:AddItemByName("item_overwhelming_blink")
+		end)
+
+		for i = 1, 27 do hero:HeroLevelUp(false) end
+
+		for i = 0, 10 do
+			if hero:GetAbilityByIndex(i) then
+				hero:GetAbilityByIndex(i):SetLevel(hero:GetAbilityByIndex(i):GetMaxLevel())
+			end
+		end
+
+		hero:SetAbilityPoints(8)
 	end
 end
 
@@ -56,9 +100,8 @@ function GameManager:EndGameWithWinner(team)
 end
 
 function GameManager:OnHostSelectedOption(event)
-	REVERSE_CTF = (event.reverse_ctf == 1)
 	TOWERS_ENABLED = (event.enable_towers == 1)
 	LANE_CREEPS_ENABLED = (event.enable_creeps == 1)
 	FOG_OF_WAR_DISABLED = (event.disable_fog == 1)
-	LIVING_BUILDINGS_ENABLED = (event.living_buildings == 1)
+	EXTRA_WEAK_HERO_HEALTH = (event.extra_hp == 1)
 end

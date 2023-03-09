@@ -21,3 +21,21 @@ end
 function modifier_hero_base_state:GetModifierConstantManaRegen()
 	return 0.005 * self:GetParent():GetMaxMana()
 end
+
+
+
+modifier_bonus_hero_health = class({})
+
+function modifier_bonus_hero_health:IsHidden() return true end
+function modifier_bonus_hero_health:IsDebuff() return false end
+function modifier_bonus_hero_health:IsPurgable() return false end
+function modifier_bonus_hero_health:RemoveOnDeath() return false end
+function modifier_bonus_hero_health:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_bonus_hero_health:DeclareFunctions()
+	return { MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE }
+end
+
+function modifier_bonus_hero_health:GetModifierExtraHealthPercentage()
+	return 100
+end

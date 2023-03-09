@@ -11,12 +11,6 @@
 	<Panel style="width:100%; height:100%;" hittest="false">
 		<Panel id="Container" hittest="true" >
 			<Label id="Header" text="GAME OPTIONS" />
-
-			<Panel class="OptionContainer" id="reverse_ctf_container">
-				<ToggleButton class="OptionToggleButton" id="reverse_ctf" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Reverse CTF"/>
-			</Panel>
-
 			<Panel class="OptionContainer" id="towers_container">
 				<ToggleButton class="OptionToggleButton" id="enable_towers" onactivate="UpdateOptions()"/>
 				<Label class="OptionLabel" text="Enable Towers"/>
@@ -32,9 +26,9 @@
 				<Label class="OptionLabel" text="Remove Fog of War"/>
 			</Panel>
 
-			<Panel class="OptionContainer" id="living_buildings_container">
-				<ToggleButton class="OptionToggleButton" id="living_buildings" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Enable Living Buildings"/>
+			<Panel class="OptionContainer" id="extra_hp_container">
+				<ToggleButton class="OptionToggleButton" id="extra_hp" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Extra HP for weak team"/>
 			</Panel>
 		</Panel>
 	</Panel>

@@ -1,5 +1,6 @@
 -- Link global modifiers
 LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bonus_hero_health", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_golem_base_state", "modifiers/golem_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_golem_disabled_counter", "modifiers/golem_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dummy_state", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE)
@@ -76,9 +77,10 @@ PLAYER_STATE_ABANDONED	 		= 4
 -- GAME DESIGN CONSTANTS
 REVERSE_CTF = false
 TOWERS_ENABLED = true
-LANE_CREEPS_ENABLED = true
+LANE_CREEPS_ENABLED = false
 FOG_OF_WAR_DISABLED = false
 LIVING_BUILDINGS_ENABLED = false
+EXTRA_WEAK_HERO_HEALTH = false
 
 ROUNDS_TO_WIN = 3
 MIN_ROUND_FOR_ULTIMATES = 3

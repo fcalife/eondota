@@ -348,8 +348,10 @@
 		"MinimapIconSize"			"550"
 		"ModelScale"				"1.7"
 
-		"ArmorPhysical"				"15"
+		"ArmorPhysical"				"20"
 		"MagicalResistance"			"0"
+
+		"Ability1"					"creep_siege"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"1"
@@ -374,7 +376,7 @@
 		"MovementSpeed"				"0"
 		"MovementTurnRate"			"0.0"
 
-		"StatusHealth"				"4000"
+		"StatusHealth"				"10000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

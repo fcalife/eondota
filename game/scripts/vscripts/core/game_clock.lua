@@ -24,7 +24,7 @@ end
 function GameClock:Tick()
 	local current_time = GameRules:GetGameTime()
 
-	GoldRewards:Tick()
+	--GoldRewards:Tick()
 
 	if current_time >= self.next_rune_spawn then
 		RuneSpawners:OnInitializeRound()
@@ -33,7 +33,7 @@ function GameClock:Tick()
 	end
 
 	if current_time >= self.next_creep_spawn then
-		LaneCreeps:SpawnWave()
+		if LANE_CREEPS_ENABLED then LaneCreeps:SpawnWave() end
 
 		self.next_creep_spawn = self.next_creep_spawn + LANE_CREEP_RESPAWN_DELAY
 	end

@@ -1,5 +1,5 @@
 #Scoreboard {
-	align:  left top;
+	align:  center top;
 	margin-top:  110px;
 	flow-children:  right;
 }
@@ -14,7 +14,7 @@
 }
 
 #Blue_Container {
-	background-color: black;
+	background-color: #4040D0;
 }
 
 #Red_Container {
@@ -56,10 +56,11 @@
 .ScoreLabel {
 	margin-left: 12px;
 	margin-right: 12px;
+	align: center center;
 	text-align:  center center;
 	font-size:  28;
 	font-weight:  bold;
-	color:  gold;
+	color:  white;
 	text-overflow: shrink;
 	text-shadow: 1px 1px 3px 2.0 black;
 }

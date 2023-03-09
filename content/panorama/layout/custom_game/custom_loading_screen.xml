@@ -14,7 +14,22 @@
 
 			<Panel class="OptionContainer" id="disable_fog_container">
 				<ToggleButton class="OptionToggleButton" id="disable_fog" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Disable Fog of War"/>
+				<Label class="OptionLabel" text="Disable fog of war"/>
+			</Panel>
+
+			<Panel class="OptionContainer" id="camera_lock_container">
+				<ToggleButton class="OptionToggleButton" id="camera_lock" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Lock camera"/>
+			</Panel>
+
+			<Panel class="OptionContainer" id="random_abilities_container">
+				<ToggleButton class="OptionToggleButton" id="random_abilities" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Random abilities mode"/>
+			</Panel>
+
+			<Panel class="OptionContainer" id="same_random_ability_container">
+				<ToggleButton class="OptionToggleButton" id="same_random_ability" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Same ability for everyone"/>
 			</Panel>
 		</Panel>
 	</Panel>

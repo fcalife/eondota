@@ -1,3 +1,4 @@
+#base abilities/basic.kv
 #base abilities/refinery.kv
 #base abilities/upgrade_center.kv
 #base abilities/barracks.kv

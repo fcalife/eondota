@@ -45,7 +45,7 @@
 	</script>
 
 	<Panel>
-		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/role_choice/role_choice.xml" />
+		<!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/role_choice/role_choice.xml" /> -->
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/scoreboard/dev_scoreboard.xml" />
 	</Panel>
 </root>

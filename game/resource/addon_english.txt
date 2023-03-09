@@ -157,10 +157,8 @@
 		"DOTA_Tooltip_ability_basic_throw_speed"				"SPEED:"
 		"DOTA_Tooltip_ability_basic_throw_radius"				"RADIUS:"
 
-		"DOTA_Tooltip_ability_basic_cleave"						"Kinetic Blast"
-		"DOTA_Tooltip_ability_basic_cleave_Description"			"Damages enemies in a narrow cone facing the target direction."
-		"DOTA_Tooltip_ability_basic_cleave_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_basic_cleave_length"				"CONE LENGTH:"
+		"DOTA_Tooltip_ability_basic_cleave"						"Bonker"
+		"DOTA_Tooltip_ability_basic_cleave_Description"			"Bonks an enemy in front of you, granting them the BONKER."
 
 		"DOTA_Tooltip_ability_basic_blink"						"Blink"
 		"DOTA_Tooltip_ability_basic_blink_Description"			"Instantly teleport up to %max_travel_distance% distance away."

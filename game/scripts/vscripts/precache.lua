@@ -41,6 +41,7 @@ precache.particles = {
 precache.particle_folders = {
     "particles/dodgeball/",
     "particles/rts/",
+    "particles/tag/",
 }
 
 precache.models = {
@@ -54,18 +55,14 @@ precache.model_folders = {
 precache.sounds = {
     "soundevents/dab_soundevents.vsndevts",
     "soundevents/dab_client_soundevents.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_primal_beast.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_chaos_knight.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_slark.vsndevts",
 }
 
 precache.units = {

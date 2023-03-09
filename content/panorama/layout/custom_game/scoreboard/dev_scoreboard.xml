@@ -9,9 +9,9 @@
 
 	<Panel style="width:100%; height:100%;" hittest="false">
 		<Panel id="Scoreboard" hittest="false" >
-			<!-- <Panel id="Blue_Container" class="ScoreContainers">
+			<Panel id="Blue_Container" class="ScoreContainers">
 				<Label id="Blue_Score" class="ScoreLabel" text="0" />
-			</Panel> -->
+			</Panel>
 			<!-- <Panel id="Red_Container" class="ScoreContainers">
 				<Label id="Red_Score" class="ScoreLabel" text="0" />
 			</Panel> -->

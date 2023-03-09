@@ -13,15 +13,17 @@ ENEMY_TEAM[DOTA_TEAM_BADGUYS] = DOTA_TEAM_GOODGUYS
 function GameManager:Init()
 	self:SetGamePhase(GAME_STATE_INIT)
 
-	EonSpheres:Init()
-	NexusManager:Spawn()
-	Minerals:Spawn()
-	Refineries:Spawn()
-	UpgradeCenters:Spawn()
-	BarracksManager:Spawn()
+	--EonSpheres:Init()
+	--NexusManager:Spawn()
+	--Minerals:Spawn()
+	--Refineries:Spawn()
+	--UpgradeCenters:Spawn()
+	--BarracksManager:Spawn()
 
-	LaneCreeps:Init()
-	Towers:Init()
+	--LaneCreeps:Init()
+	--Towers:Init()
+
+	RoundManager:Init()
 end
 
 function GameManager:SetGamePhase(phase)
@@ -43,12 +45,13 @@ function GameManager:OnGameStart()
 
 	self:SetGamePhase(GAME_STATE_BATTLE)
 
-	Refineries:OnGameStart()
-	UpgradeCenters:OnGameStart()
-	BarracksManager:OnGameStart()
-	LaneCreeps:OnGameStart()
+	--Refineries:OnGameStart()
+	--UpgradeCenters:OnGameStart()
+	--BarracksManager:OnGameStart()
+	--LaneCreeps:OnGameStart()
 	--Towers:OnGameStart()
 
+	RoundManager:OnGameStart()
 	GameClock:Start()
 end
 
@@ -61,7 +64,7 @@ function GameManager:InitializeHero(hero)
 
 	for i = 0, 10 do
 		local ability = hero:GetAbilityByIndex(i)
-		if ability and ability:GetAbilityType() == ABILITY_TYPE_BASIC then
+		if ability then
 			ability:SetLevel(1)
 		end
 	end
@@ -70,6 +73,8 @@ function GameManager:InitializeHero(hero)
 	hero:HeroLevelUp(false)
 
 	hero:SetAbilityPoints(0)
+
+	hero:AddItemByName("item_aghanims_shard")
 
 	if IsInToolsMode() then
 		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
@@ -86,6 +91,9 @@ end
 
 function GameManager:OnHostSelectedOption(event)
 	FOG_OF_WAR_DISABLED = (event.disable_fog == 1)
+	CAMERA_LOCK = (event.camera_lock == 1)
+	RANDOM_ABILITIES = (event.random_abilities == 1)
+	SAME_RANDOM_ABILITY = (event.same_random_ability == 1)
 end
 
 function GameManager:OnUnitKilled(attacker, killed_unit)

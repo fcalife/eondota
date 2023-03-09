@@ -1,3 +1,387 @@
 "DOTAHeroes"
 {
+	"npc_dota_hero_slark"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"10"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"slark_pounce"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"basic_cleave"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"generic_hidden"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
+
+	"npc_dota_hero_rattletrap"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"10"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"rattletrap_hookshot"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"basic_cleave"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"generic_hidden"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
+
+	"npc_dota_hero_earth_spirit"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"10"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"earth_spirit_rolling_boulder"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"basic_cleave"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"generic_hidden"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
+
+	"npc_dota_hero_primal_beast"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"10"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"primal_beast_onslaught"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"basic_cleave"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"generic_hidden"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"primal_beast_onslaught_release"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
+
+	"npc_dota_hero_mirana"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"10"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"mirana_leap"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"basic_cleave"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"generic_hidden"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
+
+	"npc_dota_hero_sand_king"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"10"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"sandking_burrowstrike"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"basic_cleave"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"generic_hidden"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
+
+	"npc_dota_hero_faceless_void"
+	{
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"		"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"10"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"faceless_void_time_walk"
+		"Ability2"		"antimage_blink"
+		"Ability3"		"basic_cleave"
+		"Ability4"		"faceless_void_time_walk_reverse"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"generic_hidden"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
 }

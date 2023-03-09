@@ -7,7 +7,7 @@ function GameClock:Start()
 end
 
 function GameClock:Tick()
-	GoldRewards:Tick()
+	--GoldRewards:Tick()
 
 	if GameManager:GetGamePhase() < GAME_STATE_END then
 		Timers:CreateTimer(1, function()

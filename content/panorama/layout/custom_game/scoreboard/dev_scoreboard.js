@@ -1,7 +1,7 @@
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
-// CustomNetTables.SubscribeNetTableListener("score", UpdateScoreboard);
+CustomNetTables.SubscribeNetTableListener("round_timer", UpdateTimer);
 
 let team_names = {}
 
@@ -44,6 +44,12 @@ function UpdateScoreboard(table_name, key, data) {
 		// $("#Dark_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_6]);
 		// $("#Mauve_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_7]);
 		// $("#Plaid_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_8]);
+	}
+}
+
+function UpdateTimer(table_name, key, data) {
+	if (key == "timer") {
+		$("#Blue_Score").text = parseInt(data.round_time_remaining);
 	}
 }
 

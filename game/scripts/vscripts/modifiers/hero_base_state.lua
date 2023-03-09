@@ -14,6 +14,12 @@ function modifier_hero_base_state:OnCreated(keys)
 	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 12}) end
 end
 
+function modifier_hero_base_state:CheckState()
+	return {
+		[MODIFIER_STATE_DISARMED] = true,
+	}
+end
+
 function modifier_hero_base_state:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,

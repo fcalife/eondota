@@ -53,7 +53,7 @@ function GameMode:InitGameMode()
 
 	-- Initial gamemode setup
 	GameRules:SetSameHeroSelectionEnabled(true)
-	GameRules:SetHeroRespawnEnabled(true)
+	GameRules:SetHeroRespawnEnabled(false)
 	GameRules:SetHeroSelectionTime(60)
 	GameRules:SetStrategyTime(0)
 	GameRules:SetShowcaseTime(0)
@@ -64,7 +64,7 @@ function GameMode:InitGameMode()
 	GameRules:SetStartingGold(600)
 	GameRules:SetUseUniversalShopMode(true)
 	GameRules:SetHeroMinimapIconScale(1)
-	GameRules:SetTreeRegrowTime(10)
+	GameRules:SetTreeRegrowTime(3)
 	GameRules:SetFirstBloodActive(false)
 	GameRules:SetHideKillMessageHeaders(false)
 	GameRules:SetTimeOfDay(0.5)
@@ -88,11 +88,11 @@ function GameMode:InitGameMode()
 	--game_mode_entity:SetCustomGameForceHero("npc_dota_hero_invoker")
 
 	-- Team configuration
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 5)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 5)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 1)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 1)
 
 	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_8 do
-		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
+		GameRules:SetCustomGameTeamMaxPlayers(team, 1)
 	end
 
 	SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, 64, 64, 208)

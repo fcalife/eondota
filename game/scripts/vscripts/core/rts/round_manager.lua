@@ -193,6 +193,9 @@ function RoundManager:EndRound()
 			self.alive_teams[team] = false
 			self.score[team] = 0
 
+			AddFOWViewer(team, Vector(0, 0, 0), 3000, 10000, false)
+			if CAMERA_LOCK then UnlockPlayerCamera(hero) end
+
 			Timers:CreateTimer(3, function() hero:AddNoDraw() end)
 		end
 	end

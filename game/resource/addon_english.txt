@@ -157,8 +157,8 @@
 		"DOTA_Tooltip_ability_basic_throw_speed"				"SPEED:"
 		"DOTA_Tooltip_ability_basic_throw_radius"				"RADIUS:"
 
-		"DOTA_Tooltip_ability_basic_cleave"						"Bonker"
-		"DOTA_Tooltip_ability_basic_cleave_Description"			"Bonks an enemy in front of you, granting them the BONKER."
+		"DOTA_Tooltip_ability_basic_cleave"						"Bonk!"
+		"DOTA_Tooltip_ability_basic_cleave_Description"			"Steals an enemy's crown if you manage to hit them."
 
 		"DOTA_Tooltip_ability_basic_blink"						"Blink"
 		"DOTA_Tooltip_ability_basic_blink_Description"			"Instantly teleport up to %max_travel_distance% distance away."

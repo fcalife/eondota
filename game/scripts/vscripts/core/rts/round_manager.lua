@@ -24,10 +24,12 @@ function RoundManager:Init()
 end
 
 function RoundManager:OnGameStart()
+	self.score = {}
 	self.alive_teams = {}
 
 	for _, hero in pairs(HeroList:GetAllHeroes()) do
 		self.alive_teams[hero:GetTeam()] = true
+		self.score[hero:GetTeam()] = 0
 	end
 
 	self:InitializeRound()
@@ -37,6 +39,7 @@ function RoundManager:InitializeRound()
 	local all_heroes = HeroList:GetAllHeroes()
 	local random_ability = self.random_abilities[RandomInt(1, #self.random_abilities)]
 	local starting_points = table.shuffled(self.start_points)
+	local round_hero_count = 0
 
 	for _, hero in pairs(all_heroes) do
 		if self.alive_teams[hero:GetTeam()] then
@@ -45,6 +48,7 @@ function RoundManager:InitializeRound()
 			hero:SetHealth(hero:GetMaxHealth())
 			hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 3})
 			hero:RemoveModifierByName("modifier_fountain_invulnerability")
+			hero:RemoveModifierByName("modifier_crown")
 			FindClearSpaceForUnit(hero, table.remove(starting_points), true)
 
 			LockPlayerCameraOnTarget(hero, hero, (not CAMERA_LOCK))
@@ -57,20 +61,22 @@ function RoundManager:InitializeRound()
 
 			self:RefreshHeroAbilities(hero)
 
-			local bonker = hero:FindAbilityByName("basic_cleave")
-			if bonker then bonker:SetHidden(true) end
+			self.score[hero:GetTeam()] = 0
+
+			round_hero_count = round_hero_count + 1
 		end
 	end
 
-	local found_bonker = false
+	self:UpdateScoreboard()
 
-	while (not found_bonker) do
+	local crowns_needed = 1 + math.max(0, math.floor((round_hero_count - 2) / 4))
+
+	while crowns_needed > 0 do
 		local random_hero = all_heroes[RandomInt(1, #all_heroes)]
-		local bonk_ability = random_hero:FindAbilityByName("basic_cleave")
 
-		if self.alive_teams[random_hero:GetTeam()] and bonk_ability then
-			bonk_ability:SetHidden(false)
-			found_bonker = true
+		if self.alive_teams[random_hero:GetTeam()] then
+			random_hero:AddNewModifier(random_hero, nil, "modifier_crown", {})
+			crowns_needed = crowns_needed - 1
 		end
 	end
 
@@ -101,6 +107,8 @@ function RoundManager:Tick()
 
 	self:UpdateRoundTimer()
 
+	self:GivePointsToCrown()
+
 	if self.round_time_remaining > 0 then
 		Timers:CreateTimer(1, function() self:Tick() end)
 	else
@@ -108,8 +116,23 @@ function RoundManager:Tick()
 	end
 end
 
+function RoundManager:GivePointsToCrown()
+	for _, hero in pairs(HeroList:GetAllHeroes()) do
+		local team = hero:GetTeam()
+		if self.alive_teams[team] and hero:HasModifier("modifier_crown") then
+			self.score[team] = self.score[team] + 1
+		end
+	end
+
+	self:UpdateScoreboard()
+end
+
 function RoundManager:UpdateRoundTimer()
 	CustomNetTables:SetTableValue("round_timer", "timer", {round_time_remaining = self.round_time_remaining})
+end
+
+function RoundManager:UpdateScoreboard()
+	CustomNetTables:SetTableValue("score", "scoreboard", self.score)
 end
 
 function RoundManager:RefreshHeroAbilities(hero)
@@ -142,13 +165,20 @@ end
 
 function RoundManager:EndRound()
 	local all_heroes = HeroList:GetAllHeroes()
+	local lowest_score = 1000
 
 	for _, hero in pairs(all_heroes) do
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 3})
 
-		local bonker = hero:FindAbilityByName("basic_cleave")
+		local team = hero:GetTeam()
 
-		if bonker and (not bonker:IsHidden()) then
+		if self.alive_teams[team] and self.score[team] < lowest_score then lowest_score = self.score[team] end
+	end
+
+	for _, hero in pairs(all_heroes) do
+		local team = hero:GetTeam()
+
+		if self.alive_teams[team] and self.score[team] <= lowest_score then
 			local blood_pfx = ParticleManager:CreateParticle("particles/tag/death_explode.vpcf", PATTACH_ABSORIGIN, hero)
 			ParticleManager:SetParticleControl(blood_pfx, 0, hero:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(blood_pfx)
@@ -160,7 +190,8 @@ function RoundManager:EndRound()
 
 			hero:Kill(bonker, hero)
 
-			self.alive_teams[hero:GetTeam()] = false
+			self.alive_teams[team] = false
+			self.score[team] = 0
 
 			Timers:CreateTimer(3, function() hero:AddNoDraw() end)
 		end

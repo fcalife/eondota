@@ -1,67 +1,58 @@
 basic_cleave = class({})
 
-LinkLuaModifier("modifier_tagger", "abilities/basic", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_tagger_visual", "abilities/basic", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_tagger_visual_energy", "abilities/basic", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_crown", "abilities/basic", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_crown_visual", "abilities/basic", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tagger_visual_death", "abilities/basic", LUA_MODIFIER_MOTION_NONE)
 
-function basic_cleave:GetIntrinsicModifierName()
-	return "modifier_tagger"
+
+
+modifier_crown = class({})
+
+function modifier_crown:IsHidden() return true end
+function modifier_crown:IsDebuff() return false end
+function modifier_crown:IsPurgable() return false end
+
+function modifier_crown:GetEffectName()
+	return "particles/tag/tag_crown.vpcf"
 end
 
-
-
-modifier_tagger = class({})
-
-function modifier_tagger:IsHidden() return true end
-function modifier_tagger:IsDebuff() return false end
-function modifier_tagger:IsPurgable() return false end
-
-function modifier_tagger:OnCreated()
-	if IsClient() then return end
-
-	self:StartIntervalThink(0.1)
-end
-
-function modifier_tagger:OnIntervalThink()
-	if self:GetAbility():IsHidden() then
-		self:GetParent():RemoveModifierByName("modifier_tagger_visual")
-		self:GetParent():RemoveModifierByName("modifier_tagger_visual_energy")
-	else
-		self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_tagger_visual", {})
-		self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_tagger_visual_energy", {})
-	end
-end
-
-
-
-modifier_tagger_visual = class({})
-
-function modifier_tagger_visual:IsHidden() return true end
-function modifier_tagger_visual:IsDebuff() return false end
-function modifier_tagger_visual:IsPurgable() return false end
-
-function modifier_tagger_visual:GetEffectName()
-	return "particles/tag/tag_clown.vpcf"
-end
-
-function modifier_tagger_visual:GetEffectAttachType()
+function modifier_crown:GetEffectAttachType()
 	return PATTACH_OVERHEAD_FOLLOW
 end
 
+function modifier_crown:OnCreated(keys)
+	if IsClient() then return end
+
+	self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_crown_visual", {})
+
+	local bonker = self:GetParent():FindAbilityByName("basic_cleave")
+
+	if bonker then bonker:SetHidden(true) end
+end
+
+function modifier_crown:OnDestroy()
+	if IsClient() then return end
+
+	self:GetParent():RemoveModifierByName("modifier_crown_visual")
+
+	local bonker = self:GetParent():FindAbilityByName("basic_cleave")
+
+	if bonker then bonker:SetHidden(false) end
+end
 
 
-modifier_tagger_visual_energy = class({})
 
-function modifier_tagger_visual_energy:IsHidden() return true end
-function modifier_tagger_visual_energy:IsDebuff() return false end
-function modifier_tagger_visual_energy:IsPurgable() return false end
+modifier_crown_visual = class({})
 
-function modifier_tagger_visual_energy:GetEffectName()
+function modifier_crown_visual:IsHidden() return true end
+function modifier_crown_visual:IsDebuff() return false end
+function modifier_crown_visual:IsPurgable() return false end
+
+function modifier_crown_visual:GetEffectName()
 	return "particles/tag/tag_energy.vpcf"
 end
 
-function modifier_tagger_visual_energy:GetEffectAttachType()
+function modifier_crown_visual:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 
@@ -111,6 +102,8 @@ function basic_cleave:FireOnPosition(target)
 	ParticleManager:SetParticleControlOrientation(strike_pfx, 0, caster:GetForwardVector(), caster:GetRightVector(), caster:GetUpVector())
 	ParticleManager:ReleaseParticleIndex(strike_pfx)
 
+	if caster:HasModifier("modifier_crown") then return end
+
 	local enemies = FindUnitsInRadius(
 		caster:GetTeam(),
 		caster_loc,
@@ -130,14 +123,12 @@ function basic_cleave:FireOnPosition(target)
 		local enemy_direction = (enemy_loc - caster_loc):Normalized()
 		local dot_product = DotProduct(direction, enemy_direction)
 
-		if dot_product >= min_dot_product then
+		if enemy:HasModifier("modifier_crown") and dot_product >= min_dot_product then
 			enemy:EmitSound("KnockbackArena.HeavyHit")
 			enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = 2.0})
 
-			local enemy_ability = enemy:FindAbilityByName("basic_cleave")
-			if enemy_ability then enemy_ability:SetHidden(false) end
-
-			self:SetHidden(true)
+			enemy:RemoveModifierByName("modifier_crown")
+			caster:AddNewModifier(caster, self, "modifier_crown", {})
 
 			return
 		end

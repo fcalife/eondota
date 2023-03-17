@@ -12,9 +12,14 @@
 		<Panel id="Container" hittest="true" >
 			<Label id="Header" text="GAME OPTIONS" />
 
-			<Panel class="OptionContainer" id="disable_fog_container">
-				<ToggleButton class="OptionToggleButton" id="disable_fog" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Disable fog of war"/>
+			<Panel class="OptionContainer" id="small_grid_container">
+				<ToggleButton class="OptionToggleButton" id="small_grid" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Smaller map"/>
+			</Panel>
+
+			<Panel class="OptionContainer" id="smaller_grid_container">
+				<ToggleButton class="OptionToggleButton" id="smaller_grid" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Even smaller map"/>
 			</Panel>
 
 			<Panel class="OptionContainer" id="camera_lock_container">
@@ -22,14 +27,14 @@
 				<Label class="OptionLabel" text="Lock camera"/>
 			</Panel>
 
-			<Panel class="OptionContainer" id="random_abilities_container">
-				<ToggleButton class="OptionToggleButton" id="random_abilities" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Random abilities mode"/>
+			<Panel class="OptionContainer" id="fast_abilities_container">
+				<ToggleButton class="OptionToggleButton" id="fast_abilities" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Shorter cooldowns"/>
 			</Panel>
 
-			<Panel class="OptionContainer" id="same_random_ability_container">
-				<ToggleButton class="OptionToggleButton" id="same_random_ability" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Same ability for everyone"/>
+			<Panel class="OptionContainer" id="faster_abilities_container">
+				<ToggleButton class="OptionToggleButton" id="faster_abilities" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Even shorter cooldowns"/>
 			</Panel>
 		</Panel>
 	</Panel>

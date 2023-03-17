@@ -1,6 +1,7 @@
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
+CustomNetTables.SubscribeNetTableListener("score", UpdateScoreboard);
 CustomNetTables.SubscribeNetTableListener("round_timer", UpdateTimer);
 
 let team_names = {}
@@ -34,22 +35,16 @@ function NewMessage(data) {
 
 function UpdateScoreboard(table_name, key, data) {
 	if (key == "scoreboard") {
-		//$("#Blue_Score").text = parseInt(data[Game.GetLocalPlayerID()]);
-		//$("#Red_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_BADGUYS]);
-		// $("#Green_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_1]);
-		// $("#Pink_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_2]);
-		// $("#Yellow_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_3]);
-		// $("#Cyan_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_4]);
-		// $("#Light_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_5]);
-		// $("#Dark_Gray_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_6]);
-		// $("#Mauve_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_7]);
-		// $("#Plaid_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_8]);
+		$("#Blue_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_GOODGUYS]);
+		$("#Red_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_BADGUYS]);
+		$("#Green_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_1]);
+		$("#Pink_Score").text = parseInt(data[DOTATeam_t.DOTA_TEAM_CUSTOM_2]);
 	}
 }
 
 function UpdateTimer(table_name, key, data) {
 	if (key == "timer") {
-		$("#Blue_Score").text = parseInt(data.round_time_remaining);
+		$("#Round_Timer").text = parseInt(data.round_time_remaining);
 	}
 }
 
@@ -76,17 +71,11 @@ function HideBaseHud(panel_name) {
 	}
 }
 
-// HideBaseHud("inventory_neutral_slot_container");
-// HideBaseHud("inventory_tpscroll_container");
-// HideBaseHud("left_flare");
-// HideBaseHud("xp");
-// HideBaseHud("StatBranch");
-// HideBaseHud("StatBranchHotkey");
-// HideBaseHud("ButtonWell");
-// HideBaseHud("level_stats_frame");
-
-// if (Players.GetTeam(Game.GetLocalPlayerID()) == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
-// 	GameUI.SetCameraYaw(-45);
-// } else {
-// 	GameUI.SetCameraYaw(135);
-// }
+HideBaseHud("inventory_neutral_slot_container");
+HideBaseHud("inventory_tpscroll_container");
+HideBaseHud("left_flare");
+HideBaseHud("xp");
+HideBaseHud("StatBranch");
+HideBaseHud("StatBranchHotkey");
+HideBaseHud("ButtonWell");
+HideBaseHud("level_stats_frame");

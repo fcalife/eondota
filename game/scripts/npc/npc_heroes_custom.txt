@@ -31,8 +31,8 @@
 		"StatusHealthRegen"		"0.0"
 
 		"Ability1"		"slark_pounce"
-		"Ability2"		"antimage_blink"
-		"Ability3"		"basic_cleave"
+		"Ability2"		"generic_hidden"
+		"Ability3"		"basic_ink"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"generic_hidden"
@@ -55,7 +55,7 @@
 		"VisionNighttimeRange"		"1400"
 	}
 
-	"npc_dota_hero_rattletrap"
+	"npc_dota_hero_techies"
 	{
 		"ArmorPhysical"			"0"
 		"MagicalResistance"		"0"
@@ -85,9 +85,9 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"rattletrap_hookshot"
-		"Ability2"		"antimage_blink"
-		"Ability3"		"basic_cleave"
+		"Ability1"		"ballistic_ink"
+		"Ability2"		"generic_hidden"
+		"Ability3"		"basic_ink"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"generic_hidden"
@@ -110,7 +110,7 @@
 		"VisionNighttimeRange"		"1400"
 	}
 
-	"npc_dota_hero_earth_spirit"
+	"npc_dota_hero_windrunner"
 	{
 		"ArmorPhysical"			"0"
 		"MagicalResistance"		"0"
@@ -140,9 +140,9 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"earth_spirit_rolling_boulder"
-		"Ability2"		"antimage_blink"
-		"Ability3"		"basic_cleave"
+		"Ability1"		"windrunner_windrun"
+		"Ability2"		"generic_hidden"
+		"Ability3"		"basic_ink"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"generic_hidden"
@@ -165,7 +165,7 @@
 		"VisionNighttimeRange"		"1400"
 	}
 
-	"npc_dota_hero_primal_beast"
+	"npc_dota_hero_brewmaster"
 	{
 		"ArmorPhysical"			"0"
 		"MagicalResistance"		"0"
@@ -195,16 +195,16 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"primal_beast_onslaught"
-		"Ability2"		"antimage_blink"
-		"Ability3"		"basic_cleave"
+		"Ability1"		"splatter_ink"
+		"Ability2"		"generic_hidden"
+		"Ability3"		"basic_ink"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"generic_hidden"
 		"Ability7"		"generic_hidden"
 		"Ability8"		"generic_hidden"
 		"Ability9"		"generic_hidden"
-		"Ability10"		"primal_beast_onslaught_release"
+		"Ability10"		"generic_hidden"
 		"Ability11"		"generic_hidden"
 		"Ability12"		"generic_hidden"
 		"Ability13"		"generic_hidden"
@@ -250,9 +250,9 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"mirana_leap"
-		"Ability2"		"antimage_blink"
-		"Ability3"		"basic_cleave"
+		"Ability1"		"generic_hidden"
+		"Ability2"		"generic_hidden"
+		"Ability3"		"basic_ink"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"generic_hidden"
@@ -305,9 +305,9 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"sandking_burrowstrike"
-		"Ability2"		"antimage_blink"
-		"Ability3"		"basic_cleave"
+		"Ability1"		"generic_hidden"
+		"Ability2"		"generic_hidden"
+		"Ability3"		"basic_ink"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"generic_hidden"
@@ -360,10 +360,10 @@
 		"StatusManaRegen"		"0.0"
 		"StatusHealthRegen"		"0.0"
 
-		"Ability1"		"faceless_void_time_walk"
-		"Ability2"		"antimage_blink"
-		"Ability3"		"basic_cleave"
-		"Ability4"		"faceless_void_time_walk_reverse"
+		"Ability1"		"generic_hidden"
+		"Ability2"		"generic_hidden"
+		"Ability3"		"basic_ink"
+		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"generic_hidden"
 		"Ability7"		"generic_hidden"

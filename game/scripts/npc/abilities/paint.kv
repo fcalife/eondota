@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+	"basic_ink"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/paint"
+
+		"AbilityTextureName"		"grimstroke_dark_artistry"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"0.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+	}
+
+	"ballistic_ink"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/paint"
+
+		"AbilityTextureName"		"grimstroke_spirit_walk"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastRange"			"0"
+		"AbilityCastPoint"			"0.2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCooldown"			"8"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"stickyness"			"2.5"
+		}
+	}
+
+	"splatter_ink"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/paint"
+
+		"AbilityTextureName"		"brewmaster_thunder_clap"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastRange"			"0"
+		"AbilityCastPoint"			"0.2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCooldown"			"8"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"stickyness"			"1.5"
+		}
+	}
+}

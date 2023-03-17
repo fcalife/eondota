@@ -36,6 +36,7 @@ end
 
 function GameManager:OnPreGameStart()
 	print("New dota state: pregame")
+	PaintableGrids:Init()
 end
 
 function GameManager:OnGameStart()
@@ -90,10 +91,11 @@ function GameManager:EndGameWithWinner(team)
 end
 
 function GameManager:OnHostSelectedOption(event)
-	FOG_OF_WAR_DISABLED = (event.disable_fog == 1)
 	CAMERA_LOCK = (event.camera_lock == 1)
-	RANDOM_ABILITIES = (event.random_abilities == 1)
-	SAME_RANDOM_ABILITY = (event.same_random_ability == 1)
+	FAST_ABILITIES = (event.fast_abilities == 1)
+	FASTER_ABILITIES = (event.faster_abilities == 1)
+
+	GRID_SIZE = (event.smaller_grid == 1 and 3) or (event.small_grid == 1 and 4) or 5
 end
 
 function GameManager:OnUnitKilled(attacker, killed_unit)

@@ -8,20 +8,24 @@
 	</scripts>
 
 	<Panel style="width:100%; height:100%;" hittest="false">
+		<Panel id="Round_Timer_Container" hittest="false" >
+			<Label id="Round_Timer" text="0" />
+		</Panel>
+
 		<Panel id="Scoreboard" hittest="false" >
 			<Panel id="Blue_Container" class="ScoreContainers">
 				<Label id="Blue_Score" class="ScoreLabel" text="0" />
 			</Panel>
-			<!-- <Panel id="Red_Container" class="ScoreContainers">
+			<Panel id="Red_Container" class="ScoreContainers">
 				<Label id="Red_Score" class="ScoreLabel" text="0" />
-			</Panel> -->
-			<!-- <Panel id="Green_Container" class="ScoreContainers">
+			</Panel>
+			<Panel id="Green_Container" class="ScoreContainers">
 				<Label id="Green_Score" class="ScoreLabel" text="0" />
 			</Panel>
 			<Panel id="Pink_Container" class="ScoreContainers">
 				<Label id="Pink_Score" class="ScoreLabel" text="0" />
 			</Panel>
-			<Panel id="Yellow_Container" class="ScoreContainers">
+			<!-- <Panel id="Yellow_Container" class="ScoreContainers">
 				<Label id="Yellow_Score" class="ScoreLabel" text="0" />
 			</Panel>
 			<Panel id="Cyan_Container" class="ScoreContainers">

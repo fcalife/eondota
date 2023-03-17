@@ -2317,3 +2317,111 @@
 		}
 	}
 }
+
+"Ink.Launch"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/techies/preattack.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.3"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.0"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Ink.Smash"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/brewmaster/thunder_clap.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.8"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.4"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Ink.Splotch"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/grimstroke/dark_artistry_projectile.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.85"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.35"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"2500"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}

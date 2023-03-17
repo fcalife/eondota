@@ -1,8 +1,6 @@
 #base abilities/basic.kv
-#base abilities/refinery.kv
-#base abilities/upgrade_center.kv
-#base abilities/barracks.kv
 #base abilities/creeps.kv
+#base abilities/paint.kv
 
 "DOTAAbilities"
 {

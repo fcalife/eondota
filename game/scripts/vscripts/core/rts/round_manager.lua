@@ -1,16 +1,16 @@
 _G.RoundManager = RoundManager or {}
 
-ROUND_DURATION = 40
+ROUND_DURATION = 60
 
 function RoundManager:Init()
 	self.current_round = 1
 
-	self.start_points = {}
+	--self.start_points = {}
 
-	local start_point_entities = Entities:FindAllByName("start_point")
-	for _, start_point_entity in pairs(start_point_entities) do
-		table.insert(self.start_points, start_point_entity:GetAbsOrigin())
-	end
+	--local start_point_entities = Entities:FindAllByName("start_point")
+	--for _, start_point_entity in pairs(start_point_entities) do
+	--	table.insert(self.start_points, start_point_entity:GetAbsOrigin())
+	--end
 
 	self.random_abilities = {
 		"slark_pounce",
@@ -24,10 +24,12 @@ function RoundManager:Init()
 end
 
 function RoundManager:OnGameStart()
+	self.score = {}
 	self.alive_teams = {}
 
 	for _, hero in pairs(HeroList:GetAllHeroes()) do
 		self.alive_teams[hero:GetTeam()] = true
+		self.score[hero:GetTeam()] = 0
 	end
 
 	self:InitializeRound()
@@ -36,17 +38,22 @@ end
 function RoundManager:InitializeRound()
 	local all_heroes = HeroList:GetAllHeroes()
 	local random_ability = self.random_abilities[RandomInt(1, #self.random_abilities)]
-	local starting_points = table.shuffled(self.start_points)
-	local round_hero_count = 0
 
 	for _, hero in pairs(all_heroes) do
-		if self.alive_teams[hero:GetTeam()] then
+		local team = hero:GetTeam()
+
+		if self.alive_teams[team] then
 			hero:RespawnHero(false, false)
 			hero:Stop()
 			hero:SetHealth(hero:GetMaxHealth())
 			hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 3})
 			hero:RemoveModifierByName("modifier_fountain_invulnerability")
-			FindClearSpaceForUnit(hero, table.remove(starting_points), true)
+
+			if FASTER_ABILITIES then
+				hero:AddNewModifier(hero, nil, "modifier_faster_abilities", {})
+			elseif FAST_ABILITIES then
+				hero:AddNewModifier(hero, nil, "modifier_fast_abilities", {})
+			end
 
 			LockPlayerCameraOnTarget(hero, hero, (not CAMERA_LOCK))
 
@@ -57,25 +64,12 @@ function RoundManager:InitializeRound()
 			end
 
 			self:RefreshHeroAbilities(hero)
-
-			local bonker = hero:FindAbilityByName("basic_cleave")
-			if bonker then bonker:SetHidden(true) end
-
-			round_hero_count = round_hero_count + 1
 		end
 	end
 
-	local bonkers_needed = (round_hero_count >= 4 and 2) or 1
+	PaintableGrids:OnRoundStart()
 
-	while bonkers_needed > 0 do
-		local random_hero = all_heroes[RandomInt(1, #all_heroes)]
-		local bonk_ability = random_hero:FindAbilityByName("basic_cleave")
-
-		if self.alive_teams[random_hero:GetTeam()] and bonk_ability and bonk_ability:IsHidden() then
-			bonk_ability:SetHidden(false)
-			bonkers_needed = bonkers_needed - 1
-		end
-	end
+	self:UpdateScoreboard()
 
 	local countdown = 3
 
@@ -115,6 +109,12 @@ function RoundManager:UpdateRoundTimer()
 	CustomNetTables:SetTableValue("round_timer", "timer", {round_time_remaining = self.round_time_remaining})
 end
 
+function RoundManager:UpdateScoreboard()
+	self.score = PaintableGrids:GetTeamScores()
+
+	CustomNetTables:SetTableValue("score", "scoreboard", self.score)
+end
+
 function RoundManager:RefreshHeroAbilities(hero)
 	for i = 0, 10 do
 		local ability = hero:GetAbilityByIndex(i)
@@ -148,35 +148,53 @@ function RoundManager:EndRound()
 
 	for _, hero in pairs(all_heroes) do
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 3})
-
-		local bonker = hero:FindAbilityByName("basic_cleave")
-
-		if bonker and (not bonker:IsHidden()) then
-			local blood_pfx = ParticleManager:CreateParticle("particles/tag/death_explode.vpcf", PATTACH_ABSORIGIN, hero)
-			ParticleManager:SetParticleControl(blood_pfx, 0, hero:GetAbsOrigin())
-			ParticleManager:ReleaseParticleIndex(blood_pfx)
-
-			hero:AddNewModifier(hero, bonker, "modifier_tagger_visual_death", {})
-
-			hero:EmitSound("Sapper.Boom")
-			hero:EmitSound("Death.Boom")
-
-			hero:Kill(bonker, hero)
-
-			self.alive_teams[hero:GetTeam()] = false
-
-			AddFOWViewer(hero:GetTeam(), Vector(0, 0, 0), 3000, 10000, false)
-			if CAMERA_LOCK then UnlockPlayerCamera(hero) end
-
-			Timers:CreateTimer(3, function() hero:AddNoDraw() end)
-		end
 	end
 
-	self:CheckForWinner()
+	local round_scores = PaintableGrids:GetTeamScores()
+	local lowest_score = 999
+
+	for _, score in pairs(round_scores) do
+		if score < lowest_score then lowest_score = score end
+	end
+
+	for team, score in pairs(round_scores) do
+		if score <= lowest_score then self:EliminateTeam(team) end
+	end
 
 	self.current_round = self.current_round + 1
 
 	Timers:CreateTimer(3, function() self:InitializeRound() end)
+end
+
+function RoundManager:EliminateTeam(team)
+	local all_heroes = HeroList:GetAllHeroes()
+
+	for _, hero in pairs(all_heroes) do
+		if hero:GetTeam() == team then
+			local blood_pfx = ParticleManager:CreateParticle("particles/tag/death_explode.vpcf", PATTACH_ABSORIGIN, hero)
+			ParticleManager:SetParticleControl(blood_pfx, 0, hero:GetAbsOrigin())
+			ParticleManager:ReleaseParticleIndex(blood_pfx)
+
+			hero:AddNewModifier(hero, nil, "modifier_tagger_visual_death", {})
+
+			hero:EmitSound("Sapper.Boom")
+			hero:EmitSound("Death.Boom")
+
+			hero:Kill(nil, hero)
+
+			AddFOWViewer(hero:GetTeam(), Vector(0, 0, 0), 3000, 10000, false)
+			if CAMERA_LOCK then UnlockPlayerCamera(hero) end
+
+			Timers:CreateTimer(3, function()
+				hero:SetAbsOrigin(Vector(2000, 2000, 128))
+				hero:AddNoDraw()
+			end)
+		end
+	end
+
+	self.alive_teams[team] = false
+
+	self:CheckForWinner()
 end
 
 function RoundManager:CheckForWinner()
@@ -191,61 +209,4 @@ function RoundManager:CheckForWinner()
 	end
 
 	if winner then GameManager:EndGameWithWinner(winner) end
-end
-
-function RoundManager:OnUnitKilled(killed_unit)
-	if GameManager:GetGamePhase() ~= GAME_STATE_BATTLE then return end
-
-	local lives = killed_unit:FindModifierByName("modifier_lives")
-
-	if lives and lives:GetStackCount() > 0 then
-		lives:DecrementStackCount()
-
-		if lives:GetStackCount() < 1 then lives:Destroy() end
-
-		if killed_unit:IsRealHero() then
-			killed_unit:RespawnHero(false, false)
-			killed_unit:AddNewModifier(killed_unit, nil, "modifier_just_respawned", {duration = 3})
-		end
-
-		return nil
-	end
-
-	if CAMERA_LOCK then UnlockPlayerCamera(killed_unit) end
-
-	local all_heroes = HeroList:GetAllHeroes()
-
-	local radiant_dead = true
-	local dire_dead = true
-
-	for _, hero in pairs(all_heroes) do
-		if hero:IsRealHero() and hero:IsAlive() then
-			if hero:GetTeam() == DOTA_TEAM_GOODGUYS then radiant_dead = false end
-			if hero:GetTeam() == DOTA_TEAM_BADGUYS then dire_dead = false end
-		end
-	end
-
-	if radiant_dead then
-		self:SetRoundWinner(DOTA_TEAM_BADGUYS)
-	elseif dire_dead then
-		self:SetRoundWinner(DOTA_TEAM_GOODGUYS)
-	end
-end
-
-function RoundManager:SetRoundWinner(team)
-	Walls:OnRoundEnd()
-
-	ScoreManager:OnTeamWinRound(team)
-
-	GameManager:SetGamePhase(GAME_STATE_INIT)
-
-	local all_heroes = HeroList:GetAllHeroes()
-
-	for _, hero in pairs(all_heroes) do
-		hero:AddNewModifier(hero, nil, "modifier_stunned", {duration = 3})
-	end
-
-	self.current_round = self.current_round + 1
-
-	Timers:CreateTimer(3, function() self:InitializeRound() end)
 end

@@ -23,7 +23,8 @@ end
 function modifier_hero_base_state:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE
+		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
 	}
 end
 
@@ -33,4 +34,49 @@ end
 
 function modifier_hero_base_state:GetModifierPercentageRespawnTime()
 	return (0.4 + 0.3 * (self:GetParent():GetLevel()) / 30)
+end
+
+
+function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
+	return 1
+end
+
+
+
+modifier_fast_abilities = class({})
+
+function modifier_fast_abilities:IsHidden() return true end
+function modifier_fast_abilities:IsDebuff() return false end
+function modifier_fast_abilities:IsPurgable() return false end
+function modifier_fast_abilities:RemoveOnDeath() return false end
+function modifier_fast_abilities:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_fast_abilities:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
+	}
+end
+
+function modifier_fast_abilities:GetModifierPercentageCooldown()
+	return 25
+end
+
+
+
+modifier_faster_abilities = class({})
+
+function modifier_faster_abilities:IsHidden() return true end
+function modifier_faster_abilities:IsDebuff() return false end
+function modifier_faster_abilities:IsPurgable() return false end
+function modifier_faster_abilities:RemoveOnDeath() return false end
+function modifier_faster_abilities:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_faster_abilities:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
+	}
+end
+
+function modifier_faster_abilities:GetModifierPercentageCooldown()
+	return 50
 end

@@ -1,20 +1,24 @@
 TryGetHost();
 
-$('#disable_fog').SetSelected(false);
+$('#small_grid').SetSelected(false);
+$('#smaller_grid').SetSelected(false);
 $('#camera_lock').SetSelected(true);
-$('#random_abilities').SetSelected(false);
-$('#same_random_ability').SetSelected(true);
+$('#fast_abilities').SetSelected(false);
+$('#faster_abilities').SetSelected(false);
 
-$('#same_random_ability_container').visible = false;
+$('#smaller_grid_container').visible = false;
+$('#faster_abilities_container').visible = false;
 
 function UpdateOptions() {
-	$('#same_random_ability_container').visible = $('#random_abilities').IsSelected();
+	$('#smaller_grid_container').visible = $('#small_grid').IsSelected();
+	$('#faster_abilities_container').visible = $('#fast_abilities').IsSelected();
 
 	GameEvents.SendCustomGameEventToServer("host_options_updated", {
-		disable_fog: $('#disable_fog').IsSelected(),
+		small_grid: $('#small_grid').IsSelected(),
+		smaller_grid: $('#smaller_grid').IsSelected(),
 		camera_lock: $('#camera_lock').IsSelected(),
-		random_abilities: $('#random_abilities').IsSelected(),
-		same_random_ability: $('#same_random_ability').IsSelected(),
+		fast_abilities: $('#fast_abilities').IsSelected(),
+		faster_abilities: $('#faster_abilities').IsSelected(),
 	});
 }
 

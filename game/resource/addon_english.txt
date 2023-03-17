@@ -57,27 +57,14 @@
 		"npc_eon_golem"						"Giga Golem"
 
 		// Abilities
-		"DOTA_Tooltip_modifier_upgrade_center_disabled"						"Disabled"
-		"DOTA_Tooltip_modifier_upgrade_center_disabled_Description"			"This building has been disabled due to excessive damage, and is currently recovering."
+		"DOTA_Tooltip_ability_basic_ink"							"Ink Trail"
+		"DOTA_Tooltip_ability_basic_ink_Description"				"<h1>Conversion</h1>Automatically converts any square you step on to your team's color.\n<h1>Sovereignty</h1>For as long as you stay on a square with your team's color, it cannot be converted to any other."
 
-		"DOTA_Tooltip_ability_barracks_summon_footman"						"Summon Footman"
-		"DOTA_Tooltip_ability_barracks_summon_footman_Description"			"<h1>Cost: <font color='gold'>100</font> Eon Spheres</h1>Summons a hardy melee unit which takes reduced damage from ranged attacks."
+		"DOTA_Tooltip_ability_ballistic_ink"						"Ink Launcher"
+		"DOTA_Tooltip_ability_ballistic_ink_Description"			"<h1>Ink Bomb</h1>Converts the target square and its vertical and horizontal neighbors to your team's color.\n<h1>Stickyness</h1>Prevents the target squares' color from being changed for %stickyness% seconds."
 
-		"DOTA_Tooltip_ability_barracks_summon_archer"						"Summon Archer"
-		"DOTA_Tooltip_ability_barracks_summon_archer_Description"			"<h1>Cost: <font color='gold'>100</font> Eon Spheres</h1>Summons a ranged unit which deals bonus damage to tier 3 units."
-
-		"DOTA_Tooltip_ability_barracks_summon_marauder"						"Summon Marauder"
-		"DOTA_Tooltip_ability_barracks_summon_marauder_Description"			"<h1>Cost: <font color='gold'>200</font> Eon Spheres</h1>Summons a short range ranged unit which deals bonus damage to structures."
-
-		"DOTA_Tooltip_ability_barracks_summon_reaper"						"Summon Reaper"
-		"DOTA_Tooltip_ability_barracks_summon_reaper_Description"			"<h1>Cost: <font color='gold'>250</font> Eon Spheres</h1>Summons a strong melee unit which deals extra damage to gatherers."
-
-		"DOTA_Tooltip_ability_barracks_summon_knight"						"Summon Knight"
-		"DOTA_Tooltip_ability_barracks_summon_knight_Description"			"<h1>Cost: <font color='gold'>500</font> Eon Spheres</h1>Summons a durable melee unit which can temporarily disable the enemy nexus."
-
-		"DOTA_Tooltip_ability_barracks_summon_golem"						"Summon Golem"
-		"DOTA_Tooltip_ability_barracks_summon_golem_Description"			"<h1>Cost: <font color='gold'>500</font> Eon Spheres</h1>Summons a powerful melee unit which deals high damage to all enemy units."
-
+		"DOTA_Tooltip_ability_splatter_ink"							"Ink Splatter"
+		"DOTA_Tooltip_ability_splatter_ink_Description"				"<h1>Ink Smash</h1>Converts your current square and all those around it to your team's color.\n<h1>Stickyness</h1>Prevents the target squares' color from being changed for %stickyness% seconds."
 
 
 		"DOTA_Tooltip_ability_refinery_spawn_harvester"						"Spawn Harvester"

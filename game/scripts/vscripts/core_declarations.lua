@@ -1,5 +1,8 @@
 -- Link global modifiers
 LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_fast_abilities", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faster_abilities", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
+
 LinkLuaModifier("modifier_thrown_out", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_respawn_grace_period", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 
@@ -74,7 +77,10 @@ PLAYER_STATE_ABANDONED	 		= 4
 
 
 -- GAME DESIGN CONSTANTS
-FOG_OF_WAR_DISABLED = false
+FOG_OF_WAR_DISABLED = true
 CAMERA_LOCK = true
 RANDOM_ABILITIES = false
 SAME_RANDOM_ABILITY = true
+
+FAST_ABILITIES = false
+FASTER_ABILITIES = false

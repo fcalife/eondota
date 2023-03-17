@@ -181,7 +181,7 @@
 
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"8"
 		"AbilityManaCost"				"0"
 
 		"AbilityValues"
@@ -217,355 +217,45 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 
-	"rattletrap_hookshot"
+	"windrunner_windrun"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-
-		"AbilityCastPoint"				"0.1"
-		"AbilityCastRange"				"1400"
-
-		"AbilityCooldown"				"4"
-		"AbilityManaCost"				"0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"latch_radius"		"125"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"stun_radius"		"175"
-			}
-			"03"
-			{	
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"0.5"
-			}
-			
-			"04"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"3000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"0"
-			}
-		}
-	}
-
-	"earth_spirit_rolling_boulder"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-
 		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"0"
-
-		"AbilityCooldown"				"4"
-		"AbilityManaCost"				"0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"160"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_speed"			"1600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"distance"				"750.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_4"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"rock_distance_multiplier"	"2.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"0.4"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rock_bonus_duration"	"0.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_str"			"0"
-			}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-
-	"primal_beast_onslaught"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-
-		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"1000"
-
-		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"0"
-
-		"AbilityValues"
-		{
-			"charge_speed"				"1000"
-			"chargeup_time"				"0.6"
-			"knockback_radius"			"190"
-			"max_distance"				"1000"
-			"knockback_distance"		"200"
-			"knockback_damage"
-			{
-				"value"					"0"
-				"special_bonus_unique_primal_beast_onslaught_damage"	"+90"
-			}
-			"knockback_duration"		"0.2"
-			"max_charge_time"			"0.6"
-			"turn_rate"					"70"
-			"base_power"				"0.15"
-			"movement_turn_rate"		"50"
-			"stun_duration"				"0.2"
-		}
-	}
-
-	"sandking_burrowstrike"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-
-		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"600"
-
-		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"0"
-
-		"AbilityDamage"					"0"
-
-		"AbilityValues"
-		{
-			"burrow_width"		"150"
-			"burrow_duration"	
-			{
-				"value"			"0.0"
-				"special_bonus_unique_sand_king_burrowstrike_stun"				"+0.5"
-			}
-			"burrow_speed"		"2000"
-			"burrow_anim_time"	"0.4"
-			"cast_range_scepter"
-			{
-				"value"						"600"
-				"RequiresScepter"			"1"
-			}
-			"burrow_speed_scepter"
-			{
-				"value"		"3000"
-				"RequiresScepter"			"1"
-			}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-
-	"antimage_blink"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-
-		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"450"
 
 		"AbilityCooldown"				"8"
+		"AbilityDuration"				"3.5"
+
 		"AbilityManaCost"				"0"
 
 		"AbilityValues"
 		{
-				"AbilityCooldown"				
-				{
-					"value"				"8"
-					"special_bonus_unique_antimage"	"-1"
-				}
-				"AbilityCastRange"			
-				{
-					"value"					"450"
-					"special_bonus_unique_antimage_3"	"+250"
-				}
-				"min_blink_range"		"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-
-	"faceless_void_time_walk"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-
-		"AbilityCastPoint"				"0.0"
-
-		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"0"
-
-		"AbilitySpecial"
-		{
-			"01"
+			"movespeed_bonus_pct"	"50"		
+			"evasion_pct_tooltip"	"0"
+			"enemy_movespeed_bonus_pct"	
 			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1500"
+				"value"		"0"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"650"
+			"radius"					
+			{	
+				"value"			"325"
+				"special_bonus_unique_windranger"	"+225"
 			}
-			"03"
+			"scepter_movespeed_bonus_pct"			
 			{
-				"var_type"				"FIELD_FLOAT"
-				"backtrack_duration"	"0.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_7"
+				"RequiresScepter" "1"
+				"value"			"0"
 			}
-			"04"
+			"scepter_blind"				
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_scepter"		"400"
+				"value"		"0"
 				"RequiresScepter"		"1"
 			}
-			"04"
+			"cannot_be_dispelled"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_bonus_range"		"0"
-				"RequiresShard"			"1"
+				"value"						"0"
+				"special_bonus_unique_windranger_windrun_undispellable"			"+1"
 			}
+			
+			"duration"					"3.5"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-
-	"faceless_void_time_walk_reverse"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"MaxLevel"						"1"
-		"IsGrantedByShard"				"0"
-
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0"
-
-		"AbilityCooldown"				"0.5"
-
-		"AbilityManaCost"				"0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"3000"
-			}
-		}
-	}
-
-	"mirana_leap"
-	{
-		"MaxLevel"						"1"
-
-		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"3"
-
-		"AbilityManaCost"				"0"
-
-		"AbilityValues"
-		{
-			"leap_distance"			
-			{
-				"value"							"350"
-				"special_bonus_unique_mirana_6"	"+125"
-			}
-			"leap_speed"			"1100.0"
-			"leap_acceleration"		"3000.0"
-			"leap_speedbonus"	"0"
-			"leap_speedbonus_as"	
-			{
-				"value"				"0"
-				"special_bonus_unique_mirana_1"	"+80"
-			}
-			"leap_bonus_duration"	"0"
-			"shard_radius"					
-			{
-				"value"				"0"
-				"RequiresShard"		"1"
-			}
-			"shard_radius_end"					
-			{
-				"value"				"0"
-				"RequiresShard"		"1"
-			}
-			"shard_damage"					
-			{
-				"value"				"0"
-				"RequiresShard"		"1"
-				"DamageTypeTooltip"	"DAMAGE_TYPE_MAGICAL"
-			}
-			"shard_slow_pct"					
-			{
-				"value"				"0"
-				"RequiresShard"		"1"
-			}
-			"shard_slow_duration"					
-			{
-				"value"				"0"
-				"RequiresShard"		"1"
-			}
-			"shard_bonus_charges"	
-			{
-				"value"				"0"
-				"RequiresShard"		"1"
-			}
-			"shard_projectile_distance"			
-			{
-				"value"					"0"
-				"RequiresShard"			"1"
-			}
-			"shard_projectile_speed"
-			{
-				"value"					"1000"
-				"RequiresShard"			"1"
-			}
-
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 }

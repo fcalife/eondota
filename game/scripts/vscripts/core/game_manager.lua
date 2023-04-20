@@ -21,7 +21,6 @@ function GameManager:Init()
 	BarracksManager:Spawn()
 
 	LaneCreeps:Init()
-	Towers:Init()
 end
 
 function GameManager:SetGamePhase(phase)
@@ -47,7 +46,6 @@ function GameManager:OnGameStart()
 	UpgradeCenters:OnGameStart()
 	BarracksManager:OnGameStart()
 	LaneCreeps:OnGameStart()
-	--Towers:OnGameStart()
 
 	GameClock:Start()
 end
@@ -60,9 +58,8 @@ function GameManager:InitializeHero(hero)
 	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
 
 	for i = 0, 10 do
-		local ability = hero:GetAbilityByIndex(i)
-		if ability and ability:GetAbilityType() == ABILITY_TYPE_BASIC then
-			ability:SetLevel(1)
+		if hero:GetAbilityByIndex(i) then
+			hero:GetAbilityByIndex(i):SetLevel(1)
 		end
 	end
 
@@ -100,10 +97,4 @@ function GameManager:GetTeamPlayerID(team)
 	end
 
 	return nil
-end
-
-function GameManager:GetMapLocation(name)
-	local target = Entities:FindByName(nil, name)
-
-	return (target and target:GetAbsOrigin()) or Vector(0, 0, 0)
 end

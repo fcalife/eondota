@@ -1,11 +1,10 @@
 #Scoreboard {
-	align:  left top;
-	margin-top:  110px;
+	align:  center top;
+	margin-top:  65px;
 	flow-children:  right;
 }
 
 .ScoreContainers {
-	width: 64px;
 	padding: 4px;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -14,7 +13,7 @@
 }
 
 #Blue_Container {
-	background-color: black;
+	background-color: #4040b0;
 }
 
 #Red_Container {
@@ -59,7 +58,7 @@
 	text-align:  center center;
 	font-size:  28;
 	font-weight:  bold;
-	color:  gold;
+	color:  white;
 	text-overflow: shrink;
 	text-shadow: 1px 1px 3px 2.0 black;
 }

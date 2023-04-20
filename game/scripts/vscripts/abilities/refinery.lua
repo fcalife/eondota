@@ -85,17 +85,15 @@ end
 function modifier_harvester_harvest:OnIntervalThink()
 	local parent = self:GetParent()
 
-	if parent and parent:IsAlive() and parent.refinery_side then
-		local unit_id = parent:entindex()
-		local target_id = Minerals:GetMineralPatch(parent:GetTeam(), parent.refinery_side).unit:entindex()
+	local unit_id = parent:entindex()
+	local target_id = Minerals:GetMineralPatch(parent:GetTeam()).unit:entindex()
 
-		ExecuteOrderFromTable({
-			unitIndex = unit_id,
-			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-			TargetIndex = target_id,
-			Queue = false
-		})
-	end
+	ExecuteOrderFromTable({
+		unitIndex = unit_id,
+		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+		TargetIndex = target_id,
+		Queue = false
+	})
 end
 
 function modifier_harvester_harvest:DeclareFunctions()

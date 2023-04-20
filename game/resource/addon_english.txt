@@ -44,17 +44,12 @@
 		"npc_eon_refinery"					"Refinery"
 		"npc_eon_harvester"					"Harvester"
 
-		"npc_eon_creep_goodguys_magic"		"Magic Creep"
-		"npc_eon_creep_badguys_magic"		"Magic Creep"
-
-		"npc_eon_creep_sapper"				"Sapper"
-
-		"npc_eon_footman"					"Footman"
-		"npc_eon_archer"					"Archer"
-		"npc_eon_marauder"					"Marauder"
-		"npc_eon_reaper"					"Reaper"
-		"npc_eon_knight"					"Ethereal Knight"
-		"npc_eon_golem"						"Giga Golem"
+		"npc_eon_tier_1_footman"			"Footman"
+		"npc_eon_tier_1_archer"				"Archer"
+		"npc_eon_tier_2_marauder"			"Marauder"
+		"npc_eon_tier_2_reaper"				"Reaper"
+		"npc_eon_tier_3_knight"				"Ethereal Knight"
+		"npc_eon_tier_3_golem"				"Giga Golem"
 
 		// Abilities
 		"DOTA_Tooltip_modifier_upgrade_center_disabled"						"Disabled"
@@ -101,54 +96,13 @@
 		"DOTA_Tooltip_ability_upgrade_economy_2_Description"				"<h1>Cost: <font color='gold'>400</font> Eon Spheres</h1>Allows you to spawn <b>+2</b> extra harvesters."
 
 		"DOTA_Tooltip_ability_upgrade_creeps_2"								"Upgrade Creeps II"
-		"DOTA_Tooltip_ability_upgrade_creeps_2_Description"					"<h1>Cost: <font color='gold'>600</font> Eon Spheres</h1>Spawns a Magic Creep every 3rd creep wave. The Magic Creep has an aura which gradually restores nearby units' health."
+		"DOTA_Tooltip_ability_upgrade_creeps_2_Description"					"<h1>Cost: <font color='gold'>600</font> Eon Spheres</h1>This ability does nothing at the moment."
 
 		"DOTA_Tooltip_ability_upgrade_nexus_2"								"Upgrade Nexus II"
 		"DOTA_Tooltip_ability_upgrade_nexus_2_Description"					"<h1>Cost: <font color='gold'>700</font> Eon Spheres</h1>Allows your Nexus to attack up to two enemies simultaneously with each attack."
 
 		"DOTA_Tooltip_ability_upgrade_tech_2"								"Unlock Tier III technologies"
 		"DOTA_Tooltip_ability_upgrade_tech_2_Description"					"<h1>Cost: <font color='gold'>1000</font> Eon Spheres</h1>Unlocks new upgrades on the Upgrade Center and new units on the Barracks."
-
-		"DOTA_Tooltip_ability_upgrade_creeps_3"								"Upgrade Creeps III"
-		"DOTA_Tooltip_ability_upgrade_creeps_3_Description"					"<h1>Cost: <font color='gold'>800</font> Eon Spheres</h1>Spawns a Sapper every 3rd creep wave. The Sapper charges toward enemy heroes or towers when close enough to them, exploding and dealing damage to all nearby enemies."
-
-
-
-		"DOTA_Tooltip_ability_creep_magic"						"Magic Purification"
-		"DOTA_Tooltip_ability_creep_magic_Description"			"Grants health regeneration to all nearby allies."
-		"DOTA_Tooltip_ability_creep_magic_radius"				"RADIUS:"
-		"DOTA_Tooltip_ability_creep_magic_health_pct"			"%HEALTH REGEN:"
-
-		"DOTA_Tooltip_modifier_creep_magic"						"Magic Purification"
-		"DOTA_Tooltip_modifier_creep_magic_Description"			"Recovering %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% health per second"
-
-
-
-		"DOTA_Tooltip_ability_creep_sapper"						"Sapper Strike"
-		"DOTA_Tooltip_ability_creep_sapper_Description"			"The first time this unit sees an enemy hero or tower, they charge towards it, exploding and dealing area damage on arrival."
-		"DOTA_Tooltip_ability_creep_sapper_search_radius"		"ENEMY SEARCH RADIUS:"
-		"DOTA_Tooltip_ability_creep_sapper_damage_radius"		"EXPLOSION RADIUS:"
-		"DOTA_Tooltip_ability_creep_sapper_damage"				"EXPLOSION DAMAGE:"
-		"DOTA_Tooltip_ability_creep_sapper_tower_multiplier"	"%TOWER DAMAGE MULTIPLIER:"
-
-
-
-		"DOTA_Tooltip_ability_creep_footman"					"Shield Wall"
-		"DOTA_Tooltip_ability_creep_footman_Description"		"Takes <b>25%%</b> less damage from enemy ranged attacks."
-		
-		"DOTA_Tooltip_ability_creep_archer"						"Elite Aim"
-		"DOTA_Tooltip_ability_creep_archer_Description"			"Deals <b>200%</b> damage to tier 3 units."
-		
-		"DOTA_Tooltip_ability_creep_reaper"						"Reap the Harvest"
-		"DOTA_Tooltip_ability_creep_reaper_Description"			"Deals <b>200%</b> damage to enemy harvesters."
-		
-		"DOTA_Tooltip_ability_creep_knight"						"Ethereal Strike"
-		"DOTA_Tooltip_ability_creep_knight_Description"			"This unit's attacks disarm enemy towers and Nexus for <b>3</b> seconds."
-		
-		"DOTA_Tooltip_ability_creep_golem"						"GIGA SMASH"
-		"DOTA_Tooltip_ability_creep_golem_Description"			"Deals <b>150%</b> damage to all non-hero units."
-
-
 
 		"DOTA_Tooltip_ability_basic_throw"						"Magic Missile"
 		"DOTA_Tooltip_ability_basic_throw_Description"			"Launches a fast-traveling projectile which damages the first enemy it hits."

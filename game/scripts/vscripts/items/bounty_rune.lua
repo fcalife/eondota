@@ -17,7 +17,7 @@ function item_bounty_rune:OnSpellStart(keys)
 
 	local location = self:GetContainer():GetAbsOrigin()
 	Timers:CreateTimer(BOUNTY_RUNE_SPAWN_INTERVAL, function()
-		--RuneSpawner:SpawnBountyRune(location)
+		RuneSpawner:SpawnBountyRune(location)
 	end)
 
 	self:Destroy()

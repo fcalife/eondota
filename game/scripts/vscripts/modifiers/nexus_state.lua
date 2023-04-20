@@ -16,7 +16,6 @@ function modifier_nexus_state:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
-		MODIFIER_PROPERTY_DISABLE_HEALING
 	}
 end
 
@@ -26,8 +25,4 @@ end
 
 function modifier_nexus_state:GetOverrideAnimation()
 	return ACT_DOTA_CAPTURE
-end
-
-function modifier_nexus_state:GetDisableHealing()
-	return 1
 end

@@ -1,6 +1,5 @@
-require("core/rts/refinery")
-require("core/rts/upgrade_center")
-require("core/rts/barracks")
-require("core/rts/minerals")
-require("core/rts/eon_spheres")
+require("core/rts/brush")
+require("core/rts/flags")
 require("core/rts/towers")
+
+require("core/rts/round_manager")

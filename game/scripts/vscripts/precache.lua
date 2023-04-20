@@ -34,8 +34,7 @@ precache.particles = {
     "particles/ui_mouseactions/range_finder_cone.vpcf",
     "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf",
     "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf",
-    "particles/units/heroes/hero_axe/axe_attack_blur.vpcf",
-    "particles/econ/events/fall_2021/teleport_end_fall_2021_lvl1.vpcf"
+    "particles/units/heroes/hero_axe/axe_attack_blur.vpcf"
 }
 
 precache.particle_folders = {
@@ -65,7 +64,6 @@ precache.sounds = {
     "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_chaos_knight.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts",
 }
 
 precache.units = {

@@ -4,22 +4,6 @@ function modifier_lane_creep_state:IsHidden() return true end
 function modifier_lane_creep_state:IsDebuff() return false end
 function modifier_lane_creep_state:IsPurgable() return false end
 
-function modifier_lane_creep_state:OnCreated(keys)
-	if IsClient() then return end
-
-	self:StartIntervalThink(0.5)
-end
-
-function modifier_lane_creep_state:OnIntervalThink()
-	local parent = self:GetParent()
-
-	ResolveNPCPositions(parent:GetAbsOrigin(), 300)
-
-	if parent.lane_path then parent:ExecutePathOrders(parent.lane_path) end
-
-	self:Destroy()
-end
-
 
 
 modifier_respawning_tower_state = class({})

@@ -1,52 +1,36 @@
 #Container {
-	align:  left top;
+	align:  center center;
 	padding:  10px;
-	margin-top: 120px;
+	height:  300px;
+	width:  800px;
 	flow-children:  down;
 	background-color: #303030;
+	border-radius:  12px;
+	border: 2px solid black;
 	visibility: collapse;
 }
 
-#Container:not(.dota_shop_open) {
-	visibility: visible;
-}
-
-#SphereCount {
-	align:  center top;
-	text-align: center;
-	font-size:  24px;
-	font-weight:  bold;
-	color:  gold;
-	text-shadow: 2px 2px 2px 2.0 black;
-}
-
-.ChoiceColumn {
+#Header {
 	margin-top:  10px;
 	align:  center top;
-	flow-children: down;
-	visibility: collapse;
+	text-align: center;
+	font-size:  28px;
+	font-weight:  bold;
+	color:  white;
+}
+
+#ChoiceReel {
+	margin-top:  20px;
+	margin-bottom:  20px;
+	height:  100%;
+	width:  100%;
+	flow-children:  right;
 }
 
 .Choice {
-	width: 64px;
-	height: 84px;
-	flow-children: down;
-}
-
-.ChoiceIcon {
-	height:  64px;
-	width:  64px;
+	height:  100%;
+	width:  fill-parent-flow(1.0);
 	flow-children:  down;
-}
-
-.ChoiceCost {
-	margin-top:  -12px;
-	align:  center top;
-	text-align: center;
-	font-size:  24px;
-	font-weight:  bold;
-	color:  gold;
-	text-shadow: 2px 2px 8px 3.0 black;
 }
 
 .ChoiceHeader {
@@ -54,4 +38,9 @@
 	text-align: center;
 	font-size:  24px;
 	color:  white;
+}
+
+.ChoiceIcon {
+	margin-top:  20px;
+	align:  center top;
 }

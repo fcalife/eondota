@@ -2109,4 +2109,63 @@
 		"VisionDaytimeRange"		"750"
 		"VisionNighttimeRange"		"750"
 	}
+
+	"npc_eon_chronobeast"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/nian/nian_creep.vmdl"
+		"MinimapIcon"				"minimap_nian"
+		"MinimapIconSize"			"550"
+		"ModelScale"				"1.0"
+		"SoundSet"					"cny_beast"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"100"
+		"AttackDamageMax"			"100"
+		"BaseAttackSpeed"			"100"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"300"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"1000"
+
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"ProjectileCollisionSize"	"24"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"400"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"425"
+		"MovementTurnRate"			"1.0"
+
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"3000"
+		"VisionNighttimeRange"		"3000"
+
+		"ConsideredHero"			"1"
+
+		"Ability1"					"beast_swipe_light"
+		"Ability2"					"beast_swipe_heavy"
+		"Ability3"					"beast_leap"
+		"Ability4"					"beast_bite"
+		"Ability5"					"beast_tail_smash"
+		"Ability6"					"beast_tail_spin"
+		"Ability7"					"beast_breath"
+		"Ability8"					"beast_roar"
+		"Ability9"					"beast_charge"
+		"Ability10"					"beast_spikes"
+		"Ability11"					"beast_phase_roar"
+		"Ability12"					"beast_controller"
+	}
 }

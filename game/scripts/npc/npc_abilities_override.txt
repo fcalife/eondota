@@ -17,113 +17,6 @@
 	"item_pocket_tower"				"REMOVE"
 	"item_pocket_roshan"			"REMOVE"
 
-	"item_enchanted_mango"			"REMOVE"
-	"item_faerie_fire"				"REMOVE"
-	"item_keen_optic"				"REMOVE"
-	"item_grove_bow"				"REMOVE"
-	"item_quickening_charm"			"REMOVE"
-	"item_philosophers_stone"		"REMOVE"
-	"item_force_boots"				"REMOVE"
-	"item_desolator_2"				"REMOVE"
-	"item_phoenix_ash"				"REMOVE"
-	"item_seer_stone"				"REMOVE"
-	"item_greater_mango"			"REMOVE"
-	"item_elixer"					"REMOVE"
-	"item_vampire_fangs"			"REMOVE"
-	"item_force_field"				"REMOVE"
-	"item_black_powder_bag"			"REMOVE"
-	"item_mechanical_arm"			"REMOVE"
-	"item_craggy_coat"				"REMOVE"
-	"item_greater_faerie_fire"		"REMOVE"
-	"item_timeless_relic"			"REMOVE"
-	"item_mirror_shield"			"REMOVE"
-	"item_recipe_ironwood_tree"		"REMOVE"
-	"item_ironwood_tree"			"REMOVE"
-	"item_mango_tree"				"REMOVE"
-	"item_royal_jelly"				"REMOVE"
-	"item_pupils_gift"				"REMOVE"
-	"item_tome_of_aghanim"			"REMOVE"
-	"item_repair_kit"				"REMOVE"
-	"item_mind_breaker"				"REMOVE"
-	"item_third_eye"				"REMOVE"
-	"item_spell_prism"				"REMOVE"
-	"item_princes_knife"			"REMOVE"
-	"item_witless_shako"			"REMOVE"
-	"item_imp_claw"					"REMOVE"
-	"item_flicker"					"REMOVE"
-	"item_spy_gadget"				"REMOVE"
-	"item_spider_legs"				"REMOVE"
-	"item_helm_of_the_undying"		"REMOVE"
-	"item_recipe_vambrace"			"REMOVE"
-	"item_vambrace"					"REMOVE"
-	"item_horizon"					"REMOVE"
-	"item_fusion_rune"				"REMOVE"
-	"item_ocean_heart"				"REMOVE"
-	"item_broom_handle"				"REMOVE"
-	"item_trusty_shovel"			"REMOVE"
-	"item_nether_shawl"				"REMOVE"
-	"item_dragon_scale"				"REMOVE"
-	"item_essence_ring"				"REMOVE"
-	"item_clumsy_net"				"REMOVE"
-	"item_enchanted_quiver"			"REMOVE"
-	"item_ninja_gear"				"REMOVE"
-	"item_illusionsts_cape"			"REMOVE"
-	"item_havoc_hammer"				"REMOVE"
-	"item_panic_button"				"REMOVE"
-	"item_apex"						"REMOVE"
-	"item_ballista"					"REMOVE"
-	"item_woodland_striders"		"REMOVE"
-	"item_recipe_trident"			"REMOVE"
-	"item_trident"					"REMOVE"
-	"item_demonicon"				"REMOVE"
-	"item_recipe_fallen_sky"		"REMOVE"
-	"item_fallen_sky"				"REMOVE"
-	"item_pirate_hat"				"REMOVE"
-	"item_dimensional_doorway"		"REMOVE"
-	"item_ex_machina"				"REMOVE"
-	"item_faded_broach"				"REMOVE"
-	"item_paladin_sword"			"REMOVE"
-	"item_minotaur_horn"			"REMOVE"
-	"item_orb_of_destruction"		"REMOVE"
-	"item_the_leveller"				"REMOVE"
-	"item_arcane_ring"				"REMOVE"
-	"item_titan_sliver"				"REMOVE"
-	"item_chipped_vest"				"REMOVE"
-	"item_wizard_glass"				"REMOVE"
-	"item_gloves_of_travel"			"REMOVE"
-	"item_elven_tunic"				"REMOVE"
-	"item_cloak_of_flames"			"REMOVE"
-	"item_venom_gland"				"REMOVE"
-	"item_trickster_cloak"			"REMOVE"
-	"item_gladiator_helm"			"REMOVE"
-	"item_possessed_mask"			"REMOVE"
-	"item_ancient_perseverance"		"REMOVE"
-	"item_star_mace"				"REMOVE"
-	"item_penta_edged_sword"		"REMOVE"
-	"item_oakheart"					"REMOVE"
-	"item_warhammer"				"REMOVE"
-	"item_bullwhip"					"REMOVE"
-	"item_psychic_headband"			"REMOVE"
-	"item_ceremonial_robe"			"REMOVE"
-	"item_quicksilver_amulet"		"REMOVE"
-	"item_book_of_shadows"			"REMOVE"
-	"item_giants_ring"				"REMOVE"
-	"item_vengeances_shadow"		"REMOVE"
-	"item_stormcrafter"				"REMOVE"
-	"item_overflowing_elixir"		"REMOVE"
-	"item_mysterious_hat"			"REMOVE"
-	"item_assassins_dagger"			"REMOVE"
-	"item_ascetic_cap"				"REMOVE"
-	"item_sample_picker"			"REMOVE"
-	"item_icarus_wings"				"REMOVE"
-	"item_misericorde"				"REMOVE"
-	"item_light_robes"				"REMOVE"
-	"item_heavy_blade"				"REMOVE"
-	"item_unstable_wand"			"REMOVE"
-	"item_fortitude_ring"			"REMOVE"
-	"item_pogo_stick"				"REMOVE"
-	"item_paintball"				"REMOVE"
-
 	"creep_siege"
 	{
 		"AbilityValues"
@@ -152,110 +45,135 @@
 		}
 	}
 
-	"medusa_split_shot"
+	"ancient_apparition_ice_vortex"
 	{
-		"AbilityCastPoint"				"0.0"
 		"MaxLevel"						"1"
 
-		"AbilityValues"
-		{
-			"damage_modifier"
-			{
-				"value"					"0"
-				"special_bonus_unique_medusa_2"	"+10"
-			}
-			"damage_modifier_tooltip"
-			{	
-				"value"					"100"
-				"special_bonus_unique_medusa_2"	"+10"
-			}
-			"arrow_count"				"1"
-			"split_shot_bonus_range"	"0"
-		}
-	}
-
-	"slark_pounce"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"				"1100"
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityCooldown"				"8"
-		"AbilityManaCost"				"0"
-
-		"AbilityValues"
-		{
-			"pounce_damage"			"0"
-			"pounce_distance"		"750"
-			"pounce_speed"			"900"
-			"pounce_acceleration"	"3000"
-			"pounce_radius"			"0"
-			"leash_duration"		
-			{
-				"value"			"0.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_slark"
-			}
-			"leash_radius"			"0"
-			"max_charges"			
-			{
-				"value"	"1"
-				"RequiresScepter"	"1"
-			}
-			"charge_restore_time"
-			{
-				"value"	"5"
-				"RequiresScepter"	"1"
-			}
-			"pounce_distance_scepter"		
-			{
-				"value"		"750"
-				"RequiresScepter"	"1"
-			}
-			"essence_stacks"	"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-
-	"windrunner_windrun"
-	{
-		"AbilityCastPoint"				"0.0"
-
-		"AbilityCooldown"				"8"
-		"AbilityDuration"				"3.5"
+		"AbilityDuration"				"5"
 
 		"AbilityManaCost"				"0"
 
 		"AbilityValues"
 		{
-			"movespeed_bonus_pct"	"50"		
-			"evasion_pct_tooltip"	"0"
-			"enemy_movespeed_bonus_pct"	
+			"AbilityCooldown"
+			{
+				"value"					"5"
+				"special_bonus_unique_ancient_apparition_3"			"-1"
+			}
+			"radius"				"350"
+			"drag_speed"	"0"
+			"movement_speed_pct"
+			{
+				"value"	"-50"
+				"special_bonus_unique_ancient_apparition_4"	"-5"
+			}
+			"spell_resist_pct"
 			{
 				"value"		"0"
+				"special_bonus_unique_ancient_apparition_4"	"-5"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
-			"radius"					
-			{	
-				"value"			"325"
-				"special_bonus_unique_windranger"	"+225"
-			}
-			"scepter_movespeed_bonus_pct"			
+			"vision_aoe"		"0"
+			"vortex_duration"		"5"
+			"shard_dps"
 			{
-				"RequiresScepter" "1"
-				"value"			"0"
+				"value"		"50"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+				"CalculateSpellDamageTooltip"	"1"
 			}
-			"scepter_blind"				
+		}
+	}
+
+	"snapfire_scatterblast"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCooldown"				"12"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
 			{
-				"value"		"0"
-				"RequiresScepter"		"1"
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"300"
+				"LinkedSpecialBonus"		"special_bonus_unique_snapfire_7"
 			}
-			"cannot_be_dispelled"
+			"02"
 			{
-				"value"						"0"
-				"special_bonus_unique_windranger_windrun_undispellable"			"+1"
+				"var_type"					"FIELD_INTEGER"
+				"blast_speed"				"3000"
 			}
-			
-			"duration"					"3.5"
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"blast_width_initial"		"225"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"blast_width_end"			"400"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"debuff_duration"			"0.0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow_pct"			"100"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_slow_pct"			"100"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"point_blank_range"			"0"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"point_blank_dmg_bonus_pct"	"0"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_knockback_distance"	"250"
+				"RequiresShard"				"1"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"shard_knockback_duration"	"0.3"
+				"RequiresShard"				"1"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"shard_stun_duration"		"1.4"
+				"RequiresShard"				"1"
+				
+			}
+			"13"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"shard_bonus_point_blank_dmg_pct"			"85.0"
+				"RequiresShard"				"1"
+				
+			}
 		}
 	}
 }

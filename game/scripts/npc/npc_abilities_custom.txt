@@ -1,6 +1,8 @@
 #base abilities/basic.kv
 #base abilities/creeps.kv
-#base abilities/paint.kv
+#base abilities/chronobeast.kv
+#base abilities/fallen_snow.kv
+#base abilities/fen.kv
 
 "DOTAAbilities"
 {

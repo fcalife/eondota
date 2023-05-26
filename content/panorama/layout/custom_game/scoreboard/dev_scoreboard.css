@@ -1,25 +1,59 @@
 #Scoreboard {
 	align:  center top;
-	margin-top:  110px;
+	margin-top:  10px;
 	flow-children:  right;
 }
 
-#Round_Timer_Container {
+#Boss_Health_Container {
 	align:  center top;
-	margin-top:  60px;
-	flow-children:  right;
+	margin-top:  30px;
+	flow-children:  down;
+	visibility: collapse;
 }
 
-#Round_Timer {
+#Boss_Name {
+	margin-bottom: 4px;
+	align: center center;
+	text-align:  center center;
+	font-size:  28;
+	font-weight:  bold;
+	color:  white;
+	text-overflow: shrink;
+	text-shadow: 2px 2px 4px 2.0 black;
+}
+
+#Boss_Health_Label {
+	margin-bottom: 10px;
+	align: center center;
+	text-align:  center center;
+	font-size:  22;
+	font-weight:  bold;
+	color:  white;
+	text-overflow: shrink;
+	text-shadow: 2px 2px 4px 2.0 black;
+}
+
+#Boss_Health {
 	margin-left: 12px;
 	margin-right: 12px;
 	align: center center;
+	height: 28px;
+	width: 800px;
 	text-align:  center center;
 	font-size:  36;
 	font-weight:  bold;
 	color:  white;
 	text-overflow: shrink;
 	text-shadow: 1px 1px 3px 2.0 black;
+	border-radius: 10px;
+	border: 4px solid black;
+	background-color: black;
+}	
+
+#Boss_Health_Left {
+	background-color: #40ff40;
+	transition-duration: 0.5s;
+	transition-property: width;
 }
 
 .ScoreContainers {

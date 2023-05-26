@@ -5,8 +5,8 @@
 	{
 		// General
 		"addon_game_name"					"Eon"
-		"DOTA_GoodGuys"						"BLUE"
-		"DOTA_BadGuys"						"RED"
+		"DOTA_GoodGuys"						"CHALLENGERS"
+		"DOTA_BadGuys"						"THE CHRONOPHAGE"
 		"DOTA_Custom1"						"GREEN"
 		"DOTA_Custom2"						"PINK"
 		"DOTA_Custom3"						"YELLOW"
@@ -43,6 +43,7 @@
 		"npc_eon_barracks"					"Barracks"
 		"npc_eon_refinery"					"Refinery"
 		"npc_eon_harvester"					"Harvester"
+		"npc_eon_chronobeast"				"Chronophage"
 
 		"npc_eon_creep_goodguys_magic"		"Magic Creep"
 		"npc_eon_creep_badguys_magic"		"Magic Creep"
@@ -54,21 +55,41 @@
 		"npc_eon_marauder"					"Marauder"
 		"npc_eon_reaper"					"Reaper"
 		"npc_eon_knight"					"Ethereal Knight"
-		"npc_eon_golem"						"Giga Golem"
+		"item_eon_tombstone"				"Fallen Ally"
+		"npc_dota_hero_crystal_maiden"		"Fallen Snow"
+		"npc_dota_hero_juggernaut"			"Fen"
 
 		// Abilities
-		"DOTA_Tooltip_ability_basic_ink"							"Ink Trail"
-		"DOTA_Tooltip_ability_basic_ink_Description"				"<h1>Conversion</h1>Automatically converts any square you step on to your team's color.\n<h1>Sovereignty</h1>For as long as you stay on a square with your team's color, it cannot be converted to any other."
+		"DOTA_Tooltip_ability_fallen_snow_ice_bolt"						"Ice Bolt"
+		"DOTA_Tooltip_ability_fallen_snow_ice_bolt_Description"			"Launches an icy projectile which damages the first enemy it hits."
+		"DOTA_Tooltip_ability_fallen_snow_ice_bolt_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_fallen_snow_ice_bolt_distance"			"MAX DISTANCE:"
 
-		"DOTA_Tooltip_ability_ballistic_ink"						"Ink Launcher"
-		"DOTA_Tooltip_ability_ballistic_ink_Description"			"<h1>Ink Bomb</h1>Converts the target square and its vertical and horizontal neighbors to your team's color.\n<h1>Stickyness</h1>Prevents the target squares' color from being changed for %stickyness% seconds."
+		"DOTA_Tooltip_ability_fallen_snow_frost_nova"					"Frost Nova"
+		"DOTA_Tooltip_ability_fallen_snow_frost_nova_Description"		"Dashes a short distance ahead, leaving an ice trail which slows enemies. The trail lingers for %duration% seconds."
+		"DOTA_Tooltip_ability_fallen_snow_frost_nova_distance"			"DASH DISTANCE:"
+		"DOTA_Tooltip_ability_fallen_snow_frost_nova_slow"				"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_fallen_snow_frost_nova_duration"			"SLOW DURATION:"
 
-		"DOTA_Tooltip_ability_splatter_ink"							"Ink Splatter"
-		"DOTA_Tooltip_ability_splatter_ink_Description"				"<h1>Ink Smash</h1>Converts your current square and all those around it to your team's color.\n<h1>Stickyness</h1>Prevents the target squares' color from being changed for %stickyness% seconds."
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade"				"Unleash the Blade"
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade_Description"	"For the next %duration% seconds, gain the Slash ability, with no cooldown.\n<h1>Slash</h1>Attacks all enemies in front of you, healing for %lifesteal%%% of the damage done."
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade_damage"			"SLASH DAMAGE:"
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade_length"			"SLASH LENGTH:"
+
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade_slash"				"Slash"
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade_slash_Description"	"Attacks all enemies in front of you, healing for %lifesteal%%% of the damage done."
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade_slash_damage"		"SLASH DAMAGE:"
+		"DOTA_Tooltip_ability_fallen_snow_unleash_the_blade_slash_length"		"SLASH LENGTH:"
+
+		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex"					"Blizzard"
+		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_Description"		"Creates a vortex of icy energy which deals damage over time to all enemies in the area. Does not stack with itself."
+		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_shard_dps"			"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_vortex_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_radius"				"EFFECT RADIUS:"
 
 
-		"DOTA_Tooltip_ability_refinery_spawn_harvester"						"Spawn Harvester"
-		"DOTA_Tooltip_ability_refinery_spawn_harvester_Description"			"Automatically spawns a new Harvester whenever one of them dies. The process takes <b>30</b> seconds to complete."
+
+
 
 
 
@@ -245,9 +266,9 @@
 		// Items
 		
 		"DOTA_Tooltip_ability_item_health_potion"				"Healing Salve"
-		"DOTA_Tooltip_ability_item_health_potion_Description"	"Heals up to 4 health"
-		"DOTA_Tooltip_ability_item_mario_star"					"Aegis of the Immortal"
-		"DOTA_Tooltip_ability_item_mario_star_Description"		"Grants temporary invulnerability"
+		"DOTA_Tooltip_ability_item_health_potion_Description"	"Heals 20% of max health"
+		"DOTA_Tooltip_ability_item_mario_star"					"Eon Sphere"
+		"DOTA_Tooltip_ability_item_mario_star_Description"		"Grants various powers as more of those are picked up"
 		"DOTA_Tooltip_ability_item_power_boots"					"Boots of Speed"
 		"DOTA_Tooltip_ability_item_power_boots_Description"		"Grants improved speed and teleporting"
 		"DOTA_Tooltip_ability_item_power_bull"					"Basher"

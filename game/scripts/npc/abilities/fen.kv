@@ -1,0 +1,138 @@
+"DOTAAbilities"
+{
+	"fen_dash_strike"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+
+		"AbilityTextureName"		"juggernaut_blade_dance"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0.0"
+		"AbilityManaCost"			"0"
+
+		"AbilityCharges"			"3"
+		"AbilityChargeRestoreTime"	"1.0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"distance"				"200"
+			"radius"				"225"
+			"damage_reduction"		"-10"
+			"duration"				"1.0"
+		}
+	}
+
+	"fen_berserker_rage"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+
+		"AbilityTextureName"		"ogre_magi_bloodlust"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"10"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"attack_speed"			"30"
+			"lifesteal"				"20"
+			"duration"				"5.0"
+		}
+	}
+
+	"fen_dash"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+
+		"AbilityTextureName"		"ember_spirit_sleight_of_fist"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"7.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"distance"				"350"
+			"radius"				"225"
+			"damage"				"50"
+		}
+	}
+
+	"fen_unleash_the_blade"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+
+		"AbilityTextureName"		"juggernaut_omni_slash"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"15"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"15"
+			"length"				"450"
+			"duration"				"5"
+			"damage_reduction"		"-30"
+		}
+	}
+
+	"fen_unleash_the_blade_slash"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+
+		"AbilityTextureName"		"juggernaut_omni_slash"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"15"
+			"length"				"450"
+			"duration"				"5"
+			"angle"					"60"
+		}
+	}
+}

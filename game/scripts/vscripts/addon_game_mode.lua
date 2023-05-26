@@ -68,6 +68,8 @@ function GameMode:InitGameMode()
 	GameRules:SetFirstBloodActive(false)
 	GameRules:SetHideKillMessageHeaders(false)
 	GameRules:SetTimeOfDay(0.5)
+	GameRules:SetCustomGameAllowMusicAtGameStart(false)
+	GameRules:SetCustomGameAllowBattleMusic(false)
 
 	if IsInToolsMode() then
 		GameRules:SetPreGameTime(3)
@@ -77,6 +79,7 @@ function GameMode:InitGameMode()
 
 	game_mode_entity:SetBuybackEnabled(false)
 	-- game_mode_entity:SetFogOfWarDisabled(false)
+	game_mode_entity:SetUnseenFogOfWarEnabled(true)
 	game_mode_entity:SetLoseGoldOnDeath(false)
 	game_mode_entity:SetKillingSpreeAnnouncerDisabled(false)
 	game_mode_entity:SetMaximumAttackSpeed(1000)
@@ -85,15 +88,13 @@ function GameMode:InitGameMode()
 	game_mode_entity:SetFreeCourierModeEnabled(false)
 	game_mode_entity:SetBotThinkingEnabled(false)
 	game_mode_entity:SetAnnouncerDisabled(false)
-	--game_mode_entity:SetCustomGameForceHero("npc_dota_hero_invoker")
+	--game_mode_entity:SetCustomGameForceHero("npc_dota_hero_juggernaut")
 
 	-- Team configuration
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 2)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 2)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 2)
-	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_2, 2)
+	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 
-	for team = DOTA_TEAM_CUSTOM_3, DOTA_TEAM_CUSTOM_8 do
+	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_8 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
 	end
 

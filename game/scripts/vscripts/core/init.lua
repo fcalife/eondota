@@ -5,6 +5,8 @@ require('core/score_manager')
 require('core/gold_rewards')
 require('core/global_messages')
 require('core/powerups')
+require('core/boss_manager')
+require('core/debug_commands')
 
 require('core/nexus')
 require('core/lane_creeps')

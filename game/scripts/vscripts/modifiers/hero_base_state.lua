@@ -11,34 +11,78 @@ function modifier_hero_base_state:OnCreated(keys)
 
 	local parent = self:GetParent()
 
-	if (not IsInToolsMode()) then parent:AddNewModifier(parent, nil, "modifier_stunned", {duration = 12}) end
+	self:SetStackCount(1600)
+
+	parent:CalculateStatBonus(true)
 end
 
-function modifier_hero_base_state:CheckState()
-	return {
-		[MODIFIER_STATE_DISARMED] = true,
-	}
-end
+-- function modifier_hero_base_state:CheckState()
+-- 	return { [MODIFIER_STATE_DISARMED] = true }
+-- end
 
 function modifier_hero_base_state:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
-		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
-	}
+	if IsServer() then
+		return {
+			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+			MODIFIER_PROPERTY_MIN_HEALTH,
+			MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE,
+			MODIFIER_EVENT_ON_TAKEDAMAGE
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
+			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+			MODIFIER_PROPERTY_MIN_HEALTH,
+			MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE
+		}
+	end
 end
 
 function modifier_hero_base_state:GetModifierIgnoreCastAngle()
 	return 1
 end
 
-function modifier_hero_base_state:GetModifierPercentageRespawnTime()
-	return (0.4 + 0.3 * (self:GetParent():GetLevel()) / 30)
-end
-
-
 function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
 	return 1
+end
+
+function modifier_hero_base_state:GetMinHealth()
+	return 1
+end
+
+function modifier_hero_base_state:GetModifierExtraHealthPercentage()
+	return 100 * math.max(0, self:GetStackCount() - 1)
+end
+
+function modifier_hero_base_state:OnTakeDamage(keys)
+	if keys.unit and keys.unit == self:GetParent() then
+		if keys.unit:GetHealth() < 2 then
+			keys.unit:AddNewModifier(keys.unit, nil, "modifier_boss_crawling", {})
+
+			keys.unit:EmitSound("Tombstone.Spawn")
+
+			-- Timers:CreateTimer(5, function()
+			-- 	local new_item = CreateItem("item_eon_tombstone", keys.unit, keys.unit)
+			-- 	new_item:SetPurchaseTime(0)
+			-- 	new_item:SetPurchaser(keys.unit)
+
+			-- 	local tombstone = SpawnEntityFromTableSynchronous("dota_item_tombstone_drop", {})
+			-- 	tombstone:SetContainedItem(new_item)
+			-- 	tombstone:SetAngles(0, RandomFloat(0, 360), 0)
+			-- 	FindClearSpaceForUnit(tombstone, keys.unit:GetAbsOrigin(), true)
+
+			-- 	local tombstone_loc = tombstone:GetAbsOrigin()
+			-- 	tombstone_loc = Vector(tombstone_loc.x, tombstone_loc.y, GetGroundHeight(tombstone_loc, nil))
+
+			-- 	local spawn_pfx = ParticleManager:CreateParticle("particles/boss/tombstone_spawn.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			-- 	ParticleManager:SetParticleControl(spawn_pfx, 0, tombstone_loc)
+			-- 	ParticleManager:ReleaseParticleIndex(spawn_pfx)
+
+			-- 	EmitSoundOnLocationForAllies(tombstone_loc, "Tombstone.Spawn", keys.unit)
+			-- end)
+		end
+	end
 end
 
 

@@ -1,0 +1,112 @@
+"DOTAAbilities"
+{
+	"fallen_snow_ice_bolt"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fallen_snow"
+
+		"AbilityTextureName"		"crystal_maiden_frostbite"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"70"
+			"radius"				"100"
+			"speed"					"1000"
+			"distance"				"850"
+		}
+	}
+
+	"fallen_snow_frost_nova"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fallen_snow"
+
+		"AbilityTextureName"		"void_spirit_astral_step"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"10.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"distance"				"350"
+			"radius"				"225"
+			"slow"					"-30"
+			"duration"				"2.0"
+		}
+	}
+
+	"fallen_snow_unleash_the_blade"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fallen_snow"
+
+		"AbilityTextureName"		"monkey_king_boundless_strike"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"20"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"50"
+			"secondary_damage"		"200"
+			"radius"				"600"
+			"length"				"2000"
+			"secondary_radius"		"175"
+		}
+	}
+
+	"fallen_snow_unleash_the_blade_slash"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fallen_snow"
+
+		"AbilityTextureName"		"monkey_king_boundless_strike"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"50"
+			"secondary_damage"		"200"
+			"radius"				"600"
+			"length"				"2000"
+			"secondary_radius"		"175"
+		}
+	}
+}

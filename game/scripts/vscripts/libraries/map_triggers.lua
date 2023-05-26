@@ -75,3 +75,7 @@ function MapTrigger:Tick()
 
 	if (#units > 0 or self.options.tick_when_empty) then self.callback(units) end
 end
+
+function MapTrigger:MoveTo(position)
+	self.center = position
+end

@@ -1,0 +1,57 @@
+#Container {
+	align:  right bottom;
+	margin-right: 420px;
+	margin-bottom:  25px;
+	flow-children:  right;
+	border-radius: 8px;
+	padding: 6px;
+	background-color: #000000A0;
+	border: 2px solid #111111FF;
+}
+
+.StonePìp {
+	align: center center;
+	width: 50px;
+	height: 50px;
+	margin-left: 6px;
+	margin-right: 6px;
+	saturation: 0.0;
+	background-image: url("file://{images}/custom_game/eon_on.png");
+	background-size: 40px 40px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ActivePip {
+	background-size: 50px 50px;
+	saturation: 1.0;
+	img-shadow: 0px 0px 4px 2.0 black;
+
+	animation-name: Emphasis;
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+.GlowingPip {
+	background-size: 50px 50px;
+	saturation: 1.0;
+	img-shadow: 0px 0px 4px 2.0 black;
+
+	animation-name: EmphasisCyclic;
+	animation-duration: 0.9s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes 'Emphasis' {
+	0% { transform: scale3d(1.0, 1.0, 1.0); saturation: 0.0; }
+	85% { transform: scale3d(1.25, 1.25, 1.0); saturation: 1.15; }
+	100% { transform: scale3d(1.0, 1.0, 1.0); saturation: 1.0; }
+}
+
+@keyframes 'EmphasisCyclic' {
+	0% { transform: scale3d(1.0, 1.0, 1.0); saturation: 1.0; }
+	40% { transform: scale3d(1.1, 1.1, 1.0); saturation: 1.1; }
+	100% { transform: scale3d(1.0, 1.0, 1.0); saturation: 1.0; }
+}

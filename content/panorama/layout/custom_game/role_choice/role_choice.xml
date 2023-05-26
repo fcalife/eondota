@@ -8,87 +8,75 @@
 	</scripts>
 
 	<Panel style="width:100%; height:100%;" hittest="false">
-		<Panel id="Container" hittest="true" >
-			<Label id="SphereCount" text="0" />
-			<Panel id="UnitColumn" class="ChoiceColumn">
-				<Panel class="Choice" id="choice_footman" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_footman" onmouseover="DOTAShowAbilityTooltip(barracks_summon_footman)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('footman')" />
-					<Label class="ChoiceCost" id="label_footman" text="100" />
-				</Panel>
-				<Panel class="Choice" id="choice_archer" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_archer" onmouseover="DOTAShowAbilityTooltip(barracks_summon_archer)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('archer')" />
-					<Label class="ChoiceCost" id="label_archer" text="100" />
-				</Panel>
-				<Panel class="Choice" id="choice_marauder" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_marauder" onmouseover="DOTAShowAbilityTooltip(barracks_summon_marauder)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('marauder')" />
-					<Label class="ChoiceCost" id="label_marauder" text="200" />
-				</Panel>
-				<Panel class="Choice" id="choice_reaper" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_reaper" onmouseover="DOTAShowAbilityTooltip(barracks_summon_reaper)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('reaper')" />
-					<Label class="ChoiceCost" id="label_reaper" text="250" />
-				</Panel>
-				<Panel class="Choice" id="choice_knight" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_knight" onmouseover="DOTAShowAbilityTooltip(barracks_summon_knight)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('knight')" />
-					<Label class="ChoiceCost" id="label_knight" text="500" />
-				</Panel>
-				<Panel class="Choice" id="choice_golem" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="barracks_summon_golem" onmouseover="DOTAShowAbilityTooltip(barracks_summon_golem)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="SummonUnit('golem')" />
-					<Label class="ChoiceCost" id="label_golem" text="500" />
-				</Panel>
+		<Panel id="OuterContainer" hittest="true" >
+			<Panel class="CloseButton" onmouseactivate="ToggleMenu()" >
+				<Label text="Toggle debug menu" />
 			</Panel>
 
-			<Panel id="UpgradeColumn" class="ChoiceColumn">
-				<Panel class="Choice" id="choice_economy_1" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_economy_1" onmouseover="DOTAShowAbilityTooltip(upgrade_economy_1)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('economy_1')" />
-					<Label class="ChoiceCost" id="label_economy_1" text="300" />
+			<Panel id="MenuContainer" hittest="true" >
+
+				<Label id="FirstHeader" class="DebugMenuHeader" text="Fight controls" />
+
+				<Panel class="OptionButton" onmouseactivate="ResetFight()" >
+					<Label text="Reset Fight" />
 				</Panel>
-				<Panel class="Choice" id="choice_creeps_1" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_creeps_1" onmouseover="DOTAShowAbilityTooltip(upgrade_creeps_1)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('creeps_1')" />
-					<Label class="ChoiceCost" id="label_creeps_1" text="300" />
+				<Panel class="OptionButton" onmouseactivate="AdvancePhase()" >
+					<Label text="Advance to next phase" />
 				</Panel>
-				<Panel class="Choice" id="choice_nexus_1" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_nexus_1" onmouseover="DOTAShowAbilityTooltip(upgrade_nexus_1)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('nexus_1')" />
-					<Label class="ChoiceCost" id="label_nexus_1" text="400" />
+				<Panel class="OptionButton" onmouseactivate="HealAll()" >
+					<Label text="Heal all heroes" />
 				</Panel>
-				<Panel class="Choice" id="choice_tech_1" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_tech_1" onmouseover="DOTAShowAbilityTooltip(upgrade_tech_1)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('tech_1')" />
-					<Label class="ChoiceCost" id="label_tech_1" text="500" />
+				<Panel class="OptionButton" onmouseactivate="GodMode()" >
+					<Label text="Toggle god mode" />
 				</Panel>
-				<Panel class="Choice" id="choice_economy_2" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_economy_2" onmouseover="DOTAShowAbilityTooltip(upgrade_economy_2)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('economy_2')" />
-					<Label class="ChoiceCost" id="label_economy_2" text="400" />
+				<Panel class="InputButtonSide" >
+					<Label text="Player health" />
+					<TextEntry id="PlayerHealthInput" class="TextInput" maxchars="5" text="1600" oninputsubmit="SetPlayerHealth()" />
 				</Panel>
-				<Panel class="Choice" id="choice_creeps_2" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_creeps_2" onmouseover="DOTAShowAbilityTooltip(upgrade_creeps_2)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('creeps_2')" />
-					<Label class="ChoiceCost" id="label_creeps_2" text="600" />
+
+				<Label class="DebugMenuSecondHeader" text="Eon Sphere ruleset" />
+				<Label class="DebugMenuSubheader" text="(those reset the fight when pressed)" />
+
+				<Panel class="OptionButton" onmouseactivate="SetSphereSourceHealth()" >
+					<Label text="Drops based on health" />
 				</Panel>
-				<Panel class="Choice" id="choice_nexus_2" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_nexus_2" onmouseover="DOTAShowAbilityTooltip(upgrade_nexus_2)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('nexus_2')" />
-					<Label class="ChoiceCost" id="label_nexus_2" text="700" />
+				<Panel class="OptionButton" onmouseactivate="SetSphereSourceWeakPoint()" >
+					<Label text="Boss weak point" />
 				</Panel>
-				<Panel class="Choice" id="choice_tech_2" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_tech_2" onmouseover="DOTAShowAbilityTooltip(upgrade_tech_2)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('tech_2')" />
-					<Label class="ChoiceCost" id="label_tech_2" text="1000" />
+				<Panel class="OptionButton" onmouseactivate="SetSphereSourceMap()" >
+					<Label text="Periodic map spawn" />
 				</Panel>
-				<Panel class="Choice" id="choice_creeps_3" >
-					<DOTAAbilityImage class="ChoiceIcon" abilityname="upgrade_creeps_3" onmouseover="DOTAShowAbilityTooltip(upgrade_creeps_3)"
-						onmouseout="DOTAHideAbilityTooltip()" onactivate="TryToUpgrade('creeps_3')" />
-					<Label class="ChoiceCost" id="label_creeps_3" text="800" />
+
+				<Label class="DebugMenuSecondHeader" text="Eon Sphere bonuses" />
+				<Label class="DebugMenuSubheader" text="(input and press enter to update)" />
+
+				<Panel class="InputButton" >
+					<Label text="1st sphere speed bonus (%)" />
+					<TextEntry id="FirstSphereInput" class="TextInput" maxchars="3" text="20" oninputsubmit="SetFirstSphereMoveSpeed()" />
 				</Panel>
+
+				<Panel class="InputButton" >
+					<Label text="2nd sphere health regen bonus" />
+					<TextEntry id="SecondSphereInput" class="TextInput" maxchars="3" text="10" oninputsubmit="SetSecondSphereRegen()" />
+				</Panel>
+
+				<Panel class="InputButton" >
+					<Label text="3rd sphere shield amount" />
+					<TextEntry id="ThirdSphereInput" class="TextInput" maxchars="4" text="500" oninputsubmit="SetThirdSphereShieldAmount()" />
+					<Label class="SecondaryInputLabel" text="shield recharge time (s)" />
+					<TextEntry id="ThirdSphereCooldownInput" class="TextInput" maxchars="3" text="15" oninputsubmit="SetThirdSphereShieldCooldown()" />
+				</Panel>
+
+				<Panel class="InputButton" >
+					<Label text="4th sphere nuke damage" />
+					<TextEntry id="FourthSphereInput" class="TextInput" maxchars="4" text="300" oninputsubmit="SetFourthSphereDamage()" />
+				</Panel>
+
+				<Panel class="InputButton" >
+					<Label text="5th sphere power factor" />
+					<TextEntry id="FifthSphereInput" class="TextInput" maxchars="2" text="2" oninputsubmit="SetFifthSphereFactor()" />
+				</Panel>
+
 			</Panel>
 		</Panel>
 	</Panel>

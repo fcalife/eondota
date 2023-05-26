@@ -9,5 +9,11 @@ function Filters:ModifierFilter(keys)
 	if keys.entindex_parent_const then parent = EntIndexToHScript(keys.entindex_parent_const) end
 	if keys.entindex_ability_const then ability = EntIndexToHScript(keys.entindex_ability_const) end
 
+	if parent and parent:HasModifier("modifier_boss_health_controller") then
+		if modifier_name and (modifier_name == "modifier_earthshaker_aftershock" or modifier_name == "modifier_stunned") then
+			return false
+		end
+	end
+
 	return true
 end

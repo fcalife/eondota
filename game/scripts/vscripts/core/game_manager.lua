@@ -23,7 +23,7 @@ function GameManager:Init()
 	--LaneCreeps:Init()
 	--Towers:Init()
 
-	RoundManager:Init()
+	--RoundManager:Init()
 end
 
 function GameManager:SetGamePhase(phase)
@@ -36,13 +36,12 @@ end
 
 function GameManager:OnPreGameStart()
 	print("New dota state: pregame")
-	PaintableGrids:Init()
 end
 
 function GameManager:OnGameStart()
 	print("New dota state: game start")
 
-	GameRules:GetGameModeEntity():SetFogOfWarDisabled(FOG_OF_WAR_DISABLED)
+	GameRules:GetGameModeEntity():SetFogOfWarDisabled(false)
 
 	self:SetGamePhase(GAME_STATE_BATTLE)
 
@@ -70,18 +69,15 @@ function GameManager:InitializeHero(hero)
 		end
 	end
 
-	hero:HeroLevelUp(false)
-	hero:HeroLevelUp(false)
-
 	hero:SetAbilityPoints(0)
 
-	hero:AddItemByName("item_aghanims_shard")
+	--hero:AddItemByName("item_ultimate_scepter_2")
 
-	if IsInToolsMode() then
-		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
-		hero:AddItemByName("item_dev_blink")
-		hero:AddItemByName("item_dev_dagon")
-	end
+	-- if IsInToolsMode() then
+	-- 	hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
+	-- 	hero:AddItemByName("item_dev_blink")
+	-- 	hero:AddItemByName("item_dev_dagon")
+	-- end
 end
 
 function GameManager:EndGameWithWinner(team)
@@ -94,12 +90,10 @@ function GameManager:OnHostSelectedOption(event)
 	CAMERA_LOCK = (event.camera_lock == 1)
 	FAST_ABILITIES = (event.fast_abilities == 1)
 	FASTER_ABILITIES = (event.faster_abilities == 1)
-
-	GRID_SIZE = (event.smaller_grid == 1 and 3) or (event.small_grid == 1 and 4) or 5
 end
 
 function GameManager:OnUnitKilled(attacker, killed_unit)
-	if killed_unit.is_nexus then GameManager:EndGameWithWinner(ENEMY_TEAM[killed_unit:GetTeam()]) end
+	if killed_unit.is_boss then GameManager:EndGameWithWinner(DOTA_TEAM_GOODGUYS) end
 end
 
 function GameManager:GetTeamPlayerID(team)

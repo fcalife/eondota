@@ -1,0 +1,79 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf55:version{407e3350-0afa-43e9-9afe-d317d3f56886} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 8
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetRandomControlPointPosition"
+			m_vecCPMaxPos = [ -210.0, 0.0, -30.0 ]
+			m_vecCPMinPos = [ -190.0, 0.0, -80.0 ]
+			m_nCP1 = 8
+		},
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_nHeadLocation = 8
+			m_vecCP1Pos = [ 0.0, 0.0, 116.0 ]
+			m_vecCP2Pos = [ 10.0, 0.0, 103.0 ]
+			m_vecCP3Pos = [ 20.0, 0.0, 95.0 ]
+			m_vecCP4Pos = [ 0.0, 0.0, 82.0 ]
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_vecRotation = [ -20.0, 0.0, -20.0 ]
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_vecRotation = [ -15.0, 0.0, -20.0 ]
+			m_nCP = 2
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_vecRotation = [ -10.0, 0.0, -20.0 ]
+			m_nCP = 3
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_vecRotation = [ -20.0, 0.0, -20.0 ]
+			m_nCP = 4
+		},
+		{
+			_class = "C_OP_SetParentControlPointsToChildCP"
+			m_nNumControlPoints = 4
+			m_nFirstSourcePoint = 1
+			m_bSetOrientation = true
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/boss/swipe_hit_sweeo.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/boss/swipe_hit_sweeo.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/boss/swipe_hit_sweeo.vpcf"
+		},
+	]
+}

@@ -36,33 +36,35 @@ function PowerupManager:OnRoundEnd()
 	if self.timer then Timers:RemoveTimer(self.timer) end
 end
 
-function PowerupManager:SpawnPowerUp()
-	local live_heroes = ScoreManager:GetAllAliveHeroes()
-	local spawn_center = Vector(0, 0, 0)
-	local max_radius = 0
+function PowerupManager:SpawnPowerUp(origin, destination, item_type)
+	if (not self.current_powerups) then self.current_powerups = {} end
 
-	if #live_heroes > 0 then
-		local hero_weight = 1 / #live_heroes
+	table.insert(self.current_powerups, Powerup(origin, destination, item_type))
+end
 
-		for _, hero in pairs(live_heroes) do
-			spawn_center = spawn_center + hero_weight * hero:GetAbsOrigin()
-		end
-
-		for _, hero in pairs(live_heroes) do
-			local hero_radius = (hero:GetAbsOrigin() - spawn_center):Length2D()
-			max_radius = math.max(max_radius, hero_radius)
+function PowerupManager:CleanPowerups()
+	if self.current_powerups then
+		for _, powerup in pairs(self.current_powerups) do
+			powerup:Destroy()
 		end
 	end
 
-	local spawn_point = spawn_center + RandomVector(RandomFloat(0, max_radius))
-	local attempts = 1
+	self.current_powerups = {}
+end
 
-	while attempts < 10 and (not self:IsSpawnPointValid(spawn_point)) do
-		attempts = attempts + 1
-		spawn_point = spawn_point + RandomVector(300)
+function PowerupManager:MovePowerupsToNextArena()
+	if self.current_powerups then
+		for _, powerup in pairs(self.current_powerups) do
+			if powerup.drop and (not powerup.drop:IsNull()) then
+				local current_loc = powerup.drop:GetAbsOrigin()
+				local new_loc = Vector(current_loc.x + 8192, current_loc.y, current_loc.z)
+
+				powerup.drop:SetAbsOrigin(new_loc)
+
+				if powerup.trigger then powerup.trigger:MoveTo(new_loc) end
+			end
+		end
 	end
-
-	if self:IsSpawnPointValid(spawn_point) then	Powerup(spawn_point) end
 end
 
 function PowerupManager:IsSpawnPointValid(position)
@@ -82,30 +84,38 @@ end
 
 if Powerup == nil then Powerup = class({}) end
 
-function Powerup:constructor(location)
-	self.location = location
-	self.item_type = POWERUP_LIST[RandomInt(1, #POWERUP_LIST)]
+function Powerup:constructor(origin, destination, item_type)
+	self.origin = origin
+	self.destination = destination
+	self.item_type = item_type
 
 	self.item = CreateItem(self.item_type, nil, nil)
-	self.drop = CreateItemOnPositionForLaunch(self.location, self.item)
+	self.drop = CreateItemOnPositionForLaunch(self.origin, self.item)
+	self.item:LaunchLootInitialHeight(false, 25, 200, 0.7, self.destination)
 
-	self.drop:SetModelScale(1.4)
+	if item_type == "item_health_potion" then
+		self.drop:SetModelScale(2.4)
+	elseif item_type == "item_mario_star" then
+		self.drop:SetModelScale(0.9)
+	end
 
 	self.drop:EmitSound("KnockbackArena.Powerup.Pop")
 
-	self.trigger = MapTrigger(self.location, TRIGGER_TYPE_CIRCLE, {
-		radius = 140
-	}, {
-		trigger_team = DOTA_TEAM_NEUTRALS,
-		team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		unit_filter = DOTA_UNIT_TARGET_HERO,
-		flag_filter = DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
-		find_order = FIND_CLOSEST,
-	}, function(units)
-		self:Tick(units)
-	end, {
-		tick_when_empty = true,
-	})
+	Timers:CreateTimer(0.7, function()
+		self.trigger = MapTrigger(self.destination, TRIGGER_TYPE_CIRCLE, {
+			radius = 140
+		}, {
+			trigger_team = DOTA_TEAM_BADGUYS,
+			team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			unit_filter = DOTA_UNIT_TARGET_HERO,
+			flag_filter = DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+			find_order = FIND_CLOSEST,
+		}, function(units)
+			self:Tick(units)
+		end, {
+			tick_when_empty = true,
+		})
+	end)
 end
 
 function Powerup:Tick(units)
@@ -119,37 +129,56 @@ end
 
 function Powerup:Activate(target)
 	if self.item_type == "item_health_potion" then
-		target:Heal(4, nil)
+		target:Heal(0.2 * target:GetMaxHealth(), nil)
+		SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, 0.2 * target:GetMaxHealth(), nil)
 
 		target:EmitSound("KnockbackArena.Powerup.Health")
 	elseif self.item_type == "item_mario_star" then
-		target:AddNewModifier(target, nil, "modifier_powerup_star", {duration = 2.5})
+		local all_heroes = HeroList:GetAllHeroes()
 
-		target:EmitSound("KnockbackArena.Powerup.Star")
-	elseif self.item_type == "item_power_boots" then
-		target:AddNewModifier(target, nil, "modifier_powerup_boots", {duration = 4})
+		for _, hero in pairs(all_heroes) do
+			local powerup_modifier = hero:AddNewModifier(hero, nil, "modifier_powerup_star", {})
 
-		target:EmitSound("KnockbackArena.Powerup.Boots")
-	elseif self.item_type == "item_power_bull" then
-		target:AddNewModifier(target, nil, "modifier_powerup_bull", {duration = 4})
+			if powerup_modifier then powerup_modifier:IncrementStackCount() end
 
-		target:EmitSound("KnockbackArena.Powerup.Bull")
-	elseif self.item_type == "item_power_shield" then
-		target:AddNewModifier(target, nil, "modifier_powerup_shield", {})
+			hero:EmitSound("KnockbackArena.Powerup.Star")
+		end
 
-		target:EmitSound("KnockbackArena.Powerup.Shield")
-	elseif self.item_type == "item_power_metal" then
-		target:AddNewModifier(target, nil, "modifier_powerup_metal", {duration = 8})
+		local eon_count = BossManager:GetEonDropCount()
 
-		target:EmitSound("KnockbackArena.Powerup.Metal")
-	elseif self.item_type == "item_power_refresh" then
-		target:AddNewModifier(target, nil, "modifier_powerup_refresh", {})
+		if eon_count == 1 then GlobalMessages:Send("Collected 1st Sphere! Movement speed increased.")
+		elseif eon_count == 2 then GlobalMessages:Send("Collected 2nd Sphere! Health regen increased.")
+		elseif eon_count == 3 then GlobalMessages:Send("Collected 3rd Sphere! Damage shield unlocked.")
+		elseif eon_count == 4 then GlobalMessages:Send("Collected 4th Sphere! Nuke ability unlocked.")
+		elseif eon_count == 5 then GlobalMessages:Send("Collected all Spheres! ULTIMATE POWER ACHIEVED!")
+		end 
 
-		target:EmitSound("KnockbackArena.Powerup.Refresh")
-	elseif self.item_type == "item_power_invis" then
-		target:AddNewModifier(target, nil, "modifier_powerup_invis", {duration = 3})
+		CustomGameEventManager:Send_ServerToAllClients("got_eon", {})
 
-		target:EmitSound("KnockbackArena.Powerup.Invis")
+	-- elseif self.item_type == "item_power_boots" then
+	-- 	target:AddNewModifier(target, nil, "modifier_powerup_boots", {duration = 4})
+
+	-- 	target:EmitSound("KnockbackArena.Powerup.Boots")
+	-- elseif self.item_type == "item_power_bull" then
+	-- 	target:AddNewModifier(target, nil, "modifier_powerup_bull", {duration = 4})
+
+	-- 	target:EmitSound("KnockbackArena.Powerup.Bull")
+	-- elseif self.item_type == "item_power_shield" then
+	-- 	target:AddNewModifier(target, nil, "modifier_powerup_shield", {})
+
+	-- 	target:EmitSound("KnockbackArena.Powerup.Shield")
+	-- elseif self.item_type == "item_power_metal" then
+	-- 	target:AddNewModifier(target, nil, "modifier_powerup_metal", {duration = 8})
+
+	-- 	target:EmitSound("KnockbackArena.Powerup.Metal")
+	-- elseif self.item_type == "item_power_refresh" then
+	-- 	target:AddNewModifier(target, nil, "modifier_powerup_refresh", {})
+
+	-- 	target:EmitSound("KnockbackArena.Powerup.Refresh")
+	-- elseif self.item_type == "item_power_invis" then
+	-- 	target:AddNewModifier(target, nil, "modifier_powerup_invis", {duration = 3})
+
+	-- 	target:EmitSound("KnockbackArena.Powerup.Invis")
 	end
 
 	local pickup_pfx = ParticleManager:CreateParticle("particles/dodgeball/powerup_pickup.vpcf", PATTACH_CUSTOMORIGIN, nil)

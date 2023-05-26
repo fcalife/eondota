@@ -1,0 +1,342 @@
+"DOTAAbilities"
+{
+	"beast_swipe_light"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"sven_great_cleave"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+
+		"AbilityCastPoint"			"0.6"
+
+		"AbilityCooldown"			"4.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"125"
+			"angle"					"70"
+			"length"				"525"
+		}
+	}
+
+	"beast_swipe_heavy"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"kunkka_tidebringer"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_AREA_DENY"
+
+		"AbilityCastPoint"			"1.75"
+
+		"AbilityCooldown"			"6.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"250"
+			"angle"					"70"
+			"length"				"800"
+		}
+	}
+
+	"beast_leap"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"mirana_leap"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastAnimation"		"ACT_DOTA_LEAP_STUN"
+
+		"AbilityCastPoint"			"0.6"
+
+		"AbilityCooldown"			"12"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"125"
+			"radius"				"525"
+		}
+	}
+
+	"beast_bite"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"pudge_dismember"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityCastRange"			"600"
+
+		"AbilityCastAnimation"		"ACT_DOTA_NIAN_PIN_START"
+
+		"AbilityCastPoint"			"1.625"
+		"AbilityChannelTime"		"4.0"
+
+		"AbilityCooldown"			"16"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"dps"					"60"
+			"duration"				"4"
+		}
+	}
+
+	"beast_tail_smash"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"ogre_bruiser_ogre_smash"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
+
+		"AbilityCastPoint"			"1.5"
+
+		"AbilityCooldown"			"8"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"250"
+			"radius"				"650"
+		}
+	}
+
+	"beast_tail_spin"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"juggernaut_blade_fury"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+
+		"AbilityCastPoint"			"1.4"
+
+		"AbilityCooldown"			"8"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"250"
+			"radius"				"325"
+			"duration"				"1.25"
+		}
+	}
+
+	"beast_breath"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"phoenix_sun_ray"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityCastAnimation"		"ACT_DOTA_RATTLETRAP_HOOKSHOT_START"
+
+		"AbilityCastPoint"			"1.75"
+		"AbilityChannelTime"		"5.0"
+
+		"AbilityCooldown"			"50"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"dps"					"150"
+			"radius"				"175"
+			"move_speed"			"420"
+			"duration"				"5.0"
+		}
+	}
+
+	"beast_roar"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"beastmaster_primal_roar"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_NIAN_GAME_END"
+
+		"AbilityCastPoint"			"0.75"
+
+		"AbilityCooldown"			"40"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"125"
+			"slow"					"-40"
+			"duration"				"4"
+		}
+	}
+
+	"beast_charge"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"primal_beast_onslaught"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastAnimation"		"ACT_DOTA_MAGNUS_SKEWER_START"
+
+		"AbilityCastPoint"			"1.7"
+
+		"AbilityCooldown"			"20"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"250"
+			"distance"				"1900"
+			"charge_speed"			"2000"
+			"stun_duration"			"4.0"
+			"dmg_bonus"				"100"
+		}
+	}
+
+	"beast_spikes"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"sandking_burrowstrike"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityCastAnimation"		"ACT_DOTA_IDLE"
+
+		"AbilityCastPoint"			"2.1"
+
+		"AbilityCooldown"			"60"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"180"
+			"slow"					"-40"
+			"slow_duration"			"4.0"
+			"speed"					"800"
+			"radius"				"160"
+			"spike_count"			"7"
+			"jump_time"				"0.85"
+		}
+	}
+
+	"beast_phase_roar"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"beastmaster_primal_roar"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_NIAN_GAME_END"
+
+		"AbilityCastPoint"			"0.75"
+
+		"AbilityCooldown"			"0.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"duration"				"10"
+		}
+	}
+
+	"beast_controller"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"neutral_spell_immunity"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+	}
+
+	"ability_ressurrect_channel"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"skeleton_king_reincarnation"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+
+		"AbilityCastAnimation"		"ACT_DOTA_GENERIC_CHANNEL_1"
+		"AbilityChannelTime"		"5.0"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCastRange"			"250"
+
+		"AbilityCooldown"			"0.0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+	}
+}

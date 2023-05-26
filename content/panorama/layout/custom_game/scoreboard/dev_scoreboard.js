@@ -1,8 +1,12 @@
 GameEvents.Subscribe("new_message", NewMessage);
 GameEvents.Subscribe("display_custom_error", ShowCustomError);
 
-CustomNetTables.SubscribeNetTableListener("score", UpdateScoreboard);
-CustomNetTables.SubscribeNetTableListener("round_timer", UpdateTimer);
+GameEvents.Subscribe("boss_health", UpdateHealth);
+GameEvents.Subscribe("show_health", ShowHealth);
+GameEvents.Subscribe("hide_health", HideHealth);
+
+// CustomNetTables.SubscribeNetTableListener("score", UpdateScoreboard);
+// CustomNetTables.SubscribeNetTableListener("round_timer", UpdateTimer);
 
 let team_names = {}
 
@@ -17,6 +21,29 @@ team_names[11] = "DARK GRAY";
 team_names[12] = "MAUVE";
 team_names[13] = "PLAID";
 
+function ShowHealth() {
+	$("#Boss_Health_Container").visible = true;
+}
+
+function HideHealth() {
+	$("#Boss_Health_Container").visible = false;
+}
+
+function UpdateHealth(data) {
+	$("#Boss_Health_Label").text = data.health + " / 10000";
+	$("#Boss_Health").value = data.health;
+
+	let normalHealth = (Math.max(3000, data.health) - 3000) / 7000;
+
+	let red = 240 - Math.round(175 * normalHealth);
+	let green = 16 + Math.round(239 * normalHealth);
+	let blue = 16 + Math.round(48 * normalHealth);
+
+	let color = "#" + red.toString(16) + green.toString(16) + blue.toString(16)
+
+	$("#Boss_Health_Left").style["background-color"] = color;
+}
+
 function NewMessage(data) {
 	let container = $("#Message_Container");
 
@@ -28,7 +55,7 @@ function NewMessage(data) {
 	if (data.animate) label.AddClass("AnimatedMessage");
 	if (data.team) label.text = team_names[data.team] + data.text;
 
-	$.Schedule(4.5, () => {
+	$.Schedule(5.5, () => {
 		label.DeleteAsync(0.0);
 	})
 }

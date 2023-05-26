@@ -9,18 +9,8 @@
 	</scripts>
 
 	<Panel style="width:100%; height:100%;" hittest="false">
-		<Panel id="Container" hittest="true" >
+		<!-- <Panel id="Container" hittest="true" >
 			<Label id="Header" text="GAME OPTIONS" />
-
-			<Panel class="OptionContainer" id="small_grid_container">
-				<ToggleButton class="OptionToggleButton" id="small_grid" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Smaller map"/>
-			</Panel>
-
-			<Panel class="OptionContainer" id="smaller_grid_container">
-				<ToggleButton class="OptionToggleButton" id="smaller_grid" onactivate="UpdateOptions()"/>
-				<Label class="OptionLabel" text="Even smaller map"/>
-			</Panel>
 
 			<Panel class="OptionContainer" id="camera_lock_container">
 				<ToggleButton class="OptionToggleButton" id="camera_lock" onactivate="UpdateOptions()"/>
@@ -36,6 +26,6 @@
 				<ToggleButton class="OptionToggleButton" id="faster_abilities" onactivate="UpdateOptions()"/>
 				<Label class="OptionLabel" text="Even shorter cooldowns"/>
 			</Panel>
-		</Panel>
+		</Panel> -->
 	</Panel>
 </root>

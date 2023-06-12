@@ -73,7 +73,32 @@
 		"AbilityValues"
 		{
 			"damage"				"125"
-			"radius"				"525"
+			"radius"				"480"
+		}
+	}
+
+	"beast_time_leap"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"faceless_void_time_walk"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		"AbilityCastAnimation"		"ACT_DOTA_LEAP_STUN"
+
+		"AbilityCastPoint"			"1.05"
+
+		"AbilityCooldown"			"12"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"damage"				"125"
+			"radius"				"450"
 		}
 	}
 
@@ -185,6 +210,39 @@
 			"radius"				"175"
 			"move_speed"			"420"
 			"duration"				"5.0"
+		}
+	}
+
+	"beast_fire_breath"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/chronobeast"
+
+		"AbilityTextureName"		"dragon_knight_breathe_fire"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityCastAnimation"		"ACT_DOTA_RATTLETRAP_HOOKSHOT_START"
+
+		"AbilityCastPoint"			"1.75"
+		"AbilityChannelTime"		"5.0"
+
+		"AbilityCooldown"			"50"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"fire_damage"			"100"
+			"duration"				"5.0"
+			"interval"				"0.4"
+			"fire_speed"			"2400"
+			"start_radius"			"250"
+			"end_radius"			"550"
+			"length"				"1900"
 		}
 	}
 
@@ -338,5 +396,111 @@
 		"AbilityManaCost"			"0"
 
 		"MaxLevel"					"1"
+	}
+
+	"plant_root_trap"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"core/hazards"
+
+		"AbilityTextureName"		"treant_overgrowth"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityCastPoint"			"0"
+		"AbilityCooldown"			"6.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"radius"				"450"
+			"root_duration"			"2.5"
+			"health"				"3"
+		}
+	}
+
+	"plant_lashing_trap"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"core/hazards"
+
+		"AbilityTextureName"		"warpine_raider_seed_shot"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityCastPoint"			"0"
+		"AbilityCooldown"			"1.75"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"radius"				"450"
+			"damage"				"50"
+			"health"				"3"
+		}
+	}
+
+	"request_help_q"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+		"AbilityTextureName"		"death_prophet_silence"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityCastAnimation"		""
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+		"MaxLevel"					"1"
+		"AbilitySharedCooldown"		"request_help"
+	}
+
+	"request_help_w"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+		"AbilityTextureName"		"death_prophet_silence"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityCastAnimation"		""
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+		"MaxLevel"					"1"
+		"AbilitySharedCooldown"		"request_help"
+	}
+
+	"request_help_e"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+		"AbilityTextureName"		"death_prophet_silence"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityCastAnimation"		""
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+		"MaxLevel"					"1"
+		"AbilitySharedCooldown"		"request_help"
+	}
+
+	"request_help_r"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+		"AbilityTextureName"		"death_prophet_silence"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityCastAnimation"		""
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+		"MaxLevel"					"1"
+		"AbilitySharedCooldown"		"request_help"
 	}
 }

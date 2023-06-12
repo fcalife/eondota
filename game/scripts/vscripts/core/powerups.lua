@@ -108,7 +108,7 @@ function Powerup:constructor(origin, destination, item_type)
 			trigger_team = DOTA_TEAM_BADGUYS,
 			team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY,
 			unit_filter = DOTA_UNIT_TARGET_HERO,
-			flag_filter = DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+			flag_filter = DOTA_UNIT_TARGET_FLAG_NONE,
 			find_order = FIND_CLOSEST,
 		}, function(units)
 			self:Tick(units)
@@ -134,26 +134,8 @@ function Powerup:Activate(target)
 
 		target:EmitSound("KnockbackArena.Powerup.Health")
 	elseif self.item_type == "item_mario_star" then
-		local all_heroes = HeroList:GetAllHeroes()
-
-		for _, hero in pairs(all_heroes) do
-			local powerup_modifier = hero:AddNewModifier(hero, nil, "modifier_powerup_star", {})
-
-			if powerup_modifier then powerup_modifier:IncrementStackCount() end
-
-			hero:EmitSound("KnockbackArena.Powerup.Star")
-		end
-
-		local eon_count = BossManager:GetEonDropCount()
-
-		if eon_count == 1 then GlobalMessages:Send("Collected 1st Sphere! Movement speed increased.")
-		elseif eon_count == 2 then GlobalMessages:Send("Collected 2nd Sphere! Health regen increased.")
-		elseif eon_count == 3 then GlobalMessages:Send("Collected 3rd Sphere! Damage shield unlocked.")
-		elseif eon_count == 4 then GlobalMessages:Send("Collected 4th Sphere! Nuke ability unlocked.")
-		elseif eon_count == 5 then GlobalMessages:Send("Collected all Spheres! ULTIMATE POWER ACHIEVED!")
-		end 
-
-		CustomGameEventManager:Send_ServerToAllClients("got_eon", {})
+		target:EmitSound("Drop.EonStone")
+		target:AddNewModifier(target, nil, "modifier_eon_stone_carrier", {})
 
 	-- elseif self.item_type == "item_power_boots" then
 	-- 	target:AddNewModifier(target, nil, "modifier_powerup_boots", {duration = 4})

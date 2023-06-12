@@ -8,7 +8,7 @@ ENEMY_TEAM = {}
 ENEMY_TEAM[DOTA_TEAM_GOODGUYS] = DOTA_TEAM_BADGUYS
 ENEMY_TEAM[DOTA_TEAM_BADGUYS] = DOTA_TEAM_GOODGUYS
 
-
+HARD_MODE = true
 
 function GameManager:Init()
 	self:SetGamePhase(GAME_STATE_INIT)
@@ -53,6 +53,7 @@ function GameManager:OnGameStart()
 
 	RoundManager:OnGameStart()
 	GameClock:Start()
+	Hazards:Init()
 end
 
 function GameManager:OnPostGameStart()
@@ -62,7 +63,9 @@ end
 function GameManager:InitializeHero(hero)
 	hero:AddNewModifier(hero, nil, "modifier_hero_base_state", {})
 
-	for i = 0, 10 do
+	if GetMapName() == "boss_arena" then hero:AddNewModifier(hero, nil, "modifier_hero_revive_state", {}) end
+
+	for i = 0, 15 do
 		local ability = hero:GetAbilityByIndex(i)
 		if ability then
 			ability:SetLevel(1)
@@ -88,8 +91,10 @@ end
 
 function GameManager:OnHostSelectedOption(event)
 	CAMERA_LOCK = (event.camera_lock == 1)
-	FAST_ABILITIES = (event.fast_abilities == 1)
-	FASTER_ABILITIES = (event.faster_abilities == 1)
+	-- FAST_ABILITIES = (event.fast_abilities == 1)
+	-- FASTER_ABILITIES = (event.faster_abilities == 1)
+	HARD_MODE = (event.hard_mode == 1)
+	NIGHTMARE_MODE = (event.nightmare_mode == 1)
 end
 
 function GameManager:OnUnitKilled(attacker, killed_unit)
@@ -110,4 +115,18 @@ function GameManager:GetMapLocation(name)
 	local target = Entities:FindByName(nil, name)
 
 	return (target and target:GetAbsOrigin()) or Vector(0, 0, 0)
+end
+
+function GameManager:GetAllMapLocations(name)
+	local targets = Entities:FindAllByName(name)
+
+	local locations = {}
+
+	if targets then
+		for _, target in pairs(targets) do
+			table.insert(locations, target:GetAbsOrigin() or Vector(0, 0, 0))
+		end
+	end
+
+	return locations
 end

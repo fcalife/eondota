@@ -58,12 +58,19 @@
 		"item_eon_tombstone"				"Fallen Ally"
 		"npc_dota_hero_crystal_maiden"		"Fallen Snow"
 		"npc_dota_hero_juggernaut"			"Fen"
+		"npc_last_stone"					"EON SPHERE"
+		"npc_plant_rooter"					"Thorny Seed"
+		"npc_plant_lasher"					"Lashing Seed"
+		"npc_tesla_coil"					"Tesla Coil"
 
 		// Abilities
 		"DOTA_Tooltip_ability_fallen_snow_ice_bolt"						"Ice Bolt"
-		"DOTA_Tooltip_ability_fallen_snow_ice_bolt_Description"			"Launches an icy projectile which damages the first enemy it hits."
-		"DOTA_Tooltip_ability_fallen_snow_ice_bolt_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_fallen_snow_ice_bolt_distance"			"MAX DISTANCE:"
+		
+
+		"DOTA_Tooltip_ability_request_help_q"				"Call for help"
+		"DOTA_Tooltip_ability_request_help_w"				"Call for help"
+		"DOTA_Tooltip_ability_request_help_e"				"Call for help"
+		"DOTA_Tooltip_ability_request_help_r"				"Call for help"
 
 		"DOTA_Tooltip_ability_fallen_snow_frost_nova"					"Frost Nova"
 		"DOTA_Tooltip_ability_fallen_snow_frost_nova_Description"		"Dashes a short distance ahead, leaving an ice trail which slows enemies. The trail lingers for %duration% seconds."
@@ -87,6 +94,42 @@
 		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_vortex_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_radius"				"EFFECT RADIUS:"
 
+
+
+
+
+		"DOTA_Tooltip_ability_fen_dash_strike"							"Dash Strike"
+		"DOTA_Tooltip_ability_fen_dash_strike_Description"				"After a short windup, dashes up to %distance% range towards the target direction, then performs a circular slash, dealing damage to all nearby enemies and slowing their movement speed."
+		"DOTA_Tooltip_ability_fen_dash_strike_slash_radius"				"SLASH RADIUS:"
+		"DOTA_Tooltip_ability_fen_dash_strike_damage"					"SLASH DAMAGE:"
+		"DOTA_Tooltip_ability_fen_dash_strike_slow"						"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_fen_dash_strike_slow_duration"			"SLOW DURATION:"
+
+		"DOTA_Tooltip_ability_fen_spin"									"Spin to Win"
+		"DOTA_Tooltip_ability_fen_spin_Description"						"Starts spinning for up to %duration% seconds, dealing damage over time to nearby enemies for the duration. The longer Fen spins, the faster he attacks enemies in range, and the slower he moves (up to %slow_tooltip%%% slower). The effect ends prematurely if Fen is crowd controlled by an enemy or casts another spell. Can also be voluntarily ended early."
+		"DOTA_Tooltip_ability_fen_spin_damage"							"SLASH DAMAGE:"
+		"DOTA_Tooltip_ability_fen_spin_slash_radius"					"SLASH RADIUS:"
+
+		"DOTA_Tooltip_ability_fen_counter"								"Counter"
+		"DOTA_Tooltip_ability_fen_counter_Description"					"Enter a counterattack stance, becoming immune to crowd control effects for up to %duration% second.\n<h1>Reflection</h1>If an enemy attempts to damage Fen while in his counterattack stance, the attack will ne negated and returned to the enemy. In addition, Fen ends the stance by performing a circular slash, dealing %slash_damage% damage to all enemies in %slash_radius% range."
+		"DOTA_Tooltip_ability_fen_counter_Note0"						"Counter's effect cannot be canceled early."
+		"DOTA_Tooltip_ability_fen_counter_Note1"						"After Counter's effect ends, Fen benefits from a 0.25 seconds grace period where he is still immune to damage and crowd control effects."
+
+		"DOTA_Tooltip_modifier_fen_counter"								"Counter Stance"
+		"DOTA_Tooltip_modifier_fen_counter_Description"					"Immune to crowd control, and reflecting enemy attacks."
+
+		"DOTA_Tooltip_ability_fen_divine_blade"							"Divine Blade"
+		"DOTA_Tooltip_ability_fen_divine_blade_Description"				"Unleashes Fen's divine blade of light. For the next %duration% seconds, he gains %attack_range% bonus attack range, %q_radius_pct%%% increased effect radius on all his abilities, and can use Divine Slash up to %slash_charges% times.\n<h1>Divine Slash</h1>Performs an overhead slash, dealing %damage% damage to all enemies in a long, thin line in the target direction, then gaining massive attack speed and %bonus_damage%%% bonus damage for the next %bonus_attacks% attacks. The bonus lasts for up to %bonus_duration% seconds.\n<h1>Energy Recharge</h1>If Fen manages to hit at least one enemy with all casts of Divine Slash, the cooldown of Divine Blade is reduced by half."
+
+		"DOTA_Tooltip_ability_fen_divine_blade_slash"					"Divine Slash"
+		"DOTA_Tooltip_ability_fen_divine_blade_slash_Description"		"Performs an overhead slash, dealing %damage% damage to all enemies in a long, thin line in the target direction, then gaining massive attack speed and %bonus_damage%%% bonus damage for the next %bonus_attacks% attacks. The bonus lasts for up to %bonus_duration% seconds.\n<h1>Energy Recharge</h1>If Fen manages to hit at least one enemy with all casts of Divine Slash, the cooldown of Divine Blade is reduced by half."
+
+
+
+
+
+		"DOTA_Tooltip_modifier_root_trap_debuff"						"Thorny Trap"
+		"DOTA_Tooltip_modifier_root_trap_debuff_Description"			"Rooted, unable to move."
 
 
 

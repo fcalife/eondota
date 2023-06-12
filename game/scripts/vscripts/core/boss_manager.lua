@@ -20,6 +20,11 @@ function BossManager:StartBossBattle()
 	self.next_health_drop = self.battle_start_time + HEALTH_DROP_MIN_TIME + RandomInt(0, DROP_TIME_VARIATION)
 	self.next_sphere_drop = self.battle_start_time + SPHERE_DROP_MIN_TIME + RandomInt(0, DROP_TIME_VARIATION)
 
+	StoneManager:Reset()
+
+	self.elapsed_time = 0
+	CustomGameEventManager:Send_ServerToAllClients("boss_timer", {time = self.elapsed_time})
+
 	self.boss_think_timer = Timers:CreateTimer(1, function()
 		return BossManager:TimeThink()
 	end)
@@ -32,8 +37,8 @@ function BossManager:ResetBattle()
 
 	self:ClearWeather()
 
-	self:ResetEonDropCount()
-
+	StoneManager:Reset()
+	Hazards:Reset()
 	PowerupManager:CleanPowerups()
 
 	if self.boss then
@@ -42,9 +47,7 @@ function BossManager:ResetBattle()
 		self.boss:ForceKill(false)
 	end
 
-	CustomGameEventManager:Send_ServerToAllClients("boss_health", {health = 10000})
-
-	CustomGameEventManager:Send_ServerToAllClients("reset_eon", {})
+	CustomGameEventManager:Send_ServerToAllClients("boss_health", {health = 10000, max_health = 10000})
 
 	RoundManager:Initialize()
 end
@@ -54,7 +57,7 @@ function BossManager:TimeThink()
 		local current_time = GameRules:GetGameTime()
 
 		if SPHERE_TRIGGER_MAP and current_time >= self.next_sphere_drop then
-			self:SpawnMapEonStone()
+			StoneManager:SpawnMapEonStone()
 
 			self.next_sphere_drop = current_time + SPHERE_DROP_MIN_TIME + RandomInt(0, DROP_TIME_VARIATION)
 		end
@@ -66,7 +69,12 @@ function BossManager:TimeThink()
 		end
 	end
 
-	if GameManager:GetGamePhase() == GAME_STATE_BATTLE then return 1 end
+	if GameManager:GetGamePhase() == GAME_STATE_BATTLE then
+		self.elapsed_time = self.elapsed_time + 1
+		CustomGameEventManager:Send_ServerToAllClients("boss_timer", {time = self.elapsed_time})
+
+		return 1
+	end
 end
 
 function BossManager:SpawnHealthPowerup()
@@ -87,31 +95,6 @@ function BossManager:SpawnHealthPowerup()
 
 	local indicator_pfx = ParticleManager:CreateParticle("particles/boss/powerup_ping.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(indicator_pfx, 0, powerup_loc)
-
-	Timers:CreateTimer(5.0, function()
-		ParticleManager:DestroyParticle(indicator_pfx, false)
-		ParticleManager:ReleaseParticleIndex(indicator_pfx)
-	end)
-end
-
-function BossManager:SpawnMapEonStone()
-	local powerup_loc = Vector(1536, 896, 128)
-
-	if RollPercentage(50) then powerup_loc = Vector(-powerup_loc.x, powerup_loc.y, powerup_loc.z) end
-	if RollPercentage(50) then powerup_loc = Vector(powerup_loc.x, -powerup_loc.y, powerup_loc.z) end
-
-	local arena_center = BossManager:GetCurrentMapCenter()
-
-	powerup_loc = powerup_loc + arena_center
-
-	BossManager:IncrementEonDropCount()
-
-	PowerupManager:SpawnPowerUp(powerup_loc, powerup_loc, "item_mario_star")
-
-	EmitGlobalSound("ui.npe_objective_complete")
-
-	local indicator_pfx = ParticleManager:CreateParticle("particles/boss/powerup_ping.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	ParticleManager:SetParticleControl(indicator_pfx, 0, powerup_loc - Vector(0, 0, 96))
 
 	Timers:CreateTimer(5.0, function()
 		ParticleManager:DestroyParticle(indicator_pfx, false)
@@ -182,7 +165,7 @@ function BossManager:SpawnBoss()
 	local spawn_point = GameManager:GetMapLocation("boss_spawn_present")
 
 	self.boss = CreateUnitByName("npc_eon_chronobeast", spawn_point, true, nil, nil, DOTA_TEAM_BADGUYS)
-	--self.boss:SetControllableByPlayer(0, false)
+	self.boss:SetControllableByPlayer(0, false)
 	self.boss:AddNewModifier(self.boss, nil, "modifier_chronobeast_phase_present", {})
 
 	AddFOWViewer(DOTA_TEAM_BADGUYS, Vector(-8192, 0, 0), 10000, 99999, false)
@@ -217,8 +200,10 @@ function BossManager:SpawnBoss()
 
 					self.boss:RemoveModifierByName("modifier_phase_transition_beast_state")
 
+					Hazards:StartPortals()
+
 					Timers:CreateTimer(0.1, function()
-						return BossManager:Think()
+						--return BossManager:Think()
 					end)
 				end)
 			end)
@@ -289,6 +274,9 @@ function BossManager:AdvanceToPhaseTwo()
 				end
 
 				PowerupManager:MovePowerupsToNextArena()
+				StoneManager:MoveAllToNextPhase()
+				Hazards:DestroyPortal()
+				Hazards:RollNextPortalSpawn()
 
 				BossManager:SetWeather("past")
 
@@ -304,6 +292,8 @@ function BossManager:AdvanceToPhaseTwo()
 						self.boss:RemoveModifierByName("modifier_phase_transition_beast_state")
 
 						BossManager:LockCameraForAllPlayers(nil, (not CAMERA_LOCK))
+
+						Hazards:StartPlants()
 
 						Timers:CreateTimer(1.5, function()
 							BossManager:SetBossBusyState(false)
@@ -324,7 +314,7 @@ function BossManager:AdvanceToPhaseThree()
 	self.boss:RemoveModifierByName("modifier_charge_exhausted")
 	self.boss:AddNewModifier(self.boss, nil, "modifier_phase_transition_beast_state", {})
 
-	BossManager:CastSpellPointTarget("beast_leap", Vector(0, 10, 256), true)
+	BossManager:CastSpellPointTarget("beast_time_leap", Vector(0, 10, 256), true)
 	BossManager:MoveToPosition(Vector(0, 0, 256), true)
 
 	for _, hero in pairs(HeroList:GetAllHeroes()) do
@@ -379,6 +369,10 @@ function BossManager:AdvanceToPhaseThree()
 				end
 
 				PowerupManager:MovePowerupsToNextArena()
+				StoneManager:MoveAllToNextPhase()
+				Hazards:DestroyPortal()
+				Hazards:RollNextPortalSpawn()
+				Hazards:StopPlants()
 
 				BossManager:SetWeather("future")
 
@@ -395,6 +389,8 @@ function BossManager:AdvanceToPhaseThree()
 						self.boss:RemoveModifierByName("modifier_phase_transition_beast_state")
 
 						BossManager:LockCameraForAllPlayers(nil, (not CAMERA_LOCK))
+
+						Hazards:StartTeslaCoils()
 
 						Timers:CreateTimer(1.5, function()
 							BossManager:SetBossBusyState(false)
@@ -479,7 +475,7 @@ function BossManager:Think()
 	if self:IsBossBusy() then return 0.1 end
 
 	local ability_spikes = self.boss:FindAbilityByName("beast_spikes")
-	local ability_breath = self.boss:FindAbilityByName("beast_breath")
+	local ability_breath = (self:GetCurrentPhase() >= BOSS_PHASE_PAST and self.boss:FindAbilityByName("beast_fire_breath")) or self.boss:FindAbilityByName("beast_breath")
 	local ability_roar = self.boss:FindAbilityByName("beast_roar")
 
 	local ability_swipe_light = self.boss:FindAbilityByName("beast_swipe_light")
@@ -530,7 +526,7 @@ function BossManager:Think()
 		local target = self:FindClosestTarget()
 
 		if target then
-			self:CastSpellPointTarget("beast_breath", target:GetAbsOrigin(), false)
+			self:CastSpellPointTarget(ability_breath:GetAbilityName(), target:GetAbsOrigin(), false)
 
 			return ability_breath:GetCastPoint() + 0.1
 		end
@@ -706,8 +702,8 @@ end
 function BossManager:LeapOrChargeIfPossible(position)
 	if (not position) then return nil end
 
-	local ability_leap = self.boss:FindAbilityByName("beast_leap")
 	local ability_charge = self.boss:FindAbilityByName("beast_charge")
+	local ability_leap = (self:GetCurrentPhase() >= BOSS_PHASE_FUTURE and self.boss:FindAbilityByName("beast_time_leap")) or self.boss:FindAbilityByName("beast_leap")
 
 	if ability_charge:IsCooldownReady() then
 		self:CastSpellPointTarget("beast_charge", position, false)
@@ -716,7 +712,7 @@ function BossManager:LeapOrChargeIfPossible(position)
 	end
 
 	if ability_leap:IsCooldownReady() then
-		self:CastSpellPointTarget("beast_leap", position, false)
+		self:CastSpellPointTarget(ability_leap:GetAbilityName(), position, false)
 
 		return ability_leap:GetCastPoint() + 0.05
 	end
@@ -744,14 +740,25 @@ function BossManager:GetCurrentMapCenter()
 	if self:GetCurrentPhase() == BOSS_PHASE_FUTURE then return Vector(8192, 0, 256) end
 end
 
-function BossManager:IncrementEonDropCount()
-	self.eon_drops = (self.eon_drops or 0) + 1
+function CDOTA_BaseNPC:TriggerCounter(attacker)
+	if (not self) or self:IsNull() or (not self:HasModifier("modifier_fen_counter")) then return false end
+
+	local ability = self:FindAbilityByName("fen_counter")
+
+	if ability then ability:PerformSlash() end
+
+	if attacker then
+		local blood_pfx = ParticleManager:CreateParticle("particles/fen/fen_counter_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+		ParticleManager:ReleaseParticleIndex(blood_pfx)
+
+		attacker:EmitSound("Fen.Counter.HitBlood")
+
+		if attacker == BossManager.boss then attacker:EmitSound("Bite.Roar") end
+	end
+
+	return true
 end
 
-function BossManager:GetEonDropCount()
-	return (self.eon_drops or 0)
-end
-
-function BossManager:ResetEonDropCount()
-	self.eon_drops = 0
+function CDOTA_BaseNPC:IsChronophage()
+	return self:HasModifier("modifier_boss_health_controller")
 end

@@ -10,7 +10,8 @@ precache.particles = {
     "particles/econ/events/fall_2021/teleport_end_fall_2021_lvl1.vpcf",
     "particles/econ/generic/generic_shape/projected_square.vpcf",
     "particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf",
-    "particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+    "particles/status_fx/status_effect_wraithking_ghosts.vpcf",
+    "particles/ui_mouseactions/range_finder_cone.vpcf"
 }
 
 precache.particle_folders = {
@@ -36,7 +37,8 @@ precache.sounds = {
     "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_primal_beast.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_dawnbreaker.vsndevts",
     "soundevents/music/awolnation_01/soundevents_music.vsndevts",
 }
 

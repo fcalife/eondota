@@ -12,6 +12,7 @@
 			<Label id="Boss_Name" text="THE CHRONOPHAGE" />
 			<Label id="Boss_Health_Label" text="10000 / 10000" />
 			<ProgressBar id="Boss_Health" value="10000" max="10000" />
+			<Label id="Fight_Timer" text="0:00" />
 		</Panel>
 
 		<Panel id="Scoreboard" hittest="false" >

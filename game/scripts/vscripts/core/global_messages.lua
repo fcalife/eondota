@@ -27,3 +27,15 @@ function GlobalMessages:NotifyTeamDeliveredFlag(team)
 
 	EmitGlobalSound((team == DOTA_TEAM_GOODGUYS) and "radiant.flag" or "dire.flag")
 end
+
+function GlobalMessages:SendToAllButUnit(unit, message)
+	for player_id = 0, 2 do
+		if unit:GetPlayerOwnerID() ~= player_id then
+			local player = PlayerResource:GetPlayer(player_id)
+
+			if player then
+				CustomGameEventManager:Send_ServerToPlayer(player, "new_message", {text = message, animate = true})
+			end
+		end
+	end
+end

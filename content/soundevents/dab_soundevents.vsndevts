@@ -3487,3 +3487,770 @@
 		}
 	}
 }
+
+"Fen.Spin"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/juggernaut/bladefury_start_loop.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.Spin.End"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/juggernaut/bladefury_stop.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.Spin.Slash"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/juggernaut/attack01.vsnd"
+							"value1"	"sounds/weapons/hero/juggernaut/attack02.vsnd"
+							"value2"	"sounds/weapons/hero/juggernaut/attack03.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.45"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.Counter"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/antimage/counterspell_cast.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.Counter.Proc"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/axe/counterhelix.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.Dash"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/marci/unleash_pulse.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.3"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.Dash.Impact"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/marci/rebound_impact.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.6"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.25"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.DivineBlade"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/omniknight/guardian_cast.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.DivineBlade.Strike"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/dawnbreaker/celestial_hammer_cast.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.DivineBlade.Hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/dawnbreaker/celestial_hammer_impact.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"0.95"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Fen.Counter.HitBlood"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/bloodseeker/rupture_cast.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"EonStone.Explode"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/phoenix/super_nova_explode.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.2"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.05"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Tesla.Warn"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/zuus/gods_wrath_precast_arcana.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.2"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.15"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Tesla.Hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/zuus/gods_wrath_target.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.15"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.05"	}
+					"pitch"					{	"value"		"1.1"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Breath.Fire.Start"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/dragon_knight/dragonknight_elderdragon_form.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.0"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Breath.Fire"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/dragon_knight/dragonknight_fire.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.1"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.15"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Plant.Spawn"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/furion/treant_spawn01.vsnd"
+							"value1"	"sounds/weapons/hero/furion/treant_spawn02.vsnd"
+							"value2"	"sounds/weapons/hero/furion/treant_spawn03.vsnd"
+							"value3"	"sounds/weapons/hero/furion/treant_spawn04.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.3"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.15"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Plant.Grow"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/furion/sprout.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.9"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.15"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Plant.Root"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/treant/overgrowth_cast.vsnd"
+						}
+					}
+					"volume"				{	"value"		"0.75"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.2"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Lash.Hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/creep/neutral/seedshot_target.vsnd"
+						}
+					}
+					"volume"				{	"value"		"1.3"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.03"	}
+					"pitch"					{	"value"		"1.0"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}
+
+"Help.Request"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/help01.vsnd"
+							"value1"	"sounds/help02.vsnd"
+							"value2"	"sounds/help03.vsnd"
+							"value3"	"sounds/help04.vsnd"
+							"value4"	"sounds/help05.vsnd"
+							"value5"	"sounds/help06.vsnd"
+							"value6"	"sounds/help07.vsnd"
+						}
+					}
+					"volume"				{	"value"		"4.0"	}
+					"pitch_rand_min"		{	"value"		"0.0"	}
+					"pitch_rand_max"		{	"value"		"0.05"	}
+					"pitch"					{	"value"		"1.0"	}
+					"soundlevel"			{	"value"		"100"	}
+					"distance_max"			{	"value"		"4000"	}
+					"event_type"			{	"value"		"1.0"	}
+					"limiter_on"			{	"value"		"0.0"	}
+					"limiter_max"			{	"value"		"1.0"	}
+					"limiter_match_entity"	{	"value"		"0.0"	}
+					"limiter_stop_oldest"	{	"value"		"true"	}
+				}
+			}
+		}
+	}
+}

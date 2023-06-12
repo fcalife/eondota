@@ -1,25 +1,17 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+"AddonInfo"
 {
-	TeamCount = 2
-	maps = 
-	[
-		"boss_arena",
-	]
-	IsPlayable = 1
-	HeroGuidesSupported = false
-	Default_Keys = [  ]
-	map_options = [  ]
-	HideInTools = false
-	IsTemplate = false
-	CheckAFKPlayers = false
-	DefaultMap = "boss_arena"
-	DisableIK = false
-	EnablePickRules = false
-	EventGame = false
-	hero_picker = null
-	ForceDefaultGuide = false
-	MinimalPrecache = true
-	MinPlayers = 1
-	MaxPlayers = 2
-	PenaltiesEnabled = false
+	"maps"			"boss_arena pvp_arena"
+	"IsPlayable"	"1"
+	"HeroGuidesSupported" "0"
+	"PenaltiesEnabled"			"0"
+	
+	"boss_arena"
+	{
+		"MaxPlayers"		"2"
+	}
+
+	"pvp_arena"
+	{
+		"MaxPlayers"		"4"
+	}
 }

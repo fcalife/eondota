@@ -1,5 +1,6 @@
 -- Link global modifiers
 LinkLuaModifier("modifier_hero_base_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_hero_revive_state", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fast_abilities", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faster_abilities", "modifiers/hero_base_state", LUA_MODIFIER_MOTION_NONE)
 

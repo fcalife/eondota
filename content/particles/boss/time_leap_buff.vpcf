@@ -1,0 +1,21 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nBehaviorVersion = 12
+	m_nMaxParticles = 0
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/econ/items/faceless_void/faceless_void_arcana/faceless_void_arcana_time_walk.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_jewel.vpcf"
+		},
+	]
+}

@@ -16,7 +16,7 @@ function RoundManager:Initialize()
 		hero:AddNewModifier(hero, nil, "modifier_stunned", {})
 		hero:FindModifierByName("modifier_ressurrect_progress_counter"):SetStackCount(0)
 
-		hero:RemoveModifierByName("modifier_powerup_star")
+		hero:RemoveModifierByName("modifier_eon_stone_carrier")
 		hero:RemoveModifierByName("modifier_powerup_bossfight_shield")
 		hero:RemoveModifierByName("modifier_powerup_bossfight_nuke_damage")
 		hero:RemoveModifierByName("modifier_powerup_bossfight_movespeed")
@@ -32,6 +32,8 @@ function RoundManager:Initialize()
 		LockPlayerCameraOnTarget(hero, hero, (not CAMERA_LOCK))
 
 		self:RefreshHeroAbilities(hero)
+
+		if IsInToolsMode() then hero:AddItemByName("item_dev_blink") end
 	end
 
 	local countdown = (IsInToolsMode() and 1) or 5
@@ -46,7 +48,18 @@ function RoundManager:Initialize()
 		else
 			GameManager:SetGamePhase(GAME_STATE_BATTLE)
 
-			BossManager:StartBossBattle()
+			if GetMapName() == "boss_arena" then
+				BossManager:StartBossBattle()
+			else
+				GameRules:SetHeroRespawnEnabled(true)
+				GameRules:GetGameModeEntity():SetFixedRespawnTime(3)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), 10000, 99999, false)
+				AddFOWViewer(DOTA_TEAM_BADGUYS, Vector(0, 0, 0), 10000, 99999, false)
+
+				for _, hero in pairs(HeroList:GetAllHeroes()) do
+					hero:RemoveModifierByName("modifier_stunned")
+				end
+			end
 		end
 	end)
 end

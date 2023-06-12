@@ -7,65 +7,68 @@
 
 		"AbilityTextureName"		"juggernaut_blade_dance"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
 		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
 
-		"AbilityCastPoint"			"0.0"
+		"AbilityCastPoint"			"0.4"
 
-		"AbilityCooldown"			"0.0"
-		"AbilityManaCost"			"0"
-
-		"AbilityCharges"			"3"
-		"AbilityChargeRestoreTime"	"1.0"
-
-		"MaxLevel"					"1"
-
-		"AbilityValues"
-		{
-			"distance"				"200"
-			"radius"				"225"
-			"damage_reduction"		"-10"
-			"duration"				"1.0"
-		}
-	}
-
-	"fen_berserker_rage"
-	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"abilities/fen"
-
-		"AbilityTextureName"		"ogre_magi_bloodlust"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-
-		"AbilityCastPoint"			"0.0"
-
-		"AbilityCooldown"			"10"
+		"AbilityCooldown"			"5.0"
 		"AbilityManaCost"			"0"
 
 		"MaxLevel"					"1"
 
 		"AbilityValues"
 		{
-			"attack_speed"			"30"
-			"lifesteal"				"20"
-			"duration"				"5.0"
+			"distance"				"500"
+			"slash_radius"			"300"
+			"damage"				"75"
+			"slow"					"-80"
+			"slow_duration"			"1.0"
 		}
 	}
 
-	"fen_dash"
+	"fen_spin"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/fen"
 
-		"AbilityTextureName"		"ember_spirit_sleight_of_fist"
+		"AbilityTextureName"		"fen_spin"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 
-		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"6.0"
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"duration"				"3.0"
+			"damage"				"15"
+			"slash_radius"			"400"
+			"slow_tick"				"1.5"
+			"slow_tooltip"			"30"
+			"initial_tick"			"0.24"
+			"tick_down"				"0.01"
+			"min_tick"				"0.08"
+		}
+	}
+
+	"fen_counter"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/fen"
+
+		"AbilityTextureName"		"fen_counter"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastAnimation"		"ACT_DOTA_LOADOUT_STATUE"
 
 		"AbilityCastPoint"			"0.0"
 
@@ -76,63 +79,78 @@
 
 		"AbilityValues"
 		{
-			"distance"				"350"
-			"radius"				"225"
-			"damage"				"50"
+			"duration"				"1.0"
+			"slash_damage"			"100"
+			"slash_radius"			"450"
 		}
 	}
 
-	"fen_unleash_the_blade"
+	"fen_divine_blade"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/fen"
 
-		"AbilityTextureName"		"juggernaut_omni_slash"
+		"AbilityTextureName"		"dawnbreaker_luminosity"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 
 		"AbilityCastPoint"			"0.0"
 
-		"AbilityCooldown"			"15"
+		"AbilityCooldown"			"20"
 		"AbilityManaCost"			"0"
 
 		"MaxLevel"					"1"
 
 		"AbilityValues"
 		{
-			"damage"				"15"
-			"length"				"450"
-			"duration"				"5"
-			"damage_reduction"		"-30"
+			"duration"				"10.0"
+			"damage"				"110"
+			"length"				"1200"
+			"radius"				"175"
+			"slash_charges"			"3"
+			"slash_cooldown"		"2.0"
+			"q_radius_pct"			"50"
+			"w_radius_pct"			"50"
+			"e_radius_pct"			"50"
+			"cooldown_refund"		"50"
+			"attack_range"			"250"
+			"bonus_damage"			"100"
+			"bonus_attacks"			"2"
+			"bonus_duration"		"2.0"
 		}
 	}
 
-	"fen_unleash_the_blade_slash"
+	"fen_divine_blade_slash"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/fen"
 
-		"AbilityTextureName"		"juggernaut_omni_slash"
+		"AbilityTextureName"		"dawnbreaker_luminosity"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
 
-		"AbilityCastPoint"			"0.0"
+		"AbilityCastPoint"			"0.2"
 
-		"AbilityCooldown"			"0.0"
+		"AbilityCooldown"			"2.0"
 		"AbilityManaCost"			"0"
+
+		"AbilityCharges"			"3"
+		"AbilityChargeRestoreTime"	"100"
 
 		"MaxLevel"					"1"
 
 		"AbilityValues"
 		{
-			"damage"				"15"
-			"length"				"450"
-			"duration"				"5"
-			"angle"					"60"
+			"damage"				"110"
+			"length"				"1200"
+			"radius"				"175"
+			"bonus_damage"			"100"
+			"bonus_attacks"			"2"
+			"bonus_duration"		"2.0"
 		}
 	}
 }

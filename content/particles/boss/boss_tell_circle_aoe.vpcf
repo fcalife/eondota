@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf55:version{407e3350-0afa-43e9-9afe-d317d3f56886} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -234,7 +234,7 @@
 		},
 		{
 			_class = "C_OP_RemapCPtoScalar"
-			m_flOutputMax = 5000.0
+			m_flOutputMax = 5750.0
 			m_flInputMax = 5000.0
 			m_nCPInput = 3
 		},

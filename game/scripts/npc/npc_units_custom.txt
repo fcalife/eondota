@@ -2167,5 +2167,187 @@
 		"Ability10"					"beast_spikes"
 		"Ability11"					"beast_phase_roar"
 		"Ability12"					"beast_controller"
+		"Ability13"					"beast_time_leap"
+		"Ability14"					"beast_fire_breath"
+	}
+
+	"npc_last_stone"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/winter_wyvern/spring2021_frost_thorn_back/spring2021_frost_thorn_back_crystal.vmdl"
+		"SoundSet"					""
+		"ModelScale"				"1.25"
+		"Level"						"1"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"200"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"RingRadius"				"60"
+		"HealthBarOffset"			"200"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"ConsideredHero"			"1"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+	}
+
+	"npc_plant_rooter"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/furion/treant/primeval_treant/primeval_treant.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"0.7"
+		"Level"						"1"
+		"IsAncient"					"1"
+
+		"Ability1"					"plant_root_trap"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"200"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"12"
+		"HealthBarOffset"			"200"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"3"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+	}
+
+	"npc_plant_lasher"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/furion/treant/supreme_gardener_treants/supreme_gardener_treants.vmdl"
+		"SoundSet"					"Furion_Treant"
+		"ModelScale"				"0.7"
+		"Level"						"1"
+		"IsAncient"					"1"
+
+		"Ability1"					"plant_lashing_trap"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"200"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"12"
+		"HealthBarOffset"			"200"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"3"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+	}
+
+	"npc_tesla_coil"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/rattletrap/clock_soul_of_steam_cogs/clock_soul_of_steam_cogs.vmdl"
+		"SoundSet"					""
+		"ModelScale"				"3.6"
+		"Level"						"1"
+		"IsAncient"					"1"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"200"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_LARGE"
+		"RingRadius"				"60"
+		"HealthBarOffset"			"200"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.0"
+
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"ConsideredHero"			"1"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
 	}
 }

@@ -33,34 +33,6 @@ function modifier_powerup_star:IsHidden() return true end
 function modifier_powerup_star:IsDebuff() return false end
 function modifier_powerup_star:IsPurgable() return false end
 
-function modifier_powerup_star:OnStackCountChanged(new_stack_count)
-	if (not IsServer()) then return end
-
-	if new_stack_count == 0 then
-		self:GetParent():AddNewModifier(self:GetParent(), nil, "modifier_powerup_bossfight_movespeed", {})
-	end
-
-	if new_stack_count == 1 then
-		self:GetParent():AddNewModifier(self:GetParent(), nil, "modifier_powerup_bossfight_regen", {})
-	end
-
-	if new_stack_count == 2 then
-		self:GetParent():AddNewModifier(self:GetParent(), nil, "modifier_powerup_bossfight_shield", {})
-	end
-
-	if new_stack_count == 3 then
-		local nuke_ability = self:GetParent():FindAbilityByName("snapfire_scatterblast")
-
-		if nuke_ability then nuke_ability:SetHidden(false) end
-
-		self:GetParent():AddNewModifier(self:GetParent(), nil, "modifier_powerup_bossfight_nuke_damage", {})
-	end
-
-	if new_stack_count == 4 then
-		self:GetParent():AddNewModifier(self:GetParent(), nil, "modifier_powerup_bossfight_ultimate_power", {})
-	end
-end
-
 function modifier_powerup_star:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
@@ -140,8 +112,20 @@ function modifier_powerup_bossfight_nuke_damage:GetAttributes() return MODIFIER_
 
 function modifier_powerup_bossfight_nuke_damage:OnCreated(keys)
 	if IsServer() then
+		local nuke_ability = self:GetParent():FindAbilityByName("dragon_knight_breathe_fire")
+
+		if nuke_ability then nuke_ability:SetHidden(false) end
+
 		self:SetStackCount(SPHERE_NUKE_DAMAGE)
 		self:StartIntervalThink(0.1)
+	end
+end
+
+function modifier_powerup_bossfight_nuke_damage:OnDestroy()
+	if IsServer() then
+		local nuke_ability = self:GetParent():FindAbilityByName("dragon_knight_breathe_fire")
+
+		if nuke_ability then nuke_ability:SetHidden(true) end
 	end
 end
 
@@ -159,7 +143,7 @@ end
 function modifier_powerup_bossfight_nuke_damage:GetModifierOverrideAbilitySpecial(keys)
 	if (not keys.ability) or (not keys.ability_special_value) then return 0 end
 
-	if keys.ability and keys.ability:GetAbilityName() == "snapfire_scatterblast" and keys.ability_special_value == "damage" then
+	if keys.ability and keys.ability:GetAbilityName() == "dragon_knight_breathe_fire" and keys.ability_special_value == "damage" then
 		return 1
 	end 
 
@@ -167,7 +151,7 @@ function modifier_powerup_bossfight_nuke_damage:GetModifierOverrideAbilitySpecia
 end
 
 function modifier_powerup_bossfight_nuke_damage:GetModifierOverrideAbilitySpecialValue(keys)
-	if keys.ability and keys.ability:GetAbilityName() == "snapfire_scatterblast" and keys.ability_special_value == "damage" then
+	if keys.ability and keys.ability:GetAbilityName() == "dragon_knight_breathe_fire" and keys.ability_special_value == "damage" then
 		return SPHERE_NUKE_DAMAGE
 	end 
 

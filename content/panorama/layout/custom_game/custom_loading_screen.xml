@@ -9,7 +9,7 @@
 	</scripts>
 
 	<Panel style="width:100%; height:100%;" hittest="false">
-		<!-- <Panel id="Container" hittest="true" >
+		<Panel id="Container" hittest="true" >
 			<Label id="Header" text="GAME OPTIONS" />
 
 			<Panel class="OptionContainer" id="camera_lock_container">
@@ -17,7 +17,17 @@
 				<Label class="OptionLabel" text="Lock camera"/>
 			</Panel>
 
-			<Panel class="OptionContainer" id="fast_abilities_container">
+			<Panel class="OptionContainer" id="hard_mode_container">
+				<ToggleButton class="OptionToggleButton" id="hard_mode" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Enable HARD MODE"/>
+			</Panel>
+
+			<Panel class="OptionContainer" id="nightmare_mode_container">
+				<ToggleButton class="OptionToggleButton" id="nightmare_mode" onactivate="UpdateOptions()"/>
+				<Label class="OptionLabel" text="Enable NIGHTMARE MODE"/>
+			</Panel>
+
+<!-- 			<Panel class="OptionContainer" id="fast_abilities_container">
 				<ToggleButton class="OptionToggleButton" id="fast_abilities" onactivate="UpdateOptions()"/>
 				<Label class="OptionLabel" text="Shorter cooldowns"/>
 			</Panel>
@@ -25,7 +35,7 @@
 			<Panel class="OptionContainer" id="faster_abilities_container">
 				<ToggleButton class="OptionToggleButton" id="faster_abilities" onactivate="UpdateOptions()"/>
 				<Label class="OptionLabel" text="Even shorter cooldowns"/>
-			</Panel>
-		</Panel> -->
+			</Panel> -->
+		</Panel>
 	</Panel>
 </root>

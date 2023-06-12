@@ -38,9 +38,25 @@ end
 
 function fallen_snow_ice_bolt:OnProjectileHit(target, location)
 	if target then
+		local caster = self:GetCaster()
+
 		target:EmitSound("Hero_Ancient_Apparition.ChillingTouch.Target")
 
-		ApplyDamage({attacker = self:GetCaster(), victim = target, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL})
+		ApplyDamage({attacker = caster, victim = target, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL})
+
+		if target:TriggerCounter(caster) then
+			local projectile_params = {
+				particle = "particles/fallen_snow/ice_bolt_projectile.vpcf",
+				distance = self:GetSpecialValueFor("distance"),
+				radius = self:GetSpecialValueFor("radius"),
+				speed = self:GetSpecialValueFor("speed"),
+				damage = self:GetSpecialValueFor("damage"),
+				launch_sound = "Hero_Ancient_Apparition.ChillingTouch.Cast"
+			}
+
+			local counter_ability = target:FindAbilityByName("fen_counter")
+			if counter_ability then counter_ability:LaunchProjectile(caster, projectile_params) end
+		end
 
 		return true
 	end
@@ -153,9 +169,11 @@ function fallen_snow_unleash_the_blade:OnSpellStart()
 
 	for _, enemy in pairs(enemies) do
 		ApplyDamage({attacker = caster, victim = enemy, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+
+		if enemy:TriggerCounter(caster) then ApplyDamage({attacker = caster, victim = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 	end
 
-	caster:SwapAbilities("fallen_snow_unleash_the_blade", "fallen_snow_unleash_the_blade_slash", false, true)
+	caster:AddNewModifier(caster, self, "modifier_unleash_the_blade", {})
 end
 
 
@@ -166,8 +184,9 @@ fallen_snow_unleash_the_blade_slash = class({})
 
 function fallen_snow_unleash_the_blade_slash:OnSpellStart()
 	local caster = self:GetCaster()
+	local target = self:GetCursorPosition()
 	local origin = caster:GetAbsOrigin()
-	local forward = caster:GetForwardVector()
+	local forward = (target - origin):Normalized()
 
 	local damage = self:GetSpecialValueFor("secondary_damage")
 	local length = self:GetSpecialValueFor("length")
@@ -177,8 +196,11 @@ function fallen_snow_unleash_the_blade_slash:OnSpellStart()
 
 	caster:EmitSound("FallenSnow.Ult.Strike")
 
+	caster:SetForwardVector(forward)
+
 	local strike_pfx = ParticleManager:CreateParticle("particles/fallen_snow/fallen_snow_ult.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(strike_pfx, 0, origin)
+	ParticleManager:SetParticleControlOrientation(strike_pfx, 0, caster:GetForwardVector(), caster:GetRightVector(), caster:GetUpVector())
 	ParticleManager:SetParticleControl(strike_pfx, 1, destination)
 	ParticleManager:SetParticleControl(strike_pfx, 2, destination)
 	ParticleManager:ReleaseParticleIndex(strike_pfx)
@@ -196,7 +218,35 @@ function fallen_snow_unleash_the_blade_slash:OnSpellStart()
 
 	for _, enemy in pairs(enemies) do
 		ApplyDamage({attacker = caster, victim = enemy, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+
+		if enemy:TriggerCounter(caster) then ApplyDamage({attacker = caster, victim = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 	end
 
-	caster:SwapAbilities("fallen_snow_unleash_the_blade_slash", "fallen_snow_unleash_the_blade", false, true)
+	caster:RemoveModifierByName("modifier_unleash_the_blade")
+end
+
+
+
+LinkLuaModifier("modifier_unleash_the_blade", "abilities/fallen_snow", LUA_MODIFIER_MOTION_NONE)
+
+modifier_unleash_the_blade = class({})
+
+function modifier_unleash_the_blade:IsHidden() return true end
+function modifier_unleash_the_blade:IsDebuff() return false end
+function modifier_unleash_the_blade:IsPurgable() return false end
+
+function modifier_unleash_the_blade:OnCreated(keys)
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	parent:SwapAbilities("fallen_snow_unleash_the_blade", "fallen_snow_unleash_the_blade_slash", false, true)
+end
+
+function modifier_unleash_the_blade:OnDestroy()
+	if IsClient() then return end
+
+	local parent = self:GetParent()
+
+	parent:SwapAbilities("fallen_snow_unleash_the_blade", "fallen_snow_unleash_the_blade_slash", true, false)
 end

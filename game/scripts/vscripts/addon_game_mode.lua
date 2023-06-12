@@ -94,6 +94,8 @@ function GameMode:InitGameMode()
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 2)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 
+	if GetMapName() == "pvp_arena" then GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 2) end
+
 	for team = DOTA_TEAM_CUSTOM_1, DOTA_TEAM_CUSTOM_8 do
 		GameRules:SetCustomGameTeamMaxPlayers(team, 0)
 	end

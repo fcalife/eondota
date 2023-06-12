@@ -56,6 +56,17 @@
 	transition-property: width;
 }
 
+#Fight_Timer {
+	margin-top: 6px;
+	align: center center;
+	text-align:  center center;
+	font-size:  18;
+	font-weight:  bold;
+	color:  white;
+	text-overflow: shrink;
+	text-shadow: 2px 2px 4px 2.0 black;
+}
+
 .ScoreContainers {
 	width: 64px;
 	padding: 4px;

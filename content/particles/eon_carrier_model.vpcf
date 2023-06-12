@@ -50,7 +50,7 @@
 			m_OffsetMin = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, 0.0, 250.0 ]
+				m_vLiteralValue = [ 0.0, 0.0, 100.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
@@ -287,7 +287,7 @@
 			m_OffsetMax = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, 0.0, 250.0 ]
+				m_vLiteralValue = [ 0.0, 0.0, 100.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false

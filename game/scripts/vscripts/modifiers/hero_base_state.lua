@@ -11,9 +11,59 @@ function modifier_hero_base_state:OnCreated(keys)
 
 	local parent = self:GetParent()
 
-	self:SetStackCount(1600)
+	self:SetStackCount((NIGHTMARE_MODE and 600) or (HARD_MODE and 1000) or 1600)
 
 	parent:CalculateStatBonus(true)
+
+	self:StartIntervalThink(0.03)
+end
+
+function modifier_hero_base_state:OnIntervalThink()
+	local parent = self:GetParent()
+	local parent_loc = parent:GetAbsOrigin()
+	local player = parent:GetPlayerOwner()
+
+	if (not player) then return end
+
+	local found_ally = false
+	for _, ally in pairs(HeroList:GetAllHeroes()) do
+		if (ally:HasModifier("modifier_boss_crawling") or parent:HasModifier("modifier_boss_crawling")) and parent ~= ally then
+			found_ally = true
+
+			local ally_loc = ally:GetAbsOrigin()
+			local ally_distance = (ally_loc - parent_loc):Length2D()
+
+			if ally_distance > 500 then
+				local arrow_loc = parent_loc + math.min(1000, ally_distance - 225) * (ally_loc - parent_loc):Normalized()
+
+				if self.ally_pfx then
+					ParticleManager:SetParticleControl(self.ally_pfx, 1, parent_loc)
+					ParticleManager:SetParticleControl(self.ally_pfx, 2, arrow_loc)
+				else
+					self.ally_pfx = ParticleManager:CreateParticleForPlayer("particles/boss/boss_arrow.vpcf", PATTACH_CUSTOMORIGIN, nil, player)
+					ParticleManager:SetParticleControl(self.ally_pfx, 1, parent_loc)
+					ParticleManager:SetParticleControl(self.ally_pfx, 2, arrow_loc)
+					ParticleManager:SetParticleControl(self.ally_pfx, 3, Vector(86, 40, 0))
+					ParticleManager:SetParticleControl(self.ally_pfx, 4, Vector(35, 255, 15))
+					ParticleManager:SetParticleControl(self.ally_pfx, 6, Vector(1, 1, 1))
+				end
+			else
+				if self.ally_pfx then
+					ParticleManager:DestroyParticle(self.ally_pfx, true)
+					ParticleManager:ReleaseParticleIndex(self.ally_pfx)
+					self.ally_pfx = nil
+				end
+			end
+		end
+	end
+
+	if (not found_ally) then
+		if self.ally_pfx then
+			ParticleManager:DestroyParticle(self.ally_pfx, true)
+			ParticleManager:ReleaseParticleIndex(self.ally_pfx)
+			self.ally_pfx = nil
+		end
+	end
 end
 
 -- function modifier_hero_base_state:CheckState()
@@ -25,15 +75,13 @@ function modifier_hero_base_state:DeclareFunctions()
 		return {
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
 			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-			MODIFIER_PROPERTY_MIN_HEALTH,
 			MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE,
-			MODIFIER_EVENT_ON_TAKEDAMAGE
+			MODIFIER_EVENT_ON_ABILITY_END_CHANNEL
 		}
 	else
 		return {
 			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
 			MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-			MODIFIER_PROPERTY_MIN_HEALTH,
 			MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE
 		}
 	end
@@ -47,15 +95,48 @@ function modifier_hero_base_state:GetModifierIgnoreMovespeedLimit()
 	return 1
 end
 
-function modifier_hero_base_state:GetMinHealth()
-	return 1
-end
-
 function modifier_hero_base_state:GetModifierExtraHealthPercentage()
 	return 100 * math.max(0, self:GetStackCount() - 1)
 end
 
-function modifier_hero_base_state:OnTakeDamage(keys)
+function modifier_hero_base_state:OnAbilityEndChannel(keys)
+	if keys.unit and keys.unit == self:GetParent() then
+		if keys.ability and keys.ability:GetAbilityName() == "abyssal_underlord_portal_warp" then
+			if keys.ability:GetChannelStartTime() <= (GameRules:GetGameTime() - keys.ability:GetChannelTime() + 0.01) then
+				Portals:OnUnitUsedPortal(keys.unit)
+			end
+		end
+	end
+end
+
+
+
+modifier_hero_revive_state = class({})
+
+function modifier_hero_revive_state:IsHidden() return true end
+function modifier_hero_revive_state:IsDebuff() return false end
+function modifier_hero_revive_state:IsPurgable() return false end
+function modifier_hero_revive_state:RemoveOnDeath() return false end
+function modifier_hero_revive_state:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_hero_revive_state:DeclareFunctions()
+	if IsServer() then
+		return {
+			MODIFIER_PROPERTY_MIN_HEALTH,
+			MODIFIER_EVENT_ON_TAKEDAMAGE
+		}
+	else
+		return {
+			MODIFIER_PROPERTY_MIN_HEALTH
+		}
+	end
+end
+
+function modifier_hero_revive_state:GetMinHealth()
+	return 1
+end
+
+function modifier_hero_revive_state:OnTakeDamage(keys)
 	if keys.unit and keys.unit == self:GetParent() then
 		if keys.unit:GetHealth() < 2 then
 			keys.unit:AddNewModifier(keys.unit, nil, "modifier_boss_crawling", {})

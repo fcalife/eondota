@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_chronobeast_wait", "abilities/chronobeast", LUA_MODIFI
 LinkLuaModifier("modifier_chronobeast_channeling", "abilities/chronobeast", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_god_mode", "abilities/chronobeast", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_crawling", "abilities/chronobeast", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_crawling_arrow", "abilities/chronobeast", LUA_MODIFIER_MOTION_NONE)
 
 
 
@@ -102,6 +103,37 @@ function modifier_boss_crawling:OnCreated(keys)
 	local angles = parent:GetAnglesAsVector()
 
 	parent:SetAngles(angles.x + 70, angles.y, angles.z)
+
+	if parent:HasModifier("modifier_eon_stone_carrier") then
+		parent:RemoveModifierByName("modifier_eon_stone_carrier")
+
+		local drop_location = BossManager:GetCurrentMapCenter() + RandomVector(RandomInt(0, 400))
+
+		PowerupManager:SpawnPowerUp(parent:GetAbsOrigin(), drop_location, "item_mario_star")
+	end
+
+	local portal_ability = parent:FindAbilityByName("abyssal_underlord_portal_warp")
+	if portal_ability then portal_ability:SetActivated(false) end
+
+	parent:AddNewModifier(parent, nil, "modifier_boss_crawling_arrow", {})
+
+	GlobalMessages:SendToAllButUnit(parent, "Your ally has been slain!")
+
+	if parent:GetUnitName() == "npc_dota_hero_juggernaut" then
+		parent:RemoveModifierByName("modifier_fen_divine_blade")
+
+		parent:SwapAbilities("fen_dash_strike", "request_help_q", false, true)
+		parent:SwapAbilities("fen_spin", "request_help_w", false, true)
+		parent:SwapAbilities("fen_counter", "request_help_e", false, true)
+		parent:SwapAbilities("fen_divine_blade", "request_help_r", false, true)
+	elseif parent:GetUnitName() == "npc_dota_hero_crystal_maiden" then
+		parent:RemoveModifierByName("modifier_unleash_the_blade")
+
+		parent:SwapAbilities("fallen_snow_ice_bolt", "request_help_q", false, true)
+		parent:SwapAbilities("ancient_apparition_ice_vortex", "request_help_w", false, true)
+		parent:SwapAbilities("fallen_snow_frost_nova", "request_help_e", false, true)
+		parent:SwapAbilities("fallen_snow_unleash_the_blade", "request_help_r", false, true)
+	end
 end
 
 function modifier_boss_crawling:OnDestroy()
@@ -111,6 +143,39 @@ function modifier_boss_crawling:OnDestroy()
 	local angles = parent:GetAnglesAsVector()
 
 	parent:SetAngles(angles.x - 70, angles.y, angles.z)
+
+	local portal_ability = parent:FindAbilityByName("abyssal_underlord_portal_warp")
+	if portal_ability then portal_ability:SetActivated(true) end
+
+	parent:RemoveModifierByName("modifier_boss_crawling_arrow")
+
+	if parent:GetUnitName() == "npc_dota_hero_juggernaut" then
+		parent:SwapAbilities("request_help_q", "fen_dash_strike", false, true)
+		parent:SwapAbilities("request_help_w", "fen_spin", false, true)
+		parent:SwapAbilities("request_help_e", "fen_counter", false, true)
+		parent:SwapAbilities("request_help_r", "fen_divine_blade", false, true)
+	elseif parent:GetUnitName() == "npc_dota_hero_crystal_maiden" then
+		parent:SwapAbilities("request_help_q", "fallen_snow_ice_bolt", false, true)
+		parent:SwapAbilities("request_help_w", "ancient_apparition_ice_vortex", false, true)
+		parent:SwapAbilities("request_help_e", "fallen_snow_frost_nova", false, true)
+		parent:SwapAbilities("request_help_r", "fallen_snow_unleash_the_blade", false, true)
+	end
+end
+
+
+
+modifier_boss_crawling_arrow = class({})
+
+function modifier_boss_crawling_arrow:IsHidden() return true end
+function modifier_boss_crawling_arrow:IsDebuff() return false end
+function modifier_boss_crawling_arrow:IsPurgable() return false end
+
+function modifier_boss_crawling_arrow:GetEffectName()
+	return "particles/boss/dead_ally_indicator.vpcf"
+end
+
+function modifier_boss_crawling_arrow:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_OVERHEAD
 end
 
 
@@ -121,6 +186,14 @@ function modifier_chronobeast_phase_past:IsHidden() return true end
 function modifier_chronobeast_phase_past:IsDebuff() return false end
 function modifier_chronobeast_phase_past:IsPurgable() return false end
 
+function modifier_chronobeast_phase_past:GetEffectName()
+	return "particles/boss/beast_plant_aura.vpcf"
+end
+
+function modifier_chronobeast_phase_past:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
 function modifier_chronobeast_phase_past:CheckState()
 	return { [MODIFIER_STATE_DISARMED] = true }
 end
@@ -128,7 +201,10 @@ end
 function modifier_chronobeast_phase_past:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+		MODIFIER_PROPERTY_MODEL_SCALE
 	}
 end
 
@@ -138,6 +214,18 @@ end
 
 function modifier_chronobeast_phase_past:GetModifierPercentageCooldown()
 	return 20
+end
+
+function modifier_chronobeast_phase_past:GetModifierPercentageCasttime()
+	return 40
+end
+
+function modifier_chronobeast_phase_past:GetModifierTotalDamageOutgoing_Percentage()
+	return -35
+end
+
+function modifier_chronobeast_phase_past:GetModifierModelScale()
+	return -40
 end
 
 
@@ -166,12 +254,27 @@ end
 
 function modifier_chronobeast_phase_future:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+		MODIFIER_PROPERTY_MODEL_SCALE,
+		MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE
 	}
 end
 
 function modifier_chronobeast_phase_future:GetModifierPercentageCooldown()
 	return 40
+end
+
+function modifier_chronobeast_phase_future:GetModifierTotalDamageOutgoing_Percentage()
+	return 50
+end
+
+function modifier_chronobeast_phase_future:GetModifierModelScale()
+	return 40
+end
+
+function modifier_chronobeast_phase_future:GetModifierExtraHealthPercentage()
+	return 200
 end
 
 
@@ -245,7 +348,7 @@ function beast_swipe_light:CleaveFromPosition(origin)
 		nil,
 		length,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false
@@ -264,14 +367,19 @@ function beast_swipe_light:CleaveFromPosition(origin)
 end
 
 function beast_swipe_light:Hit(target)
+	local attacker = self:GetCaster()
+	local damage = self:GetSpecialValueFor("damage")
+
 	PlayRandomClawEffect(target)
 	PlayBloodSplatter(target)
 
 	target:EmitSound("Claw.Hit")
 
-	ApplyDamage({attacker = self:GetCaster(), victim = target, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_PHYSICAL})
+	ApplyDamage({attacker = attacker, victim = target, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 
-	Knockback(self:GetCaster(), target, {})
+	Knockback(attacker, target, {})
+
+	if target:TriggerCounter(attacker) then ApplyDamage({attacker = attacker, victim = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 end
 
 
@@ -327,7 +435,7 @@ function beast_swipe_heavy:CleaveFromPosition(origin)
 		nil,
 		length,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false
@@ -348,14 +456,19 @@ function beast_swipe_heavy:CleaveFromPosition(origin)
 end
 
 function beast_swipe_heavy:Hit(target)
+	local attacker = self:GetCaster()
+	local damage = self:GetSpecialValueFor("damage")
+
 	PlayRandomClawEffect(target)
 	PlayBloodSplatter(target)
 
 	target:EmitSound("Claw.Hit")
 
-	ApplyDamage({attacker = self:GetCaster(), victim = target, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_PHYSICAL})
+	ApplyDamage({attacker = attacker, victim = target, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 
-	Knockback(self:GetCaster(), target, {distance = 2})
+	Knockback(attacker, target, {distance = 2})
+
+	if target:TriggerCounter(attacker) then ApplyDamage({attacker = attacker, victim = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 end
 
 
@@ -432,7 +545,7 @@ function beast_leap:OnLeapArrived(target)
 		nil,
 		radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false
@@ -446,13 +559,18 @@ function beast_leap:OnLeapArrived(target)
 end
 
 function beast_leap:Hit(target)
+	local attacker = self:GetCaster()
+	local damage = self:GetSpecialValueFor("damage")
+
 	PlayBloodSplatter(target)
 
 	target:EmitSound("Leap.Impact")
 
-	ApplyDamage({attacker = self:GetCaster(), victim = target, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_PHYSICAL})
+	ApplyDamage({attacker = attacker, victim = target, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 
-	Knockback(self:GetCaster(), target, {})
+	Knockback(attacker, target, {})
+
+	if target:TriggerCounter(attacker) then ApplyDamage({attacker = attacker, victim = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 end
 
 
@@ -472,6 +590,130 @@ function modifier_chronobeast_leap_buff:GetEffectName()
 end
 
 function modifier_chronobeast_leap_buff:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+
+
+
+
+beast_time_leap = class({})
+
+function beast_time_leap:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+	local caster_location = caster:GetAbsOrigin()
+	local target = self:GetCursorPosition()
+
+	-- self.tell_pfx = ParticleManager:CreateParticle("particles/boss/boss_tell_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	-- ParticleManager:SetParticleControl(self.tell_pfx, 0, caster:GetAbsOrigin())
+	-- ParticleManager:SetParticleControl(self.tell_pfx, 1, self:GetCursorPosition())
+	-- ParticleManager:SetParticleControl(self.tell_pfx, 2, self:GetCursorPosition())
+	-- ParticleManager:SetParticleControl(self.tell_pfx, 3, Vector(self:GetSpecialValueFor("radius"), 0, 0))
+
+	local trail_pfx = ParticleManager:CreateParticle("particles/boss/time_leap_trail.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(trail_pfx, 0, caster_location)
+	ParticleManager:SetParticleControl(trail_pfx, 1, target)
+	ParticleManager:ReleaseParticleIndex(trail_pfx)
+
+	self.tell_pfx = ParticleManager:CreateParticle("particles/boss/time_leap_tell.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(self.tell_pfx, 0, target)
+	ParticleManager:SetParticleControl(self.tell_pfx, 2, Vector(0, 1, 0))
+
+	caster:AddNewModifier(caster, self, "modifier_chronobeast_time_leap_buff", {})
+end
+
+function beast_time_leap:OnAbilityPhaseInterrupted()
+	self:GetCaster():RemoveModifierByName("modifier_chronobeast_time_leap_buff")
+
+	if self.tell_pfx then
+		ParticleManager:DestroyParticle(self.tell_pfx, true)
+		ParticleManager:ReleaseParticleIndex(self.tell_pfx)
+	end
+end
+
+function beast_time_leap:OnSpellStart()
+	local caster = self:GetCaster()
+	local caster_location = caster:GetAbsOrigin()
+	local target = self:GetCursorPosition()
+
+	local trail_pfx = ParticleManager:CreateParticle("particles/boss/time_leap_trail.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(trail_pfx, 0, caster_location)
+	ParticleManager:SetParticleControl(trail_pfx, 1, target)
+
+	caster:EmitSound("TimeLeap.Cast")
+
+	FindClearSpaceForUnit(caster, target, true)
+
+	self:OnLeapArrived(target)
+
+	caster:RemoveModifierByName("modifier_chronobeast_time_leap_buff")
+
+	if self.tell_pfx then
+		ParticleManager:DestroyParticle(self.tell_pfx, true)
+		ParticleManager:ReleaseParticleIndex(self.tell_pfx)
+	end
+end
+
+function beast_time_leap:OnLeapArrived(target)
+	local caster = self:GetCaster()
+	local radius = self:GetSpecialValueFor("radius")
+
+	caster:EmitSound("Leap.Arrive")
+
+	local impact_pfx = ParticleManager:CreateParticle("particles/boss/leap_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(impact_pfx, 0, target)
+	ParticleManager:SetParticleControlOrientation(impact_pfx, 0, caster:GetForwardVector(), caster:GetRightVector(), caster:GetUpVector())
+	ParticleManager:ReleaseParticleIndex(impact_pfx)
+
+	local enemies = FindUnitsInRadius(
+		caster:GetTeam(),
+		target,
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER,
+		false
+	)
+
+	for _, enemy in pairs(enemies) do
+		self:Hit(enemy)
+	end
+
+	ScreenShake(target, 15, 80, 0.4, 1400, 0, true)
+end
+
+function beast_time_leap:Hit(target)
+	local attacker = self:GetCaster()
+	local damage = self:GetSpecialValueFor("damage")
+
+	PlayBloodSplatter(target)
+
+	target:EmitSound("Leap.Impact")
+
+	ApplyDamage({attacker = attacker, victim = target, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+
+	Knockback(attacker, target, {})
+
+	if target:TriggerCounter(attacker) then ApplyDamage({attacker = attacker, victim = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
+end
+
+
+
+LinkLuaModifier("modifier_chronobeast_time_leap_buff", "abilities/chronobeast", LUA_MODIFIER_MOTION_NONE)
+
+modifier_chronobeast_time_leap_buff = class({})
+
+function modifier_chronobeast_time_leap_buff:IsHidden() return true end
+function modifier_chronobeast_time_leap_buff:IsDebuff() return false end
+function modifier_chronobeast_time_leap_buff:IsPurgable() return false end
+
+function modifier_chronobeast_time_leap_buff:GetEffectName()
+	return "particles/boss/time_leap_buff.vpcf"
+end
+
+function modifier_chronobeast_time_leap_buff:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 
@@ -502,7 +744,7 @@ function beast_bite:OnAbilityPhaseStart()
 	ParticleManager:SetParticleControl(self.tell_pfx, 0, caster_loc)
 	ParticleManager:SetParticleControl(self.tell_pfx, 1, caster_loc)
 	ParticleManager:SetParticleControl(self.tell_pfx, 2, caster_loc)
-	ParticleManager:SetParticleControl(self.tell_pfx, 3, Vector(self:GetCastRange(caster_loc, self.bite_target) + 200, 0, 0))
+	ParticleManager:SetParticleControl(self.tell_pfx, 3, Vector(self:GetCastRange(caster_loc, self.bite_target) + 125, 0, 0))
 end
 
 function beast_bite:OnAbilityPhaseInterrupted()
@@ -518,8 +760,11 @@ function beast_bite:OnSpellStart()
 
 	if self.tell_pfx then ParticleManager:DestroyParticle(self.tell_pfx, true) end
 
-	if self.bite_target and (self.bite_target:GetAbsOrigin() - caster_loc):Length2D() <= (self:GetCastRange(caster_loc, self.bite_target) + 200) then
+	if self.bite_target and (self.bite_target:GetAbsOrigin() - caster_loc):Length2D() <= (self:GetCastRange(caster_loc, self.bite_target) + 125)
+		and (not self.bite_target:HasModifier("modifier_fen_counter")) then
+
 		self.bite_target:AddNewModifier(caster, self, "modifier_chronobeast_bite", {duration = duration})
+
 		caster:AddNewModifier(caster, self, "modifier_chronobeast_channeling", {duration = duration})
 		caster:EmitSound("Bite.Roar")
 	else
@@ -669,7 +914,7 @@ function beast_tail_smash:OnSpellStart()
 		nil,
 		radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false
@@ -683,6 +928,8 @@ function beast_tail_smash:OnSpellStart()
 		ApplyDamage({attacker = caster, victim = enemy, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 
 		Knockback(caster, enemy, {distance = 4})
+
+		if enemy:TriggerCounter(caster) then ApplyDamage({attacker = caster, victim = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 	end
 end
 
@@ -770,7 +1017,7 @@ function modifier_tail_spin_active:OnIntervalThink()
 		nil,
 		self.radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false
@@ -796,6 +1043,8 @@ function modifier_tail_spin_active:OnIntervalThink()
 			enemy:EmitSound("Leap.Impact")
 
 			ApplyDamage({attacker = parent, victim = enemy, damage = self.damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+
+			if enemy:TriggerCounter(parent) then ApplyDamage({attacker = parent, victim = parent, damage = self.damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 		end
 	end
 end
@@ -902,7 +1151,7 @@ function beast_breath:UpdateBeam()
 		nil,
 		radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false
@@ -913,6 +1162,129 @@ function beast_breath:UpdateBeam()
 		ParticleManager:ReleaseParticleIndex(damage_pfx)
 
 		ApplyDamage({attacker = caster, victim = enemy, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+
+		if enemy:TriggerCounter(caster) then ApplyDamage({attacker = caster, victim = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
+	end
+end
+
+
+
+beast_fire_breath = class({})
+
+function beast_fire_breath:GetChannelAnimation()
+	return ACT_DOTA_TELEPORT
+end
+
+function beast_fire_breath:OnAbilityPhaseStart()
+	self:GetCaster():EmitSound("Breath.Chargeup")
+
+	self.charge_pfx = ParticleManager:CreateParticle("particles/boss/charge_channel_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(self.charge_pfx, 0, self:GetCaster():GetAbsOrigin())
+end
+
+function beast_fire_breath:OnAbilityPhaseInterrupted()
+	if self.charge_pfx then ParticleManager:DestroyParticle(self.charge_pfx, true) end
+end
+
+function beast_fire_breath:OnSpellStart()
+	local caster = self:GetCaster()
+	local caster_loc = caster:GetAbsOrigin()
+	local duration = self:GetSpecialValueFor("duration")
+
+	caster:AddNewModifier(caster, self, "modifier_chronobeast_channeling", {duration = duration})
+
+	caster:EmitSound("Breath.Fire.Start")
+
+	if self.charge_pfx then
+		ParticleManager:DestroyParticle(self.charge_pfx, false)
+		ParticleManager:ReleaseParticleIndex(self.charge_pfx)
+	end
+
+	self.channel_pfx = ParticleManager:CreateParticle("particles/boss/fire_breath_charge.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(self.channel_pfx, 0, caster_loc)
+
+	ScreenShake(caster_loc, 10, 100, 1.5, 1400, 0, true)
+
+	self.channel_start = GameRules:GetGameTime()
+	self.next_fire = GameRules:GetGameTime()
+end
+
+function beast_fire_breath:OnChannelFinish(interrupted)
+	self:GetCaster():RemoveModifierByName("modifier_chronobeast_channeling")
+
+	if self.channel_pfx then
+		ParticleManager:DestroyParticle(self.channel_pfx, interrupted)
+		ParticleManager:ReleaseParticleIndex(self.channel_pfx)
+	end
+end
+
+function beast_fire_breath:OnChannelThink(tick)
+	local caster = self:GetCaster()
+	local fire_speed = self:GetSpecialValueFor("fire_speed")
+	local start_radius = self:GetSpecialValueFor("start_radius")
+	local end_radius = self:GetSpecialValueFor("end_radius")
+	local length = self:GetSpecialValueFor("length")
+	local interval = self:GetSpecialValueFor("interval")
+
+	local current_time = GameRules:GetGameTime()
+
+	if current_time >= self.next_fire then
+		self.next_fire = current_time + interval
+
+		caster:EmitSound("Breath.Fire")
+
+		local caster_attach = caster:ScriptLookupAttachment("attach_mouthbase")
+		local caster_loc = caster:GetAbsOrigin()
+		local mouth_loc = caster:GetAttachmentOrigin(caster_attach)
+
+		local direction = (mouth_loc - caster_loc):Normalized()
+
+		local fire_projectile = {
+			Ability				= self,
+			EffectName			= "particles/boss/boss_breathe_fire.vpcf",
+			vSpawnOrigin		= caster_loc,
+			fDistance			= length,
+			fStartRadius		= start_radius,
+			fEndRadius			= end_radius,
+			Source				= caster,
+			bHasFrontalCone		= true,
+			bReplaceExisting	= false,
+			iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType		= DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime 		= current_time + length / fire_speed + 0.01,
+			bDeleteOnHit		= false,
+			vVelocity			= fire_speed * Vector(direction.x, direction.y, 0),
+			bProvidesVision		= false,
+			iVisionRadius 		= 0,
+			iVisionTeamNumber 	= caster:GetTeam(),
+		}
+
+		ProjectileManager:CreateLinearProjectile(fire_projectile)
+	end
+end
+
+function beast_fire_breath:OnProjectileHit(target, location)
+	if target then
+		local caster = self:GetCaster()
+
+		ApplyDamage({attacker = caster, victim = target, damage = self:GetSpecialValueFor("fire_damage"), damage_type = DAMAGE_TYPE_PHYSICAL})
+
+		if target:TriggerCounter(caster) then
+			local projectile_params = {
+				particle = "particles/boss/boss_breathe_fire.vpcf",
+				distance = self:GetSpecialValueFor("length"),
+				radius = self:GetSpecialValueFor("start_radius"),
+				speed = self:GetSpecialValueFor("fire_speed"),
+				damage = self:GetSpecialValueFor("fire_damage"),
+				launch_sound = "Breath.Fire"
+			}
+
+			local counter_ability = target:FindAbilityByName("fen_counter")
+			if counter_ability then counter_ability:LaunchProjectile(caster, projectile_params) end
+		end
+
+		return true
 	end
 end
 
@@ -1107,7 +1479,7 @@ function modifier_charging:OnIntervalThink()
 		nil,
 		275,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE
 	)
 
@@ -1130,6 +1502,8 @@ function modifier_charging:OnIntervalThink()
 			Knockback(parent, enemy, {distance = 3.5, direction = knockback_direction})
 
 			ApplyDamage({attacker = parent, victim = enemy, damage = self.damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+
+			if enemy:TriggerCounter(parent) then ApplyDamage({attacker = parent, victim = parent, damage = self.damage, damage_type = DAMAGE_TYPE_PHYSICAL}) end
 		end
 	end
 
@@ -1192,9 +1566,9 @@ function modifier_charge_exhausted:OnCreated(keys)
 	local parent = self:GetParent()
 
 	if SPHERE_TRIGGER_WEAK_POINT then
-		if (BossManager:GetCurrentPhase() >= BOSS_PHASE_PRESENT and BossManager:GetEonDropCount() < 1)
-			or (BossManager:GetCurrentPhase() >= BOSS_PHASE_PAST and BossManager:GetEonDropCount() < 3)
-			or (BossManager:GetCurrentPhase() >= BOSS_PHASE_FUTURE and BossManager:GetEonDropCount() < 5) then
+		if (BossManager:GetCurrentPhase() >= BOSS_PHASE_PRESENT and StoneManager:GetEonDropCount() < 1)
+			or (BossManager:GetCurrentPhase() >= BOSS_PHASE_PAST and StoneManager:GetEonDropCount() < 3)
+			or (BossManager:GetCurrentPhase() >= BOSS_PHASE_FUTURE and StoneManager:GetEonDropCount() < 4) then
 
 			parent:AddNewModifier(parent, nil, "modifier_charge_exhausted_loot", {})
 		end
@@ -1237,7 +1611,7 @@ function modifier_charge_exhausted_loot:IsDebuff() return true end
 function modifier_charge_exhausted_loot:IsPurgable() return false end
 
 function modifier_charge_exhausted_loot:GetEffectName()
-	return "particles/eon_carrier.vpcf"
+	return "particles/boss/eon_carrier_beast.vpcf"
 end
 
 function modifier_charge_exhausted_loot:GetEffectAttachType()
@@ -1250,7 +1624,7 @@ end
 
 function modifier_charge_exhausted_loot:OnTakeDamage(keys)
 	if keys.unit == self:GetParent() then
-		BossManager:IncrementEonDropCount()
+		StoneManager:IncrementEonDropCount()
 
 		local map_center = BossManager:GetCurrentMapCenter()
 		local position = map_center + 0.01 * RandomInt(5, 80) * (keys.attacker:GetAbsOrigin() - map_center)
@@ -1316,7 +1690,7 @@ function beast_spikes:OnSpellStart()
 		bReplaceExisting	= false,
 		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_NONE,
-		iUnitTargetType		= DOTA_UNIT_TARGET_HERO,
+		iUnitTargetType		= DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		fExpireTime 		= GameRules:GetGameTime() + 3000 / speed + 0.01,
 		bDeleteOnHit		= false,
 		vVelocity			= speed * forward,
@@ -1375,6 +1749,8 @@ function beast_spikes:OnProjectileHit(target, location)
 
 		local hit_pfx = ParticleManager:CreateParticle("particles/boss/spike_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(hit_pfx, 0, target:GetAbsOrigin())
+
+		if target:TriggerCounter(caster) then ApplyDamage({attacker = caster, victim = caster, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_PHYSICAL}) end
 
 		return false
 	end
@@ -1559,6 +1935,14 @@ function modifier_boss_health_controller:OnCreated()
 
 	self.advanced_to_phase_two = false
 	self.advanced_to_phase_three = false
+
+	self:StartIntervalThink(0.1)
+end
+
+function modifier_boss_health_controller:OnIntervalThink()
+	local position = self:GetParent():GetAbsOrigin()
+
+	CustomGameEventManager:Send_ServerToAllClients("boss_position", {x = position.x, y = position.y})
 end
 
 function modifier_boss_health_controller:DeclareFunctions()
@@ -1586,8 +1970,8 @@ function modifier_boss_health_controller:OnTakeDamage(keys)
 
 		if SPHERE_TRIGGER_HEALTH then
 			if BossManager:GetCurrentPhase() == BOSS_PHASE_PRESENT then
-				if boss_health <= 7500 and BossManager:GetEonDropCount() < 1 then
-					BossManager:IncrementEonDropCount()
+				if boss_health <= 7500 and StoneManager:GetEonDropCount() < 1 then
+					StoneManager:IncrementEonDropCount()
 
 					local position = BossManager:GetCurrentMapCenter() + 0.01 * RandomInt(0, 90) * (keys.attacker:GetAbsOrigin() - BossManager:GetCurrentMapCenter())
 
@@ -1596,14 +1980,14 @@ function modifier_boss_health_controller:OnTakeDamage(keys)
 			end
 
 			if BossManager:GetCurrentPhase() == BOSS_PHASE_PAST then
-				if boss_health <= 7000 and BossManager:GetEonDropCount() < 3 then
-					BossManager:IncrementEonDropCount()
+				if boss_health <= 7000 and StoneManager:GetEonDropCount() < 3 then
+					StoneManager:IncrementEonDropCount()
 
 					local position = BossManager:GetCurrentMapCenter() + 0.01 * RandomInt(0, 90) * (keys.attacker:GetAbsOrigin() - BossManager:GetCurrentMapCenter())
 
 					PowerupManager:SpawnPowerUp(keys.unit:GetAbsOrigin(), position, "item_mario_star")
-				elseif boss_health <= 9000 and BossManager:GetEonDropCount() < 2 then
-					BossManager:IncrementEonDropCount()
+				elseif boss_health <= 9000 and StoneManager:GetEonDropCount() < 2 then
+					StoneManager:IncrementEonDropCount()
 
 					local position = BossManager:GetCurrentMapCenter() + 0.01 * RandomInt(0, 90) * (keys.attacker:GetAbsOrigin() - BossManager:GetCurrentMapCenter())
 
@@ -1612,14 +1996,8 @@ function modifier_boss_health_controller:OnTakeDamage(keys)
 			end
 
 			if BossManager:GetCurrentPhase() == BOSS_PHASE_FUTURE then
-				if boss_health <= 6000 and BossManager:GetEonDropCount() < 5 then
-					BossManager:IncrementEonDropCount()
-
-					local position = BossManager:GetCurrentMapCenter() + 0.01 * RandomInt(0, 90) * (keys.attacker:GetAbsOrigin() - BossManager:GetCurrentMapCenter())
-
-					PowerupManager:SpawnPowerUp(keys.unit:GetAbsOrigin(), position, "item_mario_star")
-				elseif boss_health <= 9000 and BossManager:GetEonDropCount() < 4 then
-					BossManager:IncrementEonDropCount()
+				if boss_health <= 27500 and StoneManager:GetEonDropCount() < 4 then
+					StoneManager:IncrementEonDropCount()
 
 					local position = BossManager:GetCurrentMapCenter() + 0.01 * RandomInt(0, 90) * (keys.attacker:GetAbsOrigin() - BossManager:GetCurrentMapCenter())
 
@@ -1628,7 +2006,7 @@ function modifier_boss_health_controller:OnTakeDamage(keys)
 			end
 		end
 
-		CustomGameEventManager:Send_ServerToAllClients("boss_health", {health = boss_health})
+		CustomGameEventManager:Send_ServerToAllClients("boss_health", {health = boss_health, max_health = keys.unit:GetMaxHealth()})
 	end
 end
 

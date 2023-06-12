@@ -88,92 +88,127 @@
 		}
 	}
 
-	"snapfire_scatterblast"
+	"dragon_knight_breathe_fire"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
-		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"10"
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
 		{
-			"01"
+			"start_radius"			"200"
+			"end_radius"			"275"
+			"range"					"750"
+			"AbilityCastRange"		"600"	
+			"speed"					"1050"		
+			"damage"			
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"300"
-				"LinkedSpecialBonus"		"special_bonus_unique_snapfire_7"
+				"value"				"300"
+				"CalculateSpellDamageTooltip" "1"
 			}
-			"02"
+			"reduction"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"blast_speed"				"3000"
+				"value"				"0"
+				"special_bonus_unique_dragon_knight_3"		"0"
 			}
-			"03"
+			"dragon_form_bonus_pct"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"blast_width_initial"		"225"
+				"value"		"0"
+				"special_bonus_unique_dragon_knight_9"				"+75"
 			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blast_width_end"			"400"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"debuff_duration"			"0.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_slow_pct"			"100"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_slow_pct"			"100"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"point_blank_range"			"0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"point_blank_dmg_bonus_pct"	"0"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"shard_knockback_distance"	"250"
-				"RequiresShard"				"1"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"shard_knockback_duration"	"0.3"
-				"RequiresShard"				"1"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"shard_stun_duration"		"1.4"
-				"RequiresShard"				"1"
-				
-			}
-			"13"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"shard_bonus_point_blank_dmg_pct"			"85.0"
-				"RequiresShard"				"1"
-				
-			}
+			"duration"				"0"
 		}
+	}
+
+	"dawnbreaker_solar_guardian"
+	{
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityChannelTime"			"1.7"
+
+		"AbilityCooldown"				"1.0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"airtime_duration"				"0.8"
+			"radius"				
+			{
+				"value"	"500"
+				"LinkedSpecialBonus"	"special_bonus_unique_dawnbreaker_solar_guardian_radius"
+			}
+			"base_damage"
+			{
+				"value"			"0"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"base_heal"				
+			{
+				"value"				"0"
+				"special_bonus_scepter"	"+15 20 25"
+			}
+			"pulse_interval"				"0.5"
+			"land_damage"
+			{
+				"value"			"0"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"land_stun_duration"			"0.4"
+			"max_offset_distance"			"9999"
+			"scepter_channel_time"				
+			{
+				"value"	"1.0"
+				"RequiresScepter"			"1"
+			}
+			"airtime_scepter_bonus"	
+			{
+				"value"				"3.5"
+				"RequiresScepter"			"1"
+			}
+			"miss_rate"				
+			{
+				"value"			"60"
+				"RequiresScepter"			"1"
+			}
+			"airtime_scepter_movement_speed"				"200"
+		}
+	}
+
+	"abyssal_underlord_dark_portal"
+	{
+		"MaxLevel"						"1"
+
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityCooldown"				"0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"duration"				"9999"
+			"damage_reduction"		"0"
+			"bonus_ms"				"0"
+			"buff_duration"			"0.0"
+			"minimum_distance"		"100"
+			"spawn_pit_on_cast"
+			{
+				"special_bonus_scepter"	"+1"
+			}
+			"warp_channel_duration"			"1.25"
+			"distance_from_fountain"		"0"
+		}
+	}
+
+	"abyssal_underlord_portal_warp"
+	{
+		"AbilityChannelTime"			"1.25"
 	}
 }

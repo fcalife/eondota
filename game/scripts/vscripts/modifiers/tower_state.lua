@@ -27,6 +27,7 @@ function modifier_tower_state:DeclareFunctions()
 			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
 			MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
+			MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 			MODIFIER_EVENT_ON_DEATH
 		}
 	else
@@ -34,9 +35,18 @@ function modifier_tower_state:DeclareFunctions()
 			MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+			MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 		}
 	end
 end
+
+function modifier_tower_state:GetOverrideAnimation()
+	return ACT_DOTA_CAPTURE
+end
+
+-- function modifier_tower_state:GetActivityTranslationModifiers()
+-- 	return "level2"
+-- end
 
 function modifier_tower_state:GetModifierProvidesFOWVision()
 	return 1

@@ -22,6 +22,13 @@ function Towers:Spawn()
 		self.jungle_towers[DOTA_TEAM_GOODGUYS] = JungleTower(DOTA_TEAM_GOODGUYS, Entities:FindByName(nil, "good_tower_jungle"):GetAbsOrigin(), "npc_dota_goodguys_tower1_top")
 		self.jungle_towers[DOTA_TEAM_BADGUYS] = JungleTower(DOTA_TEAM_BADGUYS, Entities:FindByName(nil, "bad_tower_jungle"):GetAbsOrigin(), "npc_dota_badguys_tower1_top")
 	end
+
+	Timers:CreateTimer(0, function()
+		local vectro = self.towers[DOTA_TEAM_GOODGUYS].unit:GetAnglesAsVector() + Vector(0, 10, 0)
+		self.towers[DOTA_TEAM_GOODGUYS].unit:SetLocalAngles(vectro.x, vectro.y, vectro.z)
+		print("ha!")
+		return 0.1
+	end)
 end
 
 function Towers:GetTeamTower(team)

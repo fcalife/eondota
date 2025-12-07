@@ -386,6 +386,7 @@
 	"npc_dota_goodguys_tower1_mid"
 	{
 		"ModelScale"				"1.3"
+		"Model"						"models/items/world/towers/radiant_tower_2022/radiant_tower_2022.vmdl"
 
 		"StatusHealth"				"4000"
 		"ArmorPhysical"				"12"

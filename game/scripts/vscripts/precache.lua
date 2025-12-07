@@ -35,7 +35,7 @@ precache.particle_folders = {
 }
 
 precache.models = {
-	--"models/units/heroes/"
+	"models/items/world/towers/radiant_tower_2022/radiant_tower_2022.vmdl",
 }
 
 precache.model_folders = {

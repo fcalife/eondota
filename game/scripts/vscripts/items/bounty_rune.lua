@@ -13,7 +13,7 @@ function item_bounty_rune:OnSpellStart(keys)
 
 	PassiveGold:GiveGoldToPlayersInTeam(team, gold, exp)
 
-	EmitAnnouncerSoundForTeam("bounty_rune.picked_up", team)
+	EmitAnnouncerSoundForTeam("Rune.Bounty", team)
 
 	local location = self:GetContainer():GetAbsOrigin()
 	Timers:CreateTimer(BOUNTY_RUNE_SPAWN_INTERVAL, function()

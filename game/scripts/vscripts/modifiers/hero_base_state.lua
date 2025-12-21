@@ -28,12 +28,14 @@ function modifier_hero_base_state:OnIntervalThink()
 	end
 end
 
-function modifier_hero_base_state:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE
-	}
-end
+-- function modifier_hero_base_state:DeclareFunctions()
+-- 	return {
+-- 		MODIFIER_PROPERTY_MOVESPEED_MAX_OVERRIDE,
+-- 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MAX,
+-- 		MODIFIER_PROPERTY_MOVESPEED_MAX_BONUS_CONSTANT
+-- 	}
+-- end
 
-function modifier_hero_base_state:GetModifierIgnoreCastAngle()
-	return 1
-end
+-- function modifier_hero_base_state:GetModifierMoveSpeed_MaxOverride() return 1000 end
+-- function modifier_hero_base_state:GetModifierMoveSpeed_MaxOverride() return 1000 end
+-- function modifier_hero_base_state:GetModifierMoveSpeedMax_BonusConstant() return 400 end

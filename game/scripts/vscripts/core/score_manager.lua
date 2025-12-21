@@ -37,6 +37,14 @@ function ScoreManager:OnTeamWinRound(team)
 
 	GoldRewards:GiveGoldToPlayersInTeam(team, ROUND_WIN_GOLD, 0)
 
+	Timers:CreateTimer(0.25, function()
+		local all_heroes = HeroList:GetAllHeroes()
+
+		for _, hero in pairs(all_heroes) do
+			if hero:GetTeam() == team then hero:RemoveModifierByName("modifier_dodgeball_berserk_buff") end
+		end
+	end)
+
 	self:CheckForPointWin()
 end
 

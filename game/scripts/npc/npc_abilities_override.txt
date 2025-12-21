@@ -2,80 +2,6 @@
 {
 	"Version"		"1"
 
-	"magnataur_shockwave"
-	{
-		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.0"
-
-		"AbilityCooldown"				"0"
-		"AbilityDuration"				"8.0"
-
-		"AbilityManaCost"				"0"
-
-		"MaxLevel"						"1"
-
-		"AbilityCharges"				"2"
-
-		"AbilityValues"
-		{
-			"AbilityChargeRestoreTime"	
-			{
-				"value"			"3"
-			}
-			"shock_speed"				"475"
-			"shock_width"				"120"
-			"shock_damage"				
-			{
-				"value"			"100"				
-				"special_bonus_unique_magnus"	"+125"
-			}
-			"pull_duration"				"0.0"
-			"movement_slow"				"0"
-			"slow_duration"				"0"
-			"pull_distance"		"0"
-			"basic_slow_duration"		
-			{
-				"value"					"0.0"
-				"special_bonus_unique_magnus_6"	"+0.5"
-			}
-			"scepter_width"		
-			{
-				"value" 				"150"
-				"RequiresScepter"		"1"
-			}
-			"scepter_range"		
-			{
-				"value"					"1400"
-				"RequiresScepter"		"1"
-			}
-			"scepter_duration"	
-			{
-				"value" 				"5"
-				"RequiresScepter"		"1"
-			}
-			"scepter_erupt_time"		
-			{
-				"value" 				"1.5"
-				"RequiresScepter"		"1"
-			}
-			"scepter_erupt_damage_pct"
-			{
-				"value" 				"75"
-				"RequiresScepter"		"1"	
-			}
-			"scepter_slow_pct"		
-			{
-				"value" 				"75"
-				"RequiresScepter"		"1"
-			}
-			"scepter_armor_pct"		
-			{
-				"value" 				"75"
-				"RequiresScepter"		"1"
-			}
-		}
-	}
-
 	"void_spirit_astral_step"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
@@ -94,7 +20,7 @@
 				"radius"				"0"
 				"AbilityChargeRestoreTime"	
 				{
-					"value"			"8"
+					"value"			"7"
 					"special_bonus_unique_void_spirit_1"	"-4"
 				}
 				"min_travel_distance"	"100"
@@ -120,6 +46,255 @@
 				}
 		}
 	}
+
+	"void_spirit_dissimilate"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityCooldown"				"11"
+
+		"AbilityDamage"					"0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"phase_duration"		"1.2"
+			"destination_fx_radius" // proportional to distance_offset
+			{
+				"value"						"140"
+				"affected_by_aoe_increase"	"1"		
+			}
+			"portals_per_ring"		"2"
+			"angle_per_ring_portal"	"180"
+			"first_ring_distance_offset"	
+			{
+				"value"		"395"
+				"affected_by_aoe_increase"	"1"		
+			}
+			"damage_radius"	// proportional to distance_offset
+			{
+				"value"						"210"
+				"affected_by_aoe_increase"	"1"		
+			}
+			"has_outer_ring"
+			{
+				"value"				"1"
+				"special_bonus_unique_void_spirit_dissimilate_outerring"			"0"
+			}
+			"aether_remnant_count"
+			{
+				"value"												"0"
+				"special_bonus_facet_void_spirit_aether_artifice"	"+3"			// NOTE: Only works for +3 currently
+			}
+			"artifice_duration_override_tooltip"
+			{
+				"value"												"0"
+				"special_bonus_facet_void_spirit_aether_artifice"	"+4.0"			// TOOLTIP ONLY
+			}
+			"artifice_pct_effectiveness_tooltip"
+			{
+				"value"												"0"
+				"special_bonus_facet_void_spirit_aether_artifice"	"+70.0"			// TOOLTIP ONLY
+			}
+			"artifice_extra_offset"		// extra offset, in addition to remnant_watch_distance, from the vector drawn from center of middle portal to center of outer portal. Used to spread out remnants a bit so they don't "double pull"
+			{
+				"value"												"0"
+				"special_bonus_facet_void_spirit_aether_artifice"	"+125"
+			}
+			"root_duration"
+			{
+				"special_bonus_unique_void_spirit_3"	"0"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"windrunner_windrun"
+	{
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"				"0.0"
+		"AbilityDuration"				"1.5"
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"movespeed_bonus_pct"	"75"		
+			"evasion_pct_tooltip"	"0"
+			"enemy_movespeed_bonus_pct"	
+			{
+				"value"		"0"
+			}
+			"radius"					
+			{	
+				"special_bonus_facet_windrunner_tailwind"			"0"
+				"affected_by_aoe_increase"	"1"
+			}
+			"scepter_movespeed_bonus_pct"			
+			{
+				"special_bonus_scepter"			"0"
+			}
+			"physical_damage_pct"
+			{
+				"special_bonus_scepter"		"0"
+			}
+			"cannot_be_dispelled"
+			{
+				"special_bonus_unique_windranger_windrun_undispellable"			"+1"
+			}
+			"ally_movespeed_bonus_pct"
+			{
+				"special_bonus_facet_windrunner_tailwind"	"=15"				
+			}
+			"duration"					"1.4"
+			"AbilityCooldown"
+			{
+				"value"									"5.0"
+				"special_bonus_unique_windranger_4"		"-2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"windrunner_powershot"
+	{
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"1.25"
+
+		"AbilityCooldown"				"16"
+		"AbilityChannelTime"			"0.01"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+				"powershot_damage"			
+				{
+					"value"					"1000"
+					"CalculateSpellDamageTooltip"	"1"
+				}
+				"slow"	
+				{
+					"value"	"0"
+				}
+				"slow_duration"	
+				{
+					"value"															"0"
+					"special_bonus_unique_windranger_powershot_slow"				"+1"
+				}
+				"damage_reduction"		
+				{
+					"value"				"0"
+					"special_bonus_unique_windranger_3"		"0"
+					"CalculateSpellDamageTooltip"	"0"
+					"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
+				}
+				"arrow_width"			
+				{
+					"value"		"145"
+					"affected_by_aoe_increase"	"1"
+				}
+				"arrow_range"			
+				{
+					"value"		"3000"
+				}
+
+				"arrow_speed"			"3000"
+				"tree_width"
+				{
+					"value"						"0.0"
+					"affected_by_aoe_increase"	"1"
+				}
+				"vision_radius"			
+				{
+					"value"			"145"
+					"affected_by_aoe_increase"	"1"
+				}
+
+				"vision_duration"		"0.75"
+
+				"min_execute_threshold"
+				{
+					"special_bonus_facet_windrunner_killshot"	"0"
+				}
+
+				"max_execute_threshold"
+				{
+					"special_bonus_facet_windrunner_killshot"	"0"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	"windrunner_easy_breezy"
+	{
+		"AbilityValues"
+		{
+			"min_movespeed"		
+			{
+				"value"						"240"
+			}
+			"max_movespeed"		
+			{
+				"value"						"900"
+			}			
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"bounty_hunter_wind_walk"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+				"duration"					"2.25"
+				"fade_time"					"0.1"
+				"stun_duration"				
+				{
+					"value"										"0.0"
+				}
+				"AbilityCooldown"				
+				{
+					"value"		"10"
+					"special_bonus_shard" "0"
+				}
+				"AbilityChargeRestoreTime"		
+				{
+					"special_bonus_shard"	"10"
+				}
+				"ally_fade_time"
+				{
+					"special_bonus_shard"	"0.1"
+				}
+				"damage_reduction_pct"
+				{
+					"value"										"0"
+					"special_bonus_unique_bounty_hunter_9"		"+0"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 	"item_aghanims_shard"	{ "ItemPurchasable"	"0" }
 	"item_ward_sentry"	{ "ItemPurchasable"	"0" }

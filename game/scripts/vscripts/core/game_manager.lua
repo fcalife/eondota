@@ -38,6 +38,10 @@ function GameManager:InitializeHero(hero)
 
 	hero:SetAbilityPoints(0)
 
+	-- if hero:FindAbilityByName("phantom_lancer_juxtapose") then
+	-- 	hero:AddItemByName("item_aghanims_shard")
+	-- end
+
 	if IsInToolsMode() then
 		hero:ModifyGold(50000, true, DOTA_ModifyGold_GameTick)
 		hero:AddItemByName("item_dev_blink")

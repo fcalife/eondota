@@ -3,6 +3,106 @@
 	"Language"		"English"
 	"Tokens"
 	{
+		// Dodgeball
+		"npc_dota_hero_invoker"		"Wizard"
+		"npc_dota_hero_huskar"		"Berserker"
+		"npc_dota_hero_abaddon"		"Grave Knight"
+		"npc_dota_hero_windrunner"	"Archer"
+		"npc_dota_hero_void_spirit"	"Annoying little #$&@!"
+		"npc_dota_hero_riki"		"Trickster"
+
+
+		"DOTA_Tooltip_ability_ability_dodgeball_throw"							"Throw"
+		"DOTA_Tooltip_ability_ability_dodgeball_throw_Description"				"Throws a ball in the target direction. If it hits an enemy, it is eliminated."
+		"DOTA_Tooltip_ability_ability_dodgeball_throw_speed"					"BALL SPEED:"
+ 		"DOTA_Tooltip_ability_ability_dodgeball_throw_radius"					"BALL RADIUS:"
+
+ 		"DOTA_Tooltip_ability_ability_dodgeball_throwback"						"Return to sender"
+		"DOTA_Tooltip_ability_ability_dodgeball_throwback_Description"			"Prepares to catch an incoming enemy ball. If it arrives during the next %duration% seconds, you safely throw it back to its sender, with increased speed."
+		"DOTA_Tooltip_ability_ability_dodgeball_throwback_bonus_speed"			"%SPEED BONUS:"
+
+		"DOTA_Tooltip_ability_ability_dodgeball_ice_shield"						"Ice Block"
+		"DOTA_Tooltip_ability_ability_dodgeball_ice_shield_Description"			"Freeze yourself inside a massive block of ice. For the next %duration% seconds, you cannot move or use abilities, but are immune to all damage."
+		"DOTA_Tooltip_ability_ability_dodgeball_ice_shield_duration"			"FREEZE DURATION:"
+
+		"DOTA_Tooltip_ability_ability_dodgeball_magic_missile"					"Magic Missiles"
+		"DOTA_Tooltip_ability_ability_dodgeball_magic_missile_Description"		"Throw out balls in quick succession, one towards each enemy currently alive."
+
+		"DOTA_Tooltip_ability_ability_dodgeball_hype_up"						"HYPE UP"
+		"DOTA_Tooltip_ability_ability_dodgeball_hype_up_Description"			"The berserker gets more and more hyped as the match goes on. Each stack of the effect makes his skills cool down faster, and his movement faster.\nOnce Berserk triggers, you gain %berserk_stacks% extra stacks, then stop accruing them."
+		"DOTA_Tooltip_ability_ability_dodgeball_hype_up_bonus_ms"				"MOVE SPEED PER STACK:"
+		"DOTA_Tooltip_ability_ability_dodgeball_hype_up_cooldown"				"%COOLDOWN REDUCTION PER STACK:"
+
+		"DOTA_Tooltip_ability_ability_dodgeball_berserk"						"Berserk"
+		"DOTA_Tooltip_ability_ability_dodgeball_berserk_Description"			"Once he suffers a lethal blow, the Berserker's adrenaline maxes out. His death is delayed for %duration% seconds, and, for that duration, he is immune to damage."
+		"DOTA_Tooltip_ability_ability_dodgeball_berserk_duration"				"DURATION:"
+
+		"DOTA_Tooltip_ability_ability_dodgeball_phantom"						"Phantom Walk"
+		"DOTA_Tooltip_ability_ability_dodgeball_phantom_Description"			"Become a ghost for %duration% seconds. For the duration, all enemy attacks pass through you harmlessly."
+		"DOTA_Tooltip_ability_ability_dodgeball_phantom_duration"				"DURATION:"
+
+		"DOTA_Tooltip_ability_ability_dodgeball_reincarnation"					"Borrowed Time"
+		"DOTA_Tooltip_ability_ability_dodgeball_reincarnation_Description"		"The first time each round that you are hit by an enemy, <b>Phantom Walk</b> activates just before the attack lands, avoiding death.\nCan only trigger once per round."
+
+		"DOTA_Tooltip_ability_ability_dodgeball_smoke_and_mirrors"				"Smoke and Mirrors"
+		"DOTA_Tooltip_ability_ability_dodgeball_smoke_and_mirrors_Description"	"Teleport to a random position in your backline, becoming hidden and invulnerable in a cloud of smoke. You can stay in the cloud for up to %max_duration% seconds, and can leave it early by simply moving.\nOn leaving the smoke cloud, you throw between %min_balls% and %max_balls% balls at the enemy side of the field. The longer you stay hidden, the more balls are thrown."
+		"DOTA_Tooltip_ability_ability_dodgeball_smoke_and_mirrors_max_duration"	"MAX DURATION:"
+
+		"DOTA_Tooltip_ability_windrunner_windrun"								"Windrun"
+		"DOTA_Tooltip_ability_windrunner_windrun_Description" 					"Briefly and dramatically increases movement speed."
+		"DOTA_Tooltip_ability_windrunner_windrun_scepter_description"           ""
+		"DOTA_Tooltip_ability_windrunner_windrun_Lore"							""
+		"DOTA_Tooltip_ability_windrunner_windrun_Note0"							""
+		"DOTA_Tooltip_ability_windrunner_windrun_evasion_pct_tooltip"			""
+		"DOTA_Tooltip_ability_windrunner_windrun_duration"						"DURATION:"
+		"DOTA_Tooltip_ability_windrunner_windrun_movespeed_bonus_pct"			"%MOVE SPEED BONUS:"
+
+		"DOTA_Tooltip_modifier_windrunner_windrun"								"Windrun"
+		"DOTA_Tooltip_modifier_windrunner_windrun_Description"					"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+		"DOTA_Tooltip_ability_windrunner_powershot"								"Powershot"
+		"DOTA_Tooltip_ability_windrunner_powershot_Description"					"After a <b>1.25</b> second wind-up, throws out a single, fast, powerful shot, which hits all enemies in its path."
+		"DOTA_Tooltip_ability_windrunner_powershot_Facet_windrunner_killshot"	""
+		"DOTA_Tooltip_ability_windrunner_powershot_Lore"						""
+		"DOTA_Tooltip_ability_windrunner_powershot_Note0"						""
+		"DOTA_Tooltip_ability_windrunner_powershot_arrow_range"					""
+		"DOTA_Tooltip_ability_windrunner_powershot_powershot_damage"			""
+		"DOTA_Tooltip_ability_windrunner_powershot_slow"						""
+		"DOTA_Tooltip_ability_windrunner_powershot_min_execute_threshold"		""
+		"DOTA_Tooltip_ability_windrunner_powershot_max_execute_threshold"		""
+		"DOTA_Tooltip_ability_windrunner_powershot_slow_duration"				""
+		"DOTA_Tooltip_ability_windrunner_powershot_damage_reduction"			""
+		"DOTA_Tooltip_ability_windrunner_powershot_arrow_speed"					"SPEED:"
+		"DOTA_Tooltip_ability_windrunner_powershot_arrow_width"					"RADIUS:"
+
+		"DOTA_Tooltip_ability_void_spirit_astral_step"							"Teleport"
+		"DOTA_Tooltip_ability_void_spirit_astral_step_Description"				"Instantly teleports a short distance towards the target location."
+		"DOTA_Tooltip_ability_void_spirit_astral_step_Note0"					""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_Lore"						""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_max_travel_distance"		"MAX RANGE:"
+		"DOTA_Tooltip_ability_void_spirit_astral_step_pop_damage"				""
+		"DOTA_Tooltip_ability_void_spirit_astral_step_movement_slow_pct"		""
+
+		"DOTA_Tooltip_ability_void_spirit_dissimilate"										"Break the 4th wall"
+		"DOTA_Tooltip_ability_void_spirit_dissimilate_Description"							"Create several portals to the real world, and hide in them for %phase_duration% seconds. You can pick any of the portals to come back to the game world from."
+		"DOTA_Tooltip_ability_void_spirit_dissimilate_Facet_void_spirit_aether_artifice"	""
+		"DOTA_Tooltip_ability_void_spirit_dissimilate_Lore"									""
+		"DOTA_Tooltip_ability_void_spirit_dissimilate_Note0"								""
+		"DOTA_Tooltip_ability_void_spirit_dissimilate_phase_duration"						""
+		"DOTA_Tooltip_ability_void_spirit_dissimilate_artifice_duration_override_tooltip"	""
+		"DOTA_Tooltip_ability_void_spirit_dissimilate_artifice_pct_effectiveness_tooltip"	""
+
+		"DOTA_Tooltip_ability_bounty_hunter_wind_walk"							"Shadow Walk"
+		"DOTA_Tooltip_ability_bounty_hunter_wind_walk_Description"				"Slip between rays of light, becoming invisible for up to %duration% seconds. Using an ability will end the invisibility early."
+		"DOTA_Tooltip_ability_bounty_hunter_wind_walk_Lore"						""
+		"DOTA_Tooltip_ability_bounty_hunter_wind_walk_Note0"					""
+		"DOTA_Tooltip_ability_bounty_hunter_wind_walk_duration"					""
+		"DOTA_Tooltip_ability_bounty_hunter_wind_walk_fade_time"				""
+		"DOTA_Tooltip_ability_bounty_hunter_wind_walk_stun_duration"			""
+		
+		"DOTA_Tooltip_modifier_bounty_hunter_wind_walk"							"Shadow Walk"
+		"DOTA_Tooltip_modifier_bounty_hunter_wind_walk_Description"				"Invisible to enemies."
+
 		// General
 		"addon_game_name"					"Eon"
 		"DOTA_GoodGuys"						"BLUE"
@@ -235,18 +335,5 @@
 		"DOTA_Tooltip_ability_magnataur_shockwave_shock_damage"					""
 		"DOTA_Tooltip_ability_magnataur_shockwave_movement_slow"				""
 		"DOTA_Tooltip_ability_magnataur_shockwave_basic_slow_duration"			""
-
-		"DOTA_Tooltip_ability_void_spirit_astral_step"						"Astral Step"
-		"DOTA_Tooltip_ability_void_spirit_astral_step_Description"			"Teleports a short distance away, avoiding any projectiles on the path."
-		"DOTA_Tooltip_ability_void_spirit_astral_step_shard_Description"	""
-
-		"DOTA_Tooltip_ability_void_spirit_astral_step_Note0"				""
-		"DOTA_Tooltip_ability_void_spirit_astral_step_Lore"					""
-		"DOTA_Tooltip_ability_void_spirit_astral_step_bonus_damage"			""
-		"DOTA_Tooltip_ability_void_spirit_astral_step_max_charges"			""
-		"DOTA_Tooltip_ability_void_spirit_astral_step_charge_restore_time"	""
-		"DOTA_Tooltip_ability_void_spirit_astral_step_max_travel_distance"	""
-		"DOTA_Tooltip_ability_void_spirit_astral_step_pop_damage"			""
-		"DOTA_Tooltip_ability_void_spirit_astral_step_movement_slow_pct"	""
 	}
 }

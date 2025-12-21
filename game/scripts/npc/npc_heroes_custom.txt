@@ -2,6 +2,7 @@
 {
 	"npc_dota_hero_invoker"
 	{
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
 		"ArmorPhysical"			"0"
 		"MagicalResistance"		"0"
 
@@ -19,7 +20,195 @@
 		"AttributeBaseAgility"			"0"
 		"AttributeAgilityGain"			"0"
 
-		"BountyXP"		"0"
+		"BountyXP"			"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"1"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"ability_dodgeball_throw"
+		"Ability2"		"ability_dodgeball_throwback"
+		"Ability3"		"ability_dodgeball_ice_shield"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"ability_dodgeball_magic_missile"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
+		"Ability18"		"generic_hidden"
+		"Ability19"		"generic_hidden"
+		"Ability20"		"generic_hidden"
+		"Ability21"		"generic_hidden"
+		"Ability22"		"generic_hidden"
+		"Ability23"		"generic_hidden"
+		"Ability24"		"generic_hidden"
+	}
+
+	"npc_dota_hero_huskar"
+	{
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"			"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"1"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"ability_dodgeball_throw"
+		"Ability2"		"ability_dodgeball_throwback"
+		"Ability3"		"ability_dodgeball_hype_up"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"ability_dodgeball_berserk"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+	}
+
+	"npc_dota_hero_abaddon"
+	{
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"			"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"1"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"ability_dodgeball_throw"
+		"Ability2"		"ability_dodgeball_throwback"
+		"Ability3"		"ability_dodgeball_phantom"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"ability_dodgeball_reincarnation"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+	}
+
+	"npc_dota_hero_windrunner"
+	{
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"			"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"1"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"ability_dodgeball_throw"
+		"Ability2"		"ability_dodgeball_throwback"
+		"Ability3"		"windrunner_windrun"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"windrunner_powershot"
+		"Ability7"		"windrunner_easy_breezy"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+	}
+
+	"npc_dota_hero_void_spirit"
+	{
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"			"0"
 
 		"MovementSpeed"		"420"
 		"MovementTurnRate"	"1.0"
@@ -34,7 +223,51 @@
 		"Ability3"		"void_spirit_astral_step"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
-		"Ability6"		"ability_dodgeball_big_throw"
+		"Ability6"		"void_spirit_dissimilate"
+		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
+		"Ability9"		"generic_hidden"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+	}
+
+	"npc_dota_hero_riki"
+	{
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+
+		"BaseAttackSpeed"		"100"
+
+		"AttackDamageMin"		"1"
+		"AttackDamageMax"		"1"
+
+		"AttackRange"			"0"
+
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"0"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"0"
+
+		"BountyXP"			"0"
+
+		"MovementSpeed"		"420"
+		"MovementTurnRate"	"1.0"
+
+		"StatusHealth"			"1"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0.0"
+		"StatusHealthRegen"		"0.0"
+
+		"Ability1"		"ability_dodgeball_throw"
+		"Ability2"		"ability_dodgeball_throwback"
+		"Ability3"		"bounty_hunter_wind_walk"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"ability_dodgeball_smoke_and_mirrors"
 		"Ability7"		"generic_hidden"
 		"Ability8"		"generic_hidden"
 		"Ability9"		"generic_hidden"

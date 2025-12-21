@@ -379,9 +379,9 @@
 
 		"AbilityTextureName"		"vengefulspirit_magic_missile"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
 
-		"AbilityCastPoint"			"0.0"
+		"AbilityCastPoint"			"0.01"
 
 		"AbilityCooldown"			"4"
 
@@ -389,18 +389,10 @@
 
 		"MaxLevel"					"1"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"1225"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"70"
-			}
+			"speed"					"1225"
+			"radius"				"70"
 		}
 	}
 
@@ -409,7 +401,7 @@
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/dodgeball"
 
-		"AbilityTextureName"		"alchemist_unstable_concoction_throw"
+		"AbilityTextureName"		"juggernaut_blade_fury"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
@@ -421,46 +413,168 @@
 
 		"MaxLevel"					"1"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"0.75"
-			}
+			"duration"				"0.75"
+			"bonus_speed"			"20"
 		}
 	}
 
-	"ability_dodgeball_big_throw"
+	"ability_dodgeball_ice_shield"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/dodgeball"
 
-		"AbilityTextureName"		"primal_beast_rock_throw"
+		"AbilityTextureName"		"winter_wyvern_cold_embrace"
 
-		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
 		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"8"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"duration"				"1.5"
+		}
+	}
+
+	"ability_dodgeball_magic_missile"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"mirana_starfall"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_TORNADO"
+
+		"AbilityCastPoint"			"0.3"
 
 		"AbilityCooldown"			"25"
 
 		"AbilityManaCost"			"0"
 
 		"MaxLevel"					"1"
+	}
 
-		"AbilitySpecial"
+	"ability_dodgeball_hype_up"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"huskar_berserkers_blood"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"8"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"1225"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"165"
-			}
+			"bonus_ms"				"12"
+			"cooldown"				"6"
+			"berserk_stacks"		"2"
+		}
+	}
+
+	"ability_dodgeball_berserk"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"huskar_inner_vitality"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"duration"				"10"
+		}
+	}
+
+	"ability_dodgeball_phantom"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"muerta_pierce_the_veil"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"10"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"duration"				"1.2"
+		}
+	}
+
+	"ability_dodgeball_reincarnation"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"abaddon_borrowed_time"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastPoint"			"0.0"
+
+		"AbilityCooldown"			"0"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+	}
+
+	"ability_dodgeball_smoke_and_mirrors"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/dodgeball"
+
+		"AbilityTextureName"		"riki_smoke_screen"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityChannelTime"		"3.0"
+
+		"AbilityCooldown"			"28"
+
+		"AbilityManaCost"			"0"
+
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"max_duration"			"3.0"
+			"seconds_per_shot"		"0.75"
+			"min_balls"				"1"
+			"max_balls"				"5"
 		}
 	}
 }

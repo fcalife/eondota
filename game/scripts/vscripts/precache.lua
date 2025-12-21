@@ -25,6 +25,7 @@ precache.particles = {
     "particles/speed_lane.vpcf",
     "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf",
     "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf",
+    "particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
 }
 
 precache.particle_folders = {
@@ -44,7 +45,7 @@ precache.sounds = {
     "soundevents/dab_client_soundevents.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts",
-    "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts",
+    "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts",
 }
 
 precache.units = {

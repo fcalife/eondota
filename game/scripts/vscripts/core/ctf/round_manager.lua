@@ -45,8 +45,24 @@ function RoundManager:InitializeRound()
 			end
 		end
 
-		local ultimate = hero:FindAbilityByName("ability_dodgeball_big_throw")
-		if ultimate then ultimate:StartCooldown(35) end
+		local reincarnation = hero:FindAbilityByName("ability_dodgeball_reincarnation")
+		if reincarnation then
+			reincarnation:SetActivated(true)
+			-- hero:AddNewModifier(hero, reincarnation, "modifier_dodgeball_reincarnation", {})
+		end
+
+		local ultimates = {
+			"ability_dodgeball_magic_missile",
+			"windrunner_powershot",
+			"void_spirit_dissimilate",
+			"ability_dodgeball_smoke_and_mirrors",
+			"ability_dodgeball_hype_up",
+		}
+
+		for _, ultimate_name in pairs(ultimates) do
+			local ultimate = hero:FindAbilityByName(ultimate_name)
+			if ultimate then ultimate:StartCooldown(10 + 0.5 * ultimate:GetCooldown(0)) end
+		end
 	end
 
 	--RuneSpawners:OnInitializeRound()
